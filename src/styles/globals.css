@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #B8FB3C;
+  --color-secondary: #0f141a;
+  --color-dark-bg: #1E1E1E;
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: #ffffff;
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-3 max-w-screen-sm lg:max-w-6xl md:max-w-xl;
+
+  } 
+}
+

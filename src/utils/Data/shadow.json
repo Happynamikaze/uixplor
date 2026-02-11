@@ -1,0 +1,874 @@
+[
+  {
+    "id": 0,
+    "name": "Shadow #0",
+    "code": "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+    "categories": [
+      "soft"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Shadow #1",
+    "code": "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+    "categories": [
+      "soft"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Shadow #2",
+    "code": "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+    "categories": [
+      "subtle"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Shadow #3",
+    "code": "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    "categories": [
+      "strong"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Shadow #4",
+    "code": "rgba(0, 0, 0, 0.16) 0px 1px 4px",
+    "categories": [
+      "subtle"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Shadow #5",
+    "code": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+    "categories": [
+      "soft"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Shadow #6",
+    "code": "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+    "categories": [
+      "soft"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Shadow #7",
+    "code": "rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px",
+    "categories": [
+      "multi-layer",
+      "outline"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Shadow #8",
+    "code": "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
+    "categories": [
+      "multi-layer",
+      "subtle"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Shadow #9",
+    "code": "rgba(0, 0, 0, 0.1) 0px 4px 12px",
+    "categories": [
+      "soft"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Shadow #10",
+    "code": "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Shadow #11",
+    "code": "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+    "categories": [
+      "multi-layer",
+      "soft"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Shadow #12",
+    "code": "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Shadow #13",
+    "code": "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px",
+    "categories": [
+      "deep",
+      "colored"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Shadow #14",
+    "code": "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "deep"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Shadow #15",
+    "code": "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "deep",
+      "colored"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Shadow #16",
+    "code": "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Shadow #17",
+    "code": "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Shadow #18",
+    "code": "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+    "categories": [
+      "multi-layer",
+      "medium"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Shadow #19",
+    "code": "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
+    "categories": [
+      "multi-layer",
+      "subtle"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Shadow #20",
+    "code": "rgb(38, 57, 77) 0px 20px 30px -10px",
+    "categories": [
+      "deep",
+      "colored"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Shadow #21",
+    "code": "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "colored"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Shadow #22",
+    "code": "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+    "categories": [
+      "multi-layer",
+      "medium"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Shadow #23",
+    "code": "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
+    "categories": [
+      "multi-layer",
+      "medium"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Shadow #24",
+    "code": "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Shadow #25",
+    "code": "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "deep"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Shadow #26",
+    "code": "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Shadow #27",
+    "code": "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+    "categories": [
+      "multi-layer",
+      "subtle",
+      "material"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Shadow #28",
+    "code": "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+    "categories": [
+      "multi-layer",
+      "material"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Shadow #29",
+    "code": "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
+    "categories": [
+      "multi-layer",
+      "material",
+      "deep"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Shadow #30",
+    "code": "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px",
+    "categories": [
+      "multi-layer",
+      "material",
+      "deep"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Shadow #31",
+    "code": "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
+    "categories": [
+      "multi-layer",
+      "material",
+      "deep"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Shadow #32",
+    "code": "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
+    "categories": [
+      "multi-layer",
+      "material",
+      "colored"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Shadow #33",
+    "code": "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",
+    "categories": [
+      "multi-layer",
+      "material",
+      "colored"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Shadow #34",
+    "code": "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
+    "categories": [
+      "outline",
+      "subtle",
+      "tailwind"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Shadow #35",
+    "code": "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+    "categories": [
+      "subtle",
+      "tailwind"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Shadow #36",
+    "code": "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px",
+    "categories": [
+      "multi-layer",
+      "tailwind"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Shadow #37",
+    "code": "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
+    "categories": [
+      "multi-layer",
+      "tailwind"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Shadow #38",
+    "code": "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
+    "categories": [
+      "multi-layer",
+      "tailwind",
+      "deep"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Shadow #39",
+    "code": "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
+    "categories": [
+      "multi-layer",
+      "tailwind",
+      "deep"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Shadow #40",
+    "code": "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px",
+    "categories": [
+      "deep",
+      "tailwind"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Shadow #41",
+    "code": "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset",
+    "categories": [
+      "inset",
+      "subtle",
+      "tailwind"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Shadow #42",
+    "code": "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px",
+    "categories": [
+      "multi-layer",
+      "subtle"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Shadow #43",
+    "code": "rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px",
+    "categories": [
+      "multi-layer",
+      "deep",
+      "tobias-ahlin"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Shadow #44",
+    "code": "rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+    "categories": [
+      "multi-layer",
+      "tobias-ahlin"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Shadow #45",
+    "code": "rgba(0, 0, 0, 0.2) 0px 18px 50px -10px",
+    "categories": [
+      "deep"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Shadow #46",
+    "code": "rgba(0, 0, 0, 0.1) 0px 10px 50px",
+    "categories": [
+      "deep"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Shadow #47",
+    "code": "rgba(0, 0, 0, 0.04) 0px 3px 5px",
+    "categories": [
+      "subtle"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Shadow #48",
+    "code": "rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px",
+    "categories": [
+      "multi-layer",
+      "colored",
+      "dramatic"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Shadow #49",
+    "code": "rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px",
+    "categories": [
+      "multi-layer",
+      "colored"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Shadow #50",
+    "code": "rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px",
+    "categories": [
+      "multi-layer",
+      "colored"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Shadow #51",
+    "code": "rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px",
+    "categories": [
+      "multi-layer",
+      "subtle"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Shadow #52",
+    "code": "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
+    "categories": [
+      "multi-layer",
+      "colored"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Shadow #53",
+    "code": "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+    "categories": [
+      "subtle"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Shadow #54",
+    "code": "rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "colored"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Shadow #55",
+    "code": "rgba(3, 102, 214, 0.3) 0px 0px 0px 3px",
+    "categories": [
+      "colored",
+      "outline"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Shadow #56",
+    "code": "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
+    "categories": [
+      "multi-layer",
+      "colored"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Shadow #57",
+    "code": "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
+    "categories": [
+      "multi-layer",
+      "deep",
+      "inset"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Shadow #58",
+    "code": "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px",
+    "categories": [
+      "soft"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Shadow #59",
+    "code": "rgba(33, 35, 38, 0.1) 0px 10px 10px -10px",
+    "categories": [
+      "soft",
+      "colored"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Shadow #60",
+    "code": "blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px",
+    "categories": [
+      "multi-layer",
+      "colored",
+      "inset",
+      "dramatic"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Shadow #61",
+    "code": "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px",
+    "categories": [
+      "colored",
+      "outline",
+      "dramatic"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Shadow #62",
+    "code": "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset",
+    "categories": [
+      "inset",
+      "colored"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Shadow #63",
+    "code": "rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px",
+    "categories": [
+      "multi-layer",
+      "colored"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Shadow #64",
+    "code": "rgba(17, 17, 26, 0.1) 0px 1px 0px",
+    "categories": [
+      "outline",
+      "subtle"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Shadow #65",
+    "code": "rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px",
+    "categories": [
+      "multi-layer",
+      "subtle"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Shadow #66",
+    "code": "rgba(17, 17, 26, 0.1) 0px 0px 16px",
+    "categories": [
+      "deep"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Shadow #67",
+    "code": "rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Shadow #68",
+    "code": "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Shadow #69",
+    "code": "rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Shadow #70",
+    "code": "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Shadow #71",
+    "code": "rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Shadow #72",
+    "code": "rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px",
+    "categories": [
+      "multi-layer",
+      "soft"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Shadow #73",
+    "code": "rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px",
+    "categories": [
+      "multi-layer",
+      "deep"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Shadow #74",
+    "code": "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",
+    "categories": [
+      "subtle"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Shadow #75",
+    "code": "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
+    "categories": [
+      "subtle",
+      "airbnb"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Shadow #76",
+    "code": "rgba(0, 0, 0, 0.08) 0px 4px 12px",
+    "categories": [
+      "soft",
+      "airbnb"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Shadow #77",
+    "code": "rgba(0, 0, 0, 0.15) 0px 2px 8px",
+    "categories": [
+      "soft",
+      "airbnb"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Shadow #78",
+    "code": "rgba(0, 0, 0, 0.18) 0px 2px 4px",
+    "categories": [
+      "soft",
+      "airbnb"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Shadow #79",
+    "code": "rgba(0, 0, 0, 0.1) -4px 9px 25px -6px",
+    "categories": [
+      "dramatic"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Shadow #80",
+    "code": "rgba(0, 0, 0, 0.2) 0px 60px 40px -7px",
+    "categories": [
+      "deep"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Shadow #81",
+    "code": "rgba(0, 0, 0, 0.4) 0px 30px 90px",
+    "categories": [
+      "deep"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Shadow #82",
+    "code": "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
+    "categories": [
+      "deep"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Shadow #83",
+    "code": "rgba(0, 0, 0, 0.2) 0px 20px 30px",
+    "categories": [
+      "deep"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Shadow #84",
+    "code": "rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "outline"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Shadow #85",
+    "code": "rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset",
+    "categories": [
+      "multi-layer",
+      "inset"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Shadow #86",
+    "code": "rgba(0, 0, 0, 0.09) 0px 3px 12px",
+    "categories": [
+      "soft"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Shadow #87",
+    "code": "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "complex"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Shadow #88",
+    "code": "rgba(0, 0, 0, 0.45) 0px 25px 20px -20px",
+    "categories": [
+      "strong"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Shadow #89",
+    "code": "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "strong"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Shadow #90",
+    "code": "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset",
+    "categories": [
+      "multi-layer",
+      "inset",
+      "outline"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Shadow #91",
+    "code": "rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset",
+    "categories": [
+      "inset",
+      "dramatic"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Shadow #92",
+    "code": "rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px",
+    "categories": [
+      "multi-layer",
+      "colored",
+      "trello"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Shadow #93",
+    "code": "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px",
+    "categories": [
+      "multi-layer",
+      "colored",
+      "trello"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Shadow #94",
+    "code": "rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px",
+    "categories": [
+      "multi-layer",
+      "colored",
+      "antimetal"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Shadow #95",
+    "code": "rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px",
+    "categories": [
+      "multi-layer",
+      "colored",
+      "antimetal"
+    ]
+  }
+]
