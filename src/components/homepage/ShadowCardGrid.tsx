@@ -1,5 +1,8 @@
+'use client';
+
 import data from '@/utils/Data/shadow.json';
 import { useState } from 'react';
+import { motion } from 'motion/react';
 
 export default function ShadowCardGrid() {
   const shadows = data as { id: number; name: string; code: string; categories: string[] }[];
@@ -11,25 +14,87 @@ export default function ShadowCardGrid() {
     setTimeout(() => setCopiedId(null), 1500);
   };
 
-
-
   return (
     <div className="container py-28">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-16 bg-[#F5F5F5] p-5 rounded-3xl">
-        {shadows.map((shadow) => (
-          <div
+      <motion.div
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.08,
+              delayChildren: 0.2
+            }
+          }
+        }}
+      >
+        {shadows.map((shadow, index) => (
+          <motion.div
             key={shadow.id}
             onClick={() => handleCopy(shadow.code, shadow.id)}
-            className="shadow-card w-full aspect-square bg-white rounded-3xl flex flex-col items-center justify-center text-secondary cursor-pointer transition-transform hover:scale-105"
+            className="shadow-card w-full aspect-square bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl flex flex-col items-center justify-center text-white cursor-pointer relative overflow-hidden"
             style={{ boxShadow: shadow.code }}
+            variants={{
+              hidden: {
+                opacity: 0,
+                y: 30,
+                scale: 0.9
+              },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 12
+                }
+              }
+            }}
+            whileHover={{
+              scale: 1.05,
+              rotate: [0, -1, 1, 0],
+              transition: {
+                scale: { duration: 0.2 },
+                rotate: { duration: 0.3 }
+              }
+            }}
+            whileTap={{
+              scale: 0.95,
+              transition: { duration: 0.1 }
+            }}
           >
-            <span className="font-semibold">{shadow.name}</span>
+            {/* Shimmer effect on hover */}
+            <motion.div
+              className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent"
+              initial={{ x: '-100%' }}
+              whileHover={{
+                x: '100%',
+                transition: { duration: 0.6, ease: "easeInOut" }
+              }}
+            />
+
+            <span className="font-semibold relative z-10 text-sm">{shadow.name}</span>
+
+            {/* Animated copied feedback */}
             {copiedId === shadow.id && (
-              <span className="text-sm text-green-500 mt-2">Copied!</span>
+              <motion.span
+                className="text-xs text-primary mt-2 relative z-10"
+                initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2 }}
+              >
+                ✓ Copied!
+              </motion.span>
             )}
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
+
