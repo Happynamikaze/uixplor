@@ -63,12 +63,12 @@ export default function Collections() {
 				<meta name="description" content="Browse our curated collections of UI elements" />
 			</Head>
 
-			<main className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+			<main className="min-h-screen px-4 sm:px-6 py-12 sm:py-16">
 				<div className="max-w-7xl mx-auto">
 					{/* Header */}
-					<div className="text-center mb-16">
+					<div className="text-center mb-12 sm:mb-16">
 						<motion.h1
-							className="text-5xl sm:text-6xl font-bold text-white mb-4"
+							className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4"
 							initial={{ opacity: 0, y: -20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
@@ -76,7 +76,7 @@ export default function Collections() {
 							Collections
 						</motion.h1>
 						<motion.p
-							className="text-xl text-white/70 max-w-2xl mx-auto"
+							className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto px-4"
 							initial={{ opacity: 0, y: -20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: 0.1 }}
@@ -86,7 +86,7 @@ export default function Collections() {
 					</div>
 
 					{/* Collections Grid */}
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
 						{collections.map((collection, index) => (
 							<motion.div
 								key={collection.id}
@@ -95,15 +95,15 @@ export default function Collections() {
 								transition={{ duration: 0.5, delay: index * 0.1 }}
 							>
 								<Link href={collection.href}>
-									<div className={`relative group h-64 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl bg-black/60 backdrop-blur-md border border-white/30 hover:border-[#B8FB3C]/50 ${collection.comingSoon ? 'opacity-75' : ''}`}>
+									<div className={`relative group h-56 sm:h-64 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl bg-black/60 backdrop-blur-md border border-white/30 hover:border-[#B8FB3C]/50 ${collection.comingSoon ? 'opacity-75' : ''}`}>
 										{/* Content */}
-										<div className="relative h-full p-8 flex flex-col justify-between text-white">
+										<div className="relative h-full p-6 sm:p-8 flex flex-col justify-between text-white">
 											<div>
-												<div className="text-[#B8FB3C] mb-4 group-hover:-translate-y-1 transition-transform duration-300">
+												<div className="text-[#B8FB3C] mb-3 sm:mb-4 group-hover:-translate-y-1 transition-transform duration-300">
 													{collection.icon}
 												</div>
-												<h2 className="text-3xl font-bold mb-2">{collection.title}</h2>
-												<p className="text-white/70 text-lg">{collection.description}</p>
+												<h2 className="text-2xl sm:text-3xl font-bold mb-2">{collection.title}</h2>
+												<p className="text-white/70 text-base sm:text-lg">{collection.description}</p>
 											</div>
 
 											<div className="flex items-center justify-between">

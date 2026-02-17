@@ -15,19 +15,23 @@ export default function Home() {
 		<>
 			<main className="main-border-around">
 				{/* Hero Section */}
-				<div className="container py-8 text-center justify-center relative">
-					<h1 className="text-7xl font-bold gloock-regular text-white">
-						The Largest Library of <br />Open-Source UI
+				<div className="container px-4 sm:px-6 py-12 sm:py-16 lg:py-20 text-center justify-center relative">
+					<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gloock-regular text-white leading-tight">
+						The Largest Library of <br className="hidden sm:block" />
+						<span className="sm:hidden">Open-Source UI</span>
+						<span className="hidden sm:inline">Open-Source UI</span>
 					</h1>
-					<p className="text-center mt-5 text-white/70">
-						Community-built library of UI elements. <br /> Copy as HTML/CSS, Tailwind, React and Figma.
+					<p className="text-center mt-4 sm:mt-6 text-base sm:text-lg text-white/70 max-w-2xl mx-auto px-4">
+						Community-built library of UI elements. <br className="hidden sm:block" />
+						<span className="sm:hidden">Copy as HTML/CSS, Tailwind, React and Figma.</span>
+						<span className="hidden sm:inline">Copy as HTML/CSS, Tailwind, React and Figma.</span>
 					</p>
 
-					<div className="flex justify-center mt-5">
+					<div className="flex justify-center mt-6 sm:mt-8">
 						<Link href="/collections">
 							<AnimatedButton>
-								<RocketIcon className="mr-2" />
-								Browse all collections
+								<RocketIcon className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+								<span className="text-sm sm:text-base">Browse all collections</span>
 							</AnimatedButton>
 						</Link>
 					</div>
@@ -41,9 +45,9 @@ export default function Home() {
 				/>
 
 				{/* Collections Overview */}
-				<section className="container py-16">
-					<h2 className="text-4xl font-bold text-center mb-12 text-white">Explore Collections</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<section className="container px-4 sm:px-6 py-12 sm:py-16">
+					<h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">Explore Collections</h2>
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 						{[
 							{
 								title: 'Box Shadows',
@@ -98,13 +102,13 @@ export default function Home() {
 								transition={{ duration: 0.5, delay: index * 0.1 }}
 							>
 								<Link href={collection.href}>
-									<div className="relative group h-48 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl bg-black/60 backdrop-blur-md border border-white/30 hover:border-[#B8FB3C]/50">
-										<div className="relative h-full p-6 flex flex-col justify-between text-white">
+									<div className="relative group h-40 sm:h-48 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl bg-black/60 backdrop-blur-md border border-white/30 hover:border-[#B8FB3C]/50">
+										<div className="relative h-full p-4 sm:p-6 flex flex-col justify-between text-white">
 											<div>
-												<div className="text-[#B8FB3C] mb-3 group-hover:-translate-y-1 transition-transform duration-300">
+												<div className="text-[#B8FB3C] mb-2 sm:mb-3 group-hover:-translate-y-1 transition-transform duration-300">
 													{collection.icon}
 												</div>
-												<h3 className="text-xl font-bold mb-1">{collection.title}</h3>
+												<h3 className="text-lg sm:text-xl font-bold mb-1">{collection.title}</h3>
 											</div>
 
 											<div className="flex items-center justify-between">
@@ -131,17 +135,17 @@ export default function Home() {
 				</section>
 
 				{/* Box Shadows Preview */}
-				<section className="container py-16">
-					<div className="flex items-center justify-between mb-8">
-						<div className="flex items-center gap-4">
+				<section className="container px-4 sm:px-6 py-12 sm:py-16">
+					<div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
+						<div className="flex items-center gap-3 sm:gap-4">
 							<div className="text-[#B8FB3C]">
-								<svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
 								</svg>
 							</div>
 							<div>
-								<h2 className="text-3xl sm:text-4xl font-bold text-white">Box Shadows</h2>
-								<p className="text-white/70 mt-1">Beautiful CSS box shadow examples</p>
+								<h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Box Shadows</h2>
+								<p className="text-white/70 mt-1 text-sm sm:text-base">Beautiful CSS box shadow examples</p>
 							</div>
 						</div>
 					</div>
@@ -169,7 +173,7 @@ export default function Home() {
 					<div className="text-center">
 						<Link href="/collections/box-shadows">
 							<motion.button
-								className="inline-flex items-center px-8 py-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white font-semibold text-lg hover:bg-white/10 hover:border-[#B8FB3C]/50 transition-all"
+								className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white font-semibold text-sm sm:text-lg hover:bg-white/10 hover:border-[#B8FB3C]/50 transition-all"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 							>
@@ -183,17 +187,17 @@ export default function Home() {
 				</section>
 
 				{/* Buttons Preview */}
-				<section className="container py-16">
-					<div className="flex items-center justify-between mb-8">
-						<div className="flex items-center gap-4">
+				<section className="container px-4 sm:px-6 py-12 sm:py-16">
+					<div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
+						<div className="flex items-center gap-3 sm:gap-4">
 							<div className="text-[#B8FB3C]">
-								<svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
 								</svg>
 							</div>
 							<div>
-								<h2 className="text-3xl sm:text-4xl font-bold text-white">CSS Buttons</h2>
-								<p className="text-white/70 mt-1">Stunning button styles from top designers</p>
+								<h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">CSS Buttons</h2>
+								<p className="text-white/70 mt-1 text-sm sm:text-base">Stunning button styles from top designers</p>
 							</div>
 						</div>
 					</div>
@@ -224,7 +228,7 @@ export default function Home() {
 					<div className="text-center">
 						<Link href="/collections/buttons">
 							<motion.button
-								className="inline-flex items-center px-8 py-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white font-semibold text-lg hover:bg-white/10 hover:border-[#B8FB3C]/50 transition-all"
+								className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white font-semibold text-sm sm:text-lg hover:bg-white/10 hover:border-[#B8FB3C]/50 transition-all"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 							>
