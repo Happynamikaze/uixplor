@@ -170,3 +170,34 @@ body {
 .white-page .container {
   @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
 }
+
+/* ── Glow Card Border Effect ────────────────────────── */
+/* Works purely via --mouse-x / --mouse-y set by GlowGrid JS */
+[data-glow-card] {
+  --glow-color: #B8FB3C;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  position: relative;
+  isolation: isolate;
+}
+
+/* The glowing border — a radial gradient that peeks through a 1px border gap */
+[data-glow-card]::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    300px circle at var(--mouse-x) var(--mouse-y),
+    color-mix(in srgb, var(--glow-color) 65%, transparent),
+    transparent 65%
+  );
+}
+
+[data-glow-card]:hover::before {
+  opacity: 1;
+}
+

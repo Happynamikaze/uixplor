@@ -1,0 +1,153 @@
+[
+	{
+		"id": "grad-aurora",
+		"name": "Aurora Borealis",
+		"tag": "animated",
+		"description": "Animated aurora mesh — shifting green/purple organic waves.",
+		"css": ".aurora {\n  background: linear-gradient(135deg, #0f0c29, #302b63);\n  position: relative;\n  overflow: hidden;\n}\n.aurora::before, .aurora::after {\n  content: '';\n  position: absolute;\n  border-radius: 50%;\n  filter: blur(60px);\n  mix-blend-mode: screen;\n  animation: aurora-shift 8s ease infinite alternate;\n}\n.aurora::before { width: 300px; height: 300px; background: rgba(184,251,60,0.3); top: -100px; left: -100px; }\n.aurora::after { width: 250px; height: 250px; background: rgba(168,85,247,0.4); bottom: -80px; right: -80px; animation-delay: -4s; }\n@keyframes aurora-shift {\n  0% { transform: translate(0,0) scale(1); }\n  100% { transform: translate(40px,40px) scale(1.2); }\n}",
+		"previewStyle": {
+			"background": "linear-gradient(135deg,#0f0c29,#302b63)"
+		}
+	},
+	{
+		"id": "grad-sunset",
+		"name": "Sunset Gradient",
+		"tag": "static",
+		"description": "Warm orange-to-purple sunset gradient — timeless.",
+		"css": ".sunset-bg {\n  background: linear-gradient(\n    to bottom,\n    #ff6b6b 0%, #ffa500 25%, #ff6b6b 50%, #7b2d8b 75%, #1a1a2e 100%\n  );\n}",
+		"previewStyle": {
+			"background": "linear-gradient(to bottom, #ff6b6b 0%, #ffa500 25%, #ff6b6b 50%, #7b2d8b 75%, #1a1a2e 100%)"
+		}
+	},
+	{
+		"id": "grad-ocean",
+		"name": "Deep Ocean",
+		"tag": "static",
+		"description": "Rich blue-to-navy ocean depth gradient.",
+		"css": ".ocean-bg {\n  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 30%, #1a1a4e 60%, #0a0a1a 100%);\n}",
+		"previewStyle": {
+			"background": "linear-gradient(135deg, #1e3c72 0%, #2a5298 30%, #1a1a4e 60%, #0a0a1a 100%)"
+		}
+	},
+	{
+		"id": "grad-mesh",
+		"name": "Mesh Gradient",
+		"tag": "mesh",
+		"description": "Multi-point radial mesh gradient with rich organic blotches.",
+		"css": ".mesh-bg {\n  background-color: #0f0c29;\n  background-image:\n    radial-gradient(at 40% 20%, rgba(184,251,60,0.15) 0px, transparent 50%),\n    radial-gradient(at 80% 0%, rgba(168,85,247,0.2) 0px, transparent 50%),\n    radial-gradient(at 0% 50%, rgba(6,182,212,0.15) 0px, transparent 50%);\n}",
+		"previewStyle": {
+			"background": "#0f0c29",
+			"backgroundImage": "radial-gradient(at 40% 20%, rgba(184,251,60,0.3) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(168,85,247,0.4) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(6,182,212,0.3) 0px, transparent 50%)"
+		}
+	},
+	{
+		"id": "grad-neon",
+		"name": "Neon Glow",
+		"tag": "dark",
+		"description": "Near-black base with neon green/cyan edges — cyberpunk.",
+		"css": ".neon-bg {\n  background:\n    radial-gradient(ellipse at top left, rgba(184,251,60,0.12) 0%, transparent 60%),\n    radial-gradient(ellipse at bottom right, rgba(6,182,212,0.12) 0%, transparent 60%),\n    #050508;\n}",
+		"previewStyle": {
+			"background": "radial-gradient(ellipse at top left, rgba(184,251,60,0.25) 0%, transparent 60%), radial-gradient(ellipse at bottom right, rgba(6,182,212,0.25) 0%, transparent 60%), #050508"
+		}
+	},
+	{
+		"id": "grad-holographic",
+		"name": "Holographic",
+		"tag": "animated",
+		"description": "Shifting rainbow iridescent gradient — holographic foil.",
+		"css": ".holo-bg {\n  background: linear-gradient(-45deg, #ff0080, #ff4500, #ffff00, #00ff80, #0080ff, #8000ff, #ff0080);\n  background-size: 400% 400%;\n  animation: holo-shift 6s ease infinite;\n}\n@keyframes holo-shift {\n  0%, 100% { background-position: 0% 50%; }\n  50% { background-position: 100% 50%; }\n}",
+		"previewStyle": {
+			"background": "linear-gradient(-45deg, #ff0080, #ff4500, #ffff00, #00ff80, #0080ff, #8000ff)"
+		}
+	},
+	{
+		"id": "grad-conic",
+		"name": "Conic Spectrum",
+		"tag": "conic",
+		"description": "Full conic gradient covering the entire color wheel.",
+		"css": ".conic-bg {\n  background: conic-gradient(from 0deg at 50% 50%, #ff0080, #ff4500, #ffd700, #00ff80, #0080ff, #8000ff, #ff0080);\n}",
+		"previewStyle": {
+			"background": "conic-gradient(from 0deg at 50% 50%, #ff0080, #ff4500, #ffd700, #00ff80, #0080ff, #8000ff, #ff0080)"
+		}
+	},
+	{
+		"id": "grad-duo-tone",
+		"name": "Duotone",
+		"tag": "duotone",
+		"description": "Strong two-color duotone gradient — bold and graphic.",
+		"css": ".duotone-bg {\n  background: linear-gradient(135deg, #B8FB3C 0%, #a855f7 100%);\n}",
+		"previewStyle": {
+			"background": "linear-gradient(135deg, #B8FB3C 0%, #a855f7 100%)"
+		}
+	},
+	{
+		"id": "grad-radial-spotlight",
+		"name": "Radial Spotlight",
+		"tag": "radial",
+		"description": "Centered radial spotlight fading into darkness.",
+		"css": ".spotlight-bg {\n  background: radial-gradient(ellipse at center, rgba(184,251,60,0.15) 0%, rgba(184,251,60,0.05) 30%, transparent 70%), #050508;\n}",
+		"previewStyle": {
+			"background": "radial-gradient(ellipse at center, rgba(184,251,60,0.35) 0%, rgba(184,251,60,0.1) 40%, transparent 70%), #050508"
+		}
+	},
+	{
+		"id": "grad-glass-light",
+		"name": "Light Gradient",
+		"tag": "light",
+		"description": "Soft white gradient for glassmorphism light-mode interfaces.",
+		"css": ".light-gradient-bg {\n  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,240,255,0.8) 50%, rgba(225,225,255,0.7) 100%);\n  backdrop-filter: blur(40px);\n}",
+		"previewStyle": {
+			"background": "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,240,255,0.8) 100%)"
+		}
+	},
+	{
+		"id": "grad-noise-texture",
+		"name": "Noise Texture",
+		"tag": "texture",
+		"description": "Gradient with SVG noise filter overlay — premium textured feel.",
+		"css": ".noise-bg {\n  position: relative;\n  background: linear-gradient(135deg, #1a1a3e, #0f0f2e);\n}\n.noise-bg::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background-image: url(\"data:image/svg+xml,...\");\n  pointer-events: none;\n}",
+		"previewStyle": {
+			"background": "linear-gradient(135deg, #1a1a3e, #0f0f2e)"
+		}
+	},
+	{
+		"id": "grad-purple-haze",
+		"name": "Purple Haze",
+		"tag": "dark",
+		"description": "Dark violet-purple atmospheric gradient — dreamy and lush.",
+		"css": ".purple-haze {\n  background: linear-gradient(135deg, #1a0533 0%, #2d1b69 25%, #11998e 100%);\n}",
+		"previewStyle": {
+			"background": "linear-gradient(135deg, #1a0533 0%, #2d1b69 25%, #11998e 100%)"
+		}
+	},
+	{
+		"id": "grad-stripe",
+		"name": "Stripe-style",
+		"tag": "brand",
+		"description": "Multi-stop diagonal gradient inspired by Stripe brand.",
+		"css": ".stripe-grad {\n  background: linear-gradient(-45deg, #0a2540 0%, #635bff 33%, #00d4ff 66%, #9c40ff 100%);\n}",
+		"previewStyle": {
+			"background": "linear-gradient(-45deg, #0a2540 0%, #635bff 33%, #00d4ff 66%, #9c40ff 100%)"
+		}
+	},
+	{
+		"id": "grad-fire",
+		"name": "Fire Gradient",
+		"tag": "warm",
+		"description": "Hot fire gradient from deep red through orange to yellow.",
+		"css": ".fire-grad {\n  background: linear-gradient(to top, #1a0000 0%, #8b0000 20%, #ff4500 50%, #ff8c00 70%, #ffd700 100%);\n}",
+		"previewStyle": {
+			"background": "linear-gradient(to top, #1a0000 0%, #8b0000 20%, #ff4500 50%, #ff8c00 70%, #ffd700 100%)"
+		}
+	},
+	{
+		"id": "grad-animated-diagonal",
+		"name": "Animated Diagonal",
+		"tag": "animated",
+		"description": "Smooth animated shifting diagonal gradient — subtle and elegant.",
+		"css": ".animated-diagonal {\n  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f3460);\n  background-size: 400% 400%;\n  animation: diagonal-shift 8s ease infinite;\n}\n@keyframes diagonal-shift {\n  0%, 100% { background-position: 0% 50%; }\n  50% { background-position: 100% 50%; }\n}",
+		"previewStyle": {
+			"background": "linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f3460)"
+		}
+	}
+]

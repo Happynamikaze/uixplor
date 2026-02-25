@@ -8,8 +8,10 @@ import { motion, AnimatePresence } from 'motion/react';
 const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/collections', label: 'Collections' },
+    { href: '/blog', label: 'Blog' },
     { href: '/about', label: 'About' },
 ];
+
 
 export default function Header() {
     const router = useRouter();

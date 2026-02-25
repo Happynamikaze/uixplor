@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import PageSEO from '@/components/seo/PageSEO';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 
@@ -12,10 +12,24 @@ const fadeUp = (delay: number = 0) => ({
 export default function About() {
 	return (
 		<>
-			<Head>
-				<title>About — UIXplor</title>
-				<meta name="description" content="Learn about UIXplor — a curated library of open-source UI elements for developers and designers." />
-			</Head>
+			<PageSEO
+				title="About UIXplor – Open-Source UI Inspiration Library"
+				description="UIXplor is a free, community-built library of CSS UI elements — box shadows, buttons, glass effects, loaders and more. Built for developers who care about design."
+				path="/about"
+				keywords={['UIXplor', 'CSS library', 'open source UI', 'UI inspiration', 'free CSS components', 'developer tools', 'web design resources']}
+				jsonLd={{
+					'@context': 'https://schema.org',
+					'@type': 'Organization',
+					name: 'UIXplor',
+					url: 'https://uixplor.com',
+					description: 'A free, open-source library of CSS UI elements and design inspiration for developers and designers.',
+					contactPoint: {
+						'@type': 'ContactPoint',
+						email: 'uixplor@gmail.com',
+						contactType: 'customer support',
+					},
+				}}
+			/>
 
 			<main className="min-h-screen">
 				{/* Hero */}

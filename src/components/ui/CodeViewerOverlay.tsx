@@ -24,9 +24,9 @@ interface CodeViewerOverlayProps {
 
 function formatCode(raw: string): string[] {
 	return raw
-		.replace(/;\s*/g, ';\n')
-		.replace(/{\s*/g, '{\n')
-		.replace(/}\s*/g, '\n}\n')
+		.replace(/;(?!\s*\n)/g, ';\n')
+		.replace(/\{(?!\s*\n)/g, '{\n')
+		.replace(/\}(?!\s*\n)/g, '\n}\n')
 		.split('\n')
 		.filter((l) => l.trim() !== '');
 }
@@ -42,15 +42,23 @@ function highlight(line: string, lang: string): React.JSX.Element {
 	}
 
 	if (lang === 'html') {
-		// Tags
-		if (t.startsWith('<')) {
+		// Self-closing or paired tags: split on < and >
+		const tagMatch = t.match(/^(<\/?)([a-zA-Z][^\s>]*)([^>]*)(\/?>)(.*)$/);
+		if (tagMatch) {
+			const [, open, tagName, attrs, close, rest] = tagMatch;
 			return (
 				<span>
-					<span className="text-[#B8FB3C]/70">{'<'}</span>
-					<span className="text-[#B8FB3C]">{t.slice(1).replace('>', '')}</span>
-					{t.includes('>') && <span className="text-[#B8FB3C]/70">{'>'}</span>}
+					<span className="text-white/40">{open}</span>
+					<span className="text-[#B8FB3C]">{tagName}</span>
+					{attrs && <span className="text-[#a5d6ff]">{attrs}</span>}
+					<span className="text-white/40">{close}</span>
+					{rest && <span className="text-white/70">{rest}</span>}
 				</span>
 			);
+		}
+		// Comments in HTML
+		if (t.startsWith('<!--')) {
+			return <span className="text-white/30 italic">{line}</span>;
 		}
 		return <span className="text-white/60">{line}</span>;
 	}
@@ -72,7 +80,12 @@ function highlight(line: string, lang: string): React.JSX.Element {
 
 	// Selectors / braces
 	if (t.endsWith('{') || t === '}') {
-		return <span className="text-white/60">{line}</span>;
+		return <span className="text-[#a5d6ff]/80">{line}</span>;
+	}
+
+	// @-rules
+	if (t.startsWith('@')) {
+		return <span className="text-purple-400">{line}</span>;
 	}
 
 	return <span className="text-white/50">{line}</span>;
@@ -157,7 +170,7 @@ export default function CodeViewerOverlay({
 						exit={{ x: '100%' }}
 						transition={{ type: 'spring', damping: 30, stiffness: 320 }}
 					>
-						<div className="h-full flex flex-col bg-[#0a0a0f] border-l border-white/10 shadow-[-8px_0_40px_rgba(0,0,0,0.6)] select-none">
+						<div className="h-full flex flex-col bg-[#0a0a0f] border-l border-white/10 shadow-[-8px_0_40px_rgba(0,0,0,0.6)]" style={{ userSelect: 'none' }}>
 
 							{/* ─ Header ─ */}
 							<div className="flex items-center justify-between px-5 py-3.5 border-b border-white/8">
@@ -219,7 +232,7 @@ export default function CodeViewerOverlay({
 							)}
 
 							{/* ─ Code ─ */}
-							<div className="flex-1 overflow-auto select-text">
+							<div className="flex-1 overflow-auto" style={{ userSelect: 'text' }}>
 								<div ref={codeRef} className="p-5 font-mono text-[13px] leading-7">
 									{lines.map((line, i) => (
 										<div key={`${activeTab}-${i}`} className="flex hover:bg-white/3 -mx-5 px-5 rounded">

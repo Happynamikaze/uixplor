@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Block sensitive internal paths
+Disallow: /admin/
+Disallow: /seo-docs/
+Disallow: /docs/
+Disallow: /phpmyadmin
+Disallow: /.git
+Disallow: /config
+Disallow: /env
+Disallow: /.env
+Disallow: /server.js
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /private/
+
+# Block Next.js internals
+Disallow: /_next/data/
+
+# Sitemap
+Sitemap: https://uixplor.com/sitemap.xml

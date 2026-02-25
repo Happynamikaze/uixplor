@@ -7,49 +7,68 @@ import AnimatedButton from '@/components/ui/AnimatedButton';
 
 import shadowData from '../../../data/shadows.json';
 import buttonData from '../../../data/buttons.json';
+import blogData from '../../../data/blog.json';
 
-/** Parse CSS declaration string into React style object */
-function parseCssToStyle(css: string): React.CSSProperties {
-	const style: Record<string, string> = {};
-	css.split(';').forEach((decl) => {
-		const colon = decl.indexOf(':');
-		if (colon === -1) return;
-		const prop = decl.slice(0, colon).trim();
-		const val = decl.slice(colon + 1).trim();
-		if (!prop || !val) return;
-		const camel = prop.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-		style[camel] = val;
-	});
-	return style as React.CSSProperties;
+const blogPreview = blogData.slice(0, 3).map(({ slug, title, excerpt, readingTime, tags }) => ({ slug, title, excerpt, readingTime, tags }));
+
+/** Extract a single CSS property value from a full CSS block */
+function extractCssProp(css: string, prop: string): string {
+	const re = new RegExp(`${prop}\\s*:\\s*([^;]+)`, 'i');
+	const m = css.match(re);
+	return m ? m[1].trim() : '';
 }
 
 function HomeButtonPreview({ btn }: { btn: typeof buttonData[number] }) {
 	const [hovered, setHovered] = useState(false);
-	const [pressed, setPressed] = useState(false);
-	const isLightBg = ['transparent', '#ffffff', '#f0f0f3', '#e8efe5'].includes(btn.background) || btn.background.includes('rgba');
+
+	const bg = extractCssProp(btn.css, 'background(?:-color)?');
+	const color = extractCssProp(btn.css, 'color');
+	const borderRadius = extractCssProp(btn.css, 'border-radius');
+	const boxShadow = extractCssProp(btn.css, 'box-shadow');
+	const padding = extractCssProp(btn.css, 'padding(?!-)');
+
+	// Determine if background is light
+	const bgStr = bg.toLowerCase();
+	const isLight =
+		bgStr.includes('#fff') || bgStr.includes('ffffff') ||
+		bgStr.includes('fafb') || bgStr.includes('f3f4') ||
+		bgStr.includes('rgba(51') || bgStr.includes('transparent') ||
+		bgStr.includes('#fef') || bgStr.includes('e8e') || bgStr.includes('faf');
+
+	// Parse hover block
+	const hoverBlock = btn.css.match(/:hover\s*\{([^}]+)\}/);
+	const hoverStyle: React.CSSProperties = {};
+	if (hoverBlock) {
+		hoverBlock[1].split(';').forEach((decl) => {
+			const colon = decl.indexOf(':');
+			if (colon === -1) return;
+			const prop = decl.slice(0, colon).trim();
+			const val = decl.slice(colon + 1).trim();
+			if (!prop || !val) return;
+			const camel = prop.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+			(hoverStyle as Record<string, string>)[camel] = val;
+		});
+	}
 
 	const baseStyle: React.CSSProperties = {
-		background: btn.background,
-		boxShadow: btn.shadow,
-		color: isLightBg ? '#1a1a2e' : '#ffffff',
+		background: bg || 'transparent',
+		color: color || (isLight ? '#1a1a2e' : '#fff'),
+		borderRadius: borderRadius || '6px',
+		boxShadow: boxShadow || 'none',
+		padding: padding || '9px 20px',
 		transition: 'all 0.3s ease',
 		cursor: 'pointer',
-	};
-
-	const mergedStyle: React.CSSProperties = {
-		...baseStyle,
-		...(hovered ? parseCssToStyle(btn.hover) : {}),
-		...(pressed ? parseCssToStyle(btn.active) : {}),
+		fontSize: '14px',
+		fontWeight: '600',
+		display: 'inline-block',
 	};
 
 	return (
 		<div
-			className="px-6 py-3 rounded-lg text-sm font-semibold select-none"
-			style={mergedStyle}
+			className="select-none text-sm"
+			style={{ ...baseStyle, ...(hovered ? hoverStyle : {}) }}
 			onMouseEnter={() => setHovered(true)}
-			onMouseLeave={() => { setHovered(false); setPressed(false); }}
-			onMouseDown={() => setPressed(true)}
-			onMouseUp={() => setPressed(false)}
+			onMouseLeave={() => setHovered(false)}
 		>
 			{btn.name}
 		</div>
@@ -83,11 +102,10 @@ const collections = [
 	},
 	{
 		title: 'Cards',
-		count: 0,
+		count: 20,
 		href: '/collections/cards',
 		description: 'Modern card components',
 		gradient: 'from-cyan-500/20 to-blue-500/10',
-		comingSoon: true,
 		icon: (
 			<svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -106,7 +124,75 @@ const collections = [
 			</svg>
 		),
 	},
+	{
+		title: 'Glass Effects',
+		count: 15,
+		href: '/collections/glass-effects',
+		description: 'Frosted glass morphism cards',
+		gradient: 'from-sky-500/20 to-teal-500/10',
+		icon: (
+			<svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+			</svg>
+		),
+	},
+	{
+		title: 'Hover Effects',
+		count: 20,
+		href: '/collections/hover-effects',
+		description: 'Interactive micro-animations',
+		gradient: 'from-pink-500/20 to-rose-500/10',
+		icon: (
+			<svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" />
+			</svg>
+		),
+	},
+	{
+		title: 'CSS Loaders',
+		count: 30,
+		href: '/collections/loaders',
+		description: 'Pure CSS loading animations',
+		gradient: 'from-amber-500/20 to-yellow-500/10',
+		icon: (
+			<svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+			</svg>
+		),
+	},
+	{
+		title: 'Gradients',
+		count: 40,
+		href: '/collections/gradients',
+		description: 'Vibrant color gradients',
+		gradient: 'from-violet-500/20 to-fuchsia-500/10',
+		icon: (
+			<svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+			</svg>
+		),
+	},
 ];
+
+const glassItems = [
+	{ name: 'Frosted Card', bg: 'rgba(255,255,255,0.06)', border: 'rgba(255,255,255,0.12)', label: 'white glass' },
+	{ name: 'Dark Glass', bg: 'rgba(0,0,0,0.4)', border: 'rgba(255,255,255,0.08)', label: 'dark glass' },
+	{ name: 'Neon Glass', bg: 'rgba(184,251,60,0.05)', border: 'rgba(184,251,60,0.15)', label: 'neon glass' },
+	{ name: 'Blue Frost', bg: 'rgba(56,189,248,0.06)', border: 'rgba(56,189,248,0.15)', label: 'blue frost' },
+	{ name: 'Purple Mist', bg: 'rgba(168,85,247,0.06)', border: 'rgba(168,85,247,0.15)', label: 'purple glass' },
+	{ name: 'Rose Haze', bg: 'rgba(244,114,182,0.06)', border: 'rgba(244,114,182,0.15)', label: 'rose tint' },
+];
+
+const hoverItems = [
+	{ name: 'Slide Up', color: '#B8FB3C' },
+	{ name: 'Glow Pulse', color: '#60a5fa' },
+	{ name: 'Flip Card', color: '#a78bfa' },
+	{ name: 'Border Draw', color: '#f472b6' },
+	{ name: 'Scale Shake', color: '#fb923c' },
+	{ name: 'Reveal Text', color: '#34d399' },
+];
+
+const loaderColors = ['#B8FB3C', '#60a5fa', '#a78bfa', '#f472b6', '#fb923c', '#34d399'];
 
 export default function Home() {
 	const previewShadows = shadowData.filter(s => s.category !== 'token').slice(0, 6);
@@ -201,15 +287,7 @@ export default function Home() {
 												<p className="text-white/40 text-xs sm:text-sm">{col.description}</p>
 											</div>
 											<div className="flex items-center justify-between mt-auto pt-3">
-												{col.comingSoon ? (
-													<span className="text-[10px] font-semibold bg-white/[0.06] px-3 py-1 rounded-full border border-white/[0.06] text-white/50">
-														Coming Soon
-													</span>
-												) : (
-													<span className="text-[10px] font-semibold bg-[#B8FB3C]/10 px-3 py-1 rounded-full border border-[#B8FB3C]/20 text-[#B8FB3C]">
-														{col.count} items
-													</span>
-												)}
+												<span className="text-[10px] font-semibold bg-[#B8FB3C]/10 px-3 py-1 rounded-full border border-[#B8FB3C]/20 text-[#B8FB3C]">{col.count} items</span>
 												<span className="text-white/30 group-hover:text-[#B8FB3C] text-xs font-medium transition-colors duration-300 flex items-center gap-1">
 													View
 													<svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -357,7 +435,166 @@ export default function Home() {
 						</Link>
 					</div>
 				</section>
+
+				{/* Glass Effects Preview */}
+				<section className="container px-4 sm:px-6 py-12 sm:py-16">
+					<div className="flex items-center gap-3 mb-8">
+						<div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center border border-sky-500/20">
+							<svg className="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" /></svg>
+						</div>
+						<div>
+							<h2 className="text-2xl sm:text-3xl font-bold text-white">Glass Effects</h2>
+							<p className="text-white/40 mt-0.5 text-sm">Glassmorphism with backdrop-filter blur</p>
+						</div>
+					</div>
+					<div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 mb-8">
+						{glassItems.map((item, index) => (
+							<motion.div
+								key={item.name}
+								className="rounded-2xl overflow-hidden border border-white/8 hover:border-sky-400/20 transition-all duration-300"
+								style={{ background: 'linear-gradient(135deg, #0c1a2e 0%, #0a0f1a 100%)' }}
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.4, delay: index * 0.06 }}
+							>
+								<div className="p-6 flex items-center justify-center h-28 sm:h-32">
+									<div className="w-28 h-16 rounded-xl flex items-center justify-center text-xs text-white/50 font-medium" style={{ background: item.bg, border: `1px solid ${item.border}`, backdropFilter: 'blur(12px)' }}>
+										{item.label}
+									</div>
+								</div>
+								<div className="px-4 py-3 flex items-center justify-between border-t border-white/6">
+									<span className="text-xs font-medium text-white/60">{item.name}</span>
+									<Link href="/collections/glass-effects"><span className="relative z-10 shrink-0 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-white/6 text-white/50 border border-white/8 hover:bg-sky-500 hover:text-white hover:border-sky-500 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">View →</span></Link>
+								</div>
+							</motion.div>
+						))}
+					</div>
+					<div className="text-center">
+						<Link href="/collections/glass-effects"><motion.button className="inline-flex items-center px-7 py-3 rounded-full bg-white/4 border border-white/8 text-white font-medium text-sm hover:bg-white/8 hover:border-sky-400/30 transition-all duration-300" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View All Glass Effects<svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></motion.button></Link>
+					</div>
+				</section>
+
+				{/* Hover Effects Preview */}
+				<section className="container px-4 sm:px-6 py-12 sm:py-16">
+					<div className="flex items-center gap-3 mb-8">
+						<div className="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center border border-pink-500/20">
+							<svg className="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" /></svg>
+						</div>
+						<div>
+							<h2 className="text-2xl sm:text-3xl font-bold text-white">Hover Effects</h2>
+							<p className="text-white/40 mt-0.5 text-sm">Interactive micro-interactions for any element</p>
+						</div>
+					</div>
+					<div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 mb-8">
+						{hoverItems.map((item, index) => (
+							<motion.div
+								key={item.name}
+								className="rounded-2xl overflow-hidden bg-white/4 border border-white/8 hover:border-pink-400/20 transition-all duration-300 group"
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.4, delay: index * 0.06 }}
+							>
+								<div className="p-6 flex items-center justify-center h-28 sm:h-32 overflow-hidden">
+									<div className="px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-300 group-hover:scale-110" style={{ background: `${item.color}15`, border: `1px solid ${item.color}30`, color: item.color }}>
+										{item.name}
+									</div>
+								</div>
+								<div className="px-4 py-3 flex items-center justify-between border-t border-white/6">
+									<span className="text-xs font-medium text-white/60">{item.name}</span>
+									<Link href="/collections/hover-effects"><span className="relative z-10 shrink-0 px-3 py-1.5 rounded-lg text-[11px] font-semibold bg-white/6 text-white/50 border border-white/8 hover:bg-pink-500 hover:text-white hover:border-pink-500 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">View →</span></Link>
+								</div>
+							</motion.div>
+						))}
+					</div>
+					<div className="text-center">
+						<Link href="/collections/hover-effects"><motion.button className="inline-flex items-center px-7 py-3 rounded-full bg-white/4 border border-white/8 text-white font-medium text-sm hover:bg-white/8 hover:border-pink-400/30 transition-all duration-300" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View All Hover Effects<svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></motion.button></Link>
+					</div>
+				</section>
+
+				{/* Loaders Preview */}
+				<section className="container px-4 sm:px-6 py-12 sm:py-16">
+					<div className="flex items-center gap-3 mb-8">
+						<div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
+							<svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+						</div>
+						<div>
+							<h2 className="text-2xl sm:text-3xl font-bold text-white">CSS Loaders</h2>
+							<p className="text-white/40 mt-0.5 text-sm">Pure CSS loading animations — zero JavaScript</p>
+						</div>
+					</div>
+					<div className="grid grid-cols-3 sm:grid-cols-6 gap-4 sm:gap-5 mb-8">
+						{loaderColors.map((color, index) => (
+							<motion.div key={index} className="rounded-2xl bg-white/4 border border-white/8 flex items-center justify-center h-20 sm:h-24 hover:border-amber-400/20 transition-all" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: index * 0.06 }}>
+								<div className="w-8 h-8 rounded-full border-2 border-transparent animate-spin" style={{ borderTopColor: color, borderRightColor: `${color}40` }} />
+							</motion.div>
+						))}
+					</div>
+					<div className="text-center">
+						<Link href="/collections/loaders"><motion.button className="inline-flex items-center px-7 py-3 rounded-full bg-white/4 border border-white/8 text-white font-medium text-sm hover:bg-white/8 hover:border-amber-400/30 transition-all duration-300" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>View All 30+ CSS Loaders<svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></motion.button></Link>
+					</div>
+				</section>
+
+				{/* Blog Preview */}
+				<section className="container px-4 sm:px-6 py-12 sm:py-16">
+					<div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
+						<div className="flex items-center gap-3">
+							<div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+								<svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+							</div>
+							<div>
+								<h2 className="text-2xl sm:text-3xl font-bold text-white">From the Blog</h2>
+								<p className="text-white/40 mt-0.5 text-sm">Deep dives into CSS  design patterns</p>
+							</div>
+						</div>
+						<Link href="/blog" className="text-sm font-semibold text-[#B8FB3C] hover:underline flex items-center gap-1">
+							All posts
+							<svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+						</Link>
+					</div>
+
+					<div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-8">
+						{blogPreview.map((post, i) => {
+							const bgs = [
+								'linear-gradient(135deg, #0f0c29 0%, #302b63 100%)',
+								'linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%)',
+								'linear-gradient(135deg, #1e3a3a 0%, #0f2a2a 100%)',
+							];
+							return (
+								<motion.div key={post.slug} className="rounded-2xl overflow-hidden bg-white/4 border border-white/8 hover:border-white/14 transition-all duration-300 hover:shadow-[0_4px_12px_rgba(255,255,255,0.05)]" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.07 }}>
+									<Link href={`/blog/${post.slug}`} className="group block">
+										<div className="h-24 flex items-center justify-center" style={{ background: bgs[i % bgs.length] }}>
+											<span className="text-white/15 font-black text-4xl select-none">{post.tags[0]?.[0] ?? 'C'}</span>
+										</div>
+										<div className="p-4">
+											<div className="flex flex-wrap gap-1 mb-2">
+												{post.tags.slice(0, 2).map(t => <span key={t} className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-white/5 border border-white/8 text-white/35 uppercase tracking-wider">{t}</span>)}
+											</div>
+											<h3 className="text-sm font-semibold text-white group-hover:text-[#B8FB3C] transition-colors leading-snug line-clamp-2 mb-2">{post.title}</h3>
+											<p className="text-[10px] text-white/25">{post.readingTime} min read</p>
+										</div>
+									</Link>
+								</motion.div>
+							);
+						})}
+					</div>
+
+					<div className="text-center">
+						<Link href="/blog">
+							<motion.button
+								className="inline-flex items-center px-7 py-3 rounded-full bg-white/4 border border-white/8 text-white font-medium text-sm hover:bg-white/8 hover:border-indigo-400/30 transition-all duration-300"
+								whileHover={{ scale: 1.03 }}
+								whileTap={{ scale: 0.97 }}
+							>
+								Read All {blogData.length} Articles
+								<svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+							</motion.button>
+						</Link>
+					</div>
+				</section>
 			</main>
 		</>
 	);
 }
+

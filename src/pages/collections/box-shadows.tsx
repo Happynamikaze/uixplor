@@ -1,4 +1,5 @@
-import Head from 'next/head';
+import PageSEO from '@/components/seo/PageSEO';
+import { GlowGrid, GlowCard } from '@/components/ui/GlowGrid';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -42,10 +43,31 @@ export default function BoxShadows() {
 
 	return (
 		<>
-			<Head>
-				<title>Box Shadows Collection — UIXplor</title>
-				<meta name="description" content="A curated collection of beautiful CSS box shadows. Copy any shadow with one click." />
-			</Head>
+			<PageSEO
+				title="CSS Box Shadow Examples – 33 Premium Shadows Copy-Paste – UIXplor"
+				description="Browse 33 professionally crafted CSS box shadow examples. Soft, layered, neumorphic, glow, and inset shadows — all free to copy with one click for your next web project."
+				path="/collections/box-shadows"
+				keywords={['CSS box shadow', 'box shadow examples', 'CSS box shadow generator', 'neumorphic shadow', 'drop shadow CSS', 'web design shadows', 'copy paste CSS']}
+				jsonLd={[
+					{
+						'@context': 'https://schema.org',
+						'@type': 'CollectionPage',
+						name: 'CSS Box Shadows Collection – UIXplor',
+						description: 'A curated collection of 33 CSS box shadow examples including soft shadows, layered shadows, neumorphic effects, and glow shadows.',
+						url: 'https://uixplor.com/collections/box-shadows',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+					},
+					{
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'Box Shadows', item: 'https://uixplor.com/collections/box-shadows' },
+						],
+					},
+				]}
+			/>
 
 			<main className="min-h-screen px-4 sm:px-6 py-8 sm:py-12">
 				<div className="max-w-7xl mx-auto">
@@ -105,7 +127,7 @@ export default function BoxShadows() {
 					</div>
 
 					{/* Shadow Grid */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+					<GlowGrid className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
 						<AnimatePresence mode="popLayout">
 							{filtered.map((shadow, index) => {
 								const shadowValue = shadow.css.replace('box-shadow: ', '').replace(';', '');
@@ -113,7 +135,7 @@ export default function BoxShadows() {
 									<motion.div
 										key={shadow.id}
 										layout
-										className="rounded-2xl overflow-hidden bg-white/4 border border-white/8 transition-colors duration-300"
+										className="group rounded-2xl overflow-hidden bg-linear-to-b from-white/4 to-black/25 border border-white/6 hover:border-white/12 transition-all duration-300 hover:shadow-[0_4px_12px_rgba(255,255,255,0.06),0_0_0_1px_rgba(255,255,255,0.04)]"
 										initial={{ opacity: 0, scale: 0.95 }}
 										animate={{ opacity: 1, scale: 1 }}
 										exit={{ opacity: 0, scale: 0.95 }}
@@ -147,7 +169,7 @@ export default function BoxShadows() {
 								);
 							})}
 						</AnimatePresence>
-					</div>
+					</GlowGrid>
 
 					{filtered.length === 0 && (
 						<div className="text-center py-20">
@@ -157,7 +179,6 @@ export default function BoxShadows() {
 				</div>
 			</main>
 
-			{/* Code Viewer Overlay */}
 			<CodeViewerOverlay
 				isOpen={!!selectedShadow}
 				onClose={() => setSelectedShadow(null)}

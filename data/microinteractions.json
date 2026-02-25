@@ -1,0 +1,107 @@
+[
+	{
+		"id": "micro-like-heart",
+		"name": "Like Heart",
+		"tag": "feedback",
+		"description": "Heart icon scales up then bounces on activation.",
+		"css": ".heart-btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px; height: 40px;\n  border: none; background: none;\n  cursor: pointer;\n  font-size: 22px;\n  transition: transform 0.15s ease;\n}\n.heart-btn:hover { transform: scale(1.15); }\n.heart-btn.active { animation: heart-pop 0.4s cubic-bezier(0.34,1.56,0.64,1); }\n@keyframes heart-pop {\n  0% { transform: scale(1); }\n  40% { transform: scale(1.4); }\n  70% { transform: scale(0.9); }\n  100% { transform: scale(1); }\n}"
+	},
+	{
+		"id": "micro-toggle",
+		"name": "Toggle Switch Pop",
+		"tag": "control",
+		"description": "Toggle with a satisfying spring animation when switched.",
+		"css": ".pop-toggle { position: relative; width: 52px; height: 28px; cursor: pointer; }\n.pop-toggle input { display: none; }\n.pop-track {\n  position: absolute; inset: 0;\n  border-radius: 50px;\n  background: rgba(255,255,255,0.1);\n  border: 1px solid rgba(255,255,255,0.15);\n  transition: background 0.3s ease;\n}\n.pop-thumb {\n  position: absolute;\n  width: 20px; height: 20px;\n  top: 3px; left: 3px;\n  background: rgba(255,255,255,0.6);\n  border-radius: 50%;\n  transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);\n}\n.pop-toggle input:checked ~ .pop-track { background: #B8FB3C; }\n.pop-toggle input:checked ~ .pop-thumb { transform: translateX(24px); background: #0a0a0f; }"
+	},
+	{
+		"id": "micro-checkbox-pop",
+		"name": "Checkbox Pop",
+		"tag": "form",
+		"description": "Checkbox springs into view with a jelly bounce on check.",
+		"css": ".pop-check input:checked ~ .check-box {\n  background: #B8FB3C;\n  border-color: #B8FB3C;\n  animation: check-spring 0.4s cubic-bezier(0.34,1.56,0.64,1);\n}\n@keyframes check-spring {\n  0% { transform: scale(0.6); }\n  60% { transform: scale(1.15); }\n  100% { transform: scale(1); }\n}"
+	},
+	{
+		"id": "micro-bell-shake",
+		"name": "Bell Shake",
+		"tag": "notification",
+		"description": "Bell rings with jitter animation on hover or trigger.",
+		"css": ".bell-btn {\n  display: inline-flex;\n  font-size: 24px;\n  cursor: pointer;\n  border: none; background: none;\n  transform-origin: top center;\n}\n.bell-btn:hover { animation: bell-ring 0.5s ease; }\n@keyframes bell-ring {\n  0%, 100% { transform: rotate(0deg); }\n  10%, 50% { transform: rotate(12deg); }\n  30%, 70% { transform: rotate(-12deg); }\n  90% { transform: rotate(4deg); }\n}"
+	},
+	{
+		"id": "micro-progress-fill",
+		"name": "Progress Fill",
+		"tag": "indicator",
+		"description": "Horizontal bar fills gradually on activation.",
+		"css": ".progress-micro { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }\n.progress-micro .bar {\n  height: 100%;\n  background: linear-gradient(to right, #B8FB3C, #06b6d4);\n  border-radius: 2px;\n  width: 0;\n  transition: width 1s cubic-bezier(0.4,0,0.2,1);\n}\n.progress-micro.active .bar { width: 75%; }"
+	},
+	{
+		"id": "micro-ripple-btn",
+		"name": "Ripple Button",
+		"tag": "button",
+		"description": "Material-style ripple effect emanates from click point.",
+		"css": ".ripple-btn {\n  position: relative;\n  overflow: hidden;\n  cursor: pointer;\n  padding: 10px 24px;\n  border-radius: 8px;\n  border: none;\n  background: #B8FB3C;\n  color: #0a0a0f;\n  font-weight: 600;\n}\n.ripple-btn .ripple {\n  position: absolute;\n  border-radius: 50%;\n  background: rgba(0,0,0,0.2);\n  transform: scale(0);\n  animation: btn-ripple 0.6s linear;\n  pointer-events: none;\n}\n@keyframes btn-ripple { to { transform: scale(4); opacity: 0; } }"
+	},
+	{
+		"id": "micro-tooltip-pop",
+		"name": "Tooltip Pop",
+		"tag": "tooltip",
+		"description": "Tooltip springs in with scale animation on hover.",
+		"css": ".tooltip-container { position: relative; display: inline-block; }\n.tooltip-pop {\n  position: absolute;\n  bottom: calc(100% + 8px);\n  left: 50%;\n  transform: translateX(-50%) scale(0.8);\n  transform-origin: bottom center;\n  background: rgba(255,255,255,0.1);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(255,255,255,0.2);\n  border-radius: 8px;\n  padding: 6px 12px;\n  color: #fff;\n  font-size: 12px;\n  white-space: nowrap;\n  pointer-events: none;\n  opacity: 0;\n  transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);\n}\n.tooltip-container:hover .tooltip-pop { opacity: 1; transform: translateX(-50%) scale(1); }"
+	},
+	{
+		"id": "micro-tab-slide",
+		"name": "Tab Indicator Slide",
+		"tag": "navigation",
+		"description": "Active tab indicator smoothly slides between tabs.",
+		"css": ".tab-bar {\n  position: relative;\n  display: flex;\n  background: rgba(255,255,255,0.04);\n  border-radius: 10px;\n  padding: 4px;\n}\n.tab-item {\n  position: relative; z-index: 1;\n  padding: 7px 16px;\n  font-size: 13px;\n  font-weight: 500;\n  color: rgba(255,255,255,0.4);\n  border-radius: 7px;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.tab-item.active { color: #0a0a0f; }\n.tab-indicator {\n  position: absolute; top: 4px;\n  height: calc(100% - 8px);\n  background: #B8FB3C;\n  border-radius: 7px;\n  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);\n  z-index: 0;\n}"
+	},
+	{
+		"id": "micro-count-up",
+		"name": "Count Up",
+		"tag": "data",
+		"description": "Numeric counter animates up to target value on mount.",
+		"css": ".count-up-num {\n  font-size: 48px;\n  font-weight: 800;\n  display: inline-block;\n  animation: count-appear 0.5s ease forwards;\n}\n@keyframes count-appear {\n  from { transform: translateY(20px); opacity: 0; }\n  to { transform: translateY(0); opacity: 1; }\n}\n/* JS: increment number from 0 to target over duration */"
+	},
+	{
+		"id": "micro-copy-confirm",
+		"name": "Copy Confirmation",
+		"tag": "feedback",
+		"description": "Button text changes to 'Copied!' with check, then reverts.",
+		"css": ".copy-btn {\n  position: relative;\n  padding: 8px 16px;\n  border-radius: 8px;\n  background: rgba(255,255,255,0.08);\n  border: 1px solid rgba(255,255,255,0.15);\n  color: rgba(255,255,255,0.7);\n  font-size: 13px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.copy-btn.copied {\n  background: rgba(184,251,60,0.1);\n  border-color: rgba(184,251,60,0.3);\n  color: #B8FB3C;\n  animation: confirm-pop 0.3s ease;\n}\n@keyframes confirm-pop {\n  0% { transform: scale(0.95); }\n  50% { transform: scale(1.05); }\n  100% { transform: scale(1); }\n}"
+	},
+	{
+		"id": "micro-star-rating",
+		"name": "Star Rating",
+		"tag": "rating",
+		"description": "Hoverable star rating — stars fill with golden color on hover.",
+		"css": ".star-rating { display: flex; gap: 4px; cursor: pointer; }\n.star {\n  font-size: 22px;\n  color: rgba(255,255,255,0.15);\n  transition: color 0.15s ease, transform 0.15s ease;\n}\n.star-rating:hover .star { color: #fbbf24; }\n.star-rating .star:hover ~ .star { color: rgba(255,255,255,0.15); }\n.star:hover { transform: scale(1.2); }"
+	},
+	{
+		"id": "micro-drag-handle",
+		"name": "Drag Handle",
+		"tag": "interaction",
+		"description": "Cursor shows grab state, item pops on drag start.",
+		"css": ".drag-item {\n  cursor: grab;\n  user-select: none;\n  transition: all 0.2s ease;\n}\n.drag-item:active {\n  cursor: grabbing;\n  transform: scale(1.03) rotate(1deg);\n  box-shadow: 0 12px 40px rgba(0,0,0,0.3);\n  z-index: 100;\n}"
+	},
+	{
+		"id": "micro-badge-pulse",
+		"name": "Badge Pulse",
+		"tag": "notification",
+		"description": "Notification badge pulses with a ring — draws attention.",
+		"css": ".badge-pulse { position: relative; display: inline-flex; align-items: center; justify-content: center; }\n.badge-num {\n  background: #ef4444;\n  color: #fff;\n  border-radius: 50%;\n  width: 20px; height: 20px;\n  font-size: 11px;\n  font-weight: 700;\n  display: flex; align-items: center; justify-content: center;\n}\n.badge-num::after {\n  content: '';\n  position: absolute;\n  border-radius: 50%;\n  background: rgba(239,68,68,0.4);\n  width: 20px; height: 20px;\n  animation: badge-ring 1.5s ease-out infinite;\n}\n@keyframes badge-ring {\n  0% { transform: scale(1); opacity: 1; }\n  100% { transform: scale(2.5); opacity: 0; }\n}"
+	},
+	{
+		"id": "micro-input-error-shake",
+		"name": "Error Shake",
+		"tag": "form",
+		"description": "Input field shakes horizontally on validation error.",
+		"css": ".input-error {\n  animation: error-shake 0.4s ease;\n  border-color: #ef4444 !important;\n  box-shadow: 0 0 0 3px rgba(239,68,68,0.15) !important;\n}\n@keyframes error-shake {\n  0%, 100% { transform: translateX(0); }\n  20% { transform: translateX(-6px); }\n  40% { transform: translateX(6px); }\n  60% { transform: translateX(-4px); }\n  80% { transform: translateX(4px); }\n}"
+	},
+	{
+		"id": "micro-floating-action",
+		"name": "Floating Action",
+		"tag": "button",
+		"description": "FAB button expands to reveal action labels on hover.",
+		"css": ".fab { position: relative; display: flex; flex-direction: column-reverse; align-items: center; gap: 8px; }\n.fab-main {\n  width: 56px; height: 56px;\n  border-radius: 50%;\n  background: #B8FB3C;\n  display: flex; align-items: center; justify-content: center;\n  cursor: pointer;\n  box-shadow: 0 4px 24px rgba(184,251,60,0.3);\n  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);\n  font-size: 22px; color: #0a0a0f;\n}\n.fab:hover .fab-main { transform: rotate(45deg); }\n.fab-action {\n  width: 44px; height: 44px;\n  border-radius: 50%;\n  background: rgba(255,255,255,0.1);\n  border: 1px solid rgba(255,255,255,0.15);\n  display: flex; align-items: center; justify-content: center;\n  cursor: pointer;\n  font-size: 16px;\n  opacity: 0;\n  transform: scale(0.6) translateY(20px);\n  transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);\n}\n.fab:hover .fab-action { opacity: 1; transform: scale(1) translateY(0); }\n.fab:hover .fab-action:nth-child(2) { transition-delay: 0.05s; }\n.fab:hover .fab-action:nth-child(3) { transition-delay: 0.1s; }"
+	}
+]

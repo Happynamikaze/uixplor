@@ -1,0 +1,122 @@
+[
+	{
+		"id": "loader-spinner",
+		"name": "Ring Spinner",
+		"tag": "spinner",
+		"description": "Classic rotating ring spinner — universally understood.",
+		"html": "<div class=\"ring-spinner\"></div>",
+		"css": ".ring-spinner {\n  width: 40px; height: 40px;\n  border-radius: 50%;\n  border: 3px solid rgba(255,255,255,0.1);\n  border-top-color: #B8FB3C;\n  animation: ring-spin 0.7s linear infinite;\n}\n@keyframes ring-spin { to { transform: rotate(360deg); } }"
+	},
+	{
+		"id": "loader-dots",
+		"name": "Bouncing Dots",
+		"tag": "dots",
+		"description": "Three dots bounce in sequence — smooth loading indicator.",
+		"html": "<div class=\"bounce-dots\">\n  <div></div><div></div><div></div>\n</div>",
+		"css": ".bounce-dots {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.bounce-dots div {\n  width: 10px; height: 10px;\n  border-radius: 50%;\n  background: #B8FB3C;\n  animation: dot-bounce 1.2s ease infinite;\n}\n.bounce-dots div:nth-child(2) { animation-delay: 0.2s; }\n.bounce-dots div:nth-child(3) { animation-delay: 0.4s; }\n@keyframes dot-bounce {\n  0%, 80%, 100% { transform: scale(0.4); opacity: 0.4; }\n  40% { transform: scale(1); opacity: 1; }\n}"
+	},
+	{
+		"id": "loader-bar",
+		"name": "Progress Bar",
+		"tag": "progress",
+		"description": "Animated infinite progress bar — great for page loads.",
+		"html": "<div class=\"progress-bar\">\n  <div class=\"progress-fill\"></div>\n</div>",
+		"css": ".progress-bar {\n  width: 200px; height: 4px;\n  background: rgba(255,255,255,0.1);\n  border-radius: 2px;\n  overflow: hidden;\n}\n.progress-fill {\n  height: 100%;\n  border-radius: 2px;\n  background: linear-gradient(to right, #B8FB3C, #06b6d4);\n  animation: progress-move 1.8s ease-in-out infinite;\n}\n@keyframes progress-move {\n  0% { transform: scaleX(0) translateX(0); }\n  50% { transform: scaleX(1) translateX(0); }\n  100% { transform: scaleX(0) translateX(200px); }\n}"
+	},
+	{
+		"id": "loader-pulse",
+		"name": "Pulse Ring",
+		"tag": "pulse",
+		"description": "Expanding pulse rings — like a radar or heartbeat.",
+		"html": "<div class=\"pulse-ring\"></div>",
+		"css": ".pulse-ring {\n  width: 40px; height: 40px;\n  border-radius: 50%;\n  background: rgba(184,251,60,0.3);\n  animation: pulse-expand 1.5s ease-out infinite;\n}\n@keyframes pulse-expand {\n  0% { transform: scale(0.5); opacity: 1; }\n  100% { transform: scale(2); opacity: 0; }\n}"
+	},
+	{
+		"id": "loader-orbit",
+		"name": "Orbit Ring",
+		"tag": "spinner",
+		"description": "Small dot orbits a center circle — elegant and unique.",
+		"html": "<div class=\"orbit-loader\">\n  <div class=\"planet\"></div>\n</div>",
+		"css": ".orbit-loader {\n  position: relative;\n  width: 44px; height: 44px;\n  border-radius: 50%;\n  border: 2px solid rgba(255,255,255,0.1);\n  animation: orbit-spin 1.5s linear infinite;\n}\n.planet {\n  position: absolute;\n  width: 10px; height: 10px;\n  background: #B8FB3C;\n  border-radius: 50%;\n  top: -6px; left: 50%; transform: translateX(-50%);\n}\n@keyframes orbit-spin { to { transform: rotate(360deg); } }"
+	},
+	{
+		"id": "loader-skeleton",
+		"name": "Skeleton Loader",
+		"tag": "skeleton",
+		"description": "Content skeleton with shimmer — placeholder for async content.",
+		"html": "<div class=\"skeleton-card\">\n  <div class=\"skel-line w-full\"></div>\n  <div class=\"skel-line w-3/4\"></div>\n  <div class=\"skel-line w-1/2\"></div>\n</div>",
+		"css": ".skel-line {\n  height: 14px;\n  border-radius: 6px;\n  background: rgba(255,255,255,0.07);\n  margin-bottom: 10px;\n  overflow: hidden;\n  position: relative;\n}\n.skel-line::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);\n  animation: shimmer-scan 1.4s infinite;\n}\n@keyframes shimmer-scan {\n  from { transform: translateX(-100%); }\n  to { transform: translateX(100%); }\n}"
+	},
+	{
+		"id": "loader-bars",
+		"name": "Equalizer Bars",
+		"tag": "bars",
+		"description": "Equalizer-style animated bars — great for audio/voice states.",
+		"html": "<div class=\"eq-bars\">\n  <div></div><div></div><div></div><div></div><div></div>\n</div>",
+		"css": ".eq-bars {\n  display: flex;\n  align-items: flex-end;\n  gap: 4px;\n  height: 36px;\n}\n.eq-bars div {\n  width: 6px;\n  background: #B8FB3C;\n  border-radius: 3px 3px 0 0;\n  animation: eq-animate 1s ease infinite;\n}\n.eq-bars div:nth-child(1) { animation-delay: 0s; height: 60%; }\n.eq-bars div:nth-child(2) { animation-delay: 0.1s; height: 100%; }\n.eq-bars div:nth-child(3) { animation-delay: 0.2s; height: 40%; }\n.eq-bars div:nth-child(4) { animation-delay: 0.3s; height: 80%; }\n.eq-bars div:nth-child(5) { animation-delay: 0.4s; height: 60%; }\n@keyframes eq-animate {\n  0%, 100% { transform: scaleY(0.4); }\n  50% { transform: scaleY(1); }\n}"
+	},
+	{
+		"id": "loader-ripple",
+		"name": "Ripple Loader",
+		"tag": "ripple",
+		"description": "Two concentric ripple rings expand outward alternately.",
+		"html": "<div class=\"ripple-loader\"><div></div><div></div></div>",
+		"css": ".ripple-loader {\n  position: relative;\n  width: 50px; height: 50px;\n}\n.ripple-loader div {\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  border: 3px solid #B8FB3C;\n  animation: ripple-out 1.5s cubic-bezier(0,0.2,0.8,1) infinite;\n}\n.ripple-loader div:nth-child(2) { animation-delay: -0.75s; }\n@keyframes ripple-out {\n  0% { transform: scale(0); opacity: 1; }\n  100% { transform: scale(1); opacity: 0; }\n}"
+	},
+	{
+		"id": "loader-gradient-ring",
+		"name": "Gradient Ring",
+		"tag": "spinner",
+		"description": "Conic gradient spinner with vivid color arc.",
+		"html": "<div class=\"gradient-ring\"></div>",
+		"css": ".gradient-ring {\n  width: 44px; height: 44px;\n  border-radius: 50%;\n  background: conic-gradient(#B8FB3C 0%, #a855f7 40%, transparent 40%);\n  animation: gradient-ring-spin 1s linear infinite;\n  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 4px));\n  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 4px));\n}\n@keyframes gradient-ring-spin { to { transform: rotate(360deg); } }"
+	},
+	{
+		"id": "loader-shimmer-card",
+		"name": "Shimmer Card",
+		"tag": "skeleton",
+		"description": "Full card placeholder shimmer for article/image lists.",
+		"html": "<div class=\"shimmer-card\">\n  <div class=\"shimmer-img\"></div>\n  <div class=\"shimmer-body\">\n    <div class=\"s-line full\"></div>\n    <div class=\"s-line half\"></div>\n  </div>\n</div>",
+		"css": ".shimmer-card {\n  background: rgba(255,255,255,0.04);\n  border: 1px solid rgba(255,255,255,0.06);\n  border-radius: 14px;\n  overflow: hidden;\n}\n.shimmer-img { height: 80px; background: rgba(255,255,255,0.07); position: relative; overflow: hidden; }\n.shimmer-body { padding: 12px; }\n.s-line {\n  height: 10px;\n  border-radius: 5px;\n  background: rgba(255,255,255,0.07);\n  margin-bottom: 8px;\n  position: relative;\n  overflow: hidden;\n}\n.s-line.full { width: 100%; }\n.s-line.half { width: 60%; }\n.shimmer-img::after, .s-line::after {\n  content: '';\n  position: absolute; inset: 0;\n  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);\n  animation: shimmer-scan 1.4s infinite;\n}\n@keyframes shimmer-scan {\n  from { transform: translateX(-100%); }\n  to { transform: translateX(100%); }\n}"
+	},
+	{
+		"id": "loader-dots-typing",
+		"name": "Typing Indicator",
+		"tag": "dots",
+		"description": "Chat typing indicator — three sequential jumping dots.",
+		"html": "<div class=\"typing-dots\"><span></span><span></span><span></span></div>",
+		"css": ".typing-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  padding: 10px 16px;\n  background: rgba(255,255,255,0.06);\n  border-radius: 50px;\n}\n.typing-dots span {\n  width: 8px; height: 8px;\n  border-radius: 50%;\n  background: rgba(255,255,255,0.4);\n  animation: typing-jump 1.4s ease infinite;\n}\n.typing-dots span:nth-child(2) { animation-delay: 0.2s; }\n.typing-dots span:nth-child(3) { animation-delay: 0.4s; }\n@keyframes typing-jump {\n  0%, 60%, 100% { transform: translateY(0); }\n  30% { transform: translateY(-6px); }\n}"
+	},
+	{
+		"id": "loader-spinner-dual",
+		"name": "Dual Ring",
+		"tag": "spinner",
+		"description": "Two counter-rotating rings for a layered spinner effect.",
+		"html": "<div class=\"dual-ring\"></div>",
+		"css": ".dual-ring { position: relative; width: 44px; height: 44px; }\n.dual-ring::before, .dual-ring::after {\n  content: '';\n  position: absolute;\n  border-radius: 50%;\n}\n.dual-ring::before {\n  inset: 0;\n  border: 3px solid transparent;\n  border-top-color: #B8FB3C;\n  animation: ring-spin 0.8s linear infinite;\n}\n.dual-ring::after {\n  inset: 6px;\n  border: 3px solid transparent;\n  border-bottom-color: #a855f7;\n  animation: ring-spin 1.2s linear infinite reverse;\n}\n@keyframes ring-spin { to { transform: rotate(360deg); } }"
+	},
+	{
+		"id": "loader-text",
+		"name": "Loading Text",
+		"tag": "text",
+		"description": "Animated \"Loading...\" text with fading trailing dots.",
+		"html": "<span class=\"loading-text\">Loading<span class=\"dots\"></span></span>",
+		"css": ".loading-text { color: rgba(255,255,255,0.7); font-size: 15px; font-family: monospace; }\n.dots::after {\n  content: '';\n  animation: loading-dots 1.5s steps(4,end) infinite;\n}\n@keyframes loading-dots {\n  0% { content: ''; }\n  25% { content: '.'; }\n  50% { content: '..'; }\n  75% { content: '...'; }\n  100% { content: ''; }\n}"
+	},
+	{
+		"id": "loader-circular-progress",
+		"name": "Circular Progress",
+		"tag": "progress",
+		"description": "SVG circular progress indicator with animated stroke.",
+		"html": "<svg class=\"circular-progress\" viewBox=\"0 0 44 44\">\n  <circle class=\"bg-circle\" cx=\"22\" cy=\"22\" r=\"18\" />\n  <circle class=\"progress-circle\" cx=\"22\" cy=\"22\" r=\"18\" />\n</svg>",
+		"css": ".circular-progress { width: 50px; height: 50px; transform: rotate(-90deg); }\n.bg-circle { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 3; }\n.progress-circle {\n  fill: none;\n  stroke: #B8FB3C;\n  stroke-width: 3;\n  stroke-linecap: round;\n  stroke-dasharray: 113;\n  stroke-dashoffset: 113;\n  animation: circle-progress 2s ease-in-out infinite;\n}\n@keyframes circle-progress {\n  0% { stroke-dashoffset: 113; }\n  50% { stroke-dashoffset: 30; }\n  100% { stroke-dashoffset: 113; }\n}"
+	},
+	{
+		"id": "loader-wifi",
+		"name": "WiFi Loader",
+		"tag": "icon",
+		"description": "Animated WiFi icon — arcs appear in sequence.",
+		"html": "<div class=\"wifi-loader\"><div></div><div></div><div></div></div>",
+		"css": ".wifi-loader {\n  position: relative;\n  width: 40px; height: 40px;\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n}\n.wifi-loader div {\n  position: absolute;\n  border-radius: 50%;\n  border: 3px solid rgba(255,255,255,0.1);\n  border-top-color: transparent;\n  border-bottom-color: transparent;\n  border-left-color: transparent;\n  animation: wifi-arc 1.5s ease infinite;\n}\n.wifi-loader div:nth-child(1) { width: 12px; height: 12px; border-right-color: #B8FB3C; animation-delay: 0s; }\n.wifi-loader div:nth-child(2) { width: 24px; height: 24px; border-right-color: #B8FB3C; animation-delay: 0.2s; }\n.wifi-loader div:nth-child(3) { width: 36px; height: 36px; border-right-color: #B8FB3C; animation-delay: 0.4s; }\n@keyframes wifi-arc {\n  0%, 100% { opacity: 0.2; }\n  50% { opacity: 1; }\n}"
+	}
+]

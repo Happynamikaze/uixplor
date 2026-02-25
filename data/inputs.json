@@ -1,0 +1,122 @@
+[
+	{
+		"id": "input-underline",
+		"name": "Underline Input",
+		"tag": "minimal",
+		"description": "Borderless input with animated bottom-line on focus.",
+		"html": "<div class=\"input-underline-wrap\">\n  <input type=\"text\" placeholder=\"Your name\" />\n  <span class=\"line\"></span>\n</div>",
+		"css": ".input-underline-wrap { position: relative; padding-bottom: 4px; }\n.input-underline-wrap input {\n  width: 100%;\n  background: transparent;\n  border: none;\n  border-bottom: 1px solid rgba(255,255,255,0.2);\n  color: #fff;\n  font-size: 15px;\n  padding: 8px 0;\n  outline: none;\n}\n.input-underline-wrap input::placeholder { color: rgba(255,255,255,0.35); }\n.line {\n  position: absolute;\n  bottom: 4px; left: 0;\n  height: 2px; width: 0;\n  background: #B8FB3C;\n  transition: width 0.3s ease;\n}\n.input-underline-wrap:focus-within .line { width: 100%; }"
+	},
+	{
+		"id": "input-float-label",
+		"name": "Floating Label",
+		"tag": "material",
+		"description": "Label floats above the field when focused or filled.",
+		"html": "<div class=\"float-label-wrap\">\n  <input type=\"text\" id=\"fname\" placeholder=\" \" />\n  <label for=\"fname\">First Name</label>\n</div>",
+		"css": ".float-label-wrap { position: relative; margin-top: 16px; }\n.float-label-wrap input {\n  width: 100%;\n  background: rgba(255,255,255,0.05);\n  border: 1px solid rgba(255,255,255,0.15);\n  border-radius: 8px;\n  color: #fff;\n  font-size: 15px;\n  padding: 14px 16px 6px;\n  outline: none;\n  transition: border-color 0.2s ease;\n}\n.float-label-wrap input:focus { border-color: #B8FB3C; }\n.float-label-wrap label {\n  position: absolute;\n  top: 50%; left: 16px;\n  transform: translateY(-50%);\n  color: rgba(255,255,255,0.4);\n  font-size: 14px;\n  pointer-events: none;\n  transition: all 0.2s ease;\n}\n.float-label-wrap input:focus ~ label,\n.float-label-wrap input:not(:placeholder-shown) ~ label {\n  top: 8px; font-size: 11px; color: #B8FB3C;\n}"
+	},
+	{
+		"id": "input-glass",
+		"name": "Glass Input",
+		"tag": "glass",
+		"description": "Frosted glass input with blur and translucent fill.",
+		"html": "<input class=\"glass-input\" type=\"text\" placeholder=\"Search...\" />",
+		"css": ".glass-input {\n  background: rgba(255,255,255,0.08);\n  backdrop-filter: blur(10px);\n  -webkit-backdrop-filter: blur(10px);\n  border: 1px solid rgba(255,255,255,0.15);\n  border-radius: 10px;\n  padding: 10px 16px;\n  color: #fff;\n  font-size: 14px;\n  width: 100%;\n  outline: none;\n  transition: all 0.2s ease;\n}\n.glass-input::placeholder { color: rgba(255,255,255,0.4); }\n.glass-input:focus {\n  border-color: rgba(255,255,255,0.4);\n  background: rgba(255,255,255,0.12);\n  box-shadow: 0 0 0 3px rgba(255,255,255,0.08);\n}"
+	},
+	{
+		"id": "input-neon",
+		"name": "Neon Focus",
+		"tag": "neon",
+		"description": "Input with bright neon glow on focus.",
+		"html": "<input class=\"neon-input\" type=\"text\" placeholder=\"Type here...\" />",
+		"css": ".neon-input {\n  background: rgba(0,0,0,0.5);\n  border: 1px solid rgba(184,251,60,0.3);\n  border-radius: 8px;\n  padding: 10px 16px;\n  color: #B8FB3C;\n  font-size: 14px;\n  width: 100%;\n  outline: none;\n  transition: all 0.3s ease;\n  font-family: monospace;\n}\n.neon-input::placeholder { color: rgba(184,251,60,0.3); }\n.neon-input:focus {\n  border-color: #B8FB3C;\n  box-shadow: 0 0 8px rgba(184,251,60,0.4), 0 0 20px rgba(184,251,60,0.1), inset 0 0 8px rgba(184,251,60,0.05);\n}"
+	},
+	{
+		"id": "input-gradient-border",
+		"name": "Gradient Border",
+		"tag": "gradient",
+		"description": "Input with animated gradient border.",
+		"html": "<div class=\"grad-border-wrap\">\n  <input type=\"text\" placeholder=\"Enter value...\" />\n</div>",
+		"css": ".grad-border-wrap {\n  padding: 1.5px;\n  border-radius: 9px;\n  background: linear-gradient(135deg, #B8FB3C, #a855f7, #06b6d4);\n  background-size: 200% 200%;\n  animation: grad-shift 3s ease infinite;\n}\n.grad-border-wrap input {\n  background: #0a0a0f;\n  border: none;\n  border-radius: 8px;\n  padding: 10px 16px;\n  color: #fff;\n  font-size: 14px;\n  width: 100%;\n  outline: none;\n}\n@keyframes grad-shift {\n  0%, 100% { background-position: 0% 50%; }\n  50% { background-position: 100% 50%; }\n}"
+	},
+	{
+		"id": "input-search",
+		"name": "Search Bar",
+		"tag": "search",
+		"description": "Full-width search bar with icon and clear button.",
+		"html": "<div class=\"search-wrap\">\n  <svg class=\"search-icon\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z\"/>\n  </svg>\n  <input type=\"search\" placeholder=\"Search...\" />\n</div>",
+		"css": ".search-wrap { position: relative; display: flex; align-items: center; }\n.search-icon { position: absolute; left: 14px; width: 16px; height: 16px; color: rgba(255,255,255,0.35); pointer-events: none; }\n.search-wrap input {\n  width: 100%;\n  background: rgba(255,255,255,0.06);\n  border: 1px solid rgba(255,255,255,0.1);\n  border-radius: 50px;\n  padding: 10px 16px 10px 40px;\n  color: #fff;\n  font-size: 13px;\n  outline: none;\n  transition: all 0.2s ease;\n}\n.search-wrap input::placeholder { color: rgba(255,255,255,0.3); }\n.search-wrap input:focus { border-color: rgba(255,255,255,0.3); }"
+	},
+	{
+		"id": "input-otp",
+		"name": "OTP Input",
+		"tag": "code",
+		"description": "6-digit OTP / PIN entry with single-char inputs.",
+		"html": "<div class=\"otp-wrap\">\n  <input class=\"otp-box\" type=\"text\" maxlength=\"1\" />\n  <input class=\"otp-box\" type=\"text\" maxlength=\"1\" />\n  <input class=\"otp-box\" type=\"text\" maxlength=\"1\" />\n  <input class=\"otp-box\" type=\"text\" maxlength=\"1\" />\n  <input class=\"otp-box\" type=\"text\" maxlength=\"1\" />\n  <input class=\"otp-box\" type=\"text\" maxlength=\"1\" />\n</div>",
+		"css": ".otp-wrap { display: flex; gap: 8px; }\n.otp-box {\n  width: 44px; height: 52px;\n  text-align: center;\n  font-size: 18px;\n  font-weight: 700;\n  background: rgba(255,255,255,0.05);\n  border: 1px solid rgba(255,255,255,0.12);\n  border-radius: 10px;\n  color: #fff;\n  outline: none;\n  caret-color: #B8FB3C;\n  transition: all 0.2s ease;\n}\n.otp-box:focus {\n  border-color: #B8FB3C;\n  background: rgba(184,251,60,0.05);\n  box-shadow: 0 0 0 3px rgba(184,251,60,0.15);\n}"
+	},
+	{
+		"id": "input-dark",
+		"name": "Dark Solid",
+		"tag": "dark",
+		"description": "Solid dark input with strong contrast — clean for dark UIs.",
+		"html": "<input class=\"dark-input\" type=\"text\" placeholder=\"Email address\" />",
+		"css": ".dark-input {\n  background: #1a1a2e;\n  border: 1px solid #2d2d4e;\n  border-radius: 8px;\n  padding: 10px 16px;\n  color: #e2e8f0;\n  font-size: 14px;\n  width: 100%;\n  outline: none;\n  transition: all 0.2s ease;\n}\n.dark-input::placeholder { color: #4a4a6a; }\n.dark-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }"
+	},
+	{
+		"id": "input-pill",
+		"name": "Pill Input",
+		"tag": "rounded",
+		"description": "Fully rounded pill-shaped input — soft and modern.",
+		"html": "<input class=\"pill-input\" type=\"text\" placeholder=\"Search...\" />",
+		"css": ".pill-input {\n  background: rgba(255,255,255,0.07);\n  border: 1px solid rgba(255,255,255,0.12);\n  border-radius: 50px;\n  padding: 10px 20px;\n  color: #fff;\n  font-size: 14px;\n  width: 100%;\n  outline: none;\n  transition: all 0.2s ease;\n}\n.pill-input::placeholder { color: rgba(255,255,255,0.35); }\n.pill-input:focus { border-color: rgba(255,255,255,0.3); }"
+	},
+	{
+		"id": "input-textarea",
+		"name": "Styled Textarea",
+		"tag": "textarea",
+		"description": "Dark multi-line textarea with focus ring.",
+		"html": "<textarea class=\"styled-textarea\" rows=\"4\" placeholder=\"Write your message...\"></textarea>",
+		"css": ".styled-textarea {\n  background: rgba(255,255,255,0.04);\n  border: 1px solid rgba(255,255,255,0.1);\n  border-radius: 12px;\n  padding: 12px 16px;\n  color: #fff;\n  font-size: 14px;\n  width: 100%;\n  resize: vertical;\n  outline: none;\n  line-height: 1.6;\n  font-family: inherit;\n  transition: all 0.2s ease;\n}\n.styled-textarea::placeholder { color: rgba(255,255,255,0.3); }\n.styled-textarea:focus { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.07); }"
+	},
+	{
+		"id": "input-checkbox",
+		"name": "Custom Checkbox",
+		"tag": "toggle",
+		"description": "CSS-only custom styled checkbox with animated checkmark.",
+		"html": "<label class=\"custom-checkbox\">\n  <input type=\"checkbox\" />\n  <span class=\"checkmark\"></span>\n  Remember me\n</label>",
+		"css": ".custom-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  cursor: pointer;\n  color: rgba(255,255,255,0.7);\n  font-size: 14px;\n  user-select: none;\n}\n.custom-checkbox input { display: none; }\n.checkmark {\n  width: 20px; height: 20px;\n  border-radius: 5px;\n  border: 1px solid rgba(255,255,255,0.2);\n  background: rgba(255,255,255,0.05);\n  display: flex; align-items: center; justify-content: center;\n  transition: all 0.2s ease;\n  flex-shrink: 0;\n}\n.custom-checkbox input:checked ~ .checkmark {\n  background: #B8FB3C;\n  border-color: #B8FB3C;\n}\n.custom-checkbox input:checked ~ .checkmark::after {\n  content: '';\n  width: 5px; height: 9px;\n  border: 2px solid #0a0a0f;\n  border-top: none; border-left: none;\n  transform: rotate(45deg) translateY(-1px);\n}"
+	},
+	{
+		"id": "input-toggle",
+		"name": "Toggle Switch",
+		"tag": "toggle",
+		"description": "Smooth animated toggle switch — pure CSS.",
+		"html": "<label class=\"toggle-switch\">\n  <input type=\"checkbox\" />\n  <span class=\"slider\"></span>\n</label>",
+		"css": ".toggle-switch { position: relative; display: inline-block; width: 48px; height: 26px; cursor: pointer; }\n.toggle-switch input { display: none; }\n.slider {\n  position: absolute; inset: 0;\n  background: rgba(255,255,255,0.1);\n  border-radius: 50px;\n  border: 1px solid rgba(255,255,255,0.15);\n  transition: all 0.3s ease;\n}\n.slider::before {\n  content: '';\n  position: absolute;\n  width: 18px; height: 18px;\n  left: 3px; top: 3px;\n  background: rgba(255,255,255,0.6);\n  border-radius: 50%;\n  transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);\n}\n.toggle-switch input:checked ~ .slider { background: #B8FB3C; border-color: #B8FB3C; }\n.toggle-switch input:checked ~ .slider::before { background: #0a0a0f; transform: translateX(22px); }"
+	},
+	{
+		"id": "input-range",
+		"name": "Range Slider",
+		"tag": "range",
+		"description": "Custom styled range input with brand accent color.",
+		"html": "<input class=\"custom-range\" type=\"range\" min=\"0\" max=\"100\" value=\"60\" />",
+		"css": ".custom-range {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 100%;\n  height: 4px;\n  border-radius: 2px;\n  background: rgba(255,255,255,0.1);\n  outline: none;\n  cursor: pointer;\n}\n.custom-range::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  width: 18px; height: 18px;\n  border-radius: 50%;\n  background: #B8FB3C;\n  border: 2px solid #0a0a0f;\n  box-shadow: 0 0 0 3px rgba(184,251,60,0.2);\n  transition: all 0.2s ease;\n}\n.custom-range::-webkit-slider-thumb:hover { box-shadow: 0 0 0 6px rgba(184,251,60,0.2); }"
+	},
+	{
+		"id": "input-select",
+		"name": "Custom Select",
+		"tag": "select",
+		"description": "Custom styled select dropdown on dark background.",
+		"html": "<div class=\"select-wrap\">\n  <select class=\"custom-select\">\n    <option>Design</option>\n    <option>Development</option>\n    <option>Marketing</option>\n  </select>\n</div>",
+		"css": ".select-wrap { position: relative; display: inline-block; width: 100%; }\n.custom-select {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 100%;\n  background: rgba(255,255,255,0.05);\n  border: 1px solid rgba(255,255,255,0.12);\n  border-radius: 8px;\n  padding: 10px 36px 10px 14px;\n  color: #fff;\n  font-size: 14px;\n  outline: none;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.custom-select:focus { border-color: rgba(255,255,255,0.3); }\n.select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); pointer-events: none; font-size: 12px; }"
+	},
+	{
+		"id": "input-file",
+		"name": "File Upload",
+		"tag": "upload",
+		"description": "Drag-and-drop styled file upload zone.",
+		"html": "<label class=\"file-upload\" for=\"file-input\">\n  <span class=\"icon\">📁</span>\n  <span>Drop files here or <u>browse</u></span>\n  <input id=\"file-input\" type=\"file\" hidden />\n</label>",
+		"css": ".file-upload {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 8px;\n  width: 100%;\n  padding: 24px;\n  border: 2px dashed rgba(255,255,255,0.15);\n  border-radius: 12px;\n  cursor: pointer;\n  color: rgba(255,255,255,0.5);\n  font-size: 13px;\n  transition: all 0.2s ease;\n  text-align: center;\n}\n.file-upload .icon { font-size: 24px; }\n.file-upload:hover { border-color: #B8FB3C; background: rgba(184,251,60,0.04); color: rgba(255,255,255,0.7); }"
+	}
+]

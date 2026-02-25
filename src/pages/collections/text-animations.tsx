@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import PageSEO from '@/components/seo/PageSEO';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'motion/react';
@@ -185,7 +185,7 @@ const textEffects: TextEffect[] = [
 		css: `.draw-outline {\n  -webkit-text-stroke: 2px #06b6d4;\n  color: transparent;\n  animation: draw-text 2s ease infinite;\n}\n@keyframes draw-text {\n  0% { -webkit-text-stroke-dashoffset: 100% }\n  50% { color: #06b6d4 }\n  100% { color: transparent }\n}`
 	},
 
-	// ── Scramble / Morph ──
+	// ── Morph / Scramble ──
 	{
 		id: 'morph-text', name: 'Morph Blur', category: 'morph', text: 'Morph',
 		css: `.morph-blur {\n  animation: morph-anim 3s ease infinite;\n}\n@keyframes morph-anim {\n  0%, 100% { filter: blur(0); transform: scale(1) }\n  25% { filter: blur(2px); transform: scale(1.02) }\n  50% { filter: blur(0); transform: scale(0.98) }\n  75% { filter: blur(1px); transform: scale(1.01) }\n}`
@@ -223,6 +223,145 @@ const CATEGORIES = [
 	{ key: 'morph', label: 'Morph' },
 ];
 
+/** Build code overlay sections — HTML/CSS/JS — for a text animation effect */
+function buildAnimationSections(effect: TextEffect): CodeSection[] {
+	const cls = effect.id;
+	const isLetterBased = effect.css.includes(`${cls} span`) || effect.css.includes('span:nth-child');
+	const isGlitchBased = effect.css.includes('data-text');
+
+	const htmlCode = isLetterBased
+		? `<!-- Paste this HTML wherever you want the animation -->
+<!-- Each letter needs its own <span> for the animation to work -->
+<span class="${cls}">
+${effect.text.split('').map(c => `  <span>${c}</span>`).join('\n')}
+</span>
+
+<!-- TIP: Use the JS initializer (JS tab) to auto-wrap letters.
+     Then you can just write: <span class="${cls}">Any Text</span> -->`
+		: isGlitchBased
+			? `<!-- Paste this HTML wherever you want the animation -->
+<!-- data-text MUST match the text content for the glitch effect -->
+<span class="${cls}" data-text="${effect.text}">${effect.text}</span>
+
+<!-- TIP: Use the JS initializer (JS tab) to set data-text automatically.
+     Then you can just write: <span class="${cls}">Any Text</span> -->`
+			: `<!-- Paste this HTML wherever you want the animation -->
+<!-- This is a pure CSS animation — no extra markup needed -->
+<span class="${cls}">${effect.text}</span>`;
+
+	const jsCode = isLetterBased
+		? `/**
+ * ─────────────────────────────────────────
+ *  WHERE DOES THIS GO?
+ *  Add this <script> before the closing </body> tag.
+ *  Or paste this into your .js file (after DOM loads).
+ * ─────────────────────────────────────────
+ *
+ * USAGE:
+ *  1. HTML: <span class="${cls}">Your Text Here</span>
+ *  2. CSS:  Copy the CSS tab and paste into your stylesheet
+ *  3. JS:   Copy this file and call initAnimation('.${cls}')
+ *
+ * The initializer auto-wraps every character in a <span>.
+ * Safe to call multiple times — will not double-wrap.
+ */
+function initAnimation(selector) {
+  const elements = document.querySelectorAll(selector);
+
+  elements.forEach(function(el) {
+    // Guard: skip if already wrapped
+    if (el.querySelector('span')) return;
+
+    const text = el.textContent || '';
+    el.textContent = '';
+
+    text.split('').forEach(function(char) {
+      const span = document.createElement('span');
+      // Preserve spaces as non-breaking spaces
+      span.textContent = char === ' ' ? '\\u00A0' : char;
+      el.appendChild(span);
+    });
+  });
+}
+
+// Auto-run when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  initAnimation('.${cls}');
+});`
+		: isGlitchBased
+			? `/**
+ * ─────────────────────────────────────────
+ *  WHERE DOES THIS GO?
+ *  Add this <script> before the closing </body> tag.
+ *  Or paste into your .js file (after DOM loads).
+ * ─────────────────────────────────────────
+ *
+ * USAGE:
+ *  1. HTML: <span class="${cls}">Your Text Here</span>
+ *  2. CSS:  Copy the CSS tab and paste into your stylesheet
+ *  3. JS:   Copy this file and call initAnimation('.${cls}')
+ *
+ * The initializer sets the required data-text attribute
+ * by reading the element's text content automatically.
+ * Safe to call multiple times.
+ */
+function initAnimation(selector) {
+  const elements = document.querySelectorAll(selector);
+
+  elements.forEach(function(el) {
+    // Set data-text to match visible text content
+    el.setAttribute('data-text', el.textContent || '');
+  });
+}
+
+// Auto-run when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  initAnimation('.${cls}');
+});`
+			: `/**
+ * ─────────────────────────────────────────
+ *  WHERE DOES THIS GO?
+ *  This file is OPTIONAL — the animation is pure CSS.
+ *  If you want interactive pause/play controls, add
+ *  this <script> before the closing </body> tag.
+ * ─────────────────────────────────────────
+ *
+ * USAGE:
+ *  1. HTML: <span class="${cls}">Your Text Here</span>
+ *  2. CSS:  Copy the CSS tab and paste into your stylesheet
+ *  3. JS:   Not required — only add this if you need
+ *           programmatic control of the animation.
+ *
+ * This animation is pure CSS and runs automatically.
+ */
+
+// Optional: pause animation on hover, resume on leave
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.${cls}').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      el.style.animationPlayState = 'paused';
+    });
+    el.addEventListener('mouseleave', function() {
+      el.style.animationPlayState = 'running';
+    });
+  });
+});
+
+// Optional: toggle animation from anywhere
+function toggleAnimation(selector) {
+  document.querySelectorAll(selector).forEach(function(el) {
+    const isPaused = el.style.animationPlayState === 'paused';
+    el.style.animationPlayState = isPaused ? 'running' : 'paused';
+  });
+}`;
+
+	return [
+		{ label: 'HTML', language: 'html', code: htmlCode },
+		{ label: 'CSS', language: 'css', code: effect.css },
+		{ label: 'JS', language: 'js', code: jsCode },
+	];
+}
+
 export default function TextAnimations() {
 	const [activeCategory, setActiveCategory] = useState('all');
 	const [selectedEffect, setSelectedEffect] = useState<TextEffect | null>(null);
@@ -233,10 +372,31 @@ export default function TextAnimations() {
 
 	return (
 		<>
-			<Head>
-				<title>Text Animations — UIXplor</title>
-				<meta name="description" content="A curated collection of 40 CSS text animation effects. Copy any animation with one click." />
-			</Head>
+			<PageSEO
+				title="CSS Text Animations – 40 Effects for Modern UI – UIXplor"
+				description="40 CSS text animation effects — typewriter, glitch, gradient, wave, blur, and scramble animations. Click any card to copy plug-and-play CSS code instantly."
+				path="/collections/text-animations"
+				keywords={['CSS text animation', 'text effect CSS', 'typewriter CSS', 'glitch text CSS', 'animated text CSS', 'gradient text CSS', 'CSS word animation']}
+				jsonLd={[
+					{
+						'@context': 'https://schema.org',
+						'@type': 'CollectionPage',
+						name: 'CSS Text Animations Collection – UIXplor',
+						description: '40 CSS text animation effects including typewriter, glitch, gradient text, wave, blur, and scramble animations.',
+						url: 'https://uixplor.com/collections/text-animations',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+					},
+					{
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'Text Animations', item: 'https://uixplor.com/collections/text-animations' },
+						],
+					},
+				]}
+			/>
 
 			<main className="min-h-screen px-4 sm:px-6 py-8 sm:py-12">
 				<div className="max-w-7xl mx-auto">
@@ -262,7 +422,7 @@ export default function TextAnimations() {
 							Text Animations
 						</h1>
 						<p className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto mb-6">
-							Eye-catching CSS text effects — click any card to view & copy code.
+							Eye-catching CSS text effects — click any card to get plug-and-play HTML, CSS &amp; JS.
 						</p>
 						<span className="inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium text-orange-400 bg-orange-500/10 rounded-full border border-orange-500/20">
 							<span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
@@ -283,7 +443,7 @@ export default function TextAnimations() {
 									onClick={() => setActiveCategory(cat.key)}
 									className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-250 ${isActive
 										? 'bg-orange-400 text-[#0a0a0f]'
-										: 'bg-white/4 text-white/60 hover:bg-white/8 hover:text-white border border-white/[0.06]'
+										: 'bg-white/4 text-white/60 hover:bg-white/8 hover:text-white border border-white/6'
 										}`}
 								>
 									{cat.label}
@@ -300,7 +460,7 @@ export default function TextAnimations() {
 						{filtered.map((effect, index) => (
 							<motion.div
 								key={effect.id}
-								className="rounded-2xl overflow-hidden bg-white/4 border border-white/8 transition-colors duration-300"
+								className="group rounded-2xl overflow-hidden bg-linear-to-b from-white/4 to-black/25 border border-white/6 hover:border-white/12 transition-all duration-300 hover:shadow-[0_4px_12px_rgba(255,255,255,0.06)]"
 								initial={{ opacity: 0, y: 24 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
@@ -343,10 +503,7 @@ export default function TextAnimations() {
 				isOpen={!!selectedEffect}
 				onClose={() => setSelectedEffect(null)}
 				title={selectedEffect?.name || ''}
-				sections={selectedEffect ? [
-					{ label: 'HTML', language: 'html', code: `<span class="${selectedEffect.id}">${selectedEffect.text}</span>` },
-					{ label: 'CSS', language: 'css', code: selectedEffect.css },
-				] as CodeSection[] : []}
+				sections={selectedEffect ? buildAnimationSections(selectedEffect) : []}
 			/>
 		</>
 	);
@@ -355,327 +512,198 @@ export default function TextAnimations() {
 function TextPreview({ type, text, category }: { type: string; text: string; category: string }) {
 	const baseClass = 'text-3xl sm:text-4xl font-bold';
 
-	switch (category) {
-		case 'gradient':
-			if (type === 'gradient-sweep') {
-				return (
-					<motion.span
-						className={`${baseClass} bg-clip-text text-transparent`}
-						style={{ backgroundImage: 'linear-gradient(to right, #B8FB3C, #a855f7, #06b6d4)', backgroundSize: '200% auto' }}
-						animate={{ backgroundPosition: ['0% center', '200% center'] }}
-						transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-					>{text}</motion.span>
-				);
-			}
-			if (type === 'gradient-pulse') {
-				return (
-					<motion.span
-						className={`${baseClass} bg-clip-text text-transparent`}
-						style={{ backgroundImage: 'linear-gradient(90deg, #f093fb, #f5576c, #4facfe)', backgroundSize: '300% 100%' }}
-						animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-						transition={{ duration: 2, repeat: Infinity }}
-					>{text}</motion.span>
-				);
-			}
+	if (category === 'gradient') {
+		if (type === 'gradient-sweep') {
 			return (
-				<motion.span
-					className={`${baseClass} bg-clip-text text-transparent`}
-					style={{ backgroundImage: 'linear-gradient(90deg, #ff0000, #ff7700, #ffff00, #00ff00, #0077ff, #8b00ff, #ff0000)', backgroundSize: '400% 100%' }}
-					animate={{ backgroundPosition: ['0% 0', '400% 0'] }}
-					transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-				>{text}</motion.span>
-			);
-
-		case 'glow':
-			const glowColors: Record<string, string> = {
-				'neon-glow': 'rgba(184,251,60,',
-				'glow-flicker': 'rgba(6,182,212,',
-				'glow-breathe': 'rgba(168,85,247,',
-			};
-			const colorBase = glowColors[type] || 'rgba(184,251,60,';
-			const textColor = type === 'glow-flicker' ? '#06b6d4' : type === 'glow-breathe' ? '#a855f7' : '#B8FB3C';
-			return (
-				<motion.span
-					className={`${baseClass}`}
-					style={{ color: textColor }}
-					animate={{ textShadow: [`0 0 8px ${colorBase}0.3)`, `0 0 24px ${colorBase}0.6)`, `0 0 8px ${colorBase}0.3)`] }}
-					transition={{ duration: 2, repeat: Infinity }}
-				>{text}</motion.span>
-			);
-
-		case 'bounce':
-			return (
-				<span className={`${baseClass} text-white flex`}>
-					{text.split('').map((char, i) => (
-						<motion.span
-							key={i}
-							animate={{ y: [0, -12, 0] }}
-							transition={{ duration: 0.6, delay: i * 0.08, repeat: Infinity, repeatDelay: 1.5 }}
-						>{char}</motion.span>
-					))}
-				</span>
-			);
-
-		case 'slide':
-			return (
-				<div className="overflow-hidden">
-					<motion.span
-						className={`${baseClass} text-white block`}
-						animate={{ x: ['-100%', '0%'] }}
-						transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 2, ease: [0.4, 0, 0.2, 1] as const }}
-					>{text}</motion.span>
-				</div>
-			);
-
-		case 'blur':
-			if (type === 'blur-wave') {
-				return (
-					<span className={`${baseClass} text-white flex`}>
-						{text.split('').map((char, i) => (
-							<motion.span
-								key={i}
-								animate={{ filter: ['blur(0px)', 'blur(4px)', 'blur(0px)'] }}
-								transition={{ duration: 2, delay: i * 0.1, repeat: Infinity }}
-							>{char}</motion.span>
-						))}
-					</span>
-				);
-			}
-			return (
-				<motion.span
-					className={`${baseClass} text-white`}
-					animate={{ filter: ['blur(8px)', 'blur(0px)'], opacity: [0, 1] }}
-					transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2 }}
-				>{text}</motion.span>
-			);
-
-		case 'fade':
-			if (type === 'fade-letters') {
-				return (
-					<span className={`${baseClass} text-white flex`}>
-						{text.split('').map((char, i) => (
-							<motion.span
-								key={i}
-								animate={{ opacity: [0, 1] }}
-								transition={{ duration: 0.4, delay: i * 0.1, repeat: Infinity, repeatDelay: 3 }}
-							>{char}</motion.span>
-						))}
-					</span>
-				);
-			}
-			if (type === 'fade-scale') {
-				return (
-					<motion.span
-						className={`${baseClass} text-white`}
-						animate={{ opacity: [0, 1, 0], scale: [0.8, 1, 1.1] }}
-						transition={{ duration: 1.5, repeat: Infinity }}
-					>{text}</motion.span>
-				);
-			}
-			if (type === 'stagger-reveal') {
-				return (
-					<span className={`${baseClass} text-white flex`}>
-						{text.split('').map((char, i) => (
-							<motion.span
-								key={i}
-								animate={{ opacity: [0, 1], y: [20, 0] }}
-								transition={{ duration: 0.5, delay: i * 0.1, repeat: Infinity, repeatDelay: 3 }}
-							>{char}</motion.span>
-						))}
-					</span>
-				);
-			}
-			return (
-				<motion.span
-					className={`${baseClass} text-white`}
-					animate={{ opacity: [0, 1], y: [10, 0] }}
-					transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-				>{text}</motion.span>
-			);
-
-		case 'wave':
-			if (type === 'wave-color') {
-				return (
-					<span className={`${baseClass} flex`}>
-						{text.split('').map((char, i) => (
-							<motion.span
-								key={i}
-								animate={{ color: ['#B8FB3C', '#a855f7', '#06b6d4', '#B8FB3C'] }}
-								transition={{ duration: 2, delay: i * 0.15, repeat: Infinity }}
-							>{char}</motion.span>
-						))}
-					</span>
-				);
-			}
-			return (
-				<span className={`${baseClass} text-white flex`}>
-					{text.split('').map((char, i) => (
-						<motion.span
-							key={i}
-							animate={{ y: [0, -8, 4, 0] }}
-							transition={{ duration: 1.5, delay: i * 0.1, repeat: Infinity }}
-						>{char}</motion.span>
-					))}
-				</span>
-			);
-
-		case 'glitch':
-			return (
-				<motion.span
-					className={`${baseClass} text-white relative`}
-					animate={{
-						textShadow: [
-							'2px 0 #ff00c1, -2px 0 #00fff9',
-							'-2px 2px #ff00c1, 2px -2px #00fff9',
-							'2px -2px #ff00c1, -2px 2px #00fff9',
-							'-2px 0 #ff00c1, 2px 0 #00fff9',
-						],
+				<span className={`gradient-sweep ${baseClass}`}
+					style={{
+						background: 'linear-gradient(to right, #B8FB3C, #a855f7, #06b6d4)',
+						backgroundSize: '200% auto',
+						WebkitBackgroundClip: 'text',
+						WebkitTextFillColor: 'transparent',
+						animation: 'gradient-move 3s linear infinite',
 					}}
-					transition={{ duration: 3, repeat: Infinity }}
-				>{text}</motion.span>
+				>{text}</span>
 			);
-
-		case 'rotate':
-			if (type === 'rotate-letters') {
-				return (
-					<span className={`${baseClass} text-white flex`}>
-						{text.split('').map((char, i) => (
-							<motion.span
-								key={i}
-								style={{ display: 'inline-block' }}
-								animate={{ rotateY: [0, 360, 0] }}
-								transition={{ duration: 2, delay: i * 0.1, repeat: Infinity, repeatDelay: 1 }}
-							>{char}</motion.span>
-						))}
-					</span>
-				);
-			}
-			if (type === 'rotate-3d') {
-				return (
-					<motion.span
-						className={`${baseClass} text-white`}
-						style={{ display: 'inline-block' }}
-						animate={{ rotateX: [0, 180, 0] }}
-						transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-					>{text}</motion.span>
-				);
-			}
+		}
+		if (type === 'gradient-pulse') {
 			return (
-				<motion.span
-					className={`${baseClass} text-white`}
-					style={{ display: 'inline-block' }}
-					animate={{ rotate: [-180, 0], opacity: [0, 1] }}
-					transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-				>{text}</motion.span>
-			);
-
-		case 'scale':
-			if (type === 'scale-letters') {
-				return (
-					<span className={`${baseClass} text-white flex`}>
-						{text.split('').map((char, i) => (
-							<motion.span
-								key={i}
-								style={{ display: 'inline-block' }}
-								animate={{ scale: [0, 1.2, 1] }}
-								transition={{ duration: 0.5, delay: i * 0.1, repeat: Infinity, repeatDelay: 3 }}
-							>{char}</motion.span>
-						))}
-					</span>
-				);
-			}
-			if (type === 'scale-pulse') {
-				return (
-					<motion.span
-						className={`${baseClass} text-white`}
-						style={{ display: 'inline-block' }}
-						animate={{ scale: [1, 1.08, 1] }}
-						transition={{ duration: 1.5, repeat: Infinity }}
-					>{text}</motion.span>
-				);
-			}
-			if (type === 'jelly-wobble') {
-				return (
-					<motion.span
-						className={`${baseClass} text-white`}
-						style={{ display: 'inline-block' }}
-						animate={{ scaleX: [1, 0.9, 1.1, 0.95, 1], scaleY: [1, 1.1, 0.9, 1.05, 1] }}
-						transition={{ duration: 1.5, repeat: Infinity }}
-					>{text}</motion.span>
-				);
-			}
-			return (
-				<motion.span
-					className={`${baseClass} text-white`}
-					style={{ display: 'inline-block' }}
-					animate={{ scale: [0, 1], opacity: [0, 1] }}
-					transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-				>{text}</motion.span>
-			);
-
-		case 'shadow':
-			return (
-				<motion.span
-					className={`${baseClass} text-white`}
-					animate={{
-						textShadow: ['0 2px 4px rgba(0,0,0,0.2)', '0 8px 16px rgba(0,0,0,0.3)', '0 2px 4px rgba(0,0,0,0.2)'],
-						y: [0, -4, 0],
+				<span className={baseClass}
+					style={{
+						background: 'linear-gradient(90deg, #f093fb, #f5576c, #4facfe)',
+						backgroundSize: '300% 100%',
+						WebkitBackgroundClip: 'text',
+						WebkitTextFillColor: 'transparent',
+						animation: 'pulse-gradient 2s ease infinite',
 					}}
-					transition={{ duration: 2, repeat: Infinity }}
-				>{text}</motion.span>
+				>{text}</span>
 			);
-
-		case 'underline':
-			return (
-				<span className="relative inline-block">
-					<span className={`${baseClass} text-white`}>{text}</span>
-					<motion.span
-						className="absolute bottom-0 left-0 h-[3px] rounded-full"
-						style={{ background: type === 'underline-slide' ? '#a855f7' : '#B8FB3C' }}
-						animate={{ width: ['0%', '100%', '0%'] }}
-						transition={{ duration: 2, repeat: Infinity }}
-					/>
-				</span>
-			);
-
-		case 'stroke':
-			return (
-				<motion.span
-					className={`${baseClass}`}
-					style={{ WebkitTextStroke: `1px ${type === 'stroke-draw' ? '#06b6d4' : '#B8FB3C'}`, color: 'transparent' }}
-					animate={{ color: ['transparent', type === 'stroke-draw' ? '#06b6d4' : '#B8FB3C', 'transparent'] }}
-					transition={{ duration: 3, repeat: Infinity }}
-				>{text}</motion.span>
-			);
-
-		case 'morph':
-			if (type === 'scramble-shake') {
-				return (
-					<motion.span
-						className={`${baseClass} text-white`}
-						style={{ display: 'inline-block' }}
-						animate={{ x: [0, -2, 2, -1, 1, 0], y: [0, 1, -1, 2, -2, 0] }}
-						transition={{ duration: 0.3, repeat: Infinity }}
-					>{text}</motion.span>
-				);
-			}
-			return (
-				<motion.span
-					className={`${baseClass} text-white`}
-					animate={{ filter: ['blur(0px)', 'blur(2px)', 'blur(0px)', 'blur(1px)', 'blur(0px)'], scale: [1, 1.02, 0.98, 1.01, 1] }}
-					transition={{ duration: 3, repeat: Infinity }}
-				>{text}</motion.span>
-			);
-
-		default:
-			return (
-				<motion.span
-					className={`${baseClass} text-white font-mono`}
-					initial={{ width: 0 }}
-					animate={{ width: 'auto' }}
-					transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-					style={{ overflow: 'hidden', whiteSpace: 'nowrap', display: 'inline-block', borderRight: '2px solid #B8FB3C' }}
-				>{text}</motion.span>
-			);
+		}
+		return (
+			<span className={baseClass}
+				style={{
+					background: 'linear-gradient(90deg, #ff0000, #ff7700, #ffff00, #00ff00, #0077ff, #8b00ff, #ff0000)',
+					backgroundSize: '400% 100%',
+					WebkitBackgroundClip: 'text',
+					WebkitTextFillColor: 'transparent',
+					animation: 'rainbow 4s linear infinite',
+				}}
+			>{text}</span>
+		);
 	}
+
+	if (category === 'typewriter') {
+		if (type === 'typewriter-basic') {
+			return (
+				<span className={baseClass}
+					style={{
+						fontFamily: 'monospace',
+						overflow: 'hidden',
+						whiteSpace: 'nowrap',
+						borderRight: '2px solid #B8FB3C',
+						color: '#fff',
+						animation: 'typing 2s steps(11) infinite, blink 0.6s step-end infinite',
+					}}
+				>{text}</span>
+			);
+		}
+		return (
+			<span className={baseClass}
+				style={{
+					fontFamily: 'monospace',
+					overflow: 'hidden',
+					whiteSpace: 'nowrap',
+					borderRight: '2px solid #a855f7',
+					color: '#fff',
+					animation: 'type-del 4s steps(7) infinite',
+				}}
+			>{text}</span>
+		);
+	}
+
+	if (category === 'glow') {
+		const colors: Record<string, string> = {
+			'neon-glow': '#B8FB3C',
+			'glow-flicker': '#06b6d4',
+			'glow-breathe': '#a855f7',
+		};
+		return (
+			<span className={baseClass}
+				style={{
+					color: colors[type] || '#B8FB3C',
+					animation: type === 'neon-glow'
+						? 'neon-pulse 2s ease-in-out infinite'
+						: type === 'glow-flicker'
+							? 'flicker 3s linear infinite'
+							: 'breathe 3s ease-in-out infinite',
+				}}
+			>{text}</span>
+		);
+	}
+
+	if (category === 'bounce') {
+		if (type === 'bounce-letters') {
+			return (
+				<span className={`${baseClass} text-[#B8FB3C]`} style={{ display: 'inline-flex', gap: 1 }}>
+					{text.split('').map((c, i) => (
+						<span key={i} style={{ display: 'inline-block', animation: `bounce-up 0.6s ease ${i * 0.08}s infinite` }}>{c}</span>
+					))}
+				</span>
+			);
+		}
+		return (
+			<span className={`${baseClass} text-[#B8FB3C]`} style={{ display: 'inline-block', animation: 'pop-bounce 1s ease infinite' }}>{text}</span>
+		);
+	}
+
+	if (category === 'blur') {
+		return (
+			<span className={`${baseClass} text-white`} style={{ animation: 'blur-focus 1.2s ease infinite' }}>{text}</span>
+		);
+	}
+
+	if (category === 'fade') {
+		if (type === 'fade-letters' || type === 'stagger-reveal') {
+			return (
+				<span className={`${baseClass} text-[#B8FB3C]`} style={{ display: 'inline-flex', gap: 1 }}>
+					{text.split('').map((c, i) => (
+						<span key={i} style={{ opacity: 0, animation: `letter-fade 0.4s ease ${i * 0.1}s infinite forwards` }}>{c}</span>
+					))}
+				</span>
+			);
+		}
+		return <span className={`${baseClass} text-white`} style={{ animation: 'fade-appear 1s ease forwards' }}>{text}</span>;
+	}
+
+	if (category === 'wave') {
+		return (
+			<span className={`${baseClass} text-[#B8FB3C]`} style={{ display: 'inline-flex' }}>
+				{text.split('').map((c, i) => (
+					<span key={i} style={{ display: 'inline-block', animation: `wave 1.5s ease-in-out ${i * 0.1}s infinite` }}>{c}</span>
+				))}
+			</span>
+		);
+	}
+
+	if (category === 'glitch') {
+		return (
+			<span className={`${baseClass} text-white`} style={{ position: 'relative', animation: 'distort 3s infinite' }}>
+				{text}
+			</span>
+		);
+	}
+
+	if (category === 'rotate') {
+		return (
+			<span className={`${baseClass} text-[#a855f7]`} style={{ display: 'inline-block', animation: 'rotate-enter 1s ease infinite' }}>{text}</span>
+		);
+	}
+
+	if (category === 'scale') {
+		if (type === 'scale-letters' || type === 'jelly-wobble') {
+			return (
+				<span className={`${baseClass} text-[#B8FB3C]`} style={{ display: 'inline-block', animation: 'jelly 1.5s ease infinite' }}>{text}</span>
+			);
+		}
+		return <span className={`${baseClass} text-[#B8FB3C]`} style={{ display: 'inline-block', animation: 'pulse-scale 1.5s ease infinite' }}>{text}</span>;
+	}
+
+	if (category === 'shadow') {
+		return <span className={`${baseClass} text-white`} style={{ animation: 'lift-shadow 2s ease infinite' }}>{text}</span>;
+	}
+
+	if (category === 'underline') {
+		return (
+			<span className={`${baseClass} text-white`} style={{ position: 'relative', display: 'inline-block' }}>
+				{text}
+				<span style={{ position: 'absolute', bottom: -4, left: 0, height: 2, background: '#B8FB3C', animation: 'grow-line 2s ease infinite', width: 0 }} />
+			</span>
+		);
+	}
+
+	if (category === 'stroke') {
+		return (
+			<span className={`${baseClass}`}
+				style={{
+					WebkitTextStroke: '1px #B8FB3C',
+					color: 'transparent',
+					animation: 'fill-stroke 3s ease infinite',
+				}}
+			>{text}</span>
+		);
+	}
+
+	if (category === 'morph') {
+		return (
+			<span className={`${baseClass} text-white`} style={{ display: 'inline-block', animation: 'morph-anim 3s ease infinite' }}>{text}</span>
+		);
+	}
+
+	if (category === 'slide') {
+		return (
+			<span className={`${baseClass} text-white`} style={{ display: 'inline-block', animation: 'slide-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite' }}>{text}</span>
+		);
+	}
+
+	return <span className={`${baseClass} text-white`}>{text}</span>;
 }
