@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { geistMono, poppins } from "../utils/fonts";
 import '@/styles/globals.css';
 import WebLayout from "@/layouts/webLayout";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -23,6 +25,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <WebLayout>
                 <Component {...pageProps} />
             </WebLayout>
+            <Analytics />
+            <SpeedInsights />
         </div>
     );
 }
