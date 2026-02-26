@@ -90,7 +90,7 @@ export default function Disclaimer() {
 					<Section title="6. Contact">
 						<p>If you spot inaccurate content or have concerns about anything on UIXplor, please let us know:</p>
 						<div className="mt-3 p-4 rounded-xl bg-white/3 border border-white/6">
-							<p className="text-sm text-[#B8FB3C]">hello@uixplor.com</p>
+							<p className="text-sm text-[#B8FB3C]">uixplor@gmail.com</p>
 						</div>
 					</Section>
 

@@ -17,11 +17,11 @@ const faqs = [
 	},
 	{
 		q: 'Do you take feature requests or content suggestions?',
-		a: 'We love hearing from the community. Send your suggestions to hello@uixplor.com and we review all feedback when planning new collections or blog posts.',
+		a: 'We love hearing from the community. Send your suggestions to uixplor@gmail.com and we review all feedback when planning new collections or blog posts.',
 	},
 	{
 		q: 'I found a bug — how do I report it?',
-		a: 'Email us at hello@uixplor.com with a description of the issue, the page URL, and your browser/OS. Screenshots are always helpful.',
+		a: 'Email us at uixplor@gmail.com with a description of the issue, the page URL, and your browser/OS. Screenshots are always helpful.',
 	},
 	{
 		q: 'Can I contribute a snippet or article?',
@@ -69,7 +69,7 @@ export default function Contact() {
 									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
 								),
 								title: 'General Enquiries',
-								value: 'hello@uixplor.com',
+								value: 'uixplor@gmail.com',
 								desc: 'Feedback, questions, suggestions',
 							},
 							{
@@ -77,7 +77,7 @@ export default function Contact() {
 									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
 								),
 								title: 'Bug Reports',
-								value: 'hello@uixplor.com',
+								value: 'uixplor@gmail.com',
 								desc: 'Include browser, OS & URL',
 							},
 							{
@@ -85,7 +85,7 @@ export default function Contact() {
 									<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
 								),
 								title: 'Partnerships',
-								value: 'hello@uixplor.com',
+								value: 'uixplor@gmail.com',
 								desc: 'Collaborations & sponsorships',
 							},
 						].map(c => (
@@ -141,7 +141,7 @@ export default function Contact() {
 					<motion.div className="mt-14 text-center p-8 rounded-2xl bg-white/2 border border-white/5" {...fadeUp(0.3)}>
 						<p className="text-white/50 text-sm mb-4">Couldn&apos;t find the answer you were looking for?</p>
 						<a
-							href="mailto:hello@uixplor.com"
+							href="mailto:uixplor@gmail.com"
 							className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#B8FB3C] text-[#0a0a0f] font-semibold text-sm hover:shadow-[0_0_24px_rgba(184,251,60,0.25)] transition-all"
 						>
 							<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>

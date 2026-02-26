@@ -135,7 +135,7 @@ export default function Cookies() {
 					<Section title="6. Contact">
 						<p>Questions about our use of cookies?</p>
 						<div className="mt-3 p-4 rounded-xl bg-white/3 border border-white/6">
-							<p className="text-sm text-[#B8FB3C]">hello@uixplor.com</p>
+							<p className="text-sm text-[#B8FB3C]">uixplor@gmail.com</p>
 						</div>
 					</Section>
 

@@ -93,7 +93,7 @@ export default function AcceptableUse() {
 					</Section>
 
 					<Section title="4. Security & Integrity">
-						<p>We take the security of UIXplor and its users seriously. If you discover a security vulnerability in our platform, please <strong className="text-white/80">do not exploit it</strong>. Instead, contact us at <span className="text-[#B8FB3C]">hello@uixplor.com</span> with a responsible disclosure.</p>
+						<p>We take the security of UIXplor and its users seriously. If you discover a security vulnerability in our platform, please <strong className="text-white/80">do not exploit it</strong>. Instead, contact us at <span className="text-[#B8FB3C]">uixplor@gmail.com</span> with a responsible disclosure.</p>
 						<p>We appreciate good-faith security research and will acknowledge contributors who help us improve our security posture.</p>
 					</Section>
 
@@ -111,7 +111,7 @@ export default function AcceptableUse() {
 						<p>To report abuse, security issues, or policy concerns:</p>
 						<div className="mt-3 p-4 rounded-xl bg-white/3 border border-white/6">
 							<p className="text-sm font-semibold text-white/70 mb-1">Report Abuse</p>
-							<p className="text-sm text-[#B8FB3C]">hello@uixplor.com</p>
+							<p className="text-sm text-[#B8FB3C]">uixplor@gmail.com</p>
 							<p className="text-xs text-white/35 mt-1">Include as much detail as possible. We take all reports seriously.</p>
 						</div>
 					</Section>

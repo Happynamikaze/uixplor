@@ -138,7 +138,7 @@ export default function Privacy() {
 						<p>If you have any questions or concerns about this Privacy Policy, please reach out:</p>
 						<div className="mt-3 p-4 rounded-xl bg-white/3 border border-white/6">
 							<p className="text-white/70 font-semibold text-sm">UIXplor Team</p>
-							<p className="text-sm text-[#B8FB3C] mt-1">hello@uixplor.com</p>
+							<p className="text-sm text-[#B8FB3C] mt-1">uixplor@gmail.com</p>
 							<p className="text-xs text-white/35 mt-1">We aim to respond within 3–5 business days.</p>
 						</div>
 					</Section>
