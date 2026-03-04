@@ -211,8 +211,7 @@ export default function Header() {
                                     backgroundColor: menuOpen ? '#ffffff' : accentColor,
                                     color: '#0a0a0f',
                                 }}
-                            >
-                                {/* Hamburger / Close icon */}
+                            > 
                                 <div className="w-3.5 h-3 relative flex flex-col justify-between">
                                     <span
                                         className={`block h-[2px] rounded-full bg-[#0a0a0f] transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-[5px]' : ''

@@ -47,6 +47,31 @@ const collections = [
 		id: 'microinteractions', title: 'Microinteractions', description: 'Small moments that make your UI feel alive', count: 15, href: '/collections/microinteractions',
 		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>),
 	},
+	// ─── NEW COLLECTIONS ────────────────────────────────────────────────────────
+	{
+		id: 'navigation', title: 'Navigation', description: 'Navbars, sidebars, breadcrumbs, tabs & pagination', count: 20, href: '/collections/navigation',
+		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h7" /></svg>),
+	},
+	{
+		id: 'layouts', title: 'Layout Sections', description: 'Hero sections, pricing tables, testimonials, FAQs and CTAs', count: 10, href: '/collections/layouts',
+		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>),
+	},
+	{
+		id: 'forms-advanced', title: 'Advanced Forms', description: 'Floating labels, file upload, multi-step wizards & dropdowns', count: 10, href: '/collections/forms-advanced',
+		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>),
+	},
+	{
+		id: 'feedback', title: 'UI Feedback', description: 'Toasts, alerts, snackbars, progress bars & empty states', count: 19, href: '/collections/feedback',
+		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>),
+	},
+	{
+		id: 'dashboard', title: 'Dashboard', description: 'Stat cards, activity feeds, data tables & admin panels', count: 11, href: '/collections/dashboard',
+		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>),
+	},
+	{
+		id: 'dark-mode', title: 'Dark Mode', description: 'Dark cards, buttons, navbars, forms & glass components', count: 12, href: '/collections/dark-mode',
+		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>),
+	},
 ];
 
 
@@ -55,17 +80,18 @@ export default function Collections() {
 	return (
 		<>
 			<PageSEO
-				title="CSS UI Collections – Copy-Paste Snippets & Components – UIXplor"
-				description="Browse 10 curated CSS UI collections — box shadows, button styles, glassmorphism, hover effects, loaders, gradients and more. Free copy-paste snippets for developers."
+				title="CSS UI Collections – 450+ Copy-Paste Components & Snippets – UIXplor"
+				description="Browse 16 curated CSS UI collections — box shadows, buttons, glassmorphism, navbars, dashboard components, dark mode, advanced forms, feedback UI and more. Free copy-paste snippets for developers."
 				path="/collections"
-				keywords={['CSS UI components', 'copy paste CSS', 'CSS snippets', 'UI design inspiration', 'CSS examples', 'web design components', 'CSS component library']}
+				keywords={['CSS UI components', 'copy paste CSS', 'CSS snippets', 'UI design inspiration', 'CSS examples', 'web design components', 'CSS component library', 'CSS navigation', 'CSS dashboard', 'dark mode CSS']}
 				jsonLd={[
 					{
 						'@context': 'https://schema.org',
 						'@type': 'CollectionPage',
 						name: 'CSS UI Collections – UIXplor',
-						description: 'Browse 10 curated CSS UI element collections including box shadows, buttons, glassmorphism, hover effects, loaders, gradients, inputs, and text animations.',
+						description: 'Browse 16 curated CSS UI element collections including box shadows, buttons, glassmorphism, navigation, dashboard components, advanced forms, UI feedback, and dark mode components.',
 						url: 'https://uixplor.com/collections',
+						numberOfItems: 16,
 						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
 					},
 					{
@@ -97,7 +123,7 @@ export default function Collections() {
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: 0.1 }}
 						>
-							Curated UI elements, ready to copy and use
+							450+ curated UI elements, ready to copy and use
 						</motion.p>
 					</div>
 
@@ -108,7 +134,7 @@ export default function Collections() {
 								key={collection.id}
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
+								transition={{ duration: 0.5, delay: index * 0.06 }}
 							>
 								<Link href={collection.href}>
 									<div className="relative group h-52 sm:h-60 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 bg-white/3 border border-white/6 hover:border-[#B8FB3C]/40 hover:shadow-[0_0_40px_rgba(184,251,60,0.08)]">

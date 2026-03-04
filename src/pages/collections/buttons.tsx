@@ -1,9 +1,24 @@
 import PageSEO from '@/components/seo/PageSEO';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import buttons from '../../../data/buttons.json';
 import CodeViewerOverlay, { type CodeSection } from '@/components/ui/CodeViewerOverlay';
+
+const CATEGORIES = [
+	{ key: 'all', label: 'All' },
+	{ key: 'classic', label: 'Classic' },
+	{ key: 'gradient', label: 'Gradient' },
+	{ key: 'neon', label: 'Neon' },
+	{ key: 'glass', label: 'Glass' },
+	{ key: '3d', label: '3D Press' },
+	{ key: 'animated', label: 'Animated' },
+	{ key: 'minimal', label: 'Minimal' },
+	{ key: 'outline', label: 'Outline' },
+	{ key: 'shadow', label: 'Shadow Lift' },
+	{ key: 'dark', label: 'Dark' },
+	{ key: 'brutalist', label: 'Brutalist' },
+];
 
 /** Extract a single CSS property value from a full CSS block */
 function extractCssProp(css: string, prop: string): string {
@@ -12,7 +27,7 @@ function extractCssProp(css: string, prop: string): string {
 	return m ? m[1].trim() : '';
 }
 
-/** Build inline preview style from button CSS — strips height so it doesn't render as a plain rectangle */
+/** Build inline preview style from button CSS */
 function buildPreviewStyle(css: string): React.CSSProperties {
 	const bg = extractCssProp(css, 'background(?:-color)?');
 	const color = extractCssProp(css, '^\\s*color');
@@ -37,7 +52,6 @@ function buildPreviewStyle(css: string): React.CSSProperties {
 		transition: 'all 0.25s ease',
 		display: 'inline-block',
 		fontFamily: 'inherit',
-		// Never extract height — keeps buttons as text-pill shapes not rectangles
 	};
 }
 
@@ -74,7 +88,7 @@ function ButtonPreview({ css }: { css: string }) {
 		bgStr.includes('#fef') ||
 		bgStr.includes('#e8') ||
 		bgStr.includes('#faf') ||
-		bgStr === 'transparent' && (baseStyle.color || '').toString().includes('#');
+		(bgStr === 'transparent' && (baseStyle.color || '').toString().includes('#'));
 
 	return {
 		isLight, node: (
@@ -101,21 +115,33 @@ function buildSections(btn: typeof buttons[number]): CodeSection[] {
 
 export default function Buttons() {
 	const [selectedBtn, setSelectedBtn] = useState<typeof buttons[number] | null>(null);
+	const [activeCategory, setActiveCategory] = useState('all');
+	const [search, setSearch] = useState('');
+
+	const filtered = useMemo(() => {
+		let result = activeCategory === 'all' ? buttons : buttons.filter((b) => (b as any).category === activeCategory);
+		if (search.trim()) {
+			const q = search.toLowerCase();
+			result = result.filter((b) => b.name.toLowerCase().includes(q) || ((b as any).category || '').toLowerCase().includes(q));
+		}
+		return result;
+	}, [activeCategory, search]);
 
 	return (
 		<>
 			<PageSEO
-				title="CSS Button Styles – 15 Modern UI Button Examples – UIXplor"
-				description="15 premium CSS button styles with hover states and animations. From minimalist to neon, gradient to glass — copy any button instantly for your web project."
+				title={`CSS Button Styles – ${buttons.length} Modern UI Button Examples – UIXplor`}
+				description={`${buttons.length} premium CSS button styles with hover states and animations. From minimalist to neon, gradient to glass, 3D press to brutalist — copy any button instantly.`}
 				path="/collections/buttons"
-				keywords={['CSS button styles', 'modern UI buttons', 'button design CSS', 'hover button effects', 'CSS button examples', 'copy paste button CSS', 'web UI buttons']}
+				keywords={['CSS button styles', 'modern UI buttons', 'button design CSS', 'hover button effects', 'CSS button examples', 'copy paste button CSS', 'neon button CSS', 'glass button CSS', '3D button CSS', 'animated button CSS']}
 				jsonLd={[
 					{
 						'@context': 'https://schema.org',
 						'@type': 'CollectionPage',
 						name: 'CSS Buttons Collection – UIXplor',
-						description: '15 premium CSS button styles including gradient, glass, neon, and animated buttons with hover effects.',
+						description: `${buttons.length} premium CSS button styles including gradient, glass, neon, 3D, animated and brutalist buttons with hover effects.`,
 						url: 'https://uixplor.com/collections/buttons',
+						numberOfItems: buttons.length,
 						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
 					},
 					{
@@ -145,14 +171,17 @@ export default function Buttons() {
 
 					{/* Hero */}
 					<motion.div
-						className="text-center mb-12"
+						className="text-center mb-10"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
 					>
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">CSS Buttons</h1>
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
+							CSS Buttons{' '}
+							<span className="text-purple-400">Copy &amp; Paste</span>
+						</h1>
 						<p className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto mb-6">
-							Premium button styles — click any card to view &amp; copy the full CSS.
+							{buttons.length} premium button styles — neon, glass, 3D, animated, gradient &amp; more. Click any card to view &amp; copy the full CSS.
 						</p>
 						<span className="inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium text-purple-400 bg-purple-500/10 rounded-full border border-purple-500/20">
 							<span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
@@ -160,17 +189,65 @@ export default function Buttons() {
 						</span>
 					</motion.div>
 
+					{/* Search */}
+					<div className="mb-6 max-w-md mx-auto">
+						<div className="relative">
+							<svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+							</svg>
+							<input
+								type="search"
+								placeholder="Search buttons…"
+								value={search}
+								onChange={(e) => setSearch(e.target.value)}
+								className="w-full bg-white/5 border border-white/8 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-400/40 transition-all"
+							/>
+							{search && (
+								<button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60 transition-colors">
+									✕
+								</button>
+							)}
+						</div>
+					</div>
+
+					{/* Category Filters */}
+					<div className="flex flex-wrap gap-2 mb-10 justify-center" role="group" aria-label="Filter buttons by category">
+						{CATEGORIES.map((cat) => {
+							const isActive = activeCategory === cat.key;
+							const count = cat.key === 'all'
+								? buttons.length
+								: buttons.filter((b) => (b as any).category === cat.key).length;
+							return (
+								<button
+									key={cat.key}
+									onClick={() => setActiveCategory(cat.key)}
+									aria-pressed={isActive}
+									className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-[72px] ${isActive
+										? 'bg-purple-500 text-white'
+										: 'bg-white/4 text-white/60 hover:bg-white/8 hover:text-white border border-white/6'
+										}`}
+								>
+									{cat.label}
+									<span className={`ml-1.5 text-xs ${isActive ? 'text-white/70' : 'text-white/30'}`}>
+										{count}
+									</span>
+								</button>
+							);
+						})}
+					</div>
+
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-						{buttons.map((btn, index) => {
+						{filtered.map((btn, index) => {
 							const preview = ButtonPreview({ css: btn.css });
 							const isLight = preview.isLight;
+							const category = (btn as any).category || 'classic';
 							return (
 								<motion.div
 									key={btn.id}
 									initial={{ opacity: 0, y: 20 }}
 									whileInView={{ opacity: 1, y: 0 }}
 									viewport={{ once: true }}
-									transition={{ duration: 0.4, delay: index * 0.03 }}
+									transition={{ duration: 0.4, delay: index * 0.02 }}
 								>
 									<div className={`rounded-2xl overflow-hidden h-full transition-all duration-300 border ${isLight
 										? 'bg-white border-gray-200/60 hover:border-gray-300'
@@ -186,8 +263,8 @@ export default function Buttons() {
 												<span className={`text-xs font-medium truncate block ${isLight ? 'text-gray-600' : 'text-white/60'}`}>
 													{btn.name}
 												</span>
-												<span className={`text-[10px] ${isLight ? 'text-gray-400' : 'text-white/25'}`}>
-													{btn.credits}
+												<span className={`text-[10px] uppercase tracking-wider ${isLight ? 'text-gray-400' : 'text-white/25'}`}>
+													{category}
 												</span>
 											</div>
 											<button
@@ -205,6 +282,13 @@ export default function Buttons() {
 							);
 						})}
 					</div>
+
+					{filtered.length === 0 && (
+						<div className="text-center py-20" role="status">
+							<p className="text-white/40 mb-2">No buttons found.</p>
+							{search && <button onClick={() => setSearch('')} className="text-purple-400 text-sm underline">Clear search</button>}
+						</div>
+					)}
 				</div>
 			</main>
 

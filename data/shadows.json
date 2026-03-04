@@ -1,43 +1,43 @@
 [
 	{
 		"id": "shadow-xs",
-		"name": "Extra Small",
+		"name": "Extra Small Token",
 		"css": "box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);",
 		"category": "token"
 	},
 	{
 		"id": "shadow-sm",
-		"name": "Small",
+		"name": "Small Token",
 		"css": "box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.03);",
 		"category": "token"
 	},
 	{
 		"id": "shadow-md",
-		"name": "Medium",
+		"name": "Medium Token",
 		"css": "box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 6px 20px rgba(0, 0, 0, 0.05);",
 		"category": "token"
 	},
 	{
 		"id": "shadow-lg",
-		"name": "Large",
+		"name": "Large Token",
 		"css": "box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06);",
 		"category": "token"
 	},
 	{
 		"id": "shadow-xl",
-		"name": "Extra Large",
+		"name": "Extra Large Token",
 		"css": "box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04), 0 20px 60px rgba(0, 0, 0, 0.08);",
 		"category": "token"
 	},
 	{
-		"id": "shadow-glow-soft",
-		"name": "Soft Glow",
-		"css": "box-shadow: 0 0 20px rgba(0, 0, 0, 0.03), 0 0 60px rgba(0, 0, 0, 0.02);",
+		"id": "shadow-2xl",
+		"name": "2XL Token",
+		"css": "box-shadow: 0 16px 32px rgba(0, 0, 0, 0.05), 0 40px 100px rgba(0, 0, 0, 0.10);",
 		"category": "token"
 	},
 	{
-		"id": "shadow-inset-soft",
-		"name": "Inset Soft",
+		"id": "shadow-inset-token",
+		"name": "Inset Token",
 		"css": "box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(0, 0, 0, 0.02);",
 		"category": "token"
 	},
@@ -48,153 +48,555 @@
 		"category": "soft"
 	},
 	{
-		"id": "soft-cloud-2",
+		"id": "soft-mist",
 		"name": "Mist Rise",
 		"css": "box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03), 0 10px 32px rgba(0, 0, 0, 0.05);",
 		"category": "soft"
 	},
 	{
-		"id": "soft-cloud-3",
+		"id": "soft-feather",
 		"name": "Feather Float",
 		"css": "box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 3px 10px rgba(0, 0, 0, 0.03), 0 8px 28px rgba(0, 0, 0, 0.04);",
 		"category": "soft"
 	},
 	{
-		"id": "soft-cloud-4",
+		"id": "soft-silk",
 		"name": "Silk Drape",
 		"css": "box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 6px 18px rgba(0, 0, 0, 0.04), 0 16px 48px rgba(0, 0, 0, 0.03);",
 		"category": "soft"
 	},
 	{
-		"id": "soft-cloud-5",
+		"id": "soft-petal",
 		"name": "Petal Whisper",
 		"css": "box-shadow: 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 14px rgba(0, 0, 0, 0.06);",
 		"category": "soft"
 	},
 	{
-		"id": "layered-depth-1",
+		"id": "soft-balloon",
+		"name": "Balloon Rise",
+		"css": "box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 2px 8px rgba(0, 0, 0, 0.035), 0 12px 36px rgba(0, 0, 0, 0.035);",
+		"category": "soft"
+	},
+	{
+		"id": "soft-pillow",
+		"name": "Pillow Soft",
+		"css": "box-shadow: 0 1px 1px rgba(0, 0, 0, 0.02), 0 4px 6px rgba(0, 0, 0, 0.025), 0 10px 20px rgba(0, 0, 0, 0.03);",
+		"category": "soft"
+	},
+	{
+		"id": "soft-whisp",
+		"name": "Whisper Card",
+		"css": "box-shadow: 0 0 2px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.05);",
+		"category": "soft"
+	},
+	{
+		"id": "layered-stacked-glass",
 		"name": "Stacked Glass",
 		"css": "box-shadow: 0 1px 1px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03);",
 		"category": "layered"
 	},
 	{
-		"id": "layered-depth-2",
+		"id": "layered-cascading",
 		"name": "Cascading Veil",
 		"css": "box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 0, 0, 0.03), 0 12px 32px rgba(0, 0, 0, 0.04);",
 		"category": "layered"
 	},
 	{
-		"id": "layered-depth-3",
+		"id": "layered-frosted",
 		"name": "Frosted Layers",
 		"css": "box-shadow: 0 0 2px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.03), 0 6px 12px rgba(0, 0, 0, 0.04), 0 16px 40px rgba(0, 0, 0, 0.05);",
 		"category": "layered"
 	},
 	{
-		"id": "layered-depth-4",
+		"id": "layered-prism",
 		"name": "Prism Fold",
 		"css": "box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.04), 0 12px 36px rgba(0, 0, 0, 0.05), 0 24px 64px rgba(0, 0, 0, 0.03);",
 		"category": "layered"
 	},
 	{
-		"id": "layered-depth-5",
+		"id": "layered-velvet",
 		"name": "Velvet Stack",
 		"css": "box-shadow: 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03), 0 4px 10px rgba(0, 0, 0, 0.04), 0 10px 24px rgba(0, 0, 0, 0.05);",
 		"category": "layered"
 	},
 	{
-		"id": "deep-elevation-1",
+		"id": "layered-cinematic",
+		"name": "Cinematic Depth",
+		"css": "box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 8px 20px rgba(0, 0, 0, 0.06), 0 20px 48px rgba(0, 0, 0, 0.04), 0 40px 80px rgba(0, 0, 0, 0.02);",
+		"category": "layered"
+	},
+	{
+		"id": "layered-fine",
+		"name": "Fine Grain",
+		"css": "box-shadow: 0 1px 1px rgba(0,0,0,0.025), 0 2px 2px rgba(0,0,0,0.025), 0 4px 4px rgba(0,0,0,0.025), 0 8px 8px rgba(0,0,0,0.025), 0 16px 16px rgba(0,0,0,0.025);",
+		"category": "layered"
+	},
+	{
+		"id": "deep-canyon",
 		"name": "Canyon Drop",
 		"css": "box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05), 0 20px 56px rgba(0, 0, 0, 0.08);",
 		"category": "deep"
 	},
 	{
-		"id": "deep-elevation-2",
+		"id": "deep-abyss",
 		"name": "Abyss Float",
 		"css": "box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06), 0 32px 80px rgba(0, 0, 0, 0.1);",
 		"category": "deep"
 	},
 	{
-		"id": "deep-elevation-3",
+		"id": "deep-horizon",
 		"name": "Horizon Drift",
 		"css": "box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 24px 64px rgba(0, 0, 0, 0.07), 0 40px 100px rgba(0, 0, 0, 0.04);",
 		"category": "deep"
 	},
 	{
-		"id": "deep-elevation-4",
+		"id": "deep-summit",
 		"name": "Summit Glow",
 		"css": "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03), 0 12px 28px rgba(0, 0, 0, 0.06), 0 28px 72px rgba(0, 0, 0, 0.08);",
 		"category": "deep"
 	},
 	{
-		"id": "neu-soft-1",
+		"id": "deep-monument",
+		"name": "Monument Rise",
+		"css": "box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08), 0 40px 100px rgba(0, 0, 0, 0.12);",
+		"category": "deep"
+	},
+	{
+		"id": "neu-clay",
 		"name": "Clay Press",
 		"css": "box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.06), -6px -6px 16px rgba(255, 255, 255, 0.8);",
 		"category": "neumorphic"
 	},
 	{
-		"id": "neu-soft-2",
+		"id": "neu-dough",
 		"name": "Dough Push",
 		"css": "box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05), -4px -4px 12px rgba(255, 255, 255, 0.9);",
 		"category": "neumorphic"
 	},
 	{
-		"id": "neu-soft-3",
+		"id": "neu-marble",
 		"name": "Marble Indent",
 		"css": "box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.07), -8px -8px 20px rgba(255, 255, 255, 0.7);",
 		"category": "neumorphic"
 	},
 	{
-		"id": "neu-soft-4",
+		"id": "neu-paper",
 		"name": "Paper Emboss",
 		"css": "box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.04), -3px -3px 8px rgba(255, 255, 255, 0.95);",
 		"category": "neumorphic"
 	},
 	{
-		"id": "glow-soft-1",
+		"id": "neu-concave",
+		"name": "Concave Well",
+		"css": "box-shadow: inset 5px 5px 12px rgba(0, 0, 0, 0.08), inset -5px -5px 12px rgba(255, 255, 255, 0.75);",
+		"category": "neumorphic"
+	},
+	{
+		"id": "neu-pressed",
+		"name": "Pressed Button",
+		"css": "box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.06), inset -3px -3px 8px rgba(255, 255, 255, 0.85);",
+		"category": "neumorphic"
+	},
+	{
+		"id": "neu-flat",
+		"name": "Flat Neu",
+		"css": "box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.04), -2px -2px 6px rgba(255, 255, 255, 1);",
+		"category": "neumorphic"
+	},
+	{
+		"id": "glow-moonlit",
 		"name": "Moonlit Ring",
 		"css": "box-shadow: 0 0 16px rgba(0, 0, 0, 0.03), 0 0 48px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.04);",
 		"category": "glow"
 	},
 	{
-		"id": "glow-soft-2",
+		"id": "glow-halo",
 		"name": "Halo Bloom",
 		"css": "box-shadow: 0 0 8px rgba(0, 0, 0, 0.02), 0 0 32px rgba(0, 0, 0, 0.03), 0 0 64px rgba(0, 0, 0, 0.01);",
 		"category": "glow"
 	},
 	{
-		"id": "glow-soft-3",
+		"id": "glow-aurora",
 		"name": "Aurora Veil",
-		"css": "box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 0 40px rgba(100, 120, 200, 0.04), 0 0 80px rgba(100, 120, 200, 0.02);",
+		"css": "box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 0 40px rgba(100, 120, 200, 0.12), 0 0 80px rgba(100, 120, 200, 0.06);",
 		"category": "glow"
 	},
 	{
-		"id": "glow-soft-4",
-		"name": "Polar Gleam",
-		"css": "box-shadow: 0 0 12px rgba(0, 0, 0, 0.02), 0 4px 20px rgba(0, 0, 0, 0.04), 0 0 56px rgba(80, 100, 180, 0.03);",
+		"id": "glow-violet",
+		"name": "Violet Pulse",
+		"css": "box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 60px rgba(139, 92, 246, 0.15), 0 4px 16px rgba(0, 0, 0, 0.2);",
 		"category": "glow"
 	},
 	{
-		"id": "inset-soft-1",
+		"id": "glow-cyan",
+		"name": "Cyan Neon",
+		"css": "box-shadow: 0 0 15px rgba(6, 182, 212, 0.4), 0 0 50px rgba(6, 182, 212, 0.2), 0 4px 12px rgba(0, 0, 0, 0.25);",
+		"category": "glow"
+	},
+	{
+		"id": "glow-rose",
+		"name": "Rose Flare",
+		"css": "box-shadow: 0 0 20px rgba(244, 63, 94, 0.35), 0 0 55px rgba(244, 63, 94, 0.18), 0 4px 14px rgba(0, 0, 0, 0.2);",
+		"category": "glow"
+	},
+	{
+		"id": "glow-emerald",
+		"name": "Emerald Shine",
+		"css": "box-shadow: 0 0 18px rgba(16, 185, 129, 0.35), 0 0 48px rgba(16, 185, 129, 0.15), 0 4px 12px rgba(0, 0, 0, 0.2);",
+		"category": "glow"
+	},
+	{
+		"id": "glow-amber",
+		"name": "Amber Beacon",
+		"css": "box-shadow: 0 0 22px rgba(245, 158, 11, 0.4), 0 0 60px rgba(245, 158, 11, 0.2), 0 4px 14px rgba(0, 0, 0, 0.2);",
+		"category": "glow"
+	},
+	{
+		"id": "glow-blue",
+		"name": "Electric Blue",
+		"css": "box-shadow: 0 0 25px rgba(59, 130, 246, 0.45), 0 0 70px rgba(59, 130, 246, 0.2), 0 6px 18px rgba(0, 0, 0, 0.3);",
+		"category": "glow"
+	},
+	{
+		"id": "glow-white",
+		"name": "White Halo",
+		"css": "box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.07), 0 4px 12px rgba(0, 0, 0, 0.3);",
+		"category": "glow"
+	},
+	{
+		"id": "inset-carved",
 		"name": "Carved Basin",
 		"css": "box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 2px rgba(0, 0, 0, 0.06);",
 		"category": "inset"
 	},
 	{
-		"id": "inset-soft-2",
+		"id": "inset-linen",
 		"name": "Pressed Linen",
 		"css": "box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.03), inset 0 4px 16px rgba(0, 0, 0, 0.04);",
 		"category": "inset"
 	},
 	{
-		"id": "inset-soft-3",
+		"id": "inset-sunken",
 		"name": "Sunken Silk",
 		"css": "box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.03);",
 		"category": "inset"
 	},
 	{
-		"id": "inset-soft-4",
-		"name": "Inner Glow",
-		"css": "box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.03), inset 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);",
+		"id": "inset-deep",
+		"name": "Deep Indent",
+		"css": "box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.4);",
 		"category": "inset"
+	},
+	{
+		"id": "inset-groove",
+		"name": "Groove Cut",
+		"css": "box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 6px 20px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(0, 0, 0, 0.04);",
+		"category": "inset"
+	},
+	{
+		"id": "colored-indigo",
+		"name": "Indigo Lift",
+		"css": "box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25), 0 12px 36px rgba(99, 102, 241, 0.12);",
+		"category": "colored"
+	},
+	{
+		"id": "colored-purple",
+		"name": "Purple Depth",
+		"css": "box-shadow: 0 4px 14px rgba(168, 85, 247, 0.25), 0 12px 36px rgba(168, 85, 247, 0.12);",
+		"category": "colored"
+	},
+	{
+		"id": "colored-blue",
+		"name": "Ocean Plunge",
+		"css": "box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3), 0 16px 48px rgba(59, 130, 246, 0.12);",
+		"category": "colored"
+	},
+	{
+		"id": "colored-teal",
+		"name": "Teal Shift",
+		"css": "box-shadow: 0 4px 14px rgba(20, 184, 166, 0.28), 0 14px 40px rgba(20, 184, 166, 0.12);",
+		"category": "colored"
+	},
+	{
+		"id": "colored-orange",
+		"name": "Sunset Pop",
+		"css": "box-shadow: 0 4px 14px rgba(249, 115, 22, 0.28), 0 12px 36px rgba(249, 115, 22, 0.12);",
+		"category": "colored"
+	},
+	{
+		"id": "colored-rose",
+		"name": "Rose Blush",
+		"css": "box-shadow: 0 4px 14px rgba(244, 63, 94, 0.25), 0 14px 40px rgba(244, 63, 94, 0.1);",
+		"category": "colored"
+	},
+	{
+		"id": "colored-green",
+		"name": "Mint Fresh",
+		"css": "box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25), 0 12px 36px rgba(34, 197, 94, 0.1);",
+		"category": "colored"
+	},
+	{
+		"id": "colored-split",
+		"name": "Duo Chrome",
+		"css": "box-shadow: -4px 4px 18px rgba(99, 102, 241, 0.25), 4px -4px 18px rgba(244, 63, 94, 0.2);",
+		"category": "colored"
+	},
+	{
+		"id": "glassmorphism-frost",
+		"name": "Frost Panel",
+		"css": "box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(255, 255, 255, 0.1);",
+		"category": "glassmorphism"
+	},
+	{
+		"id": "glassmorphism-crystal",
+		"name": "Crystal Card",
+		"css": "box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.7), inset 0 -1px 1px rgba(255, 255, 255, 0.2);",
+		"category": "glassmorphism"
+	},
+	{
+		"id": "glassmorphism-lunar",
+		"name": "Lunar Glass",
+		"css": "box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.8);",
+		"category": "glassmorphism"
+	},
+	{
+		"id": "glassmorphism-dark",
+		"name": "Dark Glass",
+		"css": "box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.2);",
+		"category": "glassmorphism"
+	},
+	{
+		"id": "glassmorphism-iridescent",
+		"name": "Iridescent Glass",
+		"css": "box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.6), inset 0 -2px 4px rgba(0, 0, 0, 0.05);",
+		"category": "glassmorphism"
+	},
+	{
+		"id": "long-southeast",
+		"name": "Long Southeast",
+		"css": "box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.08), 16px 16px 0 rgba(0, 0, 0, 0.04);",
+		"category": "long"
+	},
+	{
+		"id": "long-hard-black",
+		"name": "Hard Drop",
+		"css": "box-shadow: 4px 4px 0 #000;",
+		"category": "long"
+	},
+	{
+		"id": "long-pastel",
+		"name": "Pastel Offset",
+		"css": "box-shadow: 6px 6px 0 rgba(99, 102, 241, 0.4);",
+		"category": "long"
+	},
+	{
+		"id": "long-staircase",
+		"name": "Staircase",
+		"css": "box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1), 4px 4px 0 rgba(0, 0, 0, 0.08), 6px 6px 0 rgba(0, 0, 0, 0.06);",
+		"category": "long"
+	},
+	{
+		"id": "long-lower",
+		"name": "Long Lower",
+		"css": "box-shadow: 0 12px 0 rgba(0, 0, 0, 0.06), 0 24px 0 rgba(0, 0, 0, 0.03);",
+		"category": "long"
+	},
+	{
+		"id": "dark-ui-elevated",
+		"name": "Dark Elevated",
+		"css": "box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.07);",
+		"category": "dark"
+	},
+	{
+		"id": "dark-ui-floating",
+		"name": "Dark Floating",
+		"css": "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 16px 40px rgba(0, 0, 0, 0.5);",
+		"category": "dark"
+	},
+	{
+		"id": "dark-ui-panel",
+		"name": "Dark Panel",
+		"css": "box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 4px 16px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.35);",
+		"category": "dark"
+	},
+	{
+		"id": "dark-ui-modal",
+		"name": "Dark Modal",
+		"css": "box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.7), 0 32px 80px rgba(0, 0, 0, 0.5);",
+		"category": "dark"
+	},
+	{
+		"id": "dark-rim",
+		"name": "Dark Rim Light",
+		"css": "box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 2px 6px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);",
+		"category": "dark"
+	},
+	{
+		"id": "brutalist-solid",
+		"name": "Brutal Black",
+		"css": "box-shadow: 4px 4px 0px 0px #000000;",
+		"category": "brutalist"
+	},
+	{
+		"id": "brutalist-thick",
+		"name": "Thick Border Drop",
+		"css": "box-shadow: 6px 6px 0px 0px #000000;",
+		"category": "brutalist"
+	},
+	{
+		"id": "brutalist-colored",
+		"name": "Brutal Indigo",
+		"css": "box-shadow: 5px 5px 0px 0px #6366f1;",
+		"category": "brutalist"
+	},
+	{
+		"id": "brutalist-red",
+		"name": "Brutal Red",
+		"css": "box-shadow: 4px 4px 0px 0px #ef4444;",
+		"category": "brutalist"
+	},
+	{
+		"id": "brutalist-double",
+		"name": "Double Drop",
+		"css": "box-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(0, 0, 0, 0.15);",
+		"category": "brutalist"
+	},
+	{
+		"id": "saas-card",
+		"name": "SaaS Card",
+		"css": "box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.04);",
+		"category": "saas"
+	},
+	{
+		"id": "saas-hover",
+		"name": "SaaS Hover",
+		"css": "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05);",
+		"category": "saas"
+	},
+	{
+		"id": "saas-feature",
+		"name": "Feature Box",
+		"css": "box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(99, 102, 241, 0.12);",
+		"category": "saas"
+	},
+	{
+		"id": "saas-cta",
+		"name": "CTA Glow",
+		"css": "box-shadow: 0 4px 14px rgba(99, 102, 241, 0.2), 0 12px 36px rgba(99, 102, 241, 0.1), 0 0 0 1px rgba(99, 102, 241, 0.2);",
+		"category": "saas"
+	},
+	{
+		"id": "saas-dashboard",
+		"name": "Dashboard Widget",
+		"css": "box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 3px 8px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.03);",
+		"category": "saas"
+	},
+	{
+		"id": "material-dp1",
+		"name": "Material DP1",
+		"css": "box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);",
+		"category": "material"
+	},
+	{
+		"id": "material-dp2",
+		"name": "Material DP2",
+		"css": "box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);",
+		"category": "material"
+	},
+	{
+		"id": "material-dp4",
+		"name": "Material DP4",
+		"css": "box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);",
+		"category": "material"
+	},
+	{
+		"id": "material-dp8",
+		"name": "Material DP8",
+		"css": "box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18), 0 10px 10px rgba(0, 0, 0, 0.12);",
+		"category": "material"
+	},
+	{
+		"id": "material-dp16",
+		"name": "Material DP16",
+		"css": "box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.14);",
+		"category": "material"
+	},
+	{
+		"id": "material-fab",
+		"name": "Material FAB",
+		"css": "box-shadow: 0 6px 10px rgba(0, 0, 0, 0.14), 0 3px 6px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1);",
+		"category": "material"
+	},
+	{
+		"id": "gradient-illusion-warm",
+		"name": "Warm Gradient Lift",
+		"css": "box-shadow: 0 6px 20px rgba(249, 115, 22, 0.2), 0 16px 48px rgba(234, 179, 8, 0.1);",
+		"category": "gradient"
+	},
+	{
+		"id": "gradient-illusion-cool",
+		"name": "Cool Gradient Depth",
+		"css": "box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2), 0 16px 48px rgba(6, 182, 212, 0.1);",
+		"category": "gradient"
+	},
+	{
+		"id": "gradient-illusion-sunset",
+		"name": "Sunset Bleed",
+		"css": "box-shadow: -6px 6px 24px rgba(244, 63, 94, 0.2), 6px -6px 24px rgba(249, 115, 22, 0.15);",
+		"category": "gradient"
+	},
+	{
+		"id": "gradient-illusion-dawn",
+		"name": "Dawn Rise",
+		"css": "box-shadow: 0 8px 30px rgba(168, 85, 247, 0.2), 0 20px 60px rgba(244, 63, 94, 0.1), 0 0 0 1px rgba(168, 85, 247, 0.1);",
+		"category": "gradient"
+	},
+	{
+		"id": "gradient-illusion-ocean",
+		"name": "Ocean Depth",
+		"css": "box-shadow: 0 8px 28px rgba(20, 184, 166, 0.2), 0 20px 56px rgba(59, 130, 246, 0.12), 0 0 0 1px rgba(20, 184, 166, 0.08);",
+		"category": "gradient"
+	},
+	{
+		"id": "ring-focus-blue",
+		"name": "Focus Ring Blue",
+		"css": "box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);",
+		"category": "ring"
+	},
+	{
+		"id": "ring-focus-violet",
+		"name": "Focus Ring Violet",
+		"css": "box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);",
+		"category": "ring"
+	},
+	{
+		"id": "ring-outline-black",
+		"name": "Outline Ring",
+		"css": "box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;",
+		"category": "ring"
+	},
+	{
+		"id": "ring-error",
+		"name": "Error Ring",
+		"css": "box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5), 0 1px 4px rgba(0, 0, 0, 0.1);",
+		"category": "ring"
+	},
+	{
+		"id": "ring-success",
+		"name": "Success Ring",
+		"css": "box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.45), 0 1px 4px rgba(0, 0, 0, 0.08);",
+		"category": "ring"
+	},
+	{
+		"id": "saas-pricing",
+		"name": "Pricing Highlight",
+		"css": "box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4), 0 8px 24px rgba(99, 102, 241, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);",
+		"category": "saas"
+	},
+	{
+		"id": "gradient-illusion-nordic",
+		"name": "Nordic Frost",
+		"css": "box-shadow: 0 8px 28px rgba(99, 120, 200, 0.18), 0 20px 56px rgba(30, 60, 180, 0.08), 0 0 0 1px rgba(99, 120, 200, 0.08);",
+		"category": "gradient"
 	}
 ]

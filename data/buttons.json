@@ -3,240 +3,420 @@
 		"id": 1,
 		"name": "Button #1",
 		"credits": "Dribbble",
-		"css": ".button-1 {\n  background-color: #EA4C89;\n  border-radius: 8px;\n  border-style: none;\n  box-sizing: border-box;\n  color: #FFFFFF;\n  cursor: pointer;\n  display: inline-block;\n  font-family: \"Haas Grot Text R Web\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  height: 40px;\n  line-height: 20px;\n  padding: 10px 16px;\n  transition: color 100ms;\n  user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.button-1:hover,\n.button-1:focus {\n  background-color: #F082AC;\n}"
+		"css": ".button-1 {\n  background-color: #EA4C89;\n  border-radius: 8px;\n  border-style: none;\n  box-sizing: border-box;\n  color: #FFFFFF;\n  cursor: pointer;\n  display: inline-block;\n  font-family: \"Haas Grot Text R Web\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  height: 40px;\n  line-height: 20px;\n  padding: 10px 16px;\n  transition: color 100ms;\n  user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.button-1:hover,\n.button-1:focus {\n  background-color: #F082AC;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 2,
 		"name": "Button #2",
 		"credits": "Dribbble",
-		"css": ".button-2 {\n  background-color: rgba(51, 51, 51, 0.05);\n  border-radius: 8px;\n  border-width: 0;\n  color: #333333;\n  cursor: pointer;\n  display: inline-block;\n  font-family: \"Haas Grot Text R Web\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 20px;\n  padding: 10px 12px;\n  transition: all 200ms;\n  user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}"
+		"css": ".button-2 {\n  background-color: rgba(51, 51, 51, 0.05);\n  border-radius: 8px;\n  border-width: 0;\n  color: #333333;\n  cursor: pointer;\n  display: inline-block;\n  font-family: \"Haas Grot Text R Web\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 20px;\n  padding: 10px 12px;\n  transition: all 200ms;\n  user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 3,
 		"name": "Button #3",
 		"credits": "Github",
-		"css": ".button-3 {\n  appearance: none;\n  background-color: #2ea44f;\n  border: 1px solid rgba(27, 31, 35, .15);\n  border-radius: 6px;\n  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;\n  color: #fff;\n  cursor: pointer;\n  display: inline-block;\n  font-family: -apple-system, system-ui, \"Segoe UI\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 20px;\n  padding: 6px 16px;\n  user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n  vertical-align: middle;\n}\n\n.button-3:hover {\n  background-color: #2c974b;\n}\n\n.button-3:focus {\n  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;\n  outline: none;\n}"
+		"css": ".button-3 {\n  appearance: none;\n  background-color: #2ea44f;\n  border: 1px solid rgba(27, 31, 35, .15);\n  border-radius: 6px;\n  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;\n  color: #fff;\n  cursor: pointer;\n  display: inline-block;\n  font-family: -apple-system, system-ui, \"Segoe UI\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 20px;\n  padding: 6px 16px;\n  user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n  vertical-align: middle;\n}\n\n.button-3:hover {\n  background-color: #2c974b;\n}\n\n.button-3:focus {\n  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;\n  outline: none;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 4,
 		"name": "Button #4",
 		"credits": "Github",
-		"css": ".button-4 {\n  appearance: none;\n  background-color: #FAFBFC;\n  border: 1px solid rgba(27, 31, 35, 0.15);\n  border-radius: 6px;\n  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;\n  color: #24292E;\n  cursor: pointer;\n  display: inline-block;\n  font-family: -apple-system, system-ui, \"Segoe UI\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 20px;\n  padding: 6px 16px;\n  user-select: none;\n  touch-action: manipulation;\n}\n\n.button-4:hover {\n  background-color: #F3F4F6;\n}"
+		"css": ".button-4 {\n  appearance: none;\n  background-color: #FAFBFC;\n  border: 1px solid rgba(27, 31, 35, 0.15);\n  border-radius: 6px;\n  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;\n  color: #24292E;\n  cursor: pointer;\n  display: inline-block;\n  font-family: -apple-system, system-ui, \"Segoe UI\", Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 20px;\n  padding: 6px 16px;\n  user-select: none;\n  touch-action: manipulation;\n}\n\n.button-4:hover {\n  background-color: #F3F4F6;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 5,
 		"name": "Button #5",
 		"credits": "Sketch",
-		"css": ".button-5 {\n  align-items: center;\n  background-color: #fa6400;\n  border: 1px solid transparent;\n  border-radius: .25rem;\n  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;\n  color: #fff;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: system-ui, -apple-system, \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 16px;\n  font-weight: 600;\n  justify-content: center;\n  line-height: 1.25;\n  min-height: 3rem;\n  padding: calc(.875rem - 1px) calc(1.5rem - 1px);\n  transition: all 250ms;\n  user-select: none;\n  touch-action: manipulation;\n}\n\n.button-5:hover {\n  background-color: #fb8332;\n  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;\n  transform: translateY(-1px);\n}"
+		"css": ".button-5 {\n  align-items: center;\n  background-color: #fa6400;\n  border: 1px solid transparent;\n  border-radius: .25rem;\n  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;\n  color: #fff;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: system-ui, -apple-system, \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 16px;\n  font-weight: 600;\n  justify-content: center;\n  line-height: 1.25;\n  min-height: 3rem;\n  padding: calc(.875rem - 1px) calc(1.5rem - 1px);\n  transition: all 250ms;\n  user-select: none;\n  touch-action: manipulation;\n}\n\n.button-5:hover {\n  background-color: #fb8332;\n  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 6,
 		"name": "Button #6",
 		"credits": "Stripe",
-		"css": ".button-6 {\n  align-items: center;\n  background-color: #0A2540;\n  border-radius: 4px;\n  color: #FFFFFF;\n  cursor: pointer;\n  display: flex;\n  font-family: -apple-system, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  gap: 8px;\n  justify-content: center;\n  padding: 10px 20px;\n  transition: background-color 0.3s ease;\n  user-select: none;\n}\n\n.button-6:hover {\n  background-color: #1A3A5C;\n}"
+		"css": ".button-6 {\n  align-items: center;\n  background-color: #0A2540;\n  border-radius: 4px;\n  color: #FFFFFF;\n  cursor: pointer;\n  display: flex;\n  font-family: -apple-system, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  gap: 8px;\n  justify-content: center;\n  padding: 10px 20px;\n  transition: background-color 0.3s ease;\n  user-select: none;\n}\n\n.button-6:hover {\n  background-color: #1A3A5C;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 7,
 		"name": "Button #7",
 		"credits": "Figma",
-		"css": ".button-7 {\n  background: #1abcfe;\n  border: none;\n  border-radius: 6px;\n  color: #fff;\n  cursor: pointer;\n  font-family: Inter, sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.2s ease;\n}\n\n.button-7:hover {\n  background: #00aaee;\n  transform: translateY(-1px);\n  box-shadow: 0 6px 18px rgba(26, 188, 254, 0.35);\n}"
+		"css": ".button-7 {\n  background: #1abcfe;\n  border: none;\n  border-radius: 6px;\n  color: #fff;\n  cursor: pointer;\n  font-family: Inter, sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.2s ease;\n}\n\n.button-7:hover {\n  background: #00aaee;\n  transform: translateY(-1px);\n  box-shadow: 0 6px 18px rgba(26, 188, 254, 0.35);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 8,
 		"name": "Button #8",
 		"credits": "Linear",
-		"css": ".button-8 {\n  background: #5E6AD2;\n  border: none;\n  border-radius: 6px;\n  color: #fff;\n  cursor: pointer;\n  font-family: Inter, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s;\n}\n\n.button-8:hover {\n  background: #4D59C2;\n  box-shadow: 0 4px 14px rgba(94, 106, 210, 0.4);\n  transform: translateY(-1px);\n}"
+		"css": ".button-8 {\n  background: #5E6AD2;\n  border: none;\n  border-radius: 6px;\n  color: #fff;\n  cursor: pointer;\n  font-family: Inter, sans-serif;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s;\n}\n\n.button-8:hover {\n  background: #4D59C2;\n  box-shadow: 0 4px 14px rgba(94, 106, 210, 0.4);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 9,
 		"name": "Button #9",
 		"credits": "Vercel",
-		"css": ".button-9 {\n  background: #000;\n  border-radius: 6px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: background 0.2s;\n  border: 1px solid transparent;\n}\n\n.button-9:hover {\n  background: #333;\n}"
+		"css": ".button-9 {\n  background: #000;\n  border-radius: 6px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: background 0.2s;\n  border: 1px solid transparent;\n}\n\n.button-9:hover {\n  background: #333;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 10,
 		"name": "Button #10",
 		"credits": "Vercel",
-		"css": ".button-10 {\n  background: transparent;\n  border: 1px solid #eaeaea;\n  border-radius: 6px;\n  color: #000;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s;\n}\n\n.button-10:hover {\n  border-color: #000;\n}"
+		"css": ".button-10 {\n  background: transparent;\n  border: 1px solid #eaeaea;\n  border-radius: 6px;\n  color: #000;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s;\n}\n\n.button-10:hover {\n  border-color: #000;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 11,
 		"name": "Button #11",
 		"credits": "Tailwind UI",
-		"css": ".button-11 {\n  background: linear-gradient(to right, #6366f1, #8b5cf6);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.25s ease;\n  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);\n}\n\n.button-11:hover {\n  opacity: 0.9;\n  transform: translateY(-2px);\n  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);\n}"
+		"css": ".button-11 {\n  background: linear-gradient(to right, #6366f1, #8b5cf6);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.25s ease;\n  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);\n}\n\n.button-11:hover {\n  opacity: 0.9;\n  transform: translateY(-2px);\n  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 12,
 		"name": "Button #12",
 		"credits": "Custom",
-		"css": ".button-12 {\n  background: transparent;\n  border: 2px solid currentColor;\n  border-radius: 6px;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 22px;\n  transition: all 0.2s ease;\n}\n\n.button-12:hover {\n  background: #6366f1;\n  color: #fff;\n}"
+		"css": ".button-12 {\n  background: transparent;\n  border: 2px solid currentColor;\n  border-radius: 6px;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 22px;\n  transition: all 0.2s ease;\n}\n\n.button-12:hover {\n  background: #6366f1;\n  color: #fff;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 13,
 		"name": "Button #13",
 		"credits": "Custom",
-		"css": ".button-13 {\n  background: #fff;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  box-shadow: 0 1px 2px rgba(0,0,0,0.05);\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.15s ease;\n}\n\n.button-13:hover {\n  background: #f9fafb;\n  border-color: #d1d5db;\n  box-shadow: 0 4px 8px rgba(0,0,0,0.08);\n  transform: translateY(-1px);\n}"
+		"css": ".button-13 {\n  background: #fff;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  box-shadow: 0 1px 2px rgba(0,0,0,0.05);\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.15s ease;\n}\n\n.button-13:hover {\n  background: #f9fafb;\n  border-color: #d1d5db;\n  box-shadow: 0 4px 8px rgba(0,0,0,0.08);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 14,
 		"name": "Button #14",
 		"credits": "Custom",
-		"css": ".button-14 {\n  background: #10b981;\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.2s;\n}\n\n.button-14:hover {\n  background: #059669;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);\n  transform: translateY(-1px);\n}"
+		"css": ".button-14 {\n  background: #10b981;\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.2s;\n}\n\n.button-14:hover {\n  background: #059669;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 15,
 		"name": "Button #15",
 		"credits": "Custom",
-		"css": ".button-15 {\n  background: #f43f5e;\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.2s;\n}\n\n.button-15:hover {\n  background: #e11d48;\n  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.4);\n  transform: translateY(-1px);\n}"
+		"css": ".button-15 {\n  background: #f43f5e;\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.2s;\n}\n\n.button-15:hover {\n  background: #e11d48;\n  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.4);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 16,
 		"name": "Button #16",
 		"credits": "Custom",
-		"css": ".button-16 {\n  background: linear-gradient(135deg, #f5a623, #f76c1b);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 2px 8px rgba(247, 108, 27, 0.3);\n}\n\n.button-16:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 6px 20px rgba(247, 108, 27, 0.5);\n}"
+		"css": ".button-16 {\n  background: linear-gradient(135deg, #f5a623, #f76c1b);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 2px 8px rgba(247, 108, 27, 0.3);\n}\n\n.button-16:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 6px 20px rgba(247, 108, 27, 0.5);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 17,
 		"name": "Button #17",
 		"credits": "Custom",
-		"css": ".button-17 {\n  background: transparent;\n  border: none;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 0;\n  position: relative;\n  transition: color 0.2s;\n}\n\n.button-17::after {\n  content: '';\n  position: absolute;\n  bottom: 6px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: currentColor;\n  transition: width 0.3s ease;\n}\n\n.button-17:hover::after {\n  width: 100%;\n}"
+		"css": ".button-17 {\n  background: transparent;\n  border: none;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 0;\n  position: relative;\n  transition: color 0.2s;\n}\n\n.button-17::after {\n  content: '';\n  position: absolute;\n  bottom: 6px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: currentColor;\n  transition: width 0.3s ease;\n}\n\n.button-17:hover::after {\n  width: 100%;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 18,
 		"name": "Button #18",
 		"credits": "Custom",
-		"css": ".button-18 {\n  background: #fff;\n  border: 1px solid #e5e7eb;\n  border-radius: 50px;\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 24px;\n  transition: all 0.2s ease;\n}\n\n.button-18:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.08);\n}"
+		"css": ".button-18 {\n  background: #fff;\n  border: 1px solid #e5e7eb;\n  border-radius: 50px;\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 24px;\n  transition: all 0.2s ease;\n}\n\n.button-18:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.08);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 19,
 		"name": "Button #19",
 		"credits": "Custom",
-		"css": ".button-19 {\n  background: linear-gradient(135deg, #667eea, #764ba2);\n  border: none;\n  border-radius: 50px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 28px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);\n}\n\n.button-19:hover {\n  transform: translateY(-3px);\n  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);\n}"
+		"css": ".button-19 {\n  background: linear-gradient(135deg, #667eea, #764ba2);\n  border: none;\n  border-radius: 50px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 28px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);\n}\n\n.button-19:hover {\n  transform: translateY(-3px);\n  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 20,
 		"name": "Button #20",
 		"credits": "Custom",
-		"css": ".button-20 {\n  background: #000;\n  border: none;\n  border-radius: 50px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 28px;\n  transition: all 0.3s ease;\n  letter-spacing: 0.02em;\n}\n\n.button-20:hover {\n  background: #222;\n  box-shadow: 0 8px 20px rgba(0,0,0,0.25);\n  transform: translateY(-2px);\n}"
+		"css": ".button-20 {\n  background: #000;\n  border: none;\n  border-radius: 50px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 28px;\n  transition: all 0.3s ease;\n  letter-spacing: 0.02em;\n}\n\n.button-20:hover {\n  background: #222;\n  box-shadow: 0 8px 20px rgba(0,0,0,0.25);\n  transform: translateY(-2px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 21,
 		"name": "Button #21",
 		"credits": "Custom",
-		"css": ".button-21 {\n  align-items: center;\n  background: transparent;\n  border: 2px solid #10b981;\n  border-radius: 50px;\n  color: #10b981;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 600;\n  gap: 6px;\n  padding: 9px 22px;\n  transition: all 0.25s ease;\n}\n\n.button-21:hover {\n  background: #10b981;\n  color: #fff;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}"
+		"css": ".button-21 {\n  align-items: center;\n  background: transparent;\n  border: 2px solid #10b981;\n  border-radius: 50px;\n  color: #10b981;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 600;\n  gap: 6px;\n  padding: 9px 22px;\n  transition: all 0.25s ease;\n}\n\n.button-21:hover {\n  background: #10b981;\n  color: #fff;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 22,
 		"name": "Button #22",
 		"credits": "Custom",
-		"css": ".button-22 {\n  background: linear-gradient(135deg, #f093fb, #f5576c);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  position: relative;\n  transition: all 0.3s ease;\n}\n\n.button-22:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 24px rgba(245, 87, 108, 0.45);\n  opacity: 0.92;\n}"
+		"css": ".button-22 {\n  background: linear-gradient(135deg, #f093fb, #f5576c);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  position: relative;\n  transition: all 0.3s ease;\n}\n\n.button-22:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 24px rgba(245, 87, 108, 0.45);\n  opacity: 0.92;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 23,
 		"name": "Button #23",
 		"credits": "Custom",
-		"css": ".button-23 {\n  background: transparent;\n  border: 1px solid rgba(99, 102, 241, 0.4);\n  border-radius: 8px;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n  backdrop-filter: blur(8px);\n  background: rgba(99, 102, 241, 0.05);\n}\n\n.button-23:hover {\n  background: rgba(99, 102, 241, 0.15);\n  border-color: #6366f1;\n  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);\n}"
+		"css": ".button-23 {\n  background: transparent;\n  border: 1px solid rgba(99, 102, 241, 0.4);\n  border-radius: 8px;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n  backdrop-filter: blur(8px);\n  background: rgba(99, 102, 241, 0.05);\n}\n\n.button-23:hover {\n  background: rgba(99, 102, 241, 0.15);\n  border-color: #6366f1;\n  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 24,
 		"name": "Button #24",
 		"credits": "Custom",
-		"css": ".button-24 {\n  background: #fff;\n  border: none;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.04);\n  color: #1a1a2e;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.25s ease;\n}\n\n.button-24:hover {\n  box-shadow: 0 4px 12px rgba(0,0,0,0.12), 0 16px 40px rgba(0,0,0,0.08);\n  transform: translateY(-2px);\n}"
+		"css": ".button-24 {\n  background: #fff;\n  border: none;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.04);\n  color: #1a1a2e;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.25s ease;\n}\n\n.button-24:hover {\n  box-shadow: 0 4px 12px rgba(0,0,0,0.12), 0 16px 40px rgba(0,0,0,0.08);\n  transform: translateY(-2px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 25,
 		"name": "Button #25",
 		"credits": "Custom",
-		"css": ".button-25 {\n  align-items: center;\n  background: #18181b;\n  border: 1px solid rgba(255,255,255,0.1);\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 500;\n  gap: 8px;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n}\n\n.button-25:hover {\n  background: #27272a;\n  border-color: rgba(255,255,255,0.2);\n  box-shadow: 0 4px 12px rgba(255,255,255,0.06);\n}"
+		"css": ".button-25 {\n  align-items: center;\n  background: #18181b;\n  border: 1px solid rgba(255,255,255,0.1);\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 500;\n  gap: 8px;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n}\n\n.button-25:hover {\n  background: #27272a;\n  border-color: rgba(255,255,255,0.2);\n  box-shadow: 0 4px 12px rgba(255,255,255,0.06);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 26,
 		"name": "Button #26",
 		"credits": "Custom",
-		"css": ".button-26 {\n  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n}\n\n.button-26:hover {\n  opacity: 0.85;\n  transform: translateY(-2px);\n  box-shadow: 0 8px 24px rgba(0,0,0,0.4);\n}"
+		"css": ".button-26 {\n  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n}\n\n.button-26:hover {\n  opacity: 0.85;\n  transform: translateY(-2px);\n  box-shadow: 0 8px 24px rgba(0,0,0,0.4);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 27,
 		"name": "Button #27",
 		"credits": "Custom",
-		"css": ".button-27 {\n  background: transparent;\n  border: 1px solid rgba(255,255,255,0.15);\n  border-radius: 8px;\n  color: rgba(255,255,255,0.8);\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n  backdrop-filter: blur(10px);\n  background: rgba(255,255,255,0.05);\n}\n\n.button-27:hover {\n  background: rgba(255,255,255,0.1);\n  border-color: rgba(255,255,255,0.3);\n  color: #fff;\n}"
+		"css": ".button-27 {\n  background: transparent;\n  border: 1px solid rgba(255,255,255,0.15);\n  border-radius: 8px;\n  color: rgba(255,255,255,0.8);\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n  backdrop-filter: blur(10px);\n  background: rgba(255,255,255,0.05);\n}\n\n.button-27:hover {\n  background: rgba(255,255,255,0.1);\n  border-color: rgba(255,255,255,0.3);\n  color: #fff;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 28,
 		"name": "Button #28",
 		"credits": "Custom",
-		"css": ".button-28 {\n  background: #6366f1;\n  border: none;\n  border-radius: 50px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 28px;\n  position: relative;\n  overflow: hidden;\n  transition: all 0.3s;\n}\n\n.button-28::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);\n  transition: left 0.4s;\n}\n\n.button-28:hover::before {\n  left: 100%;\n}\n\n.button-28:hover {\n  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);\n  transform: translateY(-1px);\n}"
+		"css": ".button-28 {\n  background: #6366f1;\n  border: none;\n  border-radius: 50px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 28px;\n  position: relative;\n  overflow: hidden;\n  transition: all 0.3s;\n}\n\n.button-28::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);\n  transition: left 0.4s;\n}\n\n.button-28:hover::before {\n  left: 100%;\n}\n\n.button-28:hover {\n  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 29,
 		"name": "Button #29",
 		"credits": "Custom",
-		"css": ".button-29 {\n  background: transparent;\n  border: none;\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 16px;\n  position: relative;\n  transition: color 0.2s;\n  border-radius: 6px;\n}\n\n.button-29:hover {\n  background: #f3f4f6;\n  color: #111827;\n}"
+		"css": ".button-29 {\n  background: transparent;\n  border: none;\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 16px;\n  position: relative;\n  transition: color 0.2s;\n  border-radius: 6px;\n}\n\n.button-29:hover {\n  background: #f3f4f6;\n  color: #111827;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 30,
 		"name": "Button #30",
 		"credits": "Custom",
-		"css": ".button-30 {\n  background: linear-gradient(135deg, #43e97b, #38f9d7);\n  border: none;\n  border-radius: 8px;\n  color: #0a3d28;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 14px rgba(67, 233, 123, 0.3);\n}\n\n.button-30:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 22px rgba(67, 233, 123, 0.5);\n}"
+		"css": ".button-30 {\n  background: linear-gradient(135deg, #43e97b, #38f9d7);\n  border: none;\n  border-radius: 8px;\n  color: #0a3d28;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 14px rgba(67, 233, 123, 0.3);\n}\n\n.button-30:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 22px rgba(67, 233, 123, 0.5);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 31,
 		"name": "Button #31",
 		"credits": "Custom",
-		"css": ".button-31 {\n  align-items: center;\n  background: #fff;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  color: #374151;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 500;\n  gap: 8px;\n  padding: 9px 18px;\n  transition: all 0.15s ease;\n}\n\n.button-31:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);\n  transform: translateY(-1px);\n}"
+		"css": ".button-31 {\n  align-items: center;\n  background: #fff;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  color: #374151;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 500;\n  gap: 8px;\n  padding: 9px 18px;\n  transition: all 0.15s ease;\n}\n\n.button-31:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 32,
 		"name": "Button #32",
 		"credits": "Custom",
-		"css": ".button-32 {\n  background: linear-gradient(to right, #fc4a1a, #f7b733);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 14px rgba(252, 74, 26, 0.3);\n}\n\n.button-32:hover {\n  opacity: 0.9;\n  transform: translateY(-2px);\n  box-shadow: 0 8px 22px rgba(252, 74, 26, 0.45);\n}"
+		"css": ".button-32 {\n  background: linear-gradient(to right, #fc4a1a, #f7b733);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 14px rgba(252, 74, 26, 0.3);\n}\n\n.button-32:hover {\n  opacity: 0.9;\n  transform: translateY(-2px);\n  box-shadow: 0 8px 22px rgba(252, 74, 26, 0.45);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 33,
 		"name": "Button #33",
 		"credits": "Custom",
-		"css": ".button-33 {\n  background: transparent;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  color: #6b7280;\n  cursor: pointer;\n  font-size: 13px;\n  font-weight: 500;\n  padding: 7px 14px;\n  transition: all 0.15s ease;\n}\n\n.button-33:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  color: #374151;\n}"
+		"css": ".button-33 {\n  background: transparent;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  color: #6b7280;\n  cursor: pointer;\n  font-size: 13px;\n  font-weight: 500;\n  padding: 7px 14px;\n  transition: all 0.15s ease;\n}\n\n.button-33:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  color: #374151;\n}",
+		"category": "classic"
 	},
 	{
 		"id": 34,
 		"name": "Button #34",
 		"credits": "Custom",
-		"css": ".button-34 {\n  background: linear-gradient(135deg, #a855f7, #6366f1);\n  border: none;\n  border-radius: 12px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 26px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35);\n}\n\n.button-34:hover {\n  transform: translateY(-3px);\n  box-shadow: 0 8px 28px rgba(168, 85, 247, 0.5);\n}"
+		"css": ".button-34 {\n  background: linear-gradient(135deg, #a855f7, #6366f1);\n  border: none;\n  border-radius: 12px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 26px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35);\n}\n\n.button-34:hover {\n  transform: translateY(-3px);\n  box-shadow: 0 8px 28px rgba(168, 85, 247, 0.5);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 35,
 		"name": "Button #35",
 		"credits": "Custom",
-		"css": ".button-35 {\n  background: #fff;\n  border-radius: 8px;\n  border: 1px solid transparent;\n  background-clip: padding-box;\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 10px 22px;\n  position: relative;\n  transition: all 0.2s;\n}\n\n.button-35::before {\n  content: '';\n  position: absolute;\n  inset: -1px;\n  background: linear-gradient(135deg, #6366f1, #a855f7);\n  border-radius: 9px;\n  z-index: -1;\n}\n\n.button-35:hover {\n  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);\n  transform: translateY(-1px);\n}"
+		"css": ".button-35 {\n  background: #fff;\n  border-radius: 8px;\n  border: 1px solid transparent;\n  background-clip: padding-box;\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 10px 22px;\n  position: relative;\n  transition: all 0.2s;\n}\n\n.button-35::before {\n  content: '';\n  position: absolute;\n  inset: -1px;\n  background: linear-gradient(135deg, #6366f1, #a855f7);\n  border-radius: 9px;\n  z-index: -1;\n}\n\n.button-35:hover {\n  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 36,
 		"name": "Button #36",
 		"credits": "Custom",
-		"css": ".button-36 {\n  background: #09090b;\n  border: 1px solid rgba(255,255,255,0.08);\n  border-radius: 8px;\n  color: rgba(255,255,255,0.7);\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n}\n\n.button-36:hover {\n  border-color: rgba(255,255,255,0.2);\n  color: #fff;\n  box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 4px 12px rgba(255,255,255,0.06);\n}"
+		"css": ".button-36 {\n  background: #09090b;\n  border: 1px solid rgba(255,255,255,0.08);\n  border-radius: 8px;\n  color: rgba(255,255,255,0.7);\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n}\n\n.button-36:hover {\n  border-color: rgba(255,255,255,0.2);\n  color: #fff;\n  box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 4px 12px rgba(255,255,255,0.06);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 37,
 		"name": "Button #37",
 		"credits": "Custom",
-		"css": ".button-37 {\n  background: transparent;\n  border: 2px solid #f43f5e;\n  border-radius: 50px;\n  color: #f43f5e;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 24px;\n  transition: all 0.25s ease;\n}\n\n.button-37:hover {\n  background: #f43f5e;\n  color: #fff;\n  box-shadow: 0 4px 16px rgba(244, 63, 94, 0.4);\n  transform: translateY(-1px);\n}"
+		"css": ".button-37 {\n  background: transparent;\n  border: 2px solid #f43f5e;\n  border-radius: 50px;\n  color: #f43f5e;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 24px;\n  transition: all 0.25s ease;\n}\n\n.button-37:hover {\n  background: #f43f5e;\n  color: #fff;\n  box-shadow: 0 4px 16px rgba(244, 63, 94, 0.4);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 38,
 		"name": "Button #38",
 		"credits": "Custom",
-		"css": ".button-38 {\n  align-items: center;\n  background: linear-gradient(135deg, #06b6d4, #3b82f6);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 600;\n  gap: 6px;\n  padding: 10px 22px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);\n}\n\n.button-38:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.45);\n}"
+		"css": ".button-38 {\n  align-items: center;\n  background: linear-gradient(135deg, #06b6d4, #3b82f6);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  display: inline-flex;\n  font-size: 14px;\n  font-weight: 600;\n  gap: 6px;\n  padding: 10px 22px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);\n}\n\n.button-38:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.45);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 39,
 		"name": "Button #39",
 		"credits": "Custom",
-		"css": ".button-39 {\n  background: #fef3c7;\n  border: 1px solid #fbbf24;\n  border-radius: 8px;\n  color: #92400e;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n}\n\n.button-39:hover {\n  background: #fde68a;\n  border-color: #f59e0b;\n  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);\n  transform: translateY(-1px);\n}"
+		"css": ".button-39 {\n  background: #fef3c7;\n  border: 1px solid #fbbf24;\n  border-radius: 8px;\n  color: #92400e;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 20px;\n  transition: all 0.2s ease;\n}\n\n.button-39:hover {\n  background: #fde68a;\n  border-color: #f59e0b;\n  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);\n  transform: translateY(-1px);\n}",
+		"category": "classic"
 	},
 	{
 		"id": 40,
 		"name": "Button #40",
 		"credits": "Custom",
-		"css": ".button-40 {\n  background: linear-gradient(135deg, #1e3c72, #2a5298);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 15px rgba(30, 60, 114, 0.4);\n  letter-spacing: 0.03em;\n}\n\n.button-40:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(30, 60, 114, 0.6);\n  opacity: 0.9;\n}"
+		"css": ".button-40 {\n  background: linear-gradient(135deg, #1e3c72, #2a5298);\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 15px rgba(30, 60, 114, 0.4);\n  letter-spacing: 0.03em;\n}\n\n.button-40:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(30, 60, 114, 0.6);\n  opacity: 0.9;\n}",
+		"category": "classic"
+	},
+	{
+		"id": 41,
+		"name": "Button #41",
+		"credits": "Custom",
+		"category": "neon",
+		"css": ".button-41 {\n  background: transparent;\n  border: 2px solid #00f5ff;\n  border-radius: 6px;\n  color: #00f5ff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  text-transform: uppercase;\n  letter-spacing: 0.1em;\n  transition: all 0.3s ease;\n  text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);\n}\n\n.button-41:hover {\n  background: rgba(0, 245, 255, 0.1);\n  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4), inset 0 0 20px rgba(0, 245, 255, 0.1);\n  transform: translateY(-2px);\n}"
+	},
+	{
+		"id": 42,
+		"name": "Button #42",
+		"credits": "Custom",
+		"category": "neon",
+		"css": ".button-42 {\n  background: #0d0d0d;\n  border: 1px solid #ff00ff;\n  border-radius: 4px;\n  color: #ff00ff;\n  cursor: pointer;\n  font-size: 13px;\n  font-weight: 700;\n  padding: 10px 22px;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  transition: all 0.25s;\n  text-shadow: 0 0 6px rgba(255, 0, 255, 0.6);\n}\n\n.button-42:hover {\n  box-shadow: 0 0 16px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.2);\n  background: rgba(255, 0, 255, 0.08);\n}"
+	},
+	{
+		"id": 43,
+		"name": "Button #43",
+		"credits": "Custom",
+		"category": "glass",
+		"css": ".button-43 {\n  background: rgba(255, 255, 255, 0.1);\n  backdrop-filter: blur(12px);\n  border: 1px solid rgba(255, 255, 255, 0.25);\n  border-radius: 10px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n}\n\n.button-43:hover {\n  background: rgba(255, 255, 255, 0.18);\n  border-color: rgba(255, 255, 255, 0.4);\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);\n  transform: translateY(-1px);\n}"
+	},
+	{
+		"id": 44,
+		"name": "Button #44",
+		"credits": "Custom",
+		"category": "glass",
+		"css": ".button-44 {\n  background: rgba(99, 102, 241, 0.15);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(99, 102, 241, 0.35);\n  border-radius: 8px;\n  color: #a5b4fc;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 22px;\n  transition: all 0.25s;\n}\n\n.button-44:hover {\n  background: rgba(99, 102, 241, 0.25);\n  border-color: rgba(99, 102, 241, 0.6);\n  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.25);\n  color: #fff;\n}"
+	},
+	{
+		"id": 45,
+		"name": "Button #45",
+		"credits": "Custom",
+		"category": "3d",
+		"css": ".button-45 {\n  background: linear-gradient(to bottom, #6366f1, #4f46e5);\n  border: none;\n  border-radius: 8px;\n  box-shadow: 0 6px 0 #3730a3, 0 8px 6px rgba(0,0,0,0.3);\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 11px 26px;\n  transform: translateY(0);\n  transition: all 0.12s ease;\n}\n\n.button-45:hover {\n  box-shadow: 0 4px 0 #3730a3, 0 6px 4px rgba(0,0,0,0.25);\n  transform: translateY(2px);\n}\n\n.button-45:active {\n  box-shadow: 0 0 0 #3730a3;\n  transform: translateY(6px);\n}"
+	},
+	{
+		"id": 46,
+		"name": "Button #46",
+		"credits": "Custom",
+		"category": "3d",
+		"css": ".button-46 {\n  background: #22c55e;\n  border: none;\n  border-radius: 8px;\n  box-shadow: 0 5px 0 #15803d, 0 7px 8px rgba(0,0,0,0.25);\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 11px 26px;\n  transform: translateY(0);\n  transition: all 0.12s ease;\n}\n\n.button-46:hover {\n  box-shadow: 0 3px 0 #15803d, 0 5px 6px rgba(0,0,0,0.2);\n  transform: translateY(2px);\n}\n\n.button-46:active {\n  box-shadow: none;\n  transform: translateY(5px);\n}"
+	},
+	{
+		"id": 47,
+		"name": "Button #47",
+		"credits": "Custom",
+		"category": "minimal",
+		"css": ".button-47 {\n  background: none;\n  border: none;\n  color: #111;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 8px 0;\n  position: relative;\n  transition: opacity 0.2s;\n}\n\n.button-47::after {\n  content: '';\n  position: absolute;\n  bottom: 4px;\n  left: 0;\n  right: 0;\n  height: 1px;\n  background: currentColor;\n  transform: scaleX(0);\n  transform-origin: right;\n  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.button-47:hover::after {\n  transform: scaleX(1);\n  transform-origin: left;\n}"
+	},
+	{
+		"id": 48,
+		"name": "Button #48",
+		"credits": "Custom",
+		"category": "minimal",
+		"css": ".button-48 {\n  background: #f4f4f5;\n  border: none;\n  border-radius: 4px;\n  color: #18181b;\n  cursor: pointer;\n  font-size: 13px;\n  font-weight: 500;\n  letter-spacing: 0.04em;\n  padding: 8px 18px;\n  text-transform: uppercase;\n  transition: background 0.2s;\n}\n\n.button-48:hover {\n  background: #e4e4e7;\n}"
+	},
+	{
+		"id": 49,
+		"name": "Button #49",
+		"credits": "Custom",
+		"category": "gradient",
+		"css": ".button-49 {\n  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);\n  background-size: 200% auto;\n  border: none;\n  border-radius: 50px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 28px;\n  transition: background-position 0.5s ease, box-shadow 0.3s;\n}\n\n.button-49:hover {\n  background-position: right center;\n  box-shadow: 0 8px 24px rgba(118, 75, 162, 0.45);\n  transform: translateY(-2px);\n}"
+	},
+	{
+		"id": 50,
+		"name": "Button #50",
+		"credits": "Custom",
+		"category": "gradient",
+		"css": ".button-50 {\n  background: linear-gradient(90deg, #f7971e, #ffd200, #f7971e);\n  background-size: 200%;\n  border: none;\n  border-radius: 8px;\n  color: #4a2500;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 700;\n  padding: 10px 26px;\n  transition: background-position 0.4s ease, box-shadow 0.3s;\n}\n\n.button-50:hover {\n  background-position: right;\n  box-shadow: 0 6px 20px rgba(247, 151, 30, 0.45);\n  transform: translateY(-1px);\n}"
+	},
+	{
+		"id": 51,
+		"name": "Button #51",
+		"credits": "Custom",
+		"category": "animated",
+		"css": ".button-51 {\n  background: #6366f1;\n  border: none;\n  border-radius: 8px;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  overflow: hidden;\n  padding: 10px 26px;\n  position: relative;\n  transition: box-shadow 0.3s;\n}\n\n.button-51::before {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 0;\n  height: 0;\n  background: rgba(255,255,255,0.25);\n  border-radius: 50%;\n  transform: translate(-50%, -50%);\n  transition: width 0.5s ease, height 0.5s ease;\n}\n\n.button-51:active::before {\n  width: 300px;\n  height: 300px;\n}"
+	},
+	{
+		"id": 52,
+		"name": "Button #52",
+		"credits": "Custom",
+		"category": "animated",
+		"css": ".button-52 {\n  background: transparent;\n  border: 2px solid #6366f1;\n  border-radius: 8px;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  overflow: hidden;\n  padding: 10px 24px;\n  position: relative;\n  transition: color 0.35s ease;\n  z-index: 1;\n}\n\n.button-52::before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: #6366f1;\n  transform: scaleX(0);\n  transform-origin: left;\n  transition: transform 0.35s ease;\n  z-index: -1;\n}\n\n.button-52:hover {\n  color: #fff;\n}\n\n.button-52:hover::before {\n  transform: scaleX(1);\n}"
+	},
+	{
+		"id": 53,
+		"name": "Button #53",
+		"credits": "Custom",
+		"category": "animated",
+		"css": ".button-53 {\n  background: #18181b;\n  border: none;\n  border-radius: 8px;\n  color: rgba(255,255,255,0.7);\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  overflow: hidden;\n  padding: 10px 24px;\n  position: relative;\n  transition: color 0.3s;\n}\n\n.button-53::after {\n  content: '';\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 2px;\n  background: linear-gradient(90deg, #6366f1, #a855f7);\n  transform: scaleX(0);\n  transform-origin: left;\n  transition: transform 0.3s ease;\n}\n\n.button-53:hover {\n  color: #fff;\n}\n\n.button-53:hover::after {\n  transform: scaleX(1);\n}"
+	},
+	{
+		"id": 54,
+		"name": "Button #54",
+		"credits": "Custom",
+		"category": "dark",
+		"css": ".button-54 {\n  background: rgba(255, 255, 255, 0.05);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 8px;\n  color: rgba(255, 255, 255, 0.75);\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 10px 22px;\n  transition: all 0.2s ease;\n}\n\n.button-54:hover {\n  background: rgba(255, 255, 255, 0.1);\n  border-color: rgba(255, 255, 255, 0.25);\n  color: #fff;\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);\n}"
+	},
+	{
+		"id": 55,
+		"name": "Button #55",
+		"credits": "Custom",
+		"category": "dark",
+		"css": ".button-55 {\n  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.2));\n  border: 1px solid rgba(139, 92, 246, 0.35);\n  border-radius: 10px;\n  color: #c4b5fd;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 10px 24px;\n  transition: all 0.3s ease;\n}\n\n.button-55:hover {\n  background: linear-gradient(135deg, rgba(99,102,241,0.35), rgba(168,85,247,0.35));\n  border-color: rgba(139,92,246,0.6);\n  box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);\n  color: #fff;\n}"
+	},
+	{
+		"id": 56,
+		"name": "Button #56",
+		"credits": "Custom",
+		"category": "outline",
+		"css": ".button-56 {\n  background: transparent;\n  border: 2px solid transparent;\n  border-radius: 8px;\n  color: #6366f1;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 9px 22px;\n  position: relative;\n  transition: color 0.3s;\n}\n\n.button-56::before {\n  content: '';\n  position: absolute;\n  inset: -2px;\n  border-radius: 10px;\n  background: linear-gradient(135deg, #6366f1, #a855f7);\n  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\n  -webkit-mask-composite: xor;\n  mask-composite: exclude;\n  padding: 2px;\n  transition: opacity 0.3s;\n}\n\n.button-56:hover {\n  color: #a855f7;\n}"
+	},
+	{
+		"id": 57,
+		"name": "Button #57",
+		"credits": "Custom",
+		"category": "outline",
+		"css": ".button-57 {\n  background: transparent;\n  border: 1.5px solid #e5e7eb;\n  border-radius: 50px;\n  color: #374151;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  padding: 9px 26px;\n  transition: all 0.25s ease;\n}\n\n.button-57:hover {\n  border-color: #6b7280;\n  color: #111;\n  letter-spacing: 0.03em;\n}"
+	},
+	{
+		"id": 58,
+		"name": "Button #58",
+		"credits": "Custom",
+		"category": "shadow",
+		"css": ".button-58 {\n  background: #fff;\n  border: none;\n  border-radius: 10px;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.05);\n  color: #1a1a2e;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 24px;\n  transition: all 0.25s ease;\n}\n\n.button-58:hover {\n  box-shadow: 0 6px 20px rgba(0,0,0,0.14), 0 20px 48px rgba(0,0,0,0.08);\n  transform: translateY(-3px);\n}"
+	},
+	{
+		"id": 59,
+		"name": "Button #59",
+		"credits": "Custom",
+		"category": "shadow",
+		"css": ".button-59 {\n  background: #6366f1;\n  border: none;\n  border-radius: 10px;\n  box-shadow: 0 4px 14px rgba(99,102,241,0.4), 0 1px 3px rgba(0,0,0,0.2);\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  padding: 11px 26px;\n  transition: all 0.25s ease;\n}\n\n.button-59:hover {\n  box-shadow: 0 8px 28px rgba(99,102,241,0.55), 0 2px 6px rgba(0,0,0,0.2);\n  transform: translateY(-3px);\n}"
+	},
+	{
+		"id": 60,
+		"name": "Button #60",
+		"credits": "Custom",
+		"category": "brutalist",
+		"css": ".button-60 {\n  background: #facc15;\n  border: 2px solid #000;\n  border-radius: 0;\n  box-shadow: 4px 4px 0 #000;\n  color: #000;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 800;\n  padding: 10px 24px;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  transition: all 0.1s;\n}\n\n.button-60:hover {\n  box-shadow: 2px 2px 0 #000;\n  transform: translate(2px, 2px);\n}\n\n.button-60:active {\n  box-shadow: none;\n  transform: translate(4px, 4px);\n}"
 	}
 ]
