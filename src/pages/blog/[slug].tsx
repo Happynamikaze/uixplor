@@ -5,6 +5,9 @@ import { motion } from 'motion/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import blog from '../../../data/blog.json';
 import PageBackground from '@/components/ui/PageBackground';
+import dynamic from 'next/dynamic';
+
+const BlogCodeEditor = dynamic(() => import('@/components/blog/BlogCodeEditor'), { ssr: false });
 
 
 type Section = { heading: string; level: number; body: string };
@@ -22,29 +25,65 @@ function slugify(text: string): string {
 }
 
 function renderBody(text: string) {
-	const parts = text.split(/(```[\s\S]*?```)/g);
-	return parts.map((part, i) => {
-		if (part.startsWith('```')) {
-			const code = part.replace(/^```[a-z]*\n?/, '').replace(/```$/, '');
-			return (
-				<pre key={i} className="my-5 rounded-xl bg-[#0a0a0f] border border-white/8 overflow-x-auto">
-					<code className="block p-5 font-mono text-[13px] leading-7 text-white/80 whitespace-pre">{code}</code>
-				</pre>
-			);
+	// Handle :::editor blocks
+	const editorParts = text.split(/(:::editor[\s\S]*?:::)/g);
+	return editorParts.map((part, i) => {
+		if (part.startsWith(':::editor')) {
+			const inner = part.replace(/^:::editor\n?/, '').replace(/:::$/, '').trim();
+			const [htmlPart, cssPart] = inner.split(/\n---css\n/);
+			if (htmlPart !== undefined && cssPart !== undefined) {
+				return <BlogCodeEditor key={i} html={htmlPart.trim()} css={cssPart.trim()} />;
+			}
+			return null;
 		}
-		return part.split(/\n\n+/).map((para, j) => {
-			if (!para.trim()) return null;
-			const tokens = para.split(/(\*\*[^*]+\*\*)/g);
-			return (
-				<p key={`${i}-${j}`} className="text-white/60 text-base leading-relaxed mb-4">
-					{tokens.map((tok, k) => {
-						if (tok.startsWith('**') && tok.endsWith('**')) return <strong key={k} className="text-white/90 font-semibold">{tok.slice(2, -2)}</strong>;
-						return tok;
-					})}
-				</p>
-			);
+		// Handle regular code blocks and prose
+		const parts = part.split(/(```[\s\S]*?```)/g);
+		return parts.map((segment, j) => {
+			if (segment.startsWith('```')) {
+				const [langLine, ...codeLines] = segment.replace(/^```/, '').replace(/```$/, '').split('\n');
+				const codeContent = codeLines.join('\n').replace(/\n$/, '');
+				const lang = langLine?.trim() || '';
+				return (
+					<div key={`${i}-${j}`} className="my-5 rounded-xl overflow-hidden border" style={{ background: '#0a0a0f', borderColor: '#2A2A2A' }}>
+						{lang && (
+							<div className="flex items-center justify-between px-4 py-2 border-b" style={{ borderColor: '#2A2A2A' }}>
+								<span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: '#B8FB3C' }}>{lang}</span>
+								<CopyCodeButton code={codeContent} />
+							</div>
+						)}
+						<pre className="overflow-x-auto">
+							<code className="block p-5 font-mono text-[13px] leading-7 text-white/80 whitespace-pre">{codeContent}</code>
+						</pre>
+					</div>
+				);
+			}
+			return segment.split(/\n\n+/).map((para, k) => {
+				if (!para.trim()) return null;
+				const tokens = para.split(/(\*\*[^*]+\*\*)/g);
+				return (
+					<p key={`${i}-${j}-${k}`} className="text-white/60 text-base leading-relaxed mb-4">
+						{tokens.map((tok, l) => {
+							if (tok.startsWith('**') && tok.endsWith('**')) return <strong key={l} className="text-white/90 font-semibold">{tok.slice(2, -2)}</strong>;
+							return tok;
+						})}
+					</p>
+				);
+			});
 		});
 	});
+}
+
+function CopyCodeButton({ code }: { code: string }) {
+	const [copied, setCopied] = useState(false);
+	return (
+		<button
+			onClick={() => { navigator.clipboard.writeText(code).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2000); }); }}
+			className="text-[10px] font-semibold px-2 py-1 rounded-md transition-all"
+			style={{ background: copied ? 'rgba(184,251,60,0.15)' : 'rgba(255,255,255,0.06)', color: copied ? '#B8FB3C' : 'rgba(255,255,255,0.4)' }}
+		>
+			{copied ? '✓ Copied' : 'Copy'}
+		</button>
+	);
 }
 
 function TableOfContents({ sections, activeId }: { sections: Section[]; activeId: string }) {
@@ -77,6 +116,20 @@ const cardGrads = [
 	'linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%)',
 	'linear-gradient(135deg, #1e3a3a 0%, #0f2a2a 100%)',
 ];
+
+// Maps blog tags → collection pages
+const TAG_TO_COLLECTION: Record<string, { label: string; href: string; icon: string; desc: string }> = {
+	'Buttons': { label: 'CSS Buttons', href: '/collections/buttons', icon: '⬜', desc: 'Hover, animated, gradient, glass buttons' },
+	'Box Shadows': { label: 'Box Shadows', href: '/collections/box-shadows', icon: '🌑', desc: 'Layered, glow, neumorphic shadows' },
+	'Glassmorphism': { label: 'Glass Effects', href: '/collections/glass-effects', icon: '🧊', desc: 'Frosted glass UI components' },
+	'Animations': { label: 'Animations', href: '/animations', icon: '✨', desc: 'CSS & Tailwind animation library' },
+	'Loaders': { label: 'Loaders', href: '/collections/loaders', icon: '↻', desc: 'Spinners, progress, skeleton loaders' },
+	'Inputs': { label: 'Inputs', href: '/collections/inputs', icon: '✎', desc: 'Form inputs with style' },
+	'Forms': { label: 'Inputs', href: '/collections/inputs', icon: '✎', desc: 'Styled form components' },
+	'Gradients': { label: 'Gradients', href: '/toolkit?tool=gradient', icon: '🌈', desc: 'Gradient generator & examples' },
+	'CSS': { label: 'Collections', href: '/collections', icon: '◈', desc: 'All UI component collections' },
+	'UX': { label: 'Micro Interactions', href: '/microinteractions', icon: '⚡', desc: 'Ripple, tilt, glow interactions' },
+};
 
 export default function BlogPost({ post, nextPost, relatedPosts }: Props) {
 	const [activeId, setActiveId] = useState('');
@@ -184,6 +237,44 @@ export default function BlogPost({ post, nextPost, relatedPosts }: Props) {
 									);
 								})}
 							</div>
+
+						{/* Related UI Components */}
+						{(() => {
+							const relatedCollections = post.tags
+								.map(tag => TAG_TO_COLLECTION[tag])
+								.filter(Boolean)
+								.filter((c, i, arr) => arr.findIndex(x => x?.href === c?.href) === i)
+								.slice(0, 3);
+
+							if (!relatedCollections.length) return null;
+
+							return (
+								<div className="mt-12 pt-10 border-t border-white/6">
+									<p className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Related UI Components</p>
+									<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+										{relatedCollections.map((col) => col && (
+											<Link
+												key={col.href}
+												href={col.href}
+												className="group flex items-center gap-3 p-4 rounded-xl border transition-all duration-300 hover:-translate-y-0.5"
+												style={{ background: '#151515', borderColor: '#2A2A2A' }}
+												onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(184,251,60,0.3)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 0 20px rgba(184,251,60,0.06)'; }}
+												onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#2A2A2A'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}
+											>
+												<div className="w-9 h-9 rounded-lg flex items-center justify-center text-base shrink-0" style={{ background: 'rgba(184,251,60,0.08)', border: '1px solid rgba(184,251,60,0.15)' }}>
+													{col.icon}
+												</div>
+												<div className="min-w-0 flex-1">
+													<p className="text-sm font-semibold text-white group-hover:text-[#B8FB3C] transition-colors">{col.label}</p>
+													<p className="text-[10px] text-white/35 truncate">{col.desc}</p>
+												</div>
+												<svg className="w-3.5 h-3.5 text-white/20 group-hover:text-[#B8FB3C] group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+											</Link>
+										))}
+									</div>
+								</div>
+							);
+						})()}
 
 							{/* Next + Related + Back */}
 							<div className="mt-16 pt-10 border-t border-white/6 space-y-10">
