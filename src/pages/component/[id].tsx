@@ -325,23 +325,23 @@ function FrameworkContent({ framework, component }: { framework: Framework; comp
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      className="space-y-4"
+      className="grid grid-cols-1 md:grid-cols-4 gap-6"
     >
       {/* File tree */}
-      <div className="rounded-xl border p-4" style={{ background: 'rgba(255,255,255,0.02)', borderColor: '#2A2A2A' }}>
+      <div className="md:col-span-1 rounded-xl border p-4 h-fit" style={{ background: 'rgba(255,255,255,0.02)', borderColor: '#2A2A2A' }}>
         <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: frameworkColors[framework] }}>Project Structure</p>
-        <div className="space-y-1">
+        <div className="space-y-1.5">
           {structure.map(([icon, file], i) => (
             <div key={i} className="flex items-center gap-2">
-              <span className="text-xs">{icon}</span>
-              <span className="text-[11px] font-mono" style={{ color: 'rgba(255,255,255,0.5)' }}>{file}</span>
+              <span className="text-xs whitespace-pre">{icon}</span>
+              <span className="text-[12px] font-mono" style={{ color: 'rgba(255,255,255,0.6)' }}>{file}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* Code blocks */}
-      <div className="space-y-3">
+      <div className="md:col-span-3 space-y-4">
         {files.map((file) => (
           <CodeBlock key={file.label} code={file.code} lang={file.lang} label={file.label} />
         ))}

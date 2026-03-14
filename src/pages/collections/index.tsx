@@ -12,7 +12,7 @@ const collections = [
 		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" /></svg>),
 	},
 	{
-		id: 'cards', title: 'Cards', description: 'Modern card components for your projects', count: 20, href: '/collections/cards',
+		id: 'cards', title: 'Cards', description: 'Modern card components for your projects to use it ', count: 20, href: '/collections/cards',
 		icon: (<svg className="w-10 h-10 sm:w-12 sm:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>),
 	},
 	{
@@ -137,11 +137,11 @@ export default function Collections() {
 								transition={{ duration: 0.5, delay: index * 0.06 }}
 							>
 								<Link href={collection.href}>
-									<div className="relative group h-52 sm:h-60 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 bg-white/3 border border-white/6 hover:border-[#B8FB3C]/40 hover:shadow-[0_0_40px_rgba(184,251,60,0.08)]">
+					<div className="relative group min-h-[13rem] sm:min-h-[15rem] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 bg-white/3 border border-white/6 hover:border-[#B8FB3C]/40 hover:shadow-[0_0_40px_rgba(184,251,60,0.08)]">
 										{/* Glow orb */}
 										<div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#B8FB3C]/[0.03] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-										<div className="relative h-full p-6 sm:p-8 flex flex-col justify-between text-white">
+										<div className="relative h-full p-6  flex flex-col gap-3 justify-between text-white">
 											<div>
 												<div className="text-[#B8FB3C] mb-3 sm:mb-4 group-hover:-translate-y-0.5 transition-transform duration-300">
 													{collection.icon}
@@ -150,7 +150,7 @@ export default function Collections() {
 												<p className="text-white/40 text-sm sm:text-base">{collection.description}</p>
 											</div>
 
-											<div className="flex items-center justify-between">
+											<div className="flex items-center justify-between ">
 												<span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#B8FB3C]/10 text-xs font-semibold border border-[#B8FB3C]/20 text-[#B8FB3C]">
 													{collection.count} items
 												</span>

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
+import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import PageSEO from '@/components/seo/PageSEO';
 import { motion } from 'motion/react';
@@ -231,9 +232,46 @@ p {
 };
 
 export default function Playground() {
-  const [activeTemplate, setActiveTemplate] = useState<keyof typeof STARTER_TEMPLATES>('glass_card');
+  const router = useRouter();
+  const { name: qName, css: qCss, html: qHtml } = router.query;
+
+  const dynamicTemplate = useMemo(() => {
+    if (qName && qCss) {
+      const cssStr = String(qCss);
+      const match = cssStr.match(/^\s*\.([a-zA-Z0-9_-]+)/m);
+      const className = match ? match[1] : 'component';
+      
+      let htmlStr = String(qHtml || '');
+      if (!htmlStr) {
+        htmlStr = `<div class="scene">\n  <div class="${className}">\n    ${String(qName)}\n  </div>\n</div>`;
+      }
+
+      return {
+        name: String(qName),
+        html: htmlStr,
+        css: cssStr
+      };
+    }
+    return null;
+  }, [qName, qCss, qHtml]);
+
+  const [activeTemplate, setActiveTemplate] = useState<string>('');
+
+  useEffect(() => {
+    if (router.isReady) {
+      if (qName && qCss && activeTemplate === '') {
+        setActiveTemplate('custom');
+      } else if (!activeTemplate) {
+        setActiveTemplate('glass_card');
+      }
+    }
+  }, [router.isReady, qName, qCss, activeTemplate]);
+
+  const template = activeTemplate === 'custom' && dynamicTemplate 
+    ? dynamicTemplate 
+    : (STARTER_TEMPLATES[activeTemplate] || STARTER_TEMPLATES.glass_card);
+
   const [copied, setCopied] = useState(false);
-  const template = STARTER_TEMPLATES[activeTemplate];
 
   const fullCode = `<!DOCTYPE html>
 <html lang="en">
@@ -337,7 +375,20 @@ ${template.html}
 
           {/* Template Selector */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-4 flex gap-2 flex-wrap">
-            {(Object.entries(STARTER_TEMPLATES) as [keyof typeof STARTER_TEMPLATES, typeof STARTER_TEMPLATES[keyof typeof STARTER_TEMPLATES]][]).map(([key, tmpl]) => (
+            {dynamicTemplate && (
+              <button
+                onClick={() => setActiveTemplate('custom')}
+                className="px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border"
+                style={{
+                  background: activeTemplate === 'custom' ? '#6C63FF' : 'rgba(255,255,255,0.04)',
+                  borderColor: activeTemplate === 'custom' ? '#6C63FF' : '#2A2A2A',
+                  color: activeTemplate === 'custom' ? '#fff' : 'rgba(255,255,255,0.5)',
+                }}
+              >
+                {dynamicTemplate.name}
+              </button>
+            )}
+            {(Object.entries(STARTER_TEMPLATES) as [string, { name: string; html: string; css: string }][]).map(([key, tmpl]) => (
               <button
                 key={key}
                 onClick={() => setActiveTemplate(key)}
