@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import RocketIcon from '@/components/icons/RocketIcon';
 import AnimatedButton from '@/components/ui/AnimatedButton';
+import { Layers, Palette, Square, Sparkles, ArrowRightLeft, Wind, Code2, MousePointer2, TrendingUp, Zap } from 'lucide-react';
 
 import shadowData from '../../../data/shadows.json';
 import buttonData from '../../../data/buttons.json';
@@ -243,6 +244,69 @@ export default function Home() {
 					className="w-full absolute top-0 left-0 -z-10"
 					alt=""
 				/>
+
+				{/* Developer Tools Section */}
+				<section className="container px-4 sm:px-6 py-10 sm:py-14">
+					<motion.div
+						className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-3"
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5 }}
+					>
+						<div>
+							<h2 className="text-2xl sm:text-3xl font-bold text-white">Developer Tools</h2>
+							<p className="text-white/40 text-sm mt-1">CSS generators and utilities — open and start building instantly</p>
+						</div>
+						<Link href="/toolkit" className="text-sm font-semibold text-[#6C63FF] hover:text-[#a78bfa] transition-colors flex items-center gap-1">
+							All tools
+							<svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+						</Link>
+					</motion.div>
+
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+						{[
+							{ icon: <Layers className="w-5 h-5" />, label: 'Box Shadow Generator', desc: 'Craft layered shadows with live preview', href: '/toolkit?tool=shadow', color: '#6C63FF', bg: 'rgba(108,99,255,0.1)', border: 'rgba(108,99,255,0.25)' },
+							{ icon: <Palette className="w-5 h-5" />, label: 'Gradient Generator', desc: 'Linear & radial gradients, instant CSS', href: '/toolkit?tool=gradient', color: '#f472b6', bg: 'rgba(244,114,182,0.1)', border: 'rgba(244,114,182,0.25)' },
+							{ icon: <Square className="w-5 h-5" />, label: 'Border Radius', desc: 'Per-corner control, generate CSS', href: '/toolkit?tool=radius', color: '#34d399', bg: 'rgba(52,211,153,0.1)', border: 'rgba(52,211,153,0.25)' },
+							{ icon: <Sparkles className="w-5 h-5" />, label: 'CSS Animation', desc: 'Keyframe generator with 8 presets', href: '/toolkit?tool=animation', color: '#fbbf24', bg: 'rgba(251,191,36,0.1)', border: 'rgba(251,191,36,0.25)' },
+							{ icon: <ArrowRightLeft className="w-5 h-5" />, label: 'CSS → Tailwind', desc: 'Convert CSS properties to classes', href: '/toolkit?tool=tailwind', color: '#38bdf8', bg: 'rgba(56,189,248,0.1)', border: 'rgba(56,189,248,0.25)' },
+							{ icon: <Wind className="w-5 h-5" />, label: 'Glassmorphism', desc: 'Build frosted glass UI components', href: '/trends/glassmorphism', color: '#a78bfa', bg: 'rgba(167,139,250,0.1)', border: 'rgba(167,139,250,0.25)' },
+							{ icon: <Code2 className="w-5 h-5" />, label: 'Code Playground', desc: 'Live HTML/CSS editor with preview', href: '/playground', color: '#B8FB3C', bg: 'rgba(184,251,60,0.08)', border: 'rgba(184,251,60,0.25)' },
+							{ icon: <MousePointer2 className="w-5 h-5" />, label: 'Micro Interactions', desc: 'Magnetic, ripple, tilt & cursor effects', href: '/microinteractions', color: '#fb923c', bg: 'rgba(251,146,60,0.1)', border: 'rgba(251,146,60,0.25)' },
+						].map((tool, i) => (
+							<motion.div
+								key={tool.label}
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.4, delay: i * 0.05 }}
+							>
+								<Link href={tool.href} className="group block h-full">
+									<div
+										className="relative h-full flex flex-col gap-3 p-5 rounded-2xl border transition-all duration-300 group-hover:shadow-[0_0_24px_rgba(0,0,0,0.4)] group-hover:-translate-y-0.5 overflow-hidden"
+										style={{ background: '#151515', borderColor: '#2A2A2A' }}
+									>
+										{/* Hover glow */}
+										<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" style={{ boxShadow: `inset 0 0 0 1px ${tool.border}`, background: `radial-gradient(circle at top left, ${tool.bg} 0%, transparent 60%)` }} />
+										{/* Icon */}
+										<div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110" style={{ background: tool.bg, border: `1px solid ${tool.border}`, color: tool.color }}>
+											{tool.icon}
+										</div>
+										<div className="flex-1">
+											<h3 className="text-sm font-bold text-white mb-1 group-hover:text-white/95">{tool.label}</h3>
+											<p className="text-xs text-white/40 leading-relaxed">{tool.desc}</p>
+										</div>
+										<div className="flex items-center gap-1 text-[11px] font-semibold transition-all duration-200" style={{ color: tool.color }}>
+											Open Tool
+											<svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+										</div>
+									</div>
+								</Link>
+							</motion.div>
+						))}
+					</div>
+				</section>
 
 				{/* Collections Grid */}
 				<section className="container px-4 sm:px-6 py-12 sm:py-16">
@@ -593,6 +657,102 @@ export default function Home() {
 						</Link>
 					</div>
 				</section>
+
+			{/* New Features Section */}
+			<section className="container px-4 sm:px-6 py-12 sm:py-16">
+				<motion.h2
+					className="text-3xl sm:text-4xl font-bold text-center mb-3 text-white"
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5 }}
+				>
+					Discover More
+				</motion.h2>
+				<motion.p
+					className="text-white/40 text-center mb-10 text-sm sm:text-base"
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5, delay: 0.1 }}
+				>
+					Tools and features built for modern developer workflows
+				</motion.p>
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+					{[
+						{
+							href: '/playground',
+							icon: <Code2 className="w-5 h-5" />,
+							label: 'Playground',
+							desc: 'Edit HTML & CSS live — copy, download, share',
+							accent: '#6C63FF',
+							bg: 'rgba(108,99,255,0.12)',
+						},
+						{
+							href: '/animations',
+							icon: <Sparkles className="w-5 h-5" />,
+							label: 'Animations',
+							desc: 'Button hovers, text reveals, loaders — CSS & Tailwind',
+							accent: '#a78bfa',
+							bg: 'rgba(167,139,250,0.12)',
+						},
+						{
+							href: '/microinteractions',
+							icon: <MousePointer2 className="w-5 h-5" />,
+							label: 'Micro Interactions',
+							desc: 'Magnetic buttons, ripple, cursor glow, 3D tilt',
+							accent: '#f472b6',
+							bg: 'rgba(244,114,182,0.12)',
+						},
+						{
+							href: '/builder',
+							icon: <Layers className="w-5 h-5" />,
+							label: 'Component Builder',
+							desc: 'Visually build components & generate clean code',
+							accent: '#34d399',
+							bg: 'rgba(52,211,153,0.12)',
+						},
+						{
+							href: '/trends',
+							icon: <TrendingUp className="w-5 h-5" />,
+							label: 'UI Trends',
+							desc: 'Glassmorphism, Neumorphism, Brutalist, Cyberpunk + more',
+							accent: '#B8FB3C',
+							bg: 'rgba(184,251,60,0.10)',
+						},
+						{
+							href: '/toolkit',
+							icon: <Zap className="w-5 h-5" />,
+							label: 'Dev Toolkit',
+							desc: 'Shadow, gradient, radius generators & Tailwind converter',
+							accent: '#fbbf24',
+							bg: 'rgba(251,191,36,0.12)',
+						},
+					].map((feature, i) => (
+						<motion.a
+							key={feature.href}
+							href={feature.href}
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.4, delay: i * 0.07 }}
+							className="group flex flex-col gap-3 rounded-2xl border p-5 transition-all duration-300 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-lg"
+							style={{ background: '#151515', borderColor: '#2A2A2A' }}
+						>
+							<div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110" style={{ background: feature.bg, border: `1px solid ${feature.accent}30`, color: feature.accent }}>
+								{feature.icon}
+							</div>
+							<div className="flex-1">
+								<h3 className="text-base font-bold text-white mb-1.5 group-hover:text-white/90">{feature.label}</h3>
+								<p className="text-white/40 text-xs leading-relaxed mb-3">{feature.desc}</p>
+								<span className="text-xs font-semibold flex items-center gap-1 transition-colors" style={{ color: feature.accent }}>
+									Explore →
+								</span>
+							</div>
+						</motion.a>
+					))}
+				</div>
+			</section>
 			</main>
 		</>
 	);

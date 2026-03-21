@@ -2,7 +2,7 @@
 	{
 		"slug": "box-shadows-ui-design",
 		"title": "Understanding Modern Box Shadows in UI Design",
-		"excerpt": "Dive deep into CSS box shadows — from soft layered tokens to glassmorphism and inset depth techniques. Learn how shadows communicate elevation, hierarchy, and feel.",
+		"excerpt": "Dive deep into CSS box shadows \u2014 from soft layered tokens to glassmorphism and inset depth techniques. Learn how shadows communicate elevation, hierarchy, and feel.",
 		"author": "UIXplor Team",
 		"date": "2026-02-20",
 		"readingTime": 7,
@@ -18,27 +18,27 @@
 			{
 				"heading": "What Makes a Great Shadow?",
 				"level": 2,
-				"body": "A great shadow doesn't just sit beneath an element — it tells a story. It communicates how high off the surface an object floats, how much light hits it from above, and whether it's interactive. The difference between a flat card and a beautifully elevated card is almost always the shadow.\n\nModern UI design has moved away from harsh, dark box-shadows toward layered, diffused shadows that feel more physically plausible. Instead of one thick shadowy layer, we stack two or three with increasing blur radius and decreasing opacity — mimicking how real light actually scatters."
+				"body": "A great shadow doesn't just sit beneath an element \u2014 it tells a story. It communicates how high off the surface an object floats, how much light hits it from above, and whether it's interactive. The difference between a flat card and a beautifully elevated card is almost always the shadow.\n\nModern UI design has moved away from harsh, dark box-shadows toward layered, diffused shadows that feel more physically plausible. Instead of one thick shadowy layer, we stack two or three with increasing blur radius and decreasing opacity \u2014 mimicking how real light actually scatters."
 			},
 			{
 				"heading": "The Layered Shadow Technique",
 				"level": 2,
-				"body": "The layered approach is the gold standard for soft, realistic shadows. Here's the formula:\n\n**Small contact shadow** — a tight, low-blur shadow right beneath the element simulates the contact point where the element 'almost touches' the surface.\n\n**Medium ambient shadow** — a wider, more diffused layer mimics the ambient light bleeding around the object.\n\n**Optional wide halo** — for high-elevation elements, a very wide, almost invisible shadow creates atmosphere.\n\nHere's a practical example:\n\n```css\n.card {\n  box-shadow:\n    0 1px 2px rgba(0, 0, 0, 0.04),   /* contact */\n    0 4px 12px rgba(0, 0, 0, 0.06),  /* ambient */\n    0 16px 40px rgba(0, 0, 0, 0.04); /* halo */\n}\n```\n\nThis combination is imperceptible individually but stunning together."
+				"body": "The layered approach is the gold standard for soft, realistic shadows. Here's the formula:\n\n**Small contact shadow** \u2014 a tight, low-blur shadow right beneath the element simulates the contact point where the element 'almost touches' the surface.\n\n**Medium ambient shadow** \u2014 a wider, more diffused layer mimics the ambient light bleeding around the object.\n\n**Optional wide halo** \u2014 for high-elevation elements, a very wide, almost invisible shadow creates atmosphere.\n\nHere's a practical example:\n\n```css\n.card {\n  box-shadow:\n    0 1px 2px rgba(0, 0, 0, 0.04),   /* contact */\n    0 4px 12px rgba(0, 0, 0, 0.06),  /* ambient */\n    0 16px 40px rgba(0, 0, 0, 0.04); /* halo */\n}\n```\n\nThis combination is imperceptible individually but stunning together."
 			},
 			{
 				"heading": "Shadows on Dark Backgrounds",
 				"level": 2,
-				"body": "This trips up even experienced designers. On a dark background, a shadow of `rgba(0,0,0,0.3)` is essentially invisible — you're making something darker than dark. The solution is to use **white glow** instead of dark shadow.\n\nFor dark UI cards, use:\n\n```css\n.dark-card {\n  box-shadow:\n    0 4px 12px rgba(255, 255, 255, 0.06),\n    0 0 0 1px rgba(255, 255, 255, 0.04);\n}\n```\n\nThe second shadow is a 1px hairline ring that adds a subtle border-elevation without a hard `border` property. This technique is used by Linear, Vercel, and GitHub's dark interfaces."
+				"body": "This trips up even experienced designers. On a dark background, a shadow of `rgba(0,0,0,0.3)` is essentially invisible \u2014 you're making something darker than dark. The solution is to use **white glow** instead of dark shadow.\n\nFor dark UI cards, use:\n\n```css\n.dark-card {\n  box-shadow:\n    0 4px 12px rgba(255, 255, 255, 0.06),\n    0 0 0 1px rgba(255, 255, 255, 0.04);\n}\n```\n\nThe second shadow is a 1px hairline ring that adds a subtle border-elevation without a hard `border` property. This technique is used by Linear, Vercel, and GitHub's dark interfaces."
 			},
 			{
 				"heading": "Inset Shadows for Depth",
 				"level": 2,
-				"body": "While most shadows push elements *up*, inset shadows carve them *in*. This creates a pressed, recessed, or indented effect — perfect for input fields, pressed buttons, or \"well\" containers.\n\n```css\n.input-dark {\n  box-shadow:\n    inset 0 1px 2px rgba(255, 255, 255, 0.08),\n    inset 0 -1px 2px rgba(0, 0, 0, 0.4);\n}\n```\n\nNotice the top inset uses a white tint (simulating light from above casting into the well) and the bottom uses black (shadow at the bottom of the cavity). This creates a convincing recessed look."
+				"body": "While most shadows push elements *up*, inset shadows carve them *in*. This creates a pressed, recessed, or indented effect \u2014 perfect for input fields, pressed buttons, or \"well\" containers.\n\n```css\n.input-dark {\n  box-shadow:\n    inset 0 1px 2px rgba(255, 255, 255, 0.08),\n    inset 0 -1px 2px rgba(0, 0, 0, 0.4);\n}\n```\n\nNotice the top inset uses a white tint (simulating light from above casting into the well) and the bottom uses black (shadow at the bottom of the cavity). This creates a convincing recessed look."
 			},
 			{
 				"heading": "Glassmorphism Shadows",
 				"level": 2,
-				"body": "Glassmorphism goes beyond `backdrop-filter: blur()`. The shadows are critical to making glass feel real. A glass element has:\n\n1. **No traditional box shadow** — the frosted surface doesn't cast a hard shadow\n2. **A subtle inner highlight** — the top edge catches light\n3. **A soft outer glow** — the frosted surface diffuses ambient light around it\n\n```css\n.glass-card {\n  background: rgba(255, 255, 255, 0.08);\n  backdrop-filter: blur(16px);\n  border: 1px solid rgba(255, 255, 255, 0.15);\n  box-shadow:\n    0 8px 32px rgba(0, 0, 0, 0.2),\n    inset 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n```\n\nThe `inset 0 1px 0` creates the catching-light effect on the top edge — this is the subtle detail that separates premium glassmorphism from amateur attempts."
+				"body": "Glassmorphism goes beyond `backdrop-filter: blur()`. The shadows are critical to making glass feel real. A glass element has:\n\n1. **No traditional box shadow** \u2014 the frosted surface doesn't cast a hard shadow\n2. **A subtle inner highlight** \u2014 the top edge catches light\n3. **A soft outer glow** \u2014 the frosted surface diffuses ambient light around it\n\n```css\n.glass-card {\n  background: rgba(255, 255, 255, 0.08);\n  backdrop-filter: blur(16px);\n  border: 1px solid rgba(255, 255, 255, 0.15);\n  box-shadow:\n    0 8px 32px rgba(0, 0, 0, 0.2),\n    inset 0 1px 0 rgba(255, 255, 255, 0.2);\n}\n```\n\nThe `inset 0 1px 0` creates the catching-light effect on the top edge \u2014 this is the subtle detail that separates premium glassmorphism from amateur attempts."
 			},
 			{
 				"heading": "Using Design Tokens for Shadow Systems",
@@ -48,7 +48,7 @@
 			{
 				"heading": "Best Practices Summary",
 				"level": 2,
-				"body": "1. **Layer instead of single** — two or three subtle layers beat one heavy shadow\n2. **Match light source** — shadows should fall consistently in one direction\n3. **Dark mode needs white glow** — not dark shadow\n4. **Insets feel interactive** — use for inputs, pressed states, wells\n5. **Use tokens** — define a shadow scale, stick to it\n6. **Glassmorphism needs both** — outer blur shadow AND inset top highlight\n\nShadows are invisible design elements that make everything feel real. Spend time learning them and your UIs will have an unmistakable sense of depth and polish."
+				"body": "1. **Layer instead of single** \u2014 two or three subtle layers beat one heavy shadow\n2. **Match light source** \u2014 shadows should fall consistently in one direction\n3. **Dark mode needs white glow** \u2014 not dark shadow\n4. **Insets feel interactive** \u2014 use for inputs, pressed states, wells\n5. **Use tokens** \u2014 define a shadow scale, stick to it\n6. **Glassmorphism needs both** \u2014 outer blur shadow AND inset top highlight\n\nShadows are invisible design elements that make everything feel real. Spend time learning them and your UIs will have an unmistakable sense of depth and polish."
 			}
 		]
 	},
@@ -71,27 +71,27 @@
 			{
 				"heading": "Why Button Interaction Matters",
 				"level": 2,
-				"body": "A button is a contract. The user clicks it expecting something to happen. Every micro-moment of that interaction — the hover, the press, the release — is a chance to communicate that the contract is being honored. Buttons that feel 'dead' breed user anxiety. Did it register? Should I click again?\n\nGreat button interactions solve this communication problem through motion, color, and shadow. They provide instant, unambiguous feedback that the UI heard you."
+				"body": "A button is a contract. The user clicks it expecting something to happen. Every micro-moment of that interaction \u2014 the hover, the press, the release \u2014 is a chance to communicate that the contract is being honored. Buttons that feel 'dead' breed user anxiety. Did it register? Should I click again?\n\nGreat button interactions solve this communication problem through motion, color, and shadow. They provide instant, unambiguous feedback that the UI heard you."
 			},
 			{
 				"heading": "The Hover State Psychology",
 				"level": 2,
-				"body": "The hover state is often misunderstood as just showing 'this is clickable.' It goes deeper than that. A great hover state says: *something is about to happen.*\n\nThe most effective hover signals are:\n- **Color shift** — slightly lighter (for brand colors) or darker (for transparent/ghost buttons)\n- **Lift** — `transform: translateY(-2px)` with an enhanced shadow creates a physical 'rising' sensation\n- **Glow** — a colored shadow matching the button's accent hue\n\n```css\n.btn-primary:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);\n}\n```\n\nNotice the glow uses the button's own color with opacity — this makes the shadow feel like light escaping the button rather than a generic shadow."
+				"body": "The hover state is often misunderstood as just showing 'this is clickable.' It goes deeper than that. A great hover state says: *something is about to happen.*\n\nThe most effective hover signals are:\n- **Color shift** \u2014 slightly lighter (for brand colors) or darker (for transparent/ghost buttons)\n- **Lift** \u2014 `transform: translateY(-2px)` with an enhanced shadow creates a physical 'rising' sensation\n- **Glow** \u2014 a colored shadow matching the button's accent hue\n\n```css\n.btn-primary:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);\n}\n```\n\nNotice the glow uses the button's own color with opacity \u2014 this makes the shadow feel like light escaping the button rather than a generic shadow."
 			},
 			{
 				"heading": "The Active / Press State",
 				"level": 2,
-				"body": "The `:active` state (triggered on mousedown) is the most underused weapon in button design. It should simulate physical compression:\n\n```css\n.btn-primary:active {\n  transform: translateY(0px) scale(0.98);\n  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);\n  transition-duration: 0.08s;\n}\n```\n\nThree things are happening:\n1. **Y returns to 0** — the button 'pushes back' to the surface\n2. **Scale 0.98** — a slight compression simulating physical pressure\n3. **Shadow reduces** — less glow when pressed into the surface\n4. **Fast transition** — `0.08s` makes it feel snappy and responsive\n\nThe asymmetry between hover (slow, inviting) and active (fast, decisive) is what makes buttons feel like real objects."
+				"body": "The `:active` state (triggered on mousedown) is the most underused weapon in button design. It should simulate physical compression:\n\n```css\n.btn-primary:active {\n  transform: translateY(0px) scale(0.98);\n  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);\n  transition-duration: 0.08s;\n}\n```\n\nThree things are happening:\n1. **Y returns to 0** \u2014 the button 'pushes back' to the surface\n2. **Scale 0.98** \u2014 a slight compression simulating physical pressure\n3. **Shadow reduces** \u2014 less glow when pressed into the surface\n4. **Fast transition** \u2014 `0.08s` makes it feel snappy and responsive\n\nThe asymmetry between hover (slow, inviting) and active (fast, decisive) is what makes buttons feel like real objects."
 			},
 			{
 				"heading": "Transition Timing Is Everything",
 				"level": 2,
-				"body": "Linear transitions feel robotic. For buttons, use easing that mimics physical momentum:\n\n```css\n.btn {\n  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);\n}\n```\n\nThis is Material Design's standard easing (`ease`) — starts fast, decelerates at the end. For the active state (pressing), flip it:\n\n```css\n.btn:active {\n  transition: all 0.08s cubic-bezier(0.0, 0, 0.6, 1);\n}\n```\n\nThis starts slow and accelerates — simulating a quick, decisive press. The contrast between these two easings creates a satisfying ping-pong effect."
+				"body": "Linear transitions feel robotic. For buttons, use easing that mimics physical momentum:\n\n```css\n.btn {\n  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);\n}\n```\n\nThis is Material Design's standard easing (`ease`) \u2014 starts fast, decelerates at the end. For the active state (pressing), flip it:\n\n```css\n.btn:active {\n  transition: all 0.08s cubic-bezier(0.0, 0, 0.6, 1);\n}\n```\n\nThis starts slow and accelerates \u2014 simulating a quick, decisive press. The contrast between these two easings creates a satisfying ping-pong effect."
 			},
 			{
 				"heading": "The Shimmer Microinteraction",
 				"level": 2,
-				"body": "A shimmer is a light sweep across the button surface on hover — giving the impression of light glinting off a physical object. It's subtle but premium:\n\n```css\n.btn-shimmer {\n  position: relative;\n  overflow: hidden;\n}\n\n.btn-shimmer::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(\n    90deg,\n    transparent,\n    rgba(255, 255, 255, 0.2),\n    transparent\n  );\n  transition: left 0.5s ease;\n}\n\n.btn-shimmer:hover::before {\n  left: 100%;\n}\n```\n\nThis is used by Stripe, Linear, and many premium SaaS products. The speed (0.5s) and the light intensity (`0.2` opacity) are key — slower and brighter breaks the illusion."
+				"body": "A shimmer is a light sweep across the button surface on hover \u2014 giving the impression of light glinting off a physical object. It's subtle but premium:\n\n```css\n.btn-shimmer {\n  position: relative;\n  overflow: hidden;\n}\n\n.btn-shimmer::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: -100%;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(\n    90deg,\n    transparent,\n    rgba(255, 255, 255, 0.2),\n    transparent\n  );\n  transition: left 0.5s ease;\n}\n\n.btn-shimmer:hover::before {\n  left: 100%;\n}\n```\n\nThis is used by Stripe, Linear, and many premium SaaS products. The speed (0.5s) and the light intensity (`0.2` opacity) are key \u2014 slower and brighter breaks the illusion."
 			},
 			{
 				"heading": "Ghost and Outline Buttons",
@@ -101,19 +101,19 @@
 			{
 				"heading": "Accessibility in Interactive Buttons",
 				"level": 2,
-				"body": "Motion-rich buttons need an accessibility escape hatch for users with motion sensitivity:\n\n```css\n@media (prefers-reduced-motion: reduce) {\n  .btn {\n    transition: color 0.1s, background-color 0.1s;\n    transform: none !important;\n  }\n}\n```\n\nAlso ensure:\n- **Focus visible** — don't suppress `:focus-visible` outlines\n- **Color contrast** — hover states must maintain WCAG 4.5:1 ratio\n- **Touch targets** — minimum 44×44px for mobile\n- **Descriptive labels** — `aria-label` when button text isn't self-explanatory\n\nA button that looks alive but fails accessibility is only half-designed."
+				"body": "Motion-rich buttons need an accessibility escape hatch for users with motion sensitivity:\n\n```css\n@media (prefers-reduced-motion: reduce) {\n  .btn {\n    transition: color 0.1s, background-color 0.1s;\n    transform: none !important;\n  }\n}\n```\n\nAlso ensure:\n- **Focus visible** \u2014 don't suppress `:focus-visible` outlines\n- **Color contrast** \u2014 hover states must maintain WCAG 4.5:1 ratio\n- **Touch targets** \u2014 minimum 44\u00d744px for mobile\n- **Descriptive labels** \u2014 `aria-label` when button text isn't self-explanatory\n\nA button that looks alive but fails accessibility is only half-designed."
 			},
 			{
 				"heading": "Design Principles Summary",
 				"level": 2,
-				"body": "1. **Hover = invitation** — subtle lift, color warmth, glow\n2. **Active = confirmation** — fast, compressed, reduced shadow\n3. **Use easing not linear** — cubic-bezier for natural feel\n4. **Shimmer = premium** — light sweep on hover for polished feel\n5. **Ghost buttons need fill** — a transparent overlay appears on hover\n6. **Always respect motion preferences** — `prefers-reduced-motion`\n\nButtons are the most-touched UI element in any interface. Polish them obsessively. Users won't consciously notice — but they'll *feel* it."
+				"body": "1. **Hover = invitation** \u2014 subtle lift, color warmth, glow\n2. **Active = confirmation** \u2014 fast, compressed, reduced shadow\n3. **Use easing not linear** \u2014 cubic-bezier for natural feel\n4. **Shimmer = premium** \u2014 light sweep on hover for polished feel\n5. **Ghost buttons need fill** \u2014 a transparent overlay appears on hover\n6. **Always respect motion preferences** \u2014 `prefers-reduced-motion`\n\nButtons are the most-touched UI element in any interface. Polish them obsessively. Users won't consciously notice \u2014 but they'll *feel* it."
 			}
 		]
 	},
 	{
 		"slug": "glassmorphism-ui-guide",
 		"title": "Glassmorphism: The Complete CSS Guide for Frosted Glass UIs",
-		"excerpt": "Glassmorphism is more than backdrop-filter — learn the full technique: blur layers, border highlights, color tints, and when to use (or avoid) frosted glass in your next UI.",
+		"excerpt": "Glassmorphism is more than backdrop-filter \u2014 learn the full technique: blur layers, border highlights, color tints, and when to use (or avoid) frosted glass in your next UI.",
 		"author": "UIXplor Team",
 		"date": "2026-02-24",
 		"readingTime": 9,
@@ -129,7 +129,7 @@
 			{
 				"heading": "What Is Glassmorphism?",
 				"level": 2,
-				"body": "Glassmorphism is a visual design language that simulates frosted glass — translucent surfaces with a blurred view of whatever is behind them. It took the design world by storm in 2021 with Apple's macOS Big Sur and has since become a staple of modern dark-mode UIs.\n\nThe effect is built on four core properties:\n1. **Background with transparency** — `rgba()` or `hsl()` with low alpha\n2. **Backdrop filter blur** — `backdrop-filter: blur(Xpx)`\n3. **Hairline border** — `rgba(255,255,255,0.2)` on a semi-transparent background\n4. **Top highlight** — `inset 0 1px 0 rgba(255,255,255,0.3)` in box-shadow\n\nGet all four right and you have genuine glassmorphism. Miss any one and it falls flat."
+				"body": "Glassmorphism is a visual design language that simulates frosted glass \u2014 translucent surfaces with a blurred view of whatever is behind them. It took the design world by storm in 2021 with Apple's macOS Big Sur and has since become a staple of modern dark-mode UIs.\n\nThe effect is built on four core properties:\n1. **Background with transparency** \u2014 `rgba()` or `hsl()` with low alpha\n2. **Backdrop filter blur** \u2014 `backdrop-filter: blur(Xpx)`\n3. **Hairline border** \u2014 `rgba(255,255,255,0.2)` on a semi-transparent background\n4. **Top highlight** \u2014 `inset 0 1px 0 rgba(255,255,255,0.3)` in box-shadow\n\nGet all four right and you have genuine glassmorphism. Miss any one and it falls flat."
 			},
 			{
 				"heading": "The Core CSS Formula",
@@ -139,17 +139,17 @@
 			{
 				"heading": "Choosing the Right Blur Amount",
 				"level": 2,
-				"body": "Blur radius is the most sensitive parameter. Too low and the effect disappears. Too high and the background becomes a smear with no depth:\n\n- **4–8px** — very subtle, barely readable as glass. Use for text overlays.\n- **12–16px** — the sweet spot for cards and panels.\n- **20–30px** — strong glass for modals and sidebars with complex backgrounds.\n- **40px+** — extreme blur, useful only for full-screen overlays.\n\n```css\n/* Three glass tiers */\n.glass-light  { backdrop-filter: blur(8px);  }\n.glass-medium { backdrop-filter: blur(16px); }\n.glass-heavy  { backdrop-filter: blur(28px); }\n```\n\nMatch blur intensity to the complexity of the background. Simple colors need less blur. Busy photos or gradients need more."
+				"body": "Blur radius is the most sensitive parameter. Too low and the effect disappears. Too high and the background becomes a smear with no depth:\n\n- **4\u20138px** \u2014 very subtle, barely readable as glass. Use for text overlays.\n- **12\u201316px** \u2014 the sweet spot for cards and panels.\n- **20\u201330px** \u2014 strong glass for modals and sidebars with complex backgrounds.\n- **40px+** \u2014 extreme blur, useful only for full-screen overlays.\n\n```css\n/* Three glass tiers */\n.glass-light  { backdrop-filter: blur(8px);  }\n.glass-medium { backdrop-filter: blur(16px); }\n.glass-heavy  { backdrop-filter: blur(28px); }\n```\n\nMatch blur intensity to the complexity of the background. Simple colors need less blur. Busy photos or gradients need more."
 			},
 			{
 				"heading": "Dark vs Light Glass",
 				"level": 2,
-				"body": "Glassmorphism on a dark background inverts the logic:\n\n```css\n/* Light glass — on gradient/photo backgrounds */\n.glass-light-mode {\n  background: rgba(255, 255, 255, 0.15);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n}\n\n/* Dark glass — on dark backgrounds */\n.glass-dark-mode {\n  background: rgba(0, 0, 0, 0.35);\n  border: 1px solid rgba(255, 255, 255, 0.08);\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);\n}\n```\n\nDark glass uses less background opacity since you're already on a dark surface. The border and inner highlight are still essential — they remain the same color (white) regardless of mode."
+				"body": "Glassmorphism on a dark background inverts the logic:\n\n```css\n/* Light glass \u2014 on gradient/photo backgrounds */\n.glass-light-mode {\n  background: rgba(255, 255, 255, 0.15);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n}\n\n/* Dark glass \u2014 on dark backgrounds */\n.glass-dark-mode {\n  background: rgba(0, 0, 0, 0.35);\n  border: 1px solid rgba(255, 255, 255, 0.08);\n  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);\n}\n```\n\nDark glass uses less background opacity since you're already on a dark surface. The border and inner highlight are still essential \u2014 they remain the same color (white) regardless of mode."
 			},
 			{
 				"heading": "Tinted Glass",
 				"level": 2,
-				"body": "Colored glass adds personality. Tint the `background` and `border` with your brand color:\n\n```css\n.glass-purple {\n  background: rgba(168, 85, 247, 0.12);\n  backdrop-filter: blur(14px);\n  border: 1px solid rgba(168, 85, 247, 0.3);\n  border-radius: 16px;\n  color: #c084fc;\n}\n```\n\nKeep the opacity low (0.08–0.15) and the border slightly more opaque (0.25–0.4). This creates a window tinted with the color rather than a solid fill."
+				"body": "Colored glass adds personality. Tint the `background` and `border` with your brand color:\n\n```css\n.glass-purple {\n  background: rgba(168, 85, 247, 0.12);\n  backdrop-filter: blur(14px);\n  border: 1px solid rgba(168, 85, 247, 0.3);\n  border-radius: 16px;\n  color: #c084fc;\n}\n```\n\nKeep the opacity low (0.08\u20130.15) and the border slightly more opaque (0.25\u20130.4). This creates a window tinted with the color rather than a solid fill."
 			},
 			{
 				"heading": "Browser Support & Fallbacks",
@@ -159,14 +159,14 @@
 			{
 				"heading": "When Not to Use Glassmorphism",
 				"level": 2,
-				"body": "Glass is a visual tool, not a universal solution. Avoid it when:\n\n- **Text legibility suffers** — if copy on your glass element requires squinting, increase opacity or add a text shadow\n- **The background is static** — glass only makes sense over dynamic, colorful backgrounds. Against a plain `#0a0a0f` it's invisible\n- **Overused on the whole page** — one or two glass elements create depth; ten create noise\n- **Performance is critical** — `backdrop-filter` triggers a GPU compositing layer. On mobile, test frame rates before shipping."
+				"body": "Glass is a visual tool, not a universal solution. Avoid it when:\n\n- **Text legibility suffers** \u2014 if copy on your glass element requires squinting, increase opacity or add a text shadow\n- **The background is static** \u2014 glass only makes sense over dynamic, colorful backgrounds. Against a plain `#0a0a0f` it's invisible\n- **Overused on the whole page** \u2014 one or two glass elements create depth; ten create noise\n- **Performance is critical** \u2014 `backdrop-filter` triggers a GPU compositing layer. On mobile, test frame rates before shipping."
 			}
 		]
 	},
 	{
 		"slug": "css-animations-loaders-guide",
 		"title": "CSS Loading Animations: Spinners, Skeletons & Progress Bars Done Right",
-		"excerpt": "A loading state is your UI's patience-keeper. Learn how to build spinners, skeleton screens, progress bars, and indicator animations that feel smooth and professional — pure CSS.",
+		"excerpt": "A loading state is your UI's patience-keeper. Learn how to build spinners, skeleton screens, progress bars, and indicator animations that feel smooth and professional \u2014 pure CSS.",
 		"author": "UIXplor Team",
 		"date": "2026-02-24",
 		"readingTime": 7,
@@ -182,7 +182,7 @@
 			{
 				"heading": "Loading States Are UX Promises",
 				"level": 2,
-				"body": "Every loading animation is a promise: 'Something is happening. Please wait.' Break that promise — or make the wait feel longer than it is — and users leave.\n\nEffective loading states have three qualities:\n1. **Visibility** — the animation must be clearly visible at a glance\n2. **Continuity** — it should loop smoothly, with no jarring resets\n3. **Appropriateness** — a playful bouncing dot is great for chat; a clean ring spinner for data tables\n\nChoose your loader to match the feel of the content it's waiting for."
+				"body": "Every loading animation is a promise: 'Something is happening. Please wait.' Break that promise \u2014 or make the wait feel longer than it is \u2014 and users leave.\n\nEffective loading states have three qualities:\n1. **Visibility** \u2014 the animation must be clearly visible at a glance\n2. **Continuity** \u2014 it should loop smoothly, with no jarring resets\n3. **Appropriateness** \u2014 a playful bouncing dot is great for chat; a clean ring spinner for data tables\n\nChoose your loader to match the feel of the content it's waiting for."
 			},
 			{
 				"heading": "The Classic Ring Spinner",
@@ -192,7 +192,7 @@
 			{
 				"heading": "Skeleton Screens: The Modern Loading Pattern",
 				"level": 2,
-				"body": "Skeleton screens are placeholder layouts that mirror the shape of the incoming content. They feel faster than spinners because users can see *where* content is about to appear.\n\n```css\n.skel-line {\n  height: 14px;\n  border-radius: 6px;\n  background: rgba(255, 255, 255, 0.07);\n  position: relative;\n  overflow: hidden;\n}\n\n.skel-line::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(\n    90deg,\n    transparent,\n    rgba(255, 255, 255, 0.08),\n    transparent\n  );\n  animation: shimmer 1.4s infinite;\n}\n\n@keyframes shimmer {\n  from { transform: translateX(-100%); }\n  to   { transform: translateX(100%); }\n}\n```\n\nThe shimmer moves *left to right* — matching the direction we read — which makes the wait feel like progress."
+				"body": "Skeleton screens are placeholder layouts that mirror the shape of the incoming content. They feel faster than spinners because users can see *where* content is about to appear.\n\n```css\n.skel-line {\n  height: 14px;\n  border-radius: 6px;\n  background: rgba(255, 255, 255, 0.07);\n  position: relative;\n  overflow: hidden;\n}\n\n.skel-line::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(\n    90deg,\n    transparent,\n    rgba(255, 255, 255, 0.08),\n    transparent\n  );\n  animation: shimmer 1.4s infinite;\n}\n\n@keyframes shimmer {\n  from { transform: translateX(-100%); }\n  to   { transform: translateX(100%); }\n}\n```\n\nThe shimmer moves *left to right* \u2014 matching the direction we read \u2014 which makes the wait feel like progress."
 			},
 			{
 				"heading": "Gradient Conic Spinner",
@@ -207,7 +207,7 @@
 			{
 				"heading": "Performance Considerations",
 				"level": 2,
-				"body": "CSS animations are fast, but there are rules:\n\n1. **Only animate `transform` and `opacity`** — these are GPU-accelerated and don't trigger layout recalculation\n2. **Avoid animating `width`, `height`, `top`, `left`** — these cause expensive reflows\n3. **Use `will-change: transform`** — promotes the element to its own composite layer. Use sparingly.\n4. **Respect `prefers-reduced-motion`**:\n\n```css\n@media (prefers-reduced-motion: reduce) {\n  .ring-spinner,\n  .skel-line::after {\n    animation: none;\n  }\n}\n```\n\nAnimation is an enhancement, not a requirement. Make sure your loading state works without it."
+				"body": "CSS animations are fast, but there are rules:\n\n1. **Only animate `transform` and `opacity`** \u2014 these are GPU-accelerated and don't trigger layout recalculation\n2. **Avoid animating `width`, `height`, `top`, `left`** \u2014 these cause expensive reflows\n3. **Use `will-change: transform`** \u2014 promotes the element to its own composite layer. Use sparingly.\n4. **Respect `prefers-reduced-motion`**:\n\n```css\n@media (prefers-reduced-motion: reduce) {\n  .ring-spinner,\n  .skel-line::after {\n    animation: none;\n  }\n}\n```\n\nAnimation is an enhancement, not a requirement. Make sure your loading state works without it."
 			}
 		]
 	},
@@ -230,17 +230,17 @@
 			{
 				"heading": "Linear Gradients: Beyond Two Colors",
 				"level": 2,
-				"body": "Most CSS gradient tutorials show `from red to blue`. But multi-stop gradients with precise color positioning unlock far more expressive results:\n\n```css\n/* Sunset with 5 color stops */\n.sunset {\n  background: linear-gradient(\n    to bottom,\n    #ff6b6b   0%,   /* sky red */\n    #ffa500  25%,   /* orange */\n    #ff6b6b  50%,   /* pink */\n    #7b2d8b  75%,   /* purple */\n    #1a1a2e 100%    /* night */\n  );\n}\n```\n\nThe trick with sunsets and skies is repeating similar hues with variation — the gradient should feel like light, not a color chart."
+				"body": "Most CSS gradient tutorials show `from red to blue`. But multi-stop gradients with precise color positioning unlock far more expressive results:\n\n```css\n/* Sunset with 5 color stops */\n.sunset {\n  background: linear-gradient(\n    to bottom,\n    #ff6b6b   0%,   /* sky red */\n    #ffa500  25%,   /* orange */\n    #ff6b6b  50%,   /* pink */\n    #7b2d8b  75%,   /* purple */\n    #1a1a2e 100%    /* night */\n  );\n}\n```\n\nThe trick with sunsets and skies is repeating similar hues with variation \u2014 the gradient should feel like light, not a color chart."
 			},
 			{
 				"heading": "Radial Gradients for Spotlights and Vignettes",
 				"level": 2,
-				"body": "Radial gradients radiate from a center point. `ellipse at` lets you position and shape the center precisely:\n\n```css\n/* Centered spotlight on dark background */\n.spotlight {\n  background:\n    radial-gradient(\n      ellipse at center,\n      rgba(184, 251, 60, 0.15) 0%,\n      rgba(184, 251, 60, 0.04) 35%,\n      transparent 70%\n    ),\n    #050508;\n}\n\n/* Corner vignette — dark edges */\n.vignette {\n  background:\n    radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);\n}\n```\n\nMultiple radial gradients can be stacked with commas to create multi-light-source effects."
+				"body": "Radial gradients radiate from a center point. `ellipse at` lets you position and shape the center precisely:\n\n```css\n/* Centered spotlight on dark background */\n.spotlight {\n  background:\n    radial-gradient(\n      ellipse at center,\n      rgba(184, 251, 60, 0.15) 0%,\n      rgba(184, 251, 60, 0.04) 35%,\n      transparent 70%\n    ),\n    #050508;\n}\n\n/* Corner vignette \u2014 dark edges */\n.vignette {\n  background:\n    radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);\n}\n```\n\nMultiple radial gradients can be stacked with commas to create multi-light-source effects."
 			},
 			{
 				"heading": "Conic Gradients: The Color Wheel",
 				"level": 2,
-				"body": "Conic gradients sweep around a point — perfect for color wheels, pie charts, and holographic effects:\n\n```css\n/* Full spectrum conic */\n.color-wheel {\n  width: 200px; height: 200px;\n  border-radius: 50%;\n  background: conic-gradient(\n    from 0deg,\n    hsl(0, 100%, 60%),\n    hsl(60, 100%, 60%),\n    hsl(120, 100%, 60%),\n    hsl(180, 100%, 60%),\n    hsl(240, 100%, 60%),\n    hsl(300, 100%, 60%),\n    hsl(360, 100%, 60%)\n  );\n}\n```\n\nCombined with `mask` (as shown in the loader ring example), conic gradients create reusable arc shapes."
+				"body": "Conic gradients sweep around a point \u2014 perfect for color wheels, pie charts, and holographic effects:\n\n```css\n/* Full spectrum conic */\n.color-wheel {\n  width: 200px; height: 200px;\n  border-radius: 50%;\n  background: conic-gradient(\n    from 0deg,\n    hsl(0, 100%, 60%),\n    hsl(60, 100%, 60%),\n    hsl(120, 100%, 60%),\n    hsl(180, 100%, 60%),\n    hsl(240, 100%, 60%),\n    hsl(300, 100%, 60%),\n    hsl(360, 100%, 60%)\n  );\n}\n```\n\nCombined with `mask` (as shown in the loader ring example), conic gradients create reusable arc shapes."
 			},
 			{
 				"heading": "Mesh Gradients with Stacked Radials",
@@ -250,19 +250,19 @@
 			{
 				"heading": "Animated Gradients",
 				"level": 2,
-				"body": "CSS variables and `@keyframes` make gradient animation possible:\n\n```css\n.animated {\n  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f3460);\n  background-size: 400% 400%;\n  animation: gradient-shift 8s ease infinite;\n}\n\n@keyframes gradient-shift {\n  0%, 100% { background-position: 0% 50%; }\n  50%       { background-position: 100% 50%; }\n}\n```\n\nThe `background-size: 400% 400%` makes the gradient larger than the element. The animation shifts `background-position` to expose different regions of it — creating a floating, moving gradient effect."
+				"body": "CSS variables and `@keyframes` make gradient animation possible:\n\n```css\n.animated {\n  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f3460);\n  background-size: 400% 400%;\n  animation: gradient-shift 8s ease infinite;\n}\n\n@keyframes gradient-shift {\n  0%, 100% { background-position: 0% 50%; }\n  50%       { background-position: 100% 50%; }\n}\n```\n\nThe `background-size: 400% 400%` makes the gradient larger than the element. The animation shifts `background-position` to expose different regions of it \u2014 creating a floating, moving gradient effect."
 			},
 			{
 				"heading": "Noise Texture Overlays",
 				"level": 2,
-				"body": "Adding noise to a gradient breaks the 'too smooth' digital feel:\n\n```css\n.noise-bg {\n  position: relative;\n  background: linear-gradient(135deg, #1a1a3e, #0f0f2e);\n}\n\n.noise-bg::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background-image: url(\"data:image/svg+xml,%3Csvg...noise data...\");\n  opacity: 0.06;\n  pointer-events: none;\n}\n```\n\nYou can generate SVG noise with `<feTurbulence>` filter, or use a tiled noise PNG. Keep opacity below 0.1 — enough to break the smoothness, not enough to be visible as texture."
+				"body": "Adding noise to a gradient breaks the 'too smooth' digital feel:\n\n```css\n.noise-bg {\n  position: relative;\n  background: linear-gradient(135deg, #1a1a3e, #0f0f2e);\n}\n\n.noise-bg::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background-image: url(\"data:image/svg+xml,%3Csvg...noise data...\");\n  opacity: 0.06;\n  pointer-events: none;\n}\n```\n\nYou can generate SVG noise with `<feTurbulence>` filter, or use a tiled noise PNG. Keep opacity below 0.1 \u2014 enough to break the smoothness, not enough to be visible as texture."
 			}
 		]
 	},
 	{
 		"slug": "form-input-design-guide",
 		"title": "Designing Form Inputs That Users Love: CSS Techniques & UX Principles",
-		"excerpt": "Forms are the most-failed part of UI design. This guide covers modern input styles — floating labels, focus states, OTP boxes, custom selects, and the UX principles that make forms feel effortless.",
+		"excerpt": "Forms are the most-failed part of UI design. This guide covers modern input styles \u2014 floating labels, focus states, OTP boxes, custom selects, and the UX principles that make forms feel effortless.",
 		"author": "UIXplor Team",
 		"date": "2026-02-24",
 		"readingTime": 8,
@@ -278,12 +278,12 @@
 			{
 				"heading": "Why Form Design Is Hard",
 				"level": 2,
-				"body": "Forms are transactional UI. Every field is a micro-negotiation: 'Give me your data, I'll give you the service.' Any friction in that negotiation — unclear labels, invisible focus states, confusing errors — and users abandon.\n\nThe three most common form design failures:\n1. **No visible focus state** — users can't tell which field is active\n2. **Placeholder-as-label** — placeholder text disappears on focus, leaving users with no context\n3. **Error messages after submission** — errors should appear as users type, not after they hit submit\n\nFix these three and your forms immediately improve."
+				"body": "Forms are transactional UI. Every field is a micro-negotiation: 'Give me your data, I'll give you the service.' Any friction in that negotiation \u2014 unclear labels, invisible focus states, confusing errors \u2014 and users abandon.\n\nThe three most common form design failures:\n1. **No visible focus state** \u2014 users can't tell which field is active\n2. **Placeholder-as-label** \u2014 placeholder text disappears on focus, leaving users with no context\n3. **Error messages after submission** \u2014 errors should appear as users type, not after they hit submit\n\nFix these three and your forms immediately improve."
 			},
 			{
 				"heading": "Focus States That Actually Work",
 				"level": 2,
-				"body": "Do not suppress focus outlines. Instead, design them.\n\n```css\n.input {\n  border: 1px solid rgba(255,255,255,0.12);\n  outline: none;\n  transition: all 0.2s ease;\n}\n\n.input:focus {\n  border-color: #B8FB3C;\n  box-shadow: 0 0 0 3px rgba(184,251,60,0.15);\n}\n```\n\nThe `box-shadow` ring creates a visible focus halo without triggering layout (unlike `outline`). Keep the inner ring 1px and the outer glow 3px — this combination is visible on both light and dark backgrounds."
+				"body": "Do not suppress focus outlines. Instead, design them.\n\n```css\n.input {\n  border: 1px solid rgba(255,255,255,0.12);\n  outline: none;\n  transition: all 0.2s ease;\n}\n\n.input:focus {\n  border-color: #B8FB3C;\n  box-shadow: 0 0 0 3px rgba(184,251,60,0.15);\n}\n```\n\nThe `box-shadow` ring creates a visible focus halo without triggering layout (unlike `outline`). Keep the inner ring 1px and the outer glow 3px \u2014 this combination is visible on both light and dark backgrounds."
 			},
 			{
 				"heading": "The Floating Label Pattern",
@@ -293,24 +293,24 @@
 			{
 				"heading": "OTP & PIN Inputs",
 				"level": 2,
-				"body": "Multi-box OTP inputs feel premium when styled correctly:\n\n```css\n.otp-box {\n  width: 44px; height: 52px;\n  text-align: center;\n  font-size: 18px;\n  font-weight: 700;\n  background: rgba(255,255,255,0.05);\n  border: 1px solid rgba(255,255,255,0.12);\n  border-radius: 10px;\n  color: #ffffff;\n  outline: none;\n  caret-color: #B8FB3C;\n  transition: all 0.2s ease;\n}\n\n.otp-box:focus {\n  border-color: #B8FB3C;\n  background: rgba(184,251,60,0.05);\n  box-shadow: 0 0 0 3px rgba(184,251,60,0.15);\n}\n```\n\nPair this with JavaScript that auto-advances to the next box on input and backspaces to the previous — the UX is only as good as the behavior."
+				"body": "Multi-box OTP inputs feel premium when styled correctly:\n\n```css\n.otp-box {\n  width: 44px; height: 52px;\n  text-align: center;\n  font-size: 18px;\n  font-weight: 700;\n  background: rgba(255,255,255,0.05);\n  border: 1px solid rgba(255,255,255,0.12);\n  border-radius: 10px;\n  color: #ffffff;\n  outline: none;\n  caret-color: #B8FB3C;\n  transition: all 0.2s ease;\n}\n\n.otp-box:focus {\n  border-color: #B8FB3C;\n  background: rgba(184,251,60,0.05);\n  box-shadow: 0 0 0 3px rgba(184,251,60,0.15);\n}\n```\n\nPair this with JavaScript that auto-advances to the next box on input and backspaces to the previous \u2014 the UX is only as good as the behavior."
 			},
 			{
 				"heading": "Custom Toggle Switches",
 				"level": 2,
-				"body": "CSS-only toggle switches use a hidden `<input type='checkbox'>` with a styled label overlay:\n\n```css\n.toggle input { display: none; }\n\n.slider {\n  position: absolute; inset: 0;\n  border-radius: 50px;\n  background: rgba(255,255,255,0.1);\n  transition: background 0.3s ease;\n}\n\n.slider::before {\n  content: '';\n  position: absolute;\n  width: 18px; height: 18px;\n  left: 3px; top: 3px;\n  border-radius: 50%;\n  background: rgba(255,255,255,0.6);\n  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n\ninput:checked ~ .slider { background: #B8FB3C; }\ninput:checked ~ .slider::before { transform: translateX(22px); background: #0a0a0f; }\n```\n\nThe spring easing `(0.34, 1.56, 0.64, 1)` gives the thumb a satisfying overshoot — it feels physical."
+				"body": "CSS-only toggle switches use a hidden `<input type='checkbox'>` with a styled label overlay:\n\n```css\n.toggle input { display: none; }\n\n.slider {\n  position: absolute; inset: 0;\n  border-radius: 50px;\n  background: rgba(255,255,255,0.1);\n  transition: background 0.3s ease;\n}\n\n.slider::before {\n  content: '';\n  position: absolute;\n  width: 18px; height: 18px;\n  left: 3px; top: 3px;\n  border-radius: 50%;\n  background: rgba(255,255,255,0.6);\n  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n\ninput:checked ~ .slider { background: #B8FB3C; }\ninput:checked ~ .slider::before { transform: translateX(22px); background: #0a0a0f; }\n```\n\nThe spring easing `(0.34, 1.56, 0.64, 1)` gives the thumb a satisfying overshoot \u2014 it feels physical."
 			},
 			{
 				"heading": "Input Error States",
 				"level": 2,
-				"body": "Error states must be unmistakable but not screaming:\n\n```css\n.input-error {\n  border-color: #ef4444;\n  box-shadow: 0 0 0 3px rgba(239,68,68,0.15);\n  animation: error-shake 0.4s ease;\n}\n\n@keyframes error-shake {\n  0%, 100% { transform: translateX(0); }\n  20%       { transform: translateX(-6px); }\n  40%       { transform: translateX(6px); }\n  60%       { transform: translateX(-4px); }\n  80%       { transform: translateX(4px); }\n}\n```\n\nThe shake animation provides physical feedback. Always pair it with an error message *below* the field in red text — never rely on animation alone for error communication (accessibility)."
+				"body": "Error states must be unmistakable but not screaming:\n\n```css\n.input-error {\n  border-color: #ef4444;\n  box-shadow: 0 0 0 3px rgba(239,68,68,0.15);\n  animation: error-shake 0.4s ease;\n}\n\n@keyframes error-shake {\n  0%, 100% { transform: translateX(0); }\n  20%       { transform: translateX(-6px); }\n  40%       { transform: translateX(6px); }\n  60%       { transform: translateX(-4px); }\n  80%       { transform: translateX(4px); }\n}\n```\n\nThe shake animation provides physical feedback. Always pair it with an error message *below* the field in red text \u2014 never rely on animation alone for error communication (accessibility)."
 			}
 		]
 	},
 	{
 		"slug": "css-variables-design-tokens",
 		"title": "CSS Variables & Design Tokens: Build a Scalable Design System",
-		"excerpt": "CSS custom properties are the foundation of modern design systems. Learn how to structure tokens for colors, spacing, typography, and themes — and why variables beat Sass for theming.",
+		"excerpt": "CSS custom properties are the foundation of modern design systems. Learn how to structure tokens for colors, spacing, typography, and themes \u2014 and why variables beat Sass for theming.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 8,
@@ -325,12 +325,12 @@
 			{
 				"heading": "What Are CSS Custom Properties?",
 				"level": 2,
-				"body": "CSS custom properties (called 'CSS variables') let you define reusable values in CSS with the `--name: value` syntax. Unlike Sass variables, they are live — you can change them at runtime with JavaScript or cascade them through the DOM.\n\n```css\n:root {\n  --color-brand: #B8FB3C;\n  --color-bg: #0a0a0f;\n  --color-text: rgba(255,255,255,0.85);\n  --radius-md: 12px;\n  --space-4: 1rem;\n}\n```\n\nAnything defined on `:root` is globally accessible."
+				"body": "CSS custom properties (called 'CSS variables') let you define reusable values in CSS with the `--name: value` syntax. Unlike Sass variables, they are live \u2014 you can change them at runtime with JavaScript or cascade them through the DOM.\n\n```css\n:root {\n  --color-brand: #B8FB3C;\n  --color-bg: #0a0a0f;\n  --color-text: rgba(255,255,255,0.85);\n  --radius-md: 12px;\n  --space-4: 1rem;\n}\n```\n\nAnything defined on `:root` is globally accessible."
 			},
 			{
 				"heading": "Token Categories",
 				"level": 2,
-				"body": "Good design token systems have three tiers:\n\n1. **Primitive tokens** — raw values: `--blue-500: #3b82f6`\n2. **Semantic tokens** — purpose-based: `--color-action: var(--blue-500)`\n3. **Component tokens** — scoped: `--btn-bg: var(--color-action)`\n\n```css\n/* Primitives */\n:root { --green-400: #B8FB3C; --gray-950: #0a0a0f; }\n\n/* Semantic */\n:root { --color-accent: var(--green-400); --color-surface: var(--gray-950); }\n\n/* Component */\n.btn-primary { background: var(--color-accent); color: var(--color-surface); }\n```"
+				"body": "Good design token systems have three tiers:\n\n1. **Primitive tokens** \u2014 raw values: `--blue-500: #3b82f6`\n2. **Semantic tokens** \u2014 purpose-based: `--color-action: var(--blue-500)`\n3. **Component tokens** \u2014 scoped: `--btn-bg: var(--color-action)`\n\n```css\n/* Primitives */\n:root { --green-400: #B8FB3C; --gray-950: #0a0a0f; }\n\n/* Semantic */\n:root { --color-accent: var(--green-400); --color-surface: var(--gray-950); }\n\n/* Component */\n.btn-primary { background: var(--color-accent); color: var(--color-surface); }\n```"
 			},
 			{
 				"heading": "Dark Mode Switching",
@@ -347,7 +347,7 @@
 	{
 		"slug": "dark-mode-css-implementation",
 		"title": "Dark Mode CSS: The Complete Implementation Guide",
-		"excerpt": "Dark mode is no longer optional. Learn three CSS strategies — system preference detection, class toggle, and cookie persistence — with smooth transitions and zero flash.",
+		"excerpt": "Dark mode is no longer optional. Learn three CSS strategies \u2014 system preference detection, class toggle, and cookie persistence \u2014 with smooth transitions and zero flash.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 7,
@@ -421,7 +421,7 @@
 	{
 		"slug": "css-flexbox-layout-patterns",
 		"title": "CSS Flexbox Layout Patterns Every Developer Should Know",
-		"excerpt": "Flexbox solves 90% of UI layout challenges. This guide covers the 10 most common patterns — centered content, sticky footer, navigation bars, card rows, and masonry-style lists.",
+		"excerpt": "Flexbox solves 90% of UI layout challenges. This guide covers the 10 most common patterns \u2014 centered content, sticky footer, navigation bars, card rows, and masonry-style lists.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 7,
@@ -441,7 +441,7 @@
 			{
 				"heading": "The Holy Grail Layout",
 				"level": 2,
-				"body": "Sticky header, scrollable main, sticky footer — the layout that stumped developers for years:\n\n```css\nbody {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n  margin: 0;\n}\nmain { flex: 1; } /* Push footer to bottom */\n```\n\nTwo lines of CSS. Zero tricks."
+				"body": "Sticky header, scrollable main, sticky footer \u2014 the layout that stumped developers for years:\n\n```css\nbody {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n  margin: 0;\n}\nmain { flex: 1; } /* Push footer to bottom */\n```\n\nTwo lines of CSS. Zero tricks."
 			},
 			{
 				"heading": "Space Distribution Patterns",
@@ -473,7 +473,7 @@
 			{
 				"heading": "The Two CSS Scrollbar Systems",
 				"level": 2,
-				"body": "Two separate CSS APIs exist for scrollbar styling:\n\n1. **WebKit API** — Chrome, Safari, Edge: `::-webkit-scrollbar` pseudo-elements\n2. **Standard API** — Firefox: `scrollbar-width` and `scrollbar-color`\n\nBoth must be implemented for cross-browser support."
+				"body": "Two separate CSS APIs exist for scrollbar styling:\n\n1. **WebKit API** \u2014 Chrome, Safari, Edge: `::-webkit-scrollbar` pseudo-elements\n2. **Standard API** \u2014 Firefox: `scrollbar-width` and `scrollbar-color`\n\nBoth must be implemented for cross-browser support."
 			},
 			{
 				"heading": "Styling WebKit Scrollbars",
@@ -483,7 +483,7 @@
 			{
 				"heading": "Firefox Scrollbars",
 				"level": 2,
-				"body": "Firefox uses a simpler two-property API:\n\n```css\n* {\n  scrollbar-width: thin; /* none | thin | auto */\n  scrollbar-color: rgba(255,255,255,0.15) transparent;\n  /* Format: thumb-color track-color */\n}\n```\n\nNo pseudo-elements. The API is intentionally minimal — Firefox prioritizes user control over scrollbar appearance."
+				"body": "Firefox uses a simpler two-property API:\n\n```css\n* {\n  scrollbar-width: thin; /* none | thin | auto */\n  scrollbar-color: rgba(255,255,255,0.15) transparent;\n  /* Format: thumb-color track-color */\n}\n```\n\nNo pseudo-elements. The API is intentionally minimal \u2014 Firefox prioritizes user control over scrollbar appearance."
 			},
 			{
 				"heading": "Complete Cross-Browser Recipe",
@@ -513,7 +513,7 @@
 				"body": "A `font-size: 48px` heading looks massive on mobile and right-sized on desktop. The traditional fix uses media queries, but that creates rigid breakpoints:\n\n```css\nh1 { font-size: 28px; }\n@media (min-width: 768px) { h1 { font-size: 40px; } }\n@media (min-width: 1200px) { h1 { font-size: 56px; } }\n```\n\nFluid typography eliminates these jumps with smooth interpolation."
 			},
 			{
-				"heading": "clamp() — The One-Line Solution",
+				"heading": "clamp() \u2014 The One-Line Solution",
 				"level": 2,
 				"body": "`clamp(min, preferred, max)` returns the preferred value, capped at min and max:\n\n```css\nh1 { font-size: clamp(1.75rem, 4vw + 0.5rem, 3.5rem); }\nh2 { font-size: clamp(1.25rem, 2.5vw + 0.5rem, 2rem); }\np  { font-size: clamp(0.9rem, 1vw + 0.4rem, 1.125rem); }\n```\n\nThe `4vw + 0.5rem` middle value ensures the font grows with the viewport while always being readable."
 			},
@@ -525,14 +525,14 @@
 			{
 				"heading": "Line Length & Readability",
 				"level": 2,
-				"body": "Optimal line length is 60–75 characters. Use `ch` units to enforce this:\n\n```css\narticle p {\n  max-width: 68ch;\n  line-height: 1.7;\n  font-size: clamp(1rem, 1.2vw, 1.125rem);\n}\n```\n\nThe `ch` unit equals the width of the '0' character in the current font — a reliable proxy for character count."
+				"body": "Optimal line length is 60\u201375 characters. Use `ch` units to enforce this:\n\n```css\narticle p {\n  max-width: 68ch;\n  line-height: 1.7;\n  font-size: clamp(1rem, 1.2vw, 1.125rem);\n}\n```\n\nThe `ch` unit equals the width of the '0' character in the current font \u2014 a reliable proxy for character count."
 			}
 		]
 	},
 	{
 		"slug": "css-clip-path-shapes",
 		"title": "CSS clip-path: Create Custom Shapes, Reveals & Clipping Masks",
-		"excerpt": "CSS clip-path lets you cut any shape from an element — polygons, circles, ellipses, and SVG paths. Learn how to use it for hero sections, image masks, and animated shape reveals.",
+		"excerpt": "CSS clip-path lets you cut any shape from an element \u2014 polygons, circles, ellipses, and SVG paths. Learn how to use it for hero sections, image masks, and animated shape reveals.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 6,
@@ -557,7 +557,7 @@
 			{
 				"heading": "Animated Reveal with clip-path",
 				"level": 2,
-				"body": "```css\n.reveal {\n  clip-path: inset(0 100% 0 0); /* hidden — clipped from right */\n  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);\n}\n.reveal.visible {\n  clip-path: inset(0 0% 0 0); /* fully visible */\n}\n```\n\nTriggered with IntersectionObserver, this creates an elegant text/image reveal without opacity or transform."
+				"body": "```css\n.reveal {\n  clip-path: inset(0 100% 0 0); /* hidden \u2014 clipped from right */\n  transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);\n}\n.reveal.visible {\n  clip-path: inset(0 0% 0 0); /* fully visible */\n}\n```\n\nTriggered with IntersectionObserver, this creates an elegant text/image reveal without opacity or transform."
 			}
 		]
 	},
@@ -594,7 +594,7 @@
 			{
 				"heading": "Reading Progress Indicator (Pure CSS)",
 				"level": 2,
-				"body": "```css\n@keyframes progress {\n  from { transform: scaleX(0); }\n  to   { transform: scaleX(1); }\n}\n.progress-bar {\n  position: fixed;\n  top: 0; left: 0;\n  width: 100%; height: 3px;\n  background: #B8FB3C;\n  transform-origin: left;\n  animation: progress linear;\n  animation-timeline: scroll(root);\n}\n```\n\nThis uses the Scroll Timeline API — no JavaScript needed."
+				"body": "```css\n@keyframes progress {\n  from { transform: scaleX(0); }\n  to   { transform: scaleX(1); }\n}\n.progress-bar {\n  position: fixed;\n  top: 0; left: 0;\n  width: 100%; height: 3px;\n  background: #B8FB3C;\n  transform-origin: left;\n  animation: progress linear;\n  animation-timeline: scroll(root);\n}\n```\n\nThis uses the Scroll Timeline API \u2014 no JavaScript needed."
 			}
 		]
 	},
@@ -633,7 +633,7 @@
 	{
 		"slug": "css-container-queries-guide",
 		"title": "CSS Container Queries: Component-Level Responsive Design",
-		"excerpt": "Media queries respond to the viewport. Container queries respond to the element's own container — finally enabling truly reusable responsive components. Here's everything you need to know.",
+		"excerpt": "Media queries respond to the viewport. Container queries respond to the element's own container \u2014 finally enabling truly reusable responsive components. Here's everything you need to know.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 7,
@@ -648,7 +648,7 @@
 			{
 				"heading": "The Problem with Media Queries",
 				"level": 2,
-				"body": "Media queries check the **viewport** width. If you place a card in a sidebar (300px wide) or a main section (900px wide), you can't style the card based on its context — only on the viewport.\n\nContainer queries solve this: the card checks *its container's* width and adapts accordingly."
+				"body": "Media queries check the **viewport** width. If you place a card in a sidebar (300px wide) or a main section (900px wide), you can't style the card based on its context \u2014 only on the viewport.\n\nContainer queries solve this: the card checks *its container's* width and adapts accordingly."
 			},
 			{
 				"heading": "Basic Container Query Syntax",
@@ -658,14 +658,14 @@
 			{
 				"heading": "Container Query Units",
 				"level": 2,
-				"body": "Container queries introduce new relative units:\n\n- `cqw` — 1% of container width\n- `cqh` — 1% of container height\n- `cqi` — 1% of container inline size\n- `cqb` — 1% of container block size\n\n```css\n@container (min-width: 600px) {\n  .card-title { font-size: clamp(1rem, 3cqi, 2rem); }\n}\n```"
+				"body": "Container queries introduce new relative units:\n\n- `cqw` \u2014 1% of container width\n- `cqh` \u2014 1% of container height\n- `cqi` \u2014 1% of container inline size\n- `cqb` \u2014 1% of container block size\n\n```css\n@container (min-width: 600px) {\n  .card-title { font-size: clamp(1rem, 3cqi, 2rem); }\n}\n```"
 			}
 		]
 	},
 	{
 		"slug": "css-scroll-snap-ux",
 		"title": "CSS Scroll Snap: Build Carousels Without JavaScript",
-		"excerpt": "CSS Scroll Snap creates snapping carousels, full-page scroll experiences, and gallery sliders — entirely in CSS. No libraries, no JavaScript, buttery smooth scrolling.",
+		"excerpt": "CSS Scroll Snap creates snapping carousels, full-page scroll experiences, and gallery sliders \u2014 entirely in CSS. No libraries, no JavaScript, buttery smooth scrolling.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 5,
@@ -685,7 +685,7 @@
 			{
 				"heading": "Full-Page Scroll Sections",
 				"level": 2,
-				"body": "```css\n.page-container {\n  height: 100vh;\n  overflow-y: scroll;\n  scroll-snap-type: y mandatory;\n}\n\n.section {\n  height: 100vh;\n  scroll-snap-align: start;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n```\n\nEach section 'locks' when scrolled to it — creating a full-page slide experience."
+				"body": "```css\n.page-container {\n  height: 100vh;\n  overflow-y: scroll;\n  scroll-snap-type: y mandatory;\n}\n\n.section {\n  height: 100vh;\n  scroll-snap-align: start;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n```\n\nEach section 'locks' when scrolled to it \u2014 creating a full-page slide experience."
 			},
 			{
 				"heading": "scroll-snap-stop for Enforced Pausing",
@@ -697,7 +697,7 @@
 	{
 		"slug": "native-css-nesting-guide",
 		"title": "Native CSS Nesting: Sass-Style Nesting Without a Build Step",
-		"excerpt": "CSS nesting is now supported in all modern browsers. Write cleaner, context-aware CSS without Sass, PostCSS, or any preprocessor — pure CSS that ships today.",
+		"excerpt": "CSS nesting is now supported in all modern browsers. Write cleaner, context-aware CSS without Sass, PostCSS, or any preprocessor \u2014 pure CSS that ships today.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 5,
@@ -722,13 +722,13 @@
 			{
 				"heading": "Nesting Media Queries",
 				"level": 2,
-				"body": "```css\n.hero {\n  font-size: 2rem;\n  @media (max-width: 768px) {\n    font-size: 1.5rem;\n  }\n  @media (prefers-color-scheme: dark) {\n    background: #0a0a0f;\n  }\n}\n```\n\nMedia queries nested inside a rule apply to that rule — dramatically reducing repetition in responsive CSS."
+				"body": "```css\n.hero {\n  font-size: 2rem;\n  @media (max-width: 768px) {\n    font-size: 1.5rem;\n  }\n  @media (prefers-color-scheme: dark) {\n    background: #0a0a0f;\n  }\n}\n```\n\nMedia queries nested inside a rule apply to that rule \u2014 dramatically reducing repetition in responsive CSS."
 			}
 		]
 	},
 	{
 		"slug": "css-has-selector-guide",
-		"title": "CSS :has() — The Parent Selector That Changes Everything",
+		"title": "CSS :has() \u2014 The Parent Selector That Changes Everything",
 		"excerpt": "The :has() pseudo-class lets you select elements based on their children. It's CSS's long-awaited parent selector and enables patterns that previously required JavaScript.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
@@ -776,24 +776,24 @@
 			{
 				"heading": "The Specificity Problem",
 				"level": 2,
-				"body": "CSS specificity can get out of control in large codebases:\n\n```css\n.card .title { color: blue; }           /* specificity: 0,2,0 */\n.theme-dark .card .title { color: white; } /* specificity: 0,3,0 — wins */\n```\n\nEditing one component risks breaking another. `@layer` provides a solution."
+				"body": "CSS specificity can get out of control in large codebases:\n\n```css\n.card .title { color: blue; }           /* specificity: 0,2,0 */\n.theme-dark .card .title { color: white; } /* specificity: 0,3,0 \u2014 wins */\n```\n\nEditing one component risks breaking another. `@layer` provides a solution."
 			},
 			{
 				"heading": "@layer Fundamentals",
 				"level": 2,
-				"body": "Define layer order at the top of your CSS — **later layers win over earlier ones**, regardless of specificity:\n\n```css\n/* Order defined here — utilities win over components */\n@layer reset, base, components, utilities;\n\n@layer base {\n  body { font-family: system-ui; }\n}\n\n@layer components {\n  .btn { padding: 0.5rem 1rem; font-size: 1rem; } /* lower priority */\n}\n\n@layer utilities {\n  .text-lg { font-size: 1.25rem; } /* wins over components, regardless of specificity */\n}\n```"
+				"body": "Define layer order at the top of your CSS \u2014 **later layers win over earlier ones**, regardless of specificity:\n\n```css\n/* Order defined here \u2014 utilities win over components */\n@layer reset, base, components, utilities;\n\n@layer base {\n  body { font-family: system-ui; }\n}\n\n@layer components {\n  .btn { padding: 0.5rem 1rem; font-size: 1rem; } /* lower priority */\n}\n\n@layer utilities {\n  .text-lg { font-size: 1.25rem; } /* wins over components, regardless of specificity */\n}\n```"
 			},
 			{
 				"heading": "Layer Import Order",
 				"level": 2,
-				"body": "```css\n/* With @import */\n@import url('reset.css') layer(reset);\n@import url('base.css') layer(base);\n@import url('components.css') layer(components);\n\n/* Unlayered styles win over all layers */\n.overide { color: red; } /* has highest priority */\n```\n\nAnything **outside** a layer has higher priority than any layered style — use this for emergency overrides."
+				"body": "```css\n/* With @import */\n@import url('reset.css') layer(reset);\n@import url('base.css') layer(base);\n@import url('components.css') layer(components);\n\n/* Unlayered styles win over all layers */\n.overide { color: red; } /* has highest priority */\n```\n\nAnything **outside** a layer has higher priority than any layered style \u2014 use this for emergency overrides."
 			}
 		]
 	},
 	{
 		"slug": "view-transitions-api-css",
 		"title": "View Transitions API: Native Page Animations Without Libraries",
-		"excerpt": "The View Transitions API enables smooth, animated transitions between page states and navigations — natively in the browser, with just a few lines of CSS and JavaScript.",
+		"excerpt": "The View Transitions API enables smooth, animated transitions between page states and navigations \u2014 natively in the browser, with just a few lines of CSS and JavaScript.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 7,
@@ -813,7 +813,7 @@
 			{
 				"heading": "Customising the Transition Animation",
 				"level": 2,
-				"body": "The API exposes pseudo-elements for CSS animation:\n\n```css\n/* Default cross-fade — customize it */\n::view-transition-old(root) {\n  animation: 200ms ease-out both fade-out;\n}\n::view-transition-new(root) {\n  animation: 300ms ease-in both slide-in;\n}\n\n@keyframes fade-out { to { opacity: 0; } }\n@keyframes slide-in { from { opacity: 0; transform: translateY(20px); } }\n```"
+				"body": "The API exposes pseudo-elements for CSS animation:\n\n```css\n/* Default cross-fade \u2014 customize it */\n::view-transition-old(root) {\n  animation: 200ms ease-out both fade-out;\n}\n::view-transition-new(root) {\n  animation: 300ms ease-in both slide-in;\n}\n\n@keyframes fade-out { to { opacity: 0; } }\n@keyframes slide-in { from { opacity: 0; transform: translateY(20px); } }\n```"
 			},
 			{
 				"heading": "Named Transitions for Specific Elements",
@@ -845,7 +845,7 @@
 			{
 				"heading": "Practical Examples",
 				"level": 2,
-				"body": "```css\n/* Physical — breaks in RTL */\n.icon { margin-right: 0.5rem; }\n\n/* Logical — works in LTR and RTL */\n.icon { margin-inline-end: 0.5rem; }\n\n/* Border example */\n.selected { border-left: 3px solid #B8FB3C; }       /* physical */\n.selected { border-inline-start: 3px solid #B8FB3C; } /* logical */\n\n/* Inset shorthand */\n.card { inset: 0; } /* top: 0; right: 0; bottom: 0; left: 0; */\n```"
+				"body": "```css\n/* Physical \u2014 breaks in RTL */\n.icon { margin-right: 0.5rem; }\n\n/* Logical \u2014 works in LTR and RTL */\n.icon { margin-inline-end: 0.5rem; }\n\n/* Border example */\n.selected { border-left: 3px solid #B8FB3C; }       /* physical */\n.selected { border-inline-start: 3px solid #B8FB3C; } /* logical */\n\n/* Inset shorthand */\n.card { inset: 0; } /* top: 0; right: 0; bottom: 0; left: 0; */\n```"
 			}
 		]
 	},
@@ -879,7 +879,7 @@
 	{
 		"slug": "scroll-driven-animations-css",
 		"title": "Scroll-Driven Animations: Pure CSS Scroll Effects No JS Required",
-		"excerpt": "CSS Scroll Timeline and Animation Timeline turn scroll position into an animation driver — creating parallax, reveal, progress bars, and sticky effects with zero JavaScript.",
+		"excerpt": "CSS Scroll Timeline and Animation Timeline turn scroll position into an animation driver \u2014 creating parallax, reveal, progress bars, and sticky effects with zero JavaScript.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 7,
@@ -904,14 +904,14 @@
 			{
 				"heading": "Parallax Effect (Pure CSS)",
 				"level": 2,
-				"body": "```css\n.parallax-image {\n  animation: parallax linear;\n  animation-timeline: scroll(nearest block);\n}\n@keyframes parallax {\n  from { transform: translateY(-20%); }\n  to   { transform: translateY(20%); }\n}\n```\n\nThis creates a parallax scroll effect — the image moves at a different rate than the page scroll."
+				"body": "```css\n.parallax-image {\n  animation: parallax linear;\n  animation-timeline: scroll(nearest block);\n}\n@keyframes parallax {\n  from { transform: translateY(-20%); }\n  to   { transform: translateY(20%); }\n}\n```\n\nThis creates a parallax scroll effect \u2014 the image moves at a different rate than the page scroll."
 			}
 		]
 	},
 	{
 		"slug": "css-starting-style-transitions",
 		"title": "CSS @starting-style: Animate Elements From display:none",
-		"excerpt": "@starting-style lets you define the initial style before an element's first style is applied — enabling enter animations for elements inserted into the DOM or shown after being hidden.",
+		"excerpt": "@starting-style lets you define the initial style before an element's first style is applied \u2014 enabling enter animations for elements inserted into the DOM or shown after being hidden.",
 		"author": "UIXplor Team",
 		"date": "2026-02-25",
 		"readingTime": 5,
@@ -926,7 +926,7 @@
 			{
 				"heading": "The Problem It Solves",
 				"level": 2,
-				"body": "CSS transitions don't work when an element transitions **from** `display: none` — there's no starting style to interpolate from.\n\nBefore `@starting-style`, showing a modal required:\n1. `display: none` → `display: flex`\n2. Adding a class via setTimeout to trigger the transition\n\nThis caused layout thrashing and was fragile."
+				"body": "CSS transitions don't work when an element transitions **from** `display: none` \u2014 there's no starting style to interpolate from.\n\nBefore `@starting-style`, showing a modal required:\n1. `display: none` \u2192 `display: flex`\n2. Adding a class via setTimeout to trigger the transition\n\nThis caused layout thrashing and was fragile."
 			},
 			{
 				"heading": "@starting-style in Practice",
@@ -964,6 +964,188 @@
 				"heading": "Performance Considerations",
 				"level": 2,
 				"body": "`backdrop-filter` is GPU-intensive. Each element with `backdrop-filter` creates a new compositing layer and repaints the backdrop on every scroll frame.\n\nBest practices:\n- Use on **static or rare elements** (modals, navbars) not lists of cards\n- Test on mid-range mobile devices\n- Provide a solid-color fallback:\n```css\n@supports not (backdrop-filter: blur(1px)) {\n  .glass { background: rgba(10, 10, 15, 0.92); }\n}\n```"
+			}
+		]
+	},
+	{
+		"slug": "reusable-react-ui-components",
+		"title": "How to Build Reusable UI Components in React",
+		"excerpt": "Learn the principles behind reusable React components \u2014 from proper prop design to folder structure. Build a production-ready Button component with variants, and understand why component reuse is the cornerstone of scalable frontends.",
+		"author": "UIXplor Team",
+		"date": "2026-03-11",
+		"readingTime": 9,
+		"tags": [
+			"React",
+			"Components",
+			"CSS",
+			"Frontend",
+			"Architecture"
+		],
+		"featuredImage": "/blog/react-components-cover.jpg",
+		"sections": [
+			{
+				"heading": "Why Reusable Components Matter",
+				"level": 2,
+				"body": "Every large React codebase eventually reaches a painful moment: you need to change a button style and you realize you've written the same button component 40 times across 40 files. Reusable components solve this by creating a **single source of truth** for your UI elements.\n\nA reusable component is one that:\n- Accepts **props** to control its appearance and behavior\n- Has a **predictable interface** (clear prop names, sensible defaults)\n- Works in **isolation** \u2014 it doesn't depend on global state to render correctly\n- Is **documented** enough that another developer can use it without reading its source\n\nThink of it like building with Lego. Each piece is standardized, self-contained, and can be combined in infinite ways."
+			},
+			{
+				"heading": "Anatomy of a Reusable React Button",
+				"level": 2,
+				"body": "Let's build a Button component from scratch that supports multiple variants, sizes, loading states, and icons:\n\n```jsx\n// components/Button/Button.jsx\nimport React from 'react';\nimport './Button.css';\n\nexport function Button({\n  children,\n  variant = 'primary',\n  size = 'md',\n  loading = false,\n  disabled = false,\n  onClick,\n  ...props\n}) {\n  return (\n    <button\n      className={`btn btn--${variant} btn--${size} ${loading ? 'btn--loading' : ''}`}\n      disabled={disabled || loading}\n      onClick={onClick}\n      {...props}\n    >\n      {loading ? <span className=\"btn__spinner\" /> : null}\n      {children}\n    </button>\n  );\n}\n\nexport default Button;\n```\n\nThe key design decisions here:\n- `variant` controls the visual style (`primary`, `secondary`, `ghost`, `destructive`)\n- `size` controls padding and font size (`sm`, `md`, `lg`)\n- `loading` adds a spinner and prevents double-submit\n- `...props` passes through any native button attributes (`type`, `form`, `aria-*`)"
+			},
+			{
+				"heading": "CSS for the Button System",
+				"level": 2,
+				"body": "Structure your CSS using BEM naming for variant flexibility:\n\n```css\n/* components/Button/Button.css */\n.btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  font-family: inherit;\n  font-weight: 600;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  position: relative;\n  overflow: hidden;\n}\n\n/* Sizes */\n.btn--sm { padding: 6px 14px; font-size: 12px; }\n.btn--md { padding: 10px 20px; font-size: 14px; }\n.btn--lg { padding: 14px 28px; font-size: 16px; }\n\n/* Variants */\n.btn--primary {\n  background: #6C63FF;\n  color: #fff;\n}\n.btn--primary:hover { background: #7c74ff; transform: translateY(-1px); }\n\n.btn--secondary {\n  background: rgba(108, 99, 255, 0.1);\n  color: #6C63FF;\n  border: 1px solid rgba(108, 99, 255, 0.3);\n}\n\n.btn--ghost {\n  background: transparent;\n  color: rgba(255, 255, 255, 0.7);\n  border: 1px solid rgba(255, 255, 255, 0.15);\n}\n\n.btn--loading { cursor: not-allowed; opacity: 0.7; }\n\n.btn__spinner {\n  width: 14px;\n  height: 14px;\n  border: 2px solid rgba(255,255,255,0.3);\n  border-top-color: #fff;\n  border-radius: 50%;\n  animation: spin 0.7s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n```"
+			},
+			{
+				"heading": "Recommended Folder Structure",
+				"level": 2,
+				"body": "Organize each component as a self-contained folder:\n\n```\nsrc/\n  components/\n    Button/\n      Button.jsx        \u2190 Component logic\n      Button.css        \u2190 Component styles\n      Button.test.jsx   \u2190 Unit tests\n      index.js          \u2190 Re-export (barrel file)\n    Card/\n      Card.jsx\n      Card.css\n      index.js\n    Input/\n      Input.jsx\n      Input.css\n      index.js\n  pages/\n    Home.jsx\n    Dashboard.jsx\n```\n\nThe `index.js` barrel file keeps imports clean:\n```js\n// components/Button/index.js\nexport { Button, default } from './Button';\n```\n\nThis lets you import as: `import Button from '@/components/Button'` instead of the full path."
+			},
+			{
+				"heading": "Composing Components",
+				"level": 2,
+				"body": "The real power of reusable components is composition. Build a `CardAction` component that combines your `Card` and `Button`:\n\n```jsx\nimport Card from '@/components/Card';\nimport Button from '@/components/Button';\n\nexport function FeatureCard({ title, description, onCTA }) {\n  return (\n    <Card>\n      <h3>{title}</h3>\n      <p>{description}</p>\n      <Button variant=\"primary\" onClick={onCTA}>\n        Get Started\n      </Button>\n    </Card>\n  );\n}\n```\n\nThis is the React philosophy: **small, focused components that compose into larger UIs**. Each piece is testable, replaceable, and understandable in isolation."
+			},
+			{
+				"heading": "Best Practices Summary",
+				"level": 2,
+				"body": "1. **Single Responsibility** \u2014 each component does one thing well\n2. **Props over state where possible** \u2014 prefer controlled components\n3. **Sensible defaults** \u2014 `variant='primary'`, `size='md'` so the simple case is simple\n4. **Document your props** \u2014 even inline JSDoc comments help\n5. **Barrel exports** \u2014 `index.js` files keep imports clean\n6. **Co-locate styles and tests** \u2014 keep everything about a component in one folder\n7. **Use UIXplor** \u2014 browse 200+ production-ready components you can drop directly into your project"
+			}
+		]
+	},
+	{
+		"slug": "nextjs-ui-patterns",
+		"title": "Best UI Patterns for Next.js Applications",
+		"excerpt": "Next.js has its own conventions for organizing UI components. Learn the patterns that scale \u2014 from Server vs Client Components to CSS Modules, and how to build a robust component architecture for your Next.js 13+ app.",
+		"author": "UIXplor Team",
+		"date": "2026-03-11",
+		"readingTime": 10,
+		"tags": [
+			"Next.js",
+			"Architecture",
+			"CSS",
+			"React",
+			"App Router"
+		],
+		"featuredImage": "/blog/nextjs-patterns-cover.jpg",
+		"sections": [
+			{
+				"heading": "Next.js App Router Component Architecture",
+				"level": 2,
+				"body": "Next.js 13+ introduces the App Router with a fundamental shift: components are **Server Components by default**. This changes how you think about component organization.\n\n**Server Components:**\n- Render on the server \u2014 zero JavaScript bundle cost\n- Can directly access databases, file systems, API keys\n- Cannot use hooks (`useState`, `useEffect`) or browser APIs\n- Best for: layouts, navigation, data-heavy content\n\n**Client Components (add `'use client'` directive):**\n- Run in the browser \u2014 interactive, respond to events\n- Required for: hover states, click handlers, form inputs, animations\n- Best for: buttons, modals, dropdowns, anything interactive\n\nThe golden rule: **push `'use client'` as far down the tree as possible**. A page with a single interactive button shouldn't make the whole page a Client Component."
+			},
+			{
+				"heading": "Recommended Folder Structure",
+				"level": 2,
+				"body": "```\napp/\n  layout.tsx              \u2190 Root layout (Server Component)\n  page.tsx                \u2190 Home page (Server Component)\n  components/\n    ui/                   \u2190 Reusable UI primitives\n      Button.tsx\n      Button.module.css\n      Card.tsx\n      Card.module.css\n    layout/               \u2190 Layout components\n      Header.tsx\n      Footer.tsx\n      Sidebar.tsx\n    features/             \u2190 Feature-specific components\n      auth/\n        LoginForm.tsx     (Client Component)\n        AuthProvider.tsx  (Client Component)\n      dashboard/\n        StatsGrid.tsx\n        ActivityFeed.tsx\n  lib/\n    utils.ts              \u2190 Utility functions\n    db.ts                 \u2190 Database client\n```\n\nThe `ui/` directory holds your design system primitives. The `features/` directory holds business-logic-heavy components."
+			},
+			{
+				"heading": "CSS Modules in Next.js",
+				"level": 2,
+				"body": "Next.js has first-class support for CSS Modules. They scope class names locally so you never have naming collisions:\n\n```tsx\n// components/ui/Button.tsx\n'use client';\nimport styles from './Button.module.css';\n\ninterface ButtonProps {\n  children: React.ReactNode;\n  variant?: 'primary' | 'ghost' | 'destructive';\n  size?: 'sm' | 'md' | 'lg';\n  onClick?: () => void;\n}\n\nexport function Button({ children, variant = 'primary', size = 'md', onClick }: ButtonProps) {\n  return (\n    <button\n      className={`${styles.btn} ${styles[`btn--${variant}`]} ${styles[`btn--${size}`]}`}\n      onClick={onClick}\n    >\n      {children}\n    </button>\n  );\n}\n```\n\n```css\n/* Button.module.css */\n.btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  font-weight: 600;\n  border-radius: 8px;\n  border: none;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.btn--primary { background: #6C63FF; color: #fff; }\n.btn--ghost { background: transparent; border: 1px solid #2A2A2A; color: rgba(255,255,255,0.7); }\n.btn--sm { padding: 6px 14px; font-size: 12px; }\n.btn--md { padding: 10px 20px; font-size: 14px; }\n.btn--lg { padding: 14px 28px; font-size: 16px; }\n```"
+			},
+			{
+				"heading": "Server Components for Data-Heavy UIs",
+				"level": 2,
+				"body": "One of the biggest wins in Next.js App Router is rendering data-heavy components on the server. Here's a product card that fetches its own data:\n\n```tsx\n// components/features/ProductCard.tsx (Server Component \u2014 no 'use client')\n\nasync function getProduct(id: string) {\n  const res = await fetch(`https://api.example.com/products/${id}`, {\n    next: { revalidate: 3600 } // Cache for 1 hour\n  });\n  return res.json();\n}\n\nexport async function ProductCard({ productId }: { productId: string }) {\n  const product = await getProduct(productId);\n  return (\n    <div className=\"product-card\">\n      <img src={product.image} alt={product.name} />\n      <h3>{product.name}</h3>\n      <p className=\"price\">${product.price}</p>\n      {/* Note: AddToCart must be a Client Component for the onClick */}\n      <AddToCart productId={productId} />\n    </div>\n  );\n}\n```\n\nThe server streams this component with the product data pre-rendered \u2014 zero loading spinners, zero client-side data fetching, zero exposed API keys."
+			},
+			{
+				"heading": "Theme and Design Tokens with CSS Variables",
+				"level": 2,
+				"body": "Define your design tokens as CSS custom properties in `globals.css`:\n\n```css\n/* app/globals.css */\n:root {\n  /* Colors */\n  --color-bg: #0D0D0D;\n  --color-surface: #151515;\n  --color-border: #2A2A2A;\n  --color-accent: #6C63FF;\n  --color-text: rgba(255, 255, 255, 0.85);\n  --color-muted: rgba(255, 255, 255, 0.4);\n\n  /* Spacing */\n  --space-1: 4px;\n  --space-2: 8px;\n  --space-4: 16px;\n  --space-6: 24px;\n  --space-8: 32px;\n\n  /* Typography */\n  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  --font-mono: 'Fira Code', 'JetBrains Mono', monospace;\n\n  /* Radius */\n  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 16px;\n  --radius-xl: 24px;\n\n  /* Shadows */\n  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);\n  --shadow-md: 0 8px 24px rgba(0,0,0,0.5);\n  --shadow-glow: 0 0 24px rgba(108,99,255,0.3);\n}\n```"
+			}
+		]
+	},
+	{
+		"slug": "js-ui-tricks",
+		"title": "Modern JavaScript UI Tricks for Frontend Developers",
+		"excerpt": "Beyond CSS transitions \u2014 explore JavaScript-powered UI effects that create genuinely delightful experiences. Magnetic buttons, parallax scrolling, cursor trails, ripple effects, and scroll-triggered animations.",
+		"author": "UIXplor Team",
+		"date": "2026-03-11",
+		"readingTime": 8,
+		"tags": [
+			"JavaScript",
+			"Animations",
+			"CSS",
+			"Microinteractions",
+			"UX"
+		],
+		"featuredImage": "/blog/js-ui-tricks-cover.jpg",
+		"sections": [
+			{
+				"heading": "Magnetic Button Effect",
+				"level": 2,
+				"body": "A magnetic button that attracts toward the cursor creates a satisfying, premium feel used by Awwwards-winning sites:\n\n```javascript\nconst magneticButtons = document.querySelectorAll('.btn-magnetic');\n\nmagneticButtons.forEach(btn => {\n  btn.addEventListener('mousemove', (e) => {\n    const rect = btn.getBoundingClientRect();\n    const x = e.clientX - rect.left - rect.width / 2;\n    const y = e.clientY - rect.top - rect.height / 2;\n\n    // Attract button toward cursor (30% of distance)\n    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;\n\n    // Move text more aggressively for depth (50%)\n    const text = btn.querySelector('span');\n    if (text) {\n      text.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;\n    }\n  });\n\n  btn.addEventListener('mouseleave', () => {\n    btn.style.transform = '';\n    const text = btn.querySelector('span');\n    if (text) text.style.transform = '';\n  });\n});\n```\n\nAdd smooth transitions in CSS:\n```css\n.btn-magnetic {\n  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);\n}\n```"
+			},
+			{
+				"heading": "Ripple Effect on Click",
+				"level": 2,
+				"body": "The Material Design ripple effect provides instant tactile feedback. Here's a clean, framework-free implementation:\n\n```javascript\nfunction createRipple(event) {\n  const button = event.currentTarget;\n  const circle = document.createElement('span');\n  const diameter = Math.max(button.clientWidth, button.clientHeight);\n  const radius = diameter / 2;\n\n  const rect = button.getBoundingClientRect();\n  circle.style.cssText = `\n    width: ${diameter}px;\n    height: ${diameter}px;\n    left: ${event.clientX - rect.left - radius}px;\n    top: ${event.clientY - rect.top - radius}px;\n    position: absolute;\n    border-radius: 50%;\n    background: rgba(255, 255, 255, 0.3);\n    transform: scale(0);\n    animation: ripple 600ms linear;\n    pointer-events: none;\n  `;\n\n  // Remove old ripples\n  const existing = button.querySelector('.ripple');\n  if (existing) existing.remove();\n\n  circle.classList.add('ripple');\n  button.appendChild(circle);\n  setTimeout(() => circle.remove(), 700);\n}\n\ndocument.querySelectorAll('.btn-ripple').forEach(btn => {\n  btn.style.position = 'relative';\n  btn.style.overflow = 'hidden';\n  btn.addEventListener('click', createRipple);\n});\n```\n\n```css\n@keyframes ripple {\n  to { transform: scale(4); opacity: 0; }\n}\n```"
+			},
+			{
+				"heading": "Smooth Scroll Progress Indicator",
+				"level": 2,
+				"body": "A reading progress bar that tracks scroll position \u2014 useful for blog posts and long pages:\n\n```javascript\nconst progressBar = document.querySelector('.progress-bar');\n\nwindow.addEventListener('scroll', () => {\n  const scrollTop = window.scrollY;\n  const docHeight = document.documentElement.scrollHeight - window.innerHeight;\n  const progress = (scrollTop / docHeight) * 100;\n\n  // Use requestAnimationFrame to batch DOM writes\n  requestAnimationFrame(() => {\n    progressBar.style.width = `${Math.min(progress, 100)}%`;\n  });\n}, { passive: true });\n```\n\n```css\n.progress-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 3px;\n  background: linear-gradient(90deg, #6C63FF, #a78bfa);\n  transition: width 0.1s linear;\n  z-index: 9999;\n}\n```"
+			},
+			{
+				"heading": "Intersection Observer Animations",
+				"level": 2,
+				"body": "Replace scroll-event listeners with the modern Intersection Observer API for performant scroll-triggered animations:\n\n```javascript\nconst observer = new IntersectionObserver((entries) => {\n  entries.forEach(entry => {\n    if (entry.isIntersecting) {\n      entry.target.classList.add('is-visible');\n      // Optionally unobserve after first trigger\n      observer.unobserve(entry.target);\n    }\n  });\n}, {\n  threshold: 0.15,    // Trigger when 15% is visible\n  rootMargin: '0px 0px -50px 0px'  // Trigger 50px before the bottom\n});\n\ndocument.querySelectorAll('[data-animate]').forEach(el => {\n  observer.observe(el);\n});\n```\n\n```css\n[data-animate] {\n  opacity: 0;\n  transform: translateY(24px);\n  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n[data-animate].is-visible {\n  opacity: 1;\n  transform: translateY(0);\n}\n```\n\nAdd `data-animate` to any element to give it a smooth fade-up on scroll. The Intersection Observer has **zero performance impact** on scroll \u2014 it uses native browser APIs instead of polling."
+			},
+			{
+				"heading": "Typewriter Text Effect",
+				"level": 2,
+				"body": "A typewriter effect that cycles through multiple strings \u2014 great for hero sections:\n\n```javascript\nclass Typewriter {\n  constructor(element, strings, options = {}) {\n    this.el = element;\n    this.strings = strings;\n    this.speed = options.speed || 80;\n    this.deleteSpeed = options.deleteSpeed || 40;\n    this.pause = options.pause || 2000;\n    this.currentIndex = 0;\n    this.type();\n  }\n\n  async type() {\n    const str = this.strings[this.currentIndex % this.strings.length];\n    this.el.textContent = '';\n\n    // Type forward\n    for (let i = 0; i <= str.length; i++) {\n      this.el.textContent = str.slice(0, i);\n      await this.sleep(this.speed);\n    }\n\n    await this.sleep(this.pause);\n\n    // Delete\n    for (let i = str.length; i >= 0; i--) {\n      this.el.textContent = str.slice(0, i);\n      await this.sleep(this.deleteSpeed);\n    }\n\n    this.currentIndex++;\n    this.type();\n  }\n\n  sleep(ms) { return new Promise(r => setTimeout(r, ms)); }\n}\n\n// Usage\nnew Typewriter(\n  document.querySelector('.typewriter'),\n  ['Build faster.', 'Design better.', 'Ship confidently.']\n);\n```"
+			}
+		]
+	},
+	{
+		"slug": "html-to-react-components",
+		"title": "How to Convert HTML UI Components into React Components",
+		"excerpt": "Have a collection of HTML/CSS UI snippets? Learn the systematic approach to converting them into clean, reusable React components \u2014 handling class to className, inline styles, event handlers, and component props.",
+		"author": "UIXplor Team",
+		"date": "2026-03-11",
+		"readingTime": 7,
+		"tags": [
+			"React",
+			"HTML",
+			"Conversion",
+			"CSS",
+			"Components"
+		],
+		"featuredImage": "/blog/html-to-react-cover.jpg",
+		"sections": [
+			{
+				"heading": "The Conversion Checklist",
+				"level": 2,
+				"body": "Converting HTML to React is mostly mechanical, but there are traps. Here's the complete checklist:\n\n1. \u2705 `class` \u2192 `className`\n2. \u2705 `for` (on labels) \u2192 `htmlFor`\n3. \u2705 `onclick` \u2192 `onClick` (camelCase all event handlers)\n4. \u2705 Self-close void elements: `<input>` \u2192 `<input />`, `<br>` \u2192 `<br />`\n5. \u2705 Inline styles: string `style=\"color:red\"` \u2192 object `style={{ color: 'red' }}`\n6. \u2705 Comments: `<!-- -->` \u2192 `{/* */}`\n7. \u2705 Wrap everything in one parent element (or `<>` Fragment)\n8. \u2705 `tabindex` \u2192 `tabIndex`\n9. \u2705 `maxlength` \u2192 `maxLength`\n10. \u2705 Extract repeated markup into loops using `.map()`"
+			},
+			{
+				"heading": "Step 1: The class \u2192 className Swap",
+				"level": 2,
+				"body": "This is the most common and most essential conversion:\n\n**HTML:**\n```html\n<button class=\"btn btn-primary btn-lg\">\n  Launch App\n</button>\n```\n\n**React:**\n```jsx\n<button className=\"btn btn-primary btn-lg\">\n  Launch App\n</button>\n```\n\nFor conditional classes, React developers use template literals or the `clsx` library:\n\n```jsx\nimport clsx from 'clsx';\n\n<button className={clsx('btn', {\n  'btn-primary': variant === 'primary',\n  'btn-ghost': variant === 'ghost',\n  'btn-sm': size === 'sm',\n  'btn-disabled': disabled\n})}>\n  Launch App\n</button>\n```"
+			},
+			{
+				"heading": "Step 2: Inline Styles as JavaScript Objects",
+				"level": 2,
+				"body": "HTML inline styles are strings. React inline styles are JavaScript objects with camelCase property names:\n\n**HTML:**\n```html\n<div style=\"background-color: #6C63FF; border-radius: 12px; padding: 20px 24px;\">\n  Content\n</div>\n```\n\n**React:**\n```jsx\n<div style={{\n  backgroundColor: '#6C63FF',\n  borderRadius: '12px',\n  padding: '20px 24px'\n}}>\n  Content\n</div>\n```\n\nThe conversion rules:\n- Hyphenated properties \u2192 camelCase (`background-color` \u2192 `backgroundColor`)\n- Values are strings (quoted) except for unitless numbers\n- `font-size: 16px` \u2192 `fontSize: '16px'` (string) but `opacity: 0.5` \u2192 `opacity: 0.5` (number)"
+			},
+			{
+				"heading": "Step 3: Event Handlers",
+				"level": 2,
+				"body": "HTML event attributes are lowercase strings. React events are camelCase function references:\n\n**HTML:**\n```html\n<button onclick=\"handleClick()\" onmouseenter=\"showTooltip()\">\n  Click Me\n</button>\n```\n\n**React:**\n```jsx\n<button onClick={handleClick} onMouseEnter={showTooltip}>\n  Click Me\n</button>\n```\n\nFor inline handlers, don't call the function \u2014 pass a reference or wrap in an arrow function:\n\n```jsx\n{/* Wrong \u2014 this runs on render, not on click */}\n<button onClick={handleClick()}>Click</button>\n\n{/* Correct \u2014 passes the function reference */}\n<button onClick={handleClick}>Click</button>\n\n{/* If you need to pass arguments */}\n<button onClick={() => handleClick(itemId)}>Click</button>\n```"
+			},
+			{
+				"heading": "Step 4: Extract Props for Reusability",
+				"level": 2,
+				"body": "The final step \u2014 turn hardcoded values into props so the component can be reused:\n\n**Before (hardcoded HTML):**\n```html\n<div class=\"alert alert-error\">\n  <svg class=\"alert-icon\">...</svg>\n  <p>Your session has expired. Please log in again.</p>\n</div>\n```\n\n**After (flexible React component):**\n```jsx\nfunction Alert({ type = 'info', message, icon }) {\n  const icons = {\n    info: <InfoIcon />,\n    error: <ErrorIcon />,\n    success: <CheckIcon />,\n    warning: <WarningIcon />,\n  };\n\n  return (\n    <div className={`alert alert--${type}`}>\n      {icons[type]}\n      <p>{message}</p>\n    </div>\n  );\n}\n\n// Usage:\n<Alert type=\"error\" message=\"Your session has expired. Please log in again.\" />\n<Alert type=\"success\" message=\"Profile updated successfully!\" />\n```\n\nOne component now covers all four alert states with clean, prop-driven markup. This is the core of component thinking: **identify what varies, make it a prop**."
+			},
+			{
+				"heading": "Using UIXplor's Playground for Conversion",
+				"level": 2,
+				"body": "UIXplor's built-in playground makes this even easier. When you find a component you like:\n\n1. Click **Details** on any component in a collection\n2. Switch to the **React** or **Next.js** tab\n3. The conversion is done automatically \u2014 `class` \u2192 `className`, wrapped in a component\n4. Click **Open in Playground** to edit the React version live in your browser\n5. Copy the final code or download it\n\nThis workflow takes what would be a 10-minute manual conversion and makes it instantaneous. The project structure shown on each component's detail page also tells you exactly where to put the files in your React or Next.js project."
 			}
 		]
 	}

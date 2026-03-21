@@ -5,13 +5,37 @@ import { useRouter } from 'next/router';
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
-const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/collections', label: 'Collections' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/about', label: 'About' },
+// Navigation grouped into categories for the grid menu
+const navGroups = [
+    {
+        label: 'Discover',
+        links: [
+            { href: '/', label: 'Home', desc: 'Start here', color: '#B8FB3C', icon: '⌂' },
+            { href: '/collections', label: 'Collections', desc: 'All UI components', color: '#6C63FF', icon: '◈' },
+            { href: '/animations', label: 'Animations', desc: 'CSS & Tailwind', color: '#f472b6', icon: '✨' },
+            { href: '/microinteractions', label: 'Micro Interactions', desc: 'Ripple, tilt, glow', color: '#fb923c', icon: '⚡' },
+            { href: '/trends', label: 'UI Trends', desc: 'Glassmorphism & more', color: '#34d399', icon: '◉' },
+        ],
+    },
+    {
+        label: 'Build',
+        links: [
+            { href: '/playground', label: 'Playground', desc: 'Live code editor', color: '#B8FB3C', icon: '</>' },
+            { href: '/builder', label: 'Builder', desc: 'Visual component builder', color: '#60a5fa', icon: '⬡' },
+            { href: '/toolkit', label: 'Toolkit', desc: 'CSS generators', color: '#fbbf24', icon: '⚙' },
+        ],
+    },
+    {
+        label: 'Read',
+        links: [
+            { href: '/blog', label: 'Blog', desc: 'UI tips & guides', color: '#a78bfa', icon: '✦' },
+            { href: '/docs', label: 'Docs', desc: 'Platform guide', color: '#38bdf8', icon: '⊞' },
+        ],
+    },
 ];
 
+// Flat list for active detection
+const allNavLinks = navGroups.flatMap(g => g.links);
 
 export default function Header() {
     const router = useRouter();
@@ -240,76 +264,114 @@ export default function Header() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
+                        transition={{ duration: 0.2 }}
                     >
                         {/* Backdrop */}
-                        <motion.div
-                            className="absolute inset-0 bg-[#0a0a0f]/95 backdrop-blur-xl"
+                        <div
+                            className="absolute inset-0"
+                            style={{ background: 'rgba(5,5,10,0.96)', backdropFilter: 'blur(24px)' }}
                             onClick={() => setMenuOpen(false)}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
                         />
 
                         {/* Menu Content */}
-                        <motion.nav
-                            className="relative h-full flex flex-col items-center justify-center gap-2 px-8"
-                            initial={{ opacity: 0, y: 20 }}
+                        <motion.div
+                            className="relative h-full flex flex-col overflow-y-auto"
+                            initial={{ opacity: 0, y: 16 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 0.3, delay: 0.1 }}
+                            exit={{ opacity: 0, y: 16 }}
+                            transition={{ duration: 0.25, delay: 0.05 }}
                         >
-                            {navLinks.map((link, index) => {
-                                const isActive =
-                                    link.href === '/'
-                                        ? router.pathname === '/'
-                                        : router.pathname.startsWith(link.href);
-                                return (
-                                    <motion.div
-                                        key={link.href}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 10 }}
-                                        transition={{
-                                            duration: 0.3,
-                                            delay: 0.15 + index * 0.05,
-                                        }}
-                                    >
-                                        <Link
-                                            href={link.href}
-                                            onClick={() => setMenuOpen(false)}
-                                            className={`block text-3xl sm:text-5xl font-semibold py-3 px-6 rounded-xl transition-all duration-250 touch-manipulation ${isActive
-                                                ? 'text-[#B8FB3C]'
-                                                : 'text-white/70 hover:text-white active:text-[#B8FB3C]'
-                                                }`}
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    </motion.div>
-                                );
-                            })}
+                            {/* Menu header */}
+                            <div className="flex items-center justify-between px-8 pt-6 pb-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)' }}>Navigation</span>
+                                </div>
+                                <button
+                                    onClick={() => setMenuOpen(false)}
+                                    className="w-8 h-8 flex items-center justify-center rounded-full transition-all"
+                                    style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)' }}
+                                >
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+                            </div>
 
-                            {/* CTA inside menu */}
-                            <motion.div
-                                className="mt-8"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: 10 }}
-                                transition={{ duration: 0.3, delay: 0.35 }}
-                            >
+                            {/* Nav grid */}
+                            <nav className="flex-1 px-6 sm:px-10 py-8">
+                                <div className="max-w-4xl mx-auto">
+                                    {navGroups.map((group, gi) => (
+                                        <motion.div
+                                            key={group.label}
+                                            className="mb-8"
+                                            initial={{ opacity: 0, y: 12 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.25, delay: 0.1 + gi * 0.06 }}
+                                        >
+                                            <p className="text-[10px] font-bold uppercase tracking-widest mb-3 pl-1" style={{ color: 'rgba(255,255,255,0.2)' }}>{group.label}</p>
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+                                                {group.links.map((link, li) => {
+                                                    const isActive = link.href === '/'
+                                                        ? router.pathname === '/'
+                                                        : router.pathname.startsWith(link.href);
+                                                    return (
+                                                        <motion.div
+                                                            key={link.href}
+                                                            initial={{ opacity: 0, scale: 0.95 }}
+                                                            animate={{ opacity: 1, scale: 1 }}
+                                                            transition={{ duration: 0.2, delay: 0.12 + gi * 0.05 + li * 0.03 }}
+                                                        >
+                                                            <Link
+                                                                href={link.href}
+                                                                onClick={() => setMenuOpen(false)}
+                                                                className="group flex flex-col gap-2 p-4 rounded-2xl border transition-all duration-200 block"
+                                                                style={{
+                                                                    background: isActive ? `${link.color}12` : 'rgba(255,255,255,0.03)',
+                                                                    borderColor: isActive ? `${link.color}40` : 'rgba(255,255,255,0.06)',
+                                                                }}
+                                                                onMouseEnter={e => {
+                                                                    (e.currentTarget as HTMLElement).style.background = `${link.color}10`;
+                                                                    (e.currentTarget as HTMLElement).style.borderColor = `${link.color}35`;
+                                                                    (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)';
+                                                                }}
+                                                                onMouseLeave={e => {
+                                                                    (e.currentTarget as HTMLElement).style.background = isActive ? `${link.color}12` : 'rgba(255,255,255,0.03)';
+                                                                    (e.currentTarget as HTMLElement).style.borderColor = isActive ? `${link.color}40` : 'rgba(255,255,255,0.06)';
+                                                                    (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                                                                }}
+                                                            >
+                                                                <div
+                                                                    className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold"
+                                                                    style={{ background: `${link.color}15`, color: link.color }}
+                                                                >
+                                                                    {link.icon}
+                                                                </div>
+                                                                <div>
+                                                                    <p className="text-sm font-semibold" style={{ color: isActive ? link.color : 'rgba(255,255,255,0.85)' }}>{link.label}</p>
+                                                                    <p className="text-[10px] mt-0.5" style={{ color: 'rgba(255,255,255,0.3)' }}>{link.desc}</p>
+                                                                </div>
+                                                            </Link>
+                                                        </motion.div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </nav>
+
+                            {/* Bottom bar */}
+                            <div className="px-8 py-4 border-t flex items-center justify-between" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+                                <span className="text-[10px]" style={{ color: 'rgba(255,255,255,0.2)' }}>UIXplor — Open-source UI library</span>
                                 <Link
                                     href="/collections"
                                     onClick={() => setMenuOpen(false)}
-                                    className="inline-flex items-center px-8 py-3 text-base font-semibold rounded-full transition-all duration-250 touch-manipulation"
-                                    style={{
-                                        backgroundColor: accentColor,
-                                        color: '#0a0a0f',
-                                    }}
+                                    className="inline-flex items-center gap-1.5 px-5 py-2 text-xs font-bold rounded-full transition-all"
+                                    style={{ background: accentColor, color: '#0a0a0f' }}
                                 >
-                                    Browse Collections
+                                    Browse All
+                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
                                 </Link>
-                            </motion.div>
-                        </motion.nav>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -276,6 +276,16 @@ export default function Buttons() {
 											>
 												View Code →
 											</button>
+											<Link
+												href={`/component/${btn.id}?collection=buttons`}
+												className={`relative z-10 shrink-0 px-3 py-1.5 rounded-lg text-[11px] font-semibold border transition-all duration-300 hover:-translate-y-0.5 mt-1.5 flex items-center gap-1 ${isLight
+													? 'bg-indigo-50 text-indigo-600 border-indigo-200 hover:bg-indigo-100'
+													: 'bg-[#6C63FF]/8 text-[#a78bfa] border-[#6C63FF]/20 hover:bg-[#6C63FF]/15 hover:border-[#6C63FF]/40'
+													}`}
+											>
+												<svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+												Details
+											</Link>
 										</div>
 									</div>
 								</motion.div>

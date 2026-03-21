@@ -269,6 +269,12 @@ export default function FormsAdvanced() {
             <div className="px-4 py-3 flex items-center justify-between border-t border-white/6">
               <div className="min-w-0 mr-3"><span className="text-xs font-medium text-white/60 truncate block">{item.name}</span><span className="text-[10px] text-white/25 uppercase tracking-wider">{item.tag}</span></div>
               <button onClick={() => setSelected(item)} className="shrink-0 px-3.5 py-1.5 rounded-lg text-[11px] font-semibold bg-white/6 text-white/50 border border-white/8 hover:bg-white hover:text-[#0a0a0f] hover:border-white hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">View Code →</button>
+                      <a
+                        href={`/component/${item.id}?collection=forms-advanced&name=${encodeURIComponent(item.name)}&css=${encodeURIComponent(item.css)}`}
+                        className="relative z-10 px-3.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#6C63FF]/10 text-[#a78bfa] border border-[#6C63FF]/20 hover:bg-[#6C63FF]/20 hover:border-[#6C63FF]/40 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                      >
+                        Details
+                      </a>
             </div>
           </motion.article>))}
         </div>
