@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import StatusIndicator from './StatusIndicator';
 
 // Navigation grouped into categories for the grid menu
 const navGroups = [
@@ -217,7 +218,8 @@ export default function Header() {
                             </motion.svg>
                         </Link>
 
-                        {/* MENU Button */}
+                        <div className="relative z-10 flex items-center gap-3">
+                        <StatusIndicator />
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
                             className="relative z-10 pl-5 pr-2.5 py-2 border rounded-full flex items-center gap-2.5 cursor-pointer font-semibold text-sm tracking-wide transition-all duration-300"
@@ -252,6 +254,7 @@ export default function Header() {
                                 </div>
                             </div>
                         </button>
+                        </div>
                     </div>
                 </div>
             </header>
