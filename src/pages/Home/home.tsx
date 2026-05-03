@@ -208,7 +208,7 @@ export default function Home() {
 						className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gloock-regular text-white leading-tight"
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, ease: 'easeOut' }}
+						transition={{ duration: 0.5, ease: 'easeOut' }}
 					>
 						The Largest Library of <br className="hidden sm:block" />
 						Open-Source UI
@@ -217,7 +217,7 @@ export default function Home() {
 						className="text-center mt-4 sm:mt-6 text-base sm:text-lg text-white/60 max-w-2xl mx-auto"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+						transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
 					>
 						Community-built library of UI elements. <br className="hidden sm:block" />
 						Copy as HTML/CSS, Tailwind, React and Figma.
@@ -227,7 +227,7 @@ export default function Home() {
 						className="flex justify-center mt-8"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+						transition={{ duration: 0.5, delay: 0.25, ease: 'easeOut' }}
 					>
 						<Link href="/collections">
 							<AnimatedButton>
@@ -243,6 +243,8 @@ export default function Home() {
 					height={100}
 					className="w-full absolute top-0 left-0 -z-10"
 					alt=""
+					loading="lazy"
+					fetchPriority="low"
 				/>
 
 				{/* Developer Tools Section */}
@@ -523,7 +525,7 @@ export default function Home() {
 								transition={{ duration: 0.4, delay: index * 0.06 }}
 							>
 								<div className="p-6 flex items-center justify-center h-28 sm:h-32">
-									<div className="w-28 h-16 rounded-xl flex items-center justify-center text-xs text-white/50 font-medium" style={{ background: item.bg, border: `1px solid ${item.border}`, backdropFilter: 'blur(12px)' }}>
+									<div className="w-28 h-16 rounded-xl flex items-center justify-center text-xs text-white/50 font-medium" style={{ background: item.bg, border: `1px solid ${item.border}` }}>
 										{item.label}
 									</div>
 								</div>

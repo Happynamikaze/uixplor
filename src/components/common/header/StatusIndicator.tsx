@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useNetworkStatus, type NetworkState } from '@/hooks/useNetworkStatus';
 
@@ -42,21 +42,17 @@ const GRAPH_POINTS = 20;
 
 function LatencySparkline({ history, color, glowColor }: { history: number[]; color: string; glowColor: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animRef = useRef<number>(0);
-  const offsetRef = useRef(0);
-  const pointsRef = useRef<number[]>([]);
 
+  // Draw once when data/colors change — no continuous rAF loop
   useEffect(() => {
-    const padded = [...history];
-    while (padded.length < GRAPH_POINTS) padded.unshift(0);
-    pointsRef.current = padded.slice(-GRAPH_POINTS);
-  }, [history]);
-
-  const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    const padded = [...history];
+    while (padded.length < GRAPH_POINTS) padded.unshift(0);
+    const pts = padded.slice(-GRAPH_POINTS);
 
     const dpr = window.devicePixelRatio || 1;
     canvas.width = GRAPH_W * dpr;
@@ -65,14 +61,12 @@ function LatencySparkline({ history, color, glowColor }: { history: number[]; co
 
     ctx.clearRect(0, 0, GRAPH_W, GRAPH_H);
 
-    const pts = pointsRef.current;
     const maxVal = Math.max(...pts, 100);
     const padding = 4;
     const drawH = GRAPH_H - padding * 2;
     const stepX = GRAPH_W / (GRAPH_POINTS - 1);
 
-    offsetRef.current = (offsetRef.current + 0.3) % stepX;
-
+    // Grid lines
     ctx.strokeStyle = 'rgba(255,255,255,0.04)';
     ctx.lineWidth = 0.5;
     for (let i = 0; i < 4; i++) {
@@ -85,6 +79,7 @@ function LatencySparkline({ history, color, glowColor }: { history: number[]; co
 
     const getY = (val: number) => padding + drawH - (val / maxVal) * drawH;
 
+    // Area fill
     const gradient = ctx.createLinearGradient(0, 0, 0, GRAPH_H);
     gradient.addColorStop(0, glowColor);
     gradient.addColorStop(1, 'transparent');
@@ -112,6 +107,7 @@ function LatencySparkline({ history, color, glowColor }: { history: number[]; co
     ctx.fillStyle = gradient;
     ctx.fill();
 
+    // Line stroke
     ctx.beginPath();
     for (let i = 0; i < pts.length; i++) {
       const x = i * stepX;
@@ -133,6 +129,7 @@ function LatencySparkline({ history, color, glowColor }: { history: number[]; co
     ctx.stroke();
     ctx.shadowBlur = 0;
 
+    // End dot
     if (pts.length > 0) {
       const lastX = (pts.length - 1) * stepX;
       const lastY = getY(pts[pts.length - 1]);
@@ -149,14 +146,7 @@ function LatencySparkline({ history, color, glowColor }: { history: number[]; co
       ctx.fillStyle = '#ffffff';
       ctx.fill();
     }
-
-    animRef.current = requestAnimationFrame(draw);
-  }, [color, glowColor]);
-
-  useEffect(() => {
-    animRef.current = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(animRef.current);
-  }, [draw]);
+  }, [history, color, glowColor]);
 
   return (
     <canvas

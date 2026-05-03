@@ -117,7 +117,7 @@ export default function BlogIndex({ posts, allTags }: { posts: Post[]; allTags: 
 					<motion.div className="flex flex-wrap gap-2 mb-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.15 }}>
 						<button
 							onClick={() => setActiveTag(null)}
-							className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 ${activeTag === null ? 'bg-[#B8FB3C] text-[#0a0a0f] border-[#B8FB3C]' : 'bg-white/5 text-white/50 border-white/10 hover:border-white/30 hover:text-white/70'}`}
+							className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-colors duration-200 ${activeTag === null ? 'bg-[#B8FB3C] text-[#0a0a0f] border-[#B8FB3C]' : 'bg-white/5 text-white/50 border-white/10 hover:border-white/30 hover:text-white/70'}`}
 						>
 							All <span className="ml-1 opacity-60">{posts.length}</span>
 						</button>
@@ -125,7 +125,7 @@ export default function BlogIndex({ posts, allTags }: { posts: Post[]; allTags: 
 							<button
 								key={tag}
 								onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-								className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 ${activeTag === tag ? 'bg-[#B8FB3C] text-[#0a0a0f] border-[#B8FB3C]' : 'bg-white/5 text-white/50 border-white/10 hover:border-white/30 hover:text-white/70'}`}
+								className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-colors duration-200 ${activeTag === tag ? 'bg-[#B8FB3C] text-[#0a0a0f] border-[#B8FB3C]' : 'bg-white/5 text-white/50 border-white/10 hover:border-white/30 hover:text-white/70'}`}
 							>
 								{tag}
 							</button>
@@ -142,7 +142,7 @@ export default function BlogIndex({ posts, allTags }: { posts: Post[]; allTags: 
 									{featured && (
 										<div className="mb-8">
 											<Link href={`/blog/${featured.slug}`} className="group block">
-												<div className="rounded-2xl overflow-hidden border border-white/6 hover:border-white/14 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(255,255,255,0.06)] flex flex-col sm:flex-row">
+												<div className="rounded-2xl overflow-hidden border border-white/6 hover:border-white/14 transition-[border-color,box-shadow] duration-300 hover:shadow-[0_4px_20px_rgba(255,255,255,0.06)] flex flex-col sm:flex-row">
 													<div className="sm:w-64 lg:w-80 shrink-0 h-40 sm:h-auto" style={{ background: gradients[0] }}>
 														<div className="h-full flex items-center justify-center">
 															<span className="text-white/20 font-black text-7xl select-none leading-none">CSS</span>
@@ -175,7 +175,7 @@ export default function BlogIndex({ posts, allTags }: { posts: Post[]; allTags: 
 											{rest.map((post, i) => (
 												<motion.article key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }}>
 													<Link href={`/blog/${post.slug}`} className="group block h-full">
-														<div className="h-full rounded-2xl overflow-hidden border border-white/6 hover:border-white/14 transition-all duration-300 hover:shadow-[0_4px_16px_rgba(255,255,255,0.05)] flex flex-col">
+														<div className="h-full rounded-2xl overflow-hidden border border-white/6 hover:border-white/14 transition-[border-color,box-shadow] duration-300 hover:shadow-[0_4px_16px_rgba(255,255,255,0.05)] flex flex-col">
 															<div className="h-28" style={{ background: gradients[(i + 1) % gradients.length] }}>
 																<div className="h-full flex items-center justify-center">
 																	<span className="text-white/15 font-black text-5xl select-none">{post.tags[0]?.[0] ?? 'C'}</span>

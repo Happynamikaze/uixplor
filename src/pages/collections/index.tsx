@@ -134,10 +134,10 @@ export default function Collections() {
 								key={collection.id}
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.06 }}
+								transition={{ duration: 0.5, delay: Math.min(index * 0.06, 0.5) }}
 							>
 								<Link href={collection.href}>
-					<div className="relative group min-h-[13rem] sm:min-h-[15rem] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 bg-white/3 border border-white/6 hover:border-[#B8FB3C]/40 hover:shadow-[0_0_40px_rgba(184,251,60,0.08)]">
+					<div className="relative group min-h-[13rem] sm:min-h-[15rem] rounded-2xl overflow-hidden cursor-pointer transition-[border-color,box-shadow] duration-300 bg-white/3 border border-white/6 hover:border-[#B8FB3C]/40 hover:shadow-[0_0_40px_rgba(184,251,60,0.08)]">
 										{/* Glow orb */}
 										<div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#B8FB3C]/[0.03] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

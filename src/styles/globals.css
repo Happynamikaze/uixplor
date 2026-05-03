@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+/* Gloock font loaded via <link> in _document.tsx to avoid render-blocking @import */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -8,6 +8,12 @@
   --color-primary: #B8FB3C;
   --color-secondary: #0f141a;
   --color-dark-bg: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -223,6 +229,22 @@ body {
 }
 
 * {
-  scrollbar-width: 3px;
+  scrollbar-width: thin;
   scrollbar-color: #b8fb3c8e transparent;
+}
+
+/* GPU compositing hints for animated elements */
+[data-glow-card],
+.group {
+  will-change: auto;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -276,7 +276,7 @@ export default function Buttons() {
                 placeholder="Search buttons…"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white/5 border border-white/8 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-400/40 transition-all"
+                className="w-full bg-white/5 border border-white/8 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-purple-400/40 transition-[border-color,background] duration-200"
               />
               {search && (
                 <button
@@ -307,7 +307,7 @@ export default function Buttons() {
                   key={cat.key}
                   onClick={() => setActiveCategory(cat.key)}
                   aria-pressed={isActive}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-72px ${
+                  className={`px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 min-w-72px ${
                     isActive
                       ? "bg-purple-500 text-white"
                       : "bg-white/4 text-white/60 hover:bg-white/8 hover:text-white border border-white/6"
@@ -335,10 +335,10 @@ export default function Buttons() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.02 }}
+                  transition={{ duration: 0.4, delay: Math.min(index * 0.02, 0.3) }}
                 >
                   <div
-                    className={`rounded-2xl overflow-hidden h-full transition-all duration-300 border ${
+                    className={`rounded-2xl overflow-hidden h-full transition-[border-color] duration-200 border ${
                       isLight
                         ? "bg-white border-gray-200/60 hover:border-gray-300"
                         : "bg-linear-to-b from-white/4 to-black/25 border-white/6 hover:border-white/12"

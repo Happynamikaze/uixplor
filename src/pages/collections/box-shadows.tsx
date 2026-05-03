@@ -318,7 +318,7 @@ export default function BoxShadows() {
                 placeholder="Search shadows…"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white/5 border border-white/8 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#B8FB3C]/40 focus:bg-white/7 transition-all"
+                className="w-full bg-white/5 border border-white/8 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#B8FB3C]/40 focus:bg-white/7 transition-[border-color,background] duration-200"
               />
               {search && (
                 <button
@@ -349,7 +349,7 @@ export default function BoxShadows() {
                   onClick={() => setActiveCategory(cat.key)}
                   aria-pressed={isActive}
                   aria-label={`Show ${cat.label} shadows (${count})`}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 min-w-72px ${
+                  className={`px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 min-w-72px ${
                     isActive
                       ? "bg-[#B8FB3C] text-[#0a0a0f]"
                       : "bg-white/4 text-white/60 hover:bg-white/8 hover:text-white border border-white/6"
@@ -377,11 +377,11 @@ export default function BoxShadows() {
                   <motion.article
                     key={shadow.id}
                     layout
-                    className="group rounded-2xl overflow-hidden bg-linear-to-b from-white/4 to-black/25 border border-white/6 hover:border-white/12 transition-all duration-300 hover:shadow-[0_4px_12px_rgba(255,255,255,0.06),0_0_0_1px_rgba(255,255,255,0.04)]"
+                    className="group rounded-2xl overflow-hidden bg-linear-to-b from-white/4 to-black/25 border border-white/6 hover:border-white/12 transition-[border-color,box-shadow] duration-300 hover:shadow-[0_4px_12px_rgba(255,255,255,0.06),0_0_0_1px_rgba(255,255,255,0.04)]"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3, delay: index * 0.02 }}
+                    transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.3) }}
                     aria-label={`${shadow.name} — ${shadow.category} box shadow`}
                   >
                     {/* Shadow preview */}

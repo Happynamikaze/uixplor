@@ -42,26 +42,14 @@ export default function ShadowCardGrid() {
             viewport={{ once: true, amount: 0.3 }}
             whileHover={{
               scale: 1.05,
-              rotate: [0, -1, 1, 0],
-              transition: {
-                scale: { duration: 0.2 },
-                rotate: { duration: 0.3 }
-              }
+              transition: { duration: 0.2 }
             }}
             whileTap={{
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
           >
-            {/* Shimmer effect on hover */}
-            <motion.div
-              className="absolute inset-0 bg-linear-to-r from-transparent bg-white to-transparent"
-              initial={{ x: '-100%' }}
-              whileHover={{
-                x: '100%',
-                transition: { duration: 0.6, ease: "easeInOut" }
-              }}
-            />
+
 
             <span className="font-semibold relative z-10 text-sm">{shadow.name}</span>
 

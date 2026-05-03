@@ -1,30 +1,24 @@
 'use client';
 
 import data from '@/utils/Data/buttons.json';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'motion/react';
 
 export default function ButtonCardGrid() {
-	const buttons = data as { id: number; name: string; credits: string; css: string }[];
+	const buttons = useMemo(() => data as { id: number; name: string; credits: string; css: string }[], []);
 	const [copiedId, setCopiedId] = useState<number | null>(null);
 
-	// Inject all button styles into the page
+	// Inject all button styles into the page — only once
 	useEffect(() => {
+		if (document.getElementById('button-styles')) return;
 		const styleElement = document.createElement('style');
 		styleElement.id = 'button-styles';
-
-		// Combine all CSS from buttons
-		const allStyles = buttons.map(button => button.css).join('\n\n');
-		styleElement.textContent = allStyles;
-
+		styleElement.textContent = buttons.map(button => button.css).join('\n\n');
 		document.head.appendChild(styleElement);
 
 		return () => {
-			// Cleanup on unmount
 			const existingStyle = document.getElementById('button-styles');
-			if (existingStyle) {
-				existingStyle.remove();
-			}
+			if (existingStyle) existingStyle.remove();
 		};
 	}, [buttons]);
 
@@ -52,7 +46,7 @@ export default function ButtonCardGrid() {
 					<motion.div
 						key={button.id}
 						onClick={() => handleCopy(button.css, button.id)}
-						className="button-showcase-card w-full max-w-[200px] h-[150px] mx-auto bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center cursor-pointer relative overflow-visible p-4 hover:border-blue-300 transition-all"
+						className="button-showcase-card w-full max-w-[200px] h-[150px] mx-auto bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center cursor-pointer relative overflow-visible p-4 hover:border-blue-300 transition-[border-color] duration-200"
 						style={{ boxShadow: 'rgba(100, 100, 111, 0.15) 0px 7px 29px 0px' }}
 						initial={{
 							opacity: 0,
