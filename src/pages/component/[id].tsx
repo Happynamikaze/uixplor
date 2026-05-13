@@ -702,7 +702,7 @@ export default function ComponentDetailPage() {
 </style></head><body>${buildDefaultHTML(className, component.name, component.html)}</body></html>`;
 
   // Playground URL - use the dedicated playground page with CSS preloaded in URL params
-  const playgroundUrl = `/playground?collection=${collection || "buttons"}&id=${id}`;
+  const playgroundUrl = `/playground/${id}?collection=${collection || "buttons"}`;
 
   const collectionHref = `/collections/${collection || "buttons"}`;
 

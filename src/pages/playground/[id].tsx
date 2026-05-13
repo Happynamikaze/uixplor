@@ -117,10 +117,10 @@ const FRAMEWORKS: {
   color: string;
   template: "static" | "react";
 }[] = [
-  { key: "html", label: "HTML + CSS", color: "#f97316", template: "static" },
-  { key: "react", label: "React", color: "#38bdf8", template: "react" },
-  { key: "nextjs", label: "Next.js", color: "#e5e5e5", template: "react" },
-];
+    { key: "html", label: "HTML + CSS", color: "#f97316", template: "static" },
+    { key: "react", label: "React", color: "#38bdf8", template: "react" },
+    { key: "nextjs", label: "Next.js", color: "#e5e5e5", template: "react" },
+  ];
 
 // ─── Sandpack theme ───────────────────────────────────────────────────────────
 
@@ -179,7 +179,6 @@ export default function ComponentPlayground() {
   // Parse component data from URL query params or load from JSON
   useEffect(() => {
     const loadFromParams = async () => {
-      // URL se ID aur Collection milne par JSON se data uthayega
       if (id && collection) {
         try {
           const data = await import(`../../../data/${collection}.json`);
@@ -198,7 +197,6 @@ export default function ComponentPlayground() {
           setIsLoaded(true);
         }
       } else {
-        // Agar ID nahi hai toh purane params check karega
         if (rawName) setComponentName(rawName);
         if (rawCss) setComponentCss(rawCss);
         setIsLoaded(true);
