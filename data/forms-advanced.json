@@ -1,0 +1,74 @@
+[
+  {
+    "id": "floating-label",
+    "name": "Floating Label Input",
+    "tag": "input",
+    "description": "Label animates above the input on focus.",
+    "html": "<div class=\"float-field\">\n  <input class=\"float-input\" id=\"email\" type=\"email\" placeholder=\" \">\n  <label class=\"float-label\" for=\"email\">Email Address</label>\n</div>",
+    "css": ".float-field { position: relative; }\n.float-input { width: 100%; border: 1.5px solid #d1d5db; border-radius: 8px; padding: 20px 14px 8px; font-size: 14px; outline: none; font-family: system-ui, sans-serif; transition: border-color 0.2s; }\n.float-input:focus { border-color: #6366f1; }\n.float-input:focus + .float-label, .float-input:not(:placeholder-shown) + .float-label { top: 6px; font-size: 10px; color: #6366f1; }\n.float-label { position: absolute; top: 50%; left: 14px; transform: translateY(-50%); font-size: 14px; color: #9ca3af; pointer-events: none; transition: all 0.18s ease; font-family: system-ui, sans-serif; }"
+  },
+  {
+    "id": "search-bar",
+    "name": "Animated Search Bar",
+    "tag": "search",
+    "description": "Expanding search with icon and keyboard shortcut hint.",
+    "html": "<div class=\"search-bar\">\n  <svg class=\"search-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\">\n    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z\"/>\n  </svg>\n  <input class=\"search-input\" type=\"search\" placeholder=\"Search…\">\n  <kbd class=\"search-kbd\">⌘K</kbd>\n</div>",
+    "css": ".search-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; transition: all 0.2s; }\n.search-bar:focus-within { background: #fff; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }\n.search-icon { width: 16px; height: 16px; color: #9ca3af; flex-shrink: 0; }\n.search-input { flex: 1; border: none; background: transparent; font-size: 14px; color: #374151; outline: none; font-family: system-ui, sans-serif; }\n.search-input::placeholder { color: #9ca3af; }\n.search-kbd { background: #e5e7eb; border-radius: 4px; padding: 2px 7px; font-size: 11px; color: #6b7280; }"
+  },
+  {
+    "id": "range-slider",
+    "name": "Range Slider",
+    "tag": "range",
+    "description": "Custom-styled range input with value display.",
+    "html": "<div class=\"range-wrap\">\n  <div class=\"range-header\">\n    <span>Budget</span>\n    <output class=\"range-output\">$500</output>\n  </div>\n  <input class=\"range-slider\" type=\"range\" min=\"0\" max=\"1000\" value=\"500\">\n  <div class=\"range-limits\"><span>$0</span><span>$1,000</span></div>\n</div>",
+    "css": ".range-wrap { padding: 16px; font-family: system-ui, sans-serif; }\n.range-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px; color: #374151; font-weight: 500; }\n.range-output { color: #6366f1; font-weight: 600; }\n.range-slider { width: 100%; accent-color: #6366f1; cursor: pointer; height: 4px; }\n.range-limits { display: flex; justify-content: space-between; font-size: 11px; color: #9ca3af; margin-top: 6px; }"
+  },
+  {
+    "id": "file-upload",
+    "name": "File Upload Zone",
+    "tag": "upload",
+    "description": "Drag-and-drop file upload area.",
+    "html": "<label class=\"file-dropzone\" for=\"file-input\">\n  <span class=\"file-dropzone__icon\">📁</span>\n  <p class=\"file-dropzone__title\">Drop files here</p>\n  <p class=\"file-dropzone__sub\">or click to browse</p>\n  <span class=\"file-dropzone__btn\">Choose File</span>\n  <input id=\"file-input\" type=\"file\" hidden>\n</label>",
+    "css": ".file-dropzone { display: flex; flex-direction: column; align-items: center; padding: 32px 20px; border: 2px dashed #d1d5db; border-radius: 12px; background: #f9fafb; cursor: pointer; text-align: center; font-family: system-ui, sans-serif; transition: border-color 0.2s, background 0.2s; }\n.file-dropzone:hover { border-color: #6366f1; background: rgba(99,102,241,0.04); }\n.file-dropzone__icon { font-size: 40px; margin-bottom: 12px; }\n.file-dropzone__title { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 4px; }\n.file-dropzone__sub { font-size: 12px; color: #9ca3af; margin-bottom: 16px; }\n.file-dropzone__btn { background: #6366f1; color: #fff; border-radius: 6px; padding: 8px 20px; font-size: 13px; font-weight: 600; }"
+  },
+  {
+    "id": "dropdown-select",
+    "name": "Custom Dropdown",
+    "tag": "dropdown",
+    "description": "Styled accessible dropdown select.",
+    "html": "<div class=\"custom-select\">\n  <button class=\"custom-select__trigger\" aria-haspopup=\"listbox\">\n    <span>Select framework</span>\n    <span>▾</span>\n  </button>\n  <ul class=\"custom-select__list\" role=\"listbox\">\n    <li class=\"select-option selected\" role=\"option\" aria-selected=\"true\">React ✓</li>\n    <li class=\"select-option\" role=\"option\">Vue</li>\n    <li class=\"select-option\" role=\"option\">Svelte</li>\n    <li class=\"select-option\" role=\"option\">Angular</li>\n  </ul>\n</div>",
+    "css": ".custom-select { position: relative; font-family: system-ui, sans-serif; }\n.custom-select__trigger { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #fff; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; color: #374151; cursor: pointer; transition: border-color 0.2s; }\n.custom-select__trigger:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); outline: none; }\n.custom-select__list { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); list-style: none; margin: 0; padding: 4px; z-index: 50; }\n.select-option { padding: 9px 12px; font-size: 14px; color: #374151; border-radius: 6px; cursor: pointer; transition: background 0.15s; }\n.select-option:hover { background: #f9fafb; }\n.select-option.selected { background: rgba(99,102,241,0.07); color: #6366f1; }"
+  },
+  {
+    "id": "multistep-form",
+    "name": "Multi-Step Form",
+    "tag": "multistep",
+    "description": "Three-step wizard with step indicator.",
+    "html": "<form class=\"wizard-form\">\n  <ol class=\"wizard-steps\">\n    <li class=\"wizard-step done\"><span class=\"step-num\">✓</span><span>Account</span></li>\n    <li class=\"wizard-step active\"><span class=\"step-num\">2</span><span>Details</span></li>\n    <li class=\"wizard-step\"><span class=\"step-num\">3</span><span>Done</span></li>\n  </ol>\n  <h3 class=\"wizard-title\">Account Details</h3>\n  <input class=\"wizard-input\" type=\"email\" placeholder=\"Email\">\n  <button class=\"wizard-next\" type=\"button\">Continue →</button>\n</form>",
+    "css": ".wizard-form { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; font-family: system-ui, sans-serif; }\n.wizard-steps { display: flex; align-items: center; list-style: none; margin: 0 0 20px; padding: 0; gap: 0; }\n.wizard-step { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; position: relative; font-size: 10px; }\n.wizard-step:not(:last-child)::after { content: ''; position: absolute; top: 12px; left: 50%; width: 100%; height: 1px; background: #e5e7eb; }\n.wizard-step.done::after, .wizard-step.active::after { background: #6366f1; }\n.step-num { position: relative; z-index: 1; width: 24px; height: 24px; border-radius: 50%; background: #e5e7eb; color: #9ca3af; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }\n.wizard-step.done .step-num, .wizard-step.active .step-num { background: #6366f1; color: #fff; }\n.wizard-title { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 14px; }\n.wizard-input { width: 100%; border: 1px solid #d1d5db; border-radius: 6px; padding: 9px 12px; font-size: 14px; outline: none; margin-bottom: 10px; box-sizing: border-box; transition: border-color 0.2s; }\n.wizard-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }\n.wizard-next { width: 100%; background: #6366f1; color: #fff; border: none; border-radius: 6px; padding: 9px; font-size: 14px; font-weight: 600; cursor: pointer; }"
+  },
+  {
+    "id": "form-validation",
+    "name": "Validation States",
+    "tag": "validation",
+    "description": "Input field with error + success feedback.",
+    "html": "<!-- Error state -->\n<div class=\"form-field error\">\n  <input class=\"field-input\" type=\"email\" value=\"bad@\">\n  <p class=\"field-hint field-hint--error\">⚠ Invalid email</p>\n</div>\n<!-- Success state -->\n<div class=\"form-field success\">\n  <input class=\"field-input\" type=\"email\" value=\"user@example.com\">\n  <p class=\"field-hint field-hint--success\">✓ Looks good!</p>\n</div>",
+    "css": ".form-field.error .field-input { border: 1.5px solid #ef4444; background: #fef2f2; }\n.form-field.success .field-input { border: 1.5px solid #22c55e; background: #f0fdf4; }\n.field-input { width: 100%; border: 1.5px solid #d1d5db; border-radius: 8px; padding: 9px 12px; font-size: 14px; outline: none; font-family: system-ui, sans-serif; transition: border-color 0.2s; box-sizing: border-box; }\n.field-hint { font-size: 12px; margin-top: 4px; }\n.field-hint--error { color: #ef4444; }\n.field-hint--success { color: #22c55e; }"
+  },
+  {
+    "id": "checkbox-group",
+    "name": "Checkbox Group",
+    "tag": "checkbox",
+    "description": "Styled checkbox list with custom check mark.",
+    "html": "<fieldset class=\"checkbox-group\">\n  <label class=\"checkbox-item\">\n    <input type=\"checkbox\" checked> React\n  </label>\n  <label class=\"checkbox-item\">\n    <input type=\"checkbox\"> Vue\n  </label>\n  <label class=\"checkbox-item\">\n    <input type=\"checkbox\"> Angular\n  </label>\n</fieldset>",
+    "css": ".checkbox-group { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }\n.checkbox-item { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #374151; font-family: system-ui, sans-serif; }\n.checkbox-item input[type=\"checkbox\"] { appearance: none; width: 18px; height: 18px; border: 2px solid #d1d5db; border-radius: 4px; background: #fff; cursor: pointer; position: relative; flex-shrink: 0; transition: all 0.15s; }\n.checkbox-item input[type=\"checkbox\"]:checked { background: #6366f1; border-color: #6366f1; }\n.checkbox-item input[type=\"checkbox\"]:checked::after { content: '✓'; position: absolute; top: -1px; left: 2px; font-size: 11px; color: #fff; font-weight: 900; }"
+  },
+  {
+    "id": "radio-group",
+    "name": "Radio Button Group",
+    "tag": "radio",
+    "description": "Custom styled radio selection.",
+    "html": "<fieldset class=\"radio-group\">\n  <label class=\"radio-card active\">\n    <input type=\"radio\" name=\"plan\" checked>\n    <div><strong>Monthly</strong><span>$12/mo</span></div>\n  </label>\n  <label class=\"radio-card\">\n    <input type=\"radio\" name=\"plan\">\n    <div><strong>Yearly</strong><span>$99/yr</span></div>\n  </label>\n</fieldset>",
+    "css": ".radio-group { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }\n.radio-card { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-family: system-ui, sans-serif; }\n.radio-card.active, .radio-card:has(input:checked) { border-color: #6366f1; background: rgba(99,102,241,0.04); }\n.radio-card input[type=\"radio\"] { appearance: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #d1d5db; position: relative; flex-shrink: 0; cursor: pointer; transition: border-color 0.2s; }\n.radio-card input[type=\"radio\"]:checked { border-color: #6366f1; }\n.radio-card input[type=\"radio\"]:checked::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 6px; height: 6px; border-radius: 50%; background: #6366f1; }\n.radio-card strong { display: block; font-size: 14px; color: #111; }\n.radio-card span { font-size: 12px; color: #9ca3af; }"
+  }
+]

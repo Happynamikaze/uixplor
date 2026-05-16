@@ -233,9 +233,12 @@ p {
 
 export default function Playground() {
   const router = useRouter();
-  const { name: qName, css: qCss, html: qHtml } = router.query;
+  const { name: qName, css: qCss, html: qHtml, collection: qCollection, id: qId } = router.query;
+  const [loadedTemplate, setLoadedTemplate] = useState<{name:string, html:string, css:string} | null>(null);
 
   const dynamicTemplate = useMemo(() => {
+    if (loadedTemplate) return loadedTemplate;
+
     if (qName && qCss) {
       const cssStr = String(qCss);
       const match = cssStr.match(/^\s*\.([a-zA-Z0-9_-]+)/m);
@@ -253,19 +256,54 @@ export default function Playground() {
       };
     }
     return null;
-  }, [qName, qCss, qHtml]);
+  }, [qName, qCss, qHtml, loadedTemplate]);
 
   const [activeTemplate, setActiveTemplate] = useState<string>('');
 
   useEffect(() => {
-    if (router.isReady) {
-      if (qName && qCss && activeTemplate === '') {
-        setActiveTemplate('custom');
-      } else if (!activeTemplate) {
-        setActiveTemplate('glass_card');
-      }
+    if (!router.isReady) return;
+
+    if (qCollection && qId) {
+      import(`../../data/${qCollection}.json`)
+        .then((data) => {
+          const components = Array.isArray(data.default) ? data.default : data.default.components || [];
+          const found = components.find((c: any) => String(c.id) === String(qId));
+          if (found) {
+            let cssStr = found.css || '';
+            const match = cssStr.match(/^\s*\.([a-zA-Z0-9_-]+)/m);
+            const className = match ? match[1] : 'component';
+            
+            let htmlStr = found.html || '';
+            if (!htmlStr) {
+              const lower = found.name.toLowerCase();
+              if (lower.includes("button") || lower.includes("btn")) {
+                htmlStr = `<button class="${className}">${found.name}</button>`;
+              } else if (lower.includes("input")) {
+                htmlStr = `<input class="${className}" placeholder="Enter text..." />`;
+              } else {
+                htmlStr = `<div class="${className}">${found.name}</div>`;
+              }
+            }
+            
+            if (!cssStr.includes('body {') && !cssStr.includes('body{')) {
+              cssStr = `* { box-sizing: border-box; margin: 0; padding: 0; }\nbody {\n  background: #0D0D0D;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  padding: 2rem;\n  width: 100%;\n}\n${cssStr}`;
+            }
+            
+            setLoadedTemplate({
+              name: found.name,
+              css: cssStr,
+              html: htmlStr
+            });
+            setActiveTemplate('custom');
+          }
+        })
+        .catch(console.error);
+    } else if (qName && qCss && activeTemplate === '') {
+      setActiveTemplate('custom');
+    } else if (!activeTemplate) {
+      setActiveTemplate('glass_card');
     }
-  }, [router.isReady, qName, qCss, activeTemplate]);
+  }, [router.isReady, qCollection, qId, qName, qCss, activeTemplate]);
 
   const template = activeTemplate === 'custom' && dynamicTemplate 
     ? dynamicTemplate 

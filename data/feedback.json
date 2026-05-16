@@ -1,0 +1,162 @@
+[
+  {
+    "id": "toast-success",
+    "name": "Success Toast",
+    "tag": "toast",
+    "description": "Green success toast notification.",
+    "html": "<div class=\"toast toast--success\" role=\"alert\">\n  <span class=\"toast__icon\">✓</span>\n  <div class=\"toast__body\">\n    <p class=\"toast__title\">Changes saved!</p>\n    <p class=\"toast__message\">Your profile was updated.</p>\n  </div>\n</div>",
+    "css": ".toast { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 10px; font-family: system-ui, sans-serif; max-width: 320px; animation: slideIn 0.3s ease; }\n@keyframes slideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }\n.toast__icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: bold; flex-shrink: 0; }\n.toast__title { font-size: 13px; font-weight: 600; margin: 0 0 2px; }\n.toast__message { font-size: 12px; margin: 0; }\n.toast--success { background: #f0fdf4; border: 1px solid #bbf7d0; }\n.toast--success .toast__icon { background: #22c55e; }\n.toast--success .toast__title { color: #166534; }\n.toast--success .toast__message { color: #16a34a; }"
+  },
+  {
+    "id": "toast-error",
+    "name": "Error Toast",
+    "tag": "toast",
+    "description": "Red error toast for failure states.",
+    "html": "<div class=\"toast toast--error\" role=\"alert\">\n  <span class=\"toast__icon\">✕</span>\n  <div class=\"toast__body\">\n    <p class=\"toast__title\">Upload failed!</p>\n    <p class=\"toast__message\">File size exceeds 5MB limit.</p>\n  </div>\n</div>",
+    "css": ".toast--error { background: #fef2f2; border: 1px solid #fecaca; }\n.toast--error .toast__icon { background: #ef4444; }\n.toast--error .toast__title { color: #991b1b; }\n.toast--error .toast__message { color: #dc2626; }"
+  },
+  {
+    "id": "toast-dark",
+    "name": "Dark Toast",
+    "tag": "toast",
+    "description": "Dark floating toast for dark-mode apps.",
+    "html": "<div class=\"toast toast--dark\" role=\"alert\">\n  <span class=\"toast__icon\">✓</span>\n  <div>\n    <p class=\"toast__title\">Link copied!</p>\n    <p class=\"toast__message\">Ready to share.</p>\n  </div>\n</div>",
+    "css": ".toast--dark { background: #18181b; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }\n.toast--dark .toast__icon { background: #B8FB3C; color: #000; }\n.toast--dark .toast__title { color: #ffffff; }\n.toast--dark .toast__message { color: rgba(255,255,255,0.45); }"
+  },
+  {
+    "id": "alert-info",
+    "name": "Info Alert",
+    "tag": "alert",
+    "description": "Blue informational alert banner.",
+    "html": "<div class=\"alert alert--info\" role=\"alert\">\n  <span class=\"alert__icon\">ℹ</span>\n  <div>\n    <p class=\"alert__title\">Heads up</p>\n    <p class=\"alert__message\">Your trial ends in 3 days. Upgrade to keep access.</p>\n  </div>\n</div>",
+    "css": ".alert { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 8px; font-family: system-ui, sans-serif; }\n.alert__icon { font-size: 18px; flex-shrink: 0; line-height: 1.4; }\n.alert__title { font-size: 13px; font-weight: 600; margin: 0 0 3px; }\n.alert__message { font-size: 12px; margin: 0; line-height: 1.5; }\n.alert--info { background: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; }\n.alert--info .alert__icon { color: #3b82f6; }\n.alert--info .alert__title { color: #1e40af; }\n.alert--info .alert__message { color: #1d4ed8; }"
+  },
+  {
+    "id": "alert-warning",
+    "name": "Warning Alert",
+    "tag": "alert",
+    "description": "Amber warning alert with icon and message.",
+    "html": "<div class=\"alert alert--warning\" role=\"alert\">\n  <span class=\"alert__icon\">⚠</span>\n  <div>\n    <p class=\"alert__title\">Action required</p>\n    <p class=\"alert__message\">Please verify your email address to continue.</p>\n  </div>\n</div>",
+    "css": ".alert--warning { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; }\n.alert--warning .alert__icon { color: #f59e0b; }\n.alert--warning .alert__title { color: #92400e; }\n.alert--warning .alert__message { color: #b45309; }"
+  },
+  {
+    "id": "alert-success",
+    "name": "Success Alert",
+    "tag": "alert",
+    "description": "Green success confirmation alert banner.",
+    "html": "<div class=\"alert alert--success\" role=\"alert\">\n  <span class=\"alert__icon\">✓</span>\n  <div>\n    <p class=\"alert__title\">Payment confirmed</p>\n    <p class=\"alert__message\">Receipt sent to your email address.</p>\n  </div>\n</div>",
+    "css": ".alert--success { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #22c55e; border-radius: 0 8px 8px 0; }\n.alert--success .toast__icon { color: #22c55e; }\n.alert--success .alert__title { color: #166534; }\n.alert--success .alert__message { color: #16a34a; }"
+  },
+  {
+    "id": "progress-basic",
+    "name": "Progress Bar",
+    "tag": "progress",
+    "description": "Labelled horizontal progress bar with percentage.",
+    "html": "<div class=\"progress-wrap\">\n  <div class=\"progress-header\">\n    <span>Uploading file</span>\n    <span>68%</span>\n  </div>\n  <div class=\"progress-track\">\n    <div class=\"progress-fill\" style=\"width: 68%\"></div>\n  </div>\n</div>",
+    "css": ".progress-wrap { width: 100%; }\n.progress-header { display: flex; justify-content: space-between; font-size: 13px; color: #374151; margin-bottom: 6px; font-family: system-ui, sans-serif; }\n.progress-track { height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }\n.progress-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #a855f7); border-radius: 4px; transition: width 0.4s ease; }"
+  },
+  {
+    "id": "progress-striped",
+    "name": "Striped Progress",
+    "tag": "progress",
+    "description": "Animated striped progress bar for active transfers.",
+    "html": "<div class=\"progress-track striped\">\n  <div class=\"progress-fill\" style=\"width: 55%\"></div>\n</div>\n<p class=\"progress-label\">55% — Syncing…</p>",
+    "css": ".progress-track.striped { height: 12px; background: #e5e7eb; border-radius: 6px; overflow: hidden; }\n.progress-track.striped .progress-fill { height: 100%; border-radius: 6px; background: repeating-linear-gradient(45deg, #22c55e, #22c55e 10px, #16a34a 10px, #16a34a 20px); background-size: 28px 28px; animation: stripe-move 0.6s linear infinite; }\n@keyframes stripe-move { from { background-position: 0 0; } to { background-position: 28px 0; } }\n.progress-label { font-size: 12px; color: #6b7280; text-align: center; margin-top: 6px; }"
+  },
+  {
+    "id": "progress-steps",
+    "name": "Step Progress",
+    "tag": "progress",
+    "description": "Step-by-step progress indicator with labels.",
+    "html": "<ol class=\"step-progress\">\n  <li class=\"step done\"><span class=\"step__num\">✓</span><span class=\"step__label\">Setup</span></li>\n  <li class=\"step done\"><span class=\"step__num\">✓</span><span class=\"step__label\">Profile</span></li>\n  <li class=\"step active\"><span class=\"step__num\">3</span><span class=\"step__label\">Plan</span></li>\n  <li class=\"step\"><span class=\"step__num\">4</span><span class=\"step__label\">Done</span></li>\n</ol>",
+    "css": ".step-progress { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; gap: 0; }\n.step { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; position: relative; }\n.step:not(:last-child)::after { content: ''; position: absolute; top: 14px; left: 50%; width: 100%; height: 2px; background: #e5e7eb; }\n.step.done::after, .step.active::after { background: #6366f1; }\n.step__num { position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; background: #e5e7eb; color: #9ca3af; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }\n.step.done .step__num, .step.active .step__num { background: #6366f1; color: #fff; }\n.step__label { font-size: 10px; font-weight: 500; color: #9ca3af; }\n.step.done .step__label, .step.active .step__label { color: #6366f1; }"
+  },
+  {
+    "id": "empty-state",
+    "name": "Empty State",
+    "tag": "empty",
+    "description": "Illustrated empty state with CTA for zero-content screens.",
+    "html": "<div class=\"empty-state\">\n  <div class=\"empty-state__icon\">📭</div>\n  <h3 class=\"empty-state__title\">No messages yet</h3>\n  <p class=\"empty-state__desc\">When you receive messages, they will appear here.</p>\n  <a class=\"empty-state__cta\" href=\"#\">Compose</a>\n</div>",
+    "css": ".empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 24px; background: #f9fafb; border: 1px dashed #d1d5db; border-radius: 12px; }\n.empty-state__icon { font-size: 48px; margin-bottom: 12px; }\n.empty-state__title { font-size: 16px; font-weight: 600; color: #374151; margin-bottom: 6px; }\n.empty-state__desc { font-size: 13px; color: #9ca3af; line-height: 1.5; margin-bottom: 20px; }\n.empty-state__cta { background: #6366f1; color: #fff; border-radius: 6px; padding: 8px 20px; font-size: 13px; font-weight: 600; text-decoration: none; }"
+  },
+  {
+    "id": "empty-dark",
+    "name": "Dark Empty State",
+    "tag": "empty",
+    "description": "Dark empty state panel for dashboard UIs.",
+    "html": "<div class=\"empty-dark\">\n  <div class=\"empty-dark__icon\">🗃️</div>\n  <h3 class=\"empty-dark__title\">No results found</h3>\n  <p class=\"empty-dark__desc\">Try adjusting your filters.</p>\n</div>",
+    "css": ".empty-dark { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 24px; background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; }\n.empty-dark__icon { font-size: 40px; margin-bottom: 12px; }\n.empty-dark__title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }\n.empty-dark__desc { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.5; }"
+  },
+  {
+    "id": "snackbar",
+    "name": "Snackbar",
+    "tag": "snackbar",
+    "description": "Bottom-anchored snackbar with action link.",
+    "html": "<div class=\"snackbar\" role=\"status\">\n  <span class=\"snackbar__msg\">Item moved to trash.</span>\n  <button class=\"snackbar__action\">Undo</button>\n</div>",
+    "css": ".snackbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #1f2937; color: #fff; border-radius: 8px; padding: 12px 18px; font-family: system-ui, sans-serif; min-width: 280px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); animation: snackIn 0.3s ease; }\n@keyframes snackIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }\n.snackbar__msg { font-size: 13px; }\n.snackbar__action { background: none; border: none; color: #B8FB3C; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; padding: 0; }"
+  },
+  {
+    "id": "snackbar-colored",
+    "name": "Colored Snackbar",
+    "tag": "snackbar",
+    "description": "Purple-branded snackbar with close button.",
+    "html": "<div class=\"snackbar-colored\" role=\"status\">\n  <span>✓ Profile updated successfully!</span>\n  <button class=\"snackbar-close\" aria-label=\"Close\">✕</button>\n</div>",
+    "css": ".snackbar-colored { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #6366f1; color: #fff; border-radius: 8px; padding: 12px 18px; font-family: system-ui, sans-serif; font-size: 13px; min-width: 260px; box-shadow: 0 4px 16px rgba(99,102,241,0.4); }\n.snackbar-close { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 14px; cursor: pointer; padding: 0; line-height: 1; transition: color 0.2s; }\n.snackbar-close:hover { color: #fff; }"
+  },
+  {
+    "id": "badge-status",
+    "name": "Status Badges",
+    "tag": "badge",
+    "description": "Collection of colored status badge pills.",
+    "html": "<span class=\"badge badge--active\">Active</span>\n<span class=\"badge badge--pending\">Pending</span>\n<span class=\"badge badge--failed\">Failed</span>\n<span class=\"badge badge--draft\">Draft</span>\n<span class=\"badge badge--new\">New</span>",
+    "css": ".badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 50px; font-family: system-ui, sans-serif; }\n.badge--active { background: #dcfce7; color: #166534; }\n.badge--pending { background: #fef9c3; color: #854d0e; }\n.badge--failed { background: #fef2f2; color: #991b1b; }\n.badge--draft { background: #f1f5f9; color: #475569; }\n.badge--new { background: #eff6ff; color: #1e40af; }"
+  },
+  {
+    "id": "toast-action",
+    "name": "Action Toast",
+    "tag": "toast",
+    "description": "Toast with embedded action button.",
+    "html": "<div class=\"toast-action\" role=\"alert\">\n  <div class=\"toast-action__body\">\n    <p class=\"toast-action__title\">New message from Alex</p>\n    <p class=\"toast-action__desc\">Hey, are you free later?</p>\n  </div>\n  <button class=\"toast-action__btn\">Reply</button>\n</div>",
+    "css": ".toast-action { display: flex; align-items: center; gap: 12px; background: #18181b; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); font-family: system-ui, sans-serif; }\n.toast-action__body { flex: 1; }\n.toast-action__title { font-size: 13px; font-weight: 600; color: #fff; margin: 0 0 2px; }\n.toast-action__desc { font-size: 12px; color: rgba(255,255,255,0.4); margin: 0; }\n.toast-action__btn { background: #6366f1; color: #fff; border: none; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; }"
+  },
+  {
+    "id": "progress-multi",
+    "name": "Multi-Step Progress",
+    "tag": "progress",
+    "description": "Segmented multi-value progress bar.",
+    "html": "<div class=\"multi-progress\">\n  <div class=\"multi-progress__track\">\n    <div class=\"multi-progress__seg\" style=\"width:42%; background:#6366f1\"></div>\n    <div class=\"multi-progress__seg\" style=\"width:28%; background:#a855f7\"></div>\n    <div class=\"multi-progress__seg\" style=\"width:18%; background:#ec4899\"></div>\n  </div>\n  <div class=\"multi-progress__legend\">\n    <span style=\"color:#6366f1\">● CSS 42%</span>\n    <span style=\"color:#a855f7\">● JS 28%</span>\n    <span style=\"color:#ec4899\">● HTML 18%</span>\n  </div>\n</div>",
+    "css": ".multi-progress { width: 100%; font-family: system-ui, sans-serif; }\n.multi-progress__track { display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: #e5e7eb; gap: 2px; }\n.multi-progress__seg { height: 100%; flex: none; transition: width 0.4s ease; }\n.multi-progress__legend { display: flex; gap: 14px; margin-top: 8px; font-size: 11px; color: #6b7280; }"
+  },
+  {
+    "id": "dot-loader",
+    "name": "Dot Loader",
+    "tag": "loader",
+    "description": "Three bouncing dots loading animation.",
+    "html": "<div class=\"dot-loader\" role=\"status\" aria-label=\"Loading\">\n  <div class=\"dot\"></div>\n  <div class=\"dot\"></div>\n  <div class=\"dot\"></div>\n</div>",
+    "css": ".dot-loader { display: flex; align-items: center; gap: 6px; }\n.dot { width: 8px; height: 8px; border-radius: 50%; background: #6366f1; animation: dotBounce 1.4s ease-in-out infinite both; }\n.dot:nth-child(2) { animation-delay: 0.16s; }\n.dot:nth-child(3) { animation-delay: 0.32s; }\n@keyframes dotBounce { 0%, 80%, 100% { transform: scale(0); opacity: 0.3; } 40% { transform: scale(1); opacity: 1; } }"
+  },
+  {
+    "id": "inline-error",
+    "name": "Inline Error State",
+    "tag": "error",
+    "description": "Field-level inline error message.",
+    "html": "<div class=\"field field--error\">\n  <label class=\"field__label\" for=\"email\">Email</label>\n  <input class=\"field__input\" id=\"email\" type=\"email\" value=\"bad@\" aria-invalid=\"true\" aria-describedby=\"email-error\">\n  <p class=\"field__error\" id=\"email-error\">⚠ Please enter a valid email address.</p>\n</div>",
+    "css": ".field { display: flex; flex-direction: column; gap: 5px; }\n.field__label { font-size: 13px; font-weight: 600; color: #374151; }\n.field__input { padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 14px; outline: none; transition: border-color 0.2s; }\n.field__input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }\n.field--error .field__input { border-color: #ef4444; background: #fef2f2; }\n.field--error .field__input:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.15); }\n.field__error { font-size: 12px; color: #ef4444; }"
+  },
+  {
+    "id": "skeleton-card",
+    "name": "Skeleton Loader",
+    "tag": "loader",
+    "description": "Content placeholder skeleton animation.",
+    "html": "<div class=\"skeleton-card\">\n  <div class=\"skeleton skeleton--image\"></div>\n  <div class=\"skeleton skeleton--line\" style=\"width: 80%\"></div>\n  <div class=\"skeleton skeleton--line\" style=\"width: 60%\"></div>\n  <div class=\"skeleton skeleton--line\" style=\"width: 40%\"></div>\n</div>",
+    "css": ".skeleton-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; }\n.skeleton { background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%); background-size: 800px 100%; animation: shimmer 1.5s infinite linear; border-radius: 4px; margin-bottom: 10px; }\n.skeleton--image { height: 120px; border-radius: 8px; margin-bottom: 14px; }\n.skeleton--line { height: 10px; }\n@keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }"
+  },
+  {
+    "id": "badge-dark",
+    "name": "Dark Status Badges",
+    "tag": "badge",
+    "description": "Dark-mode status badge variants.",
+    "html": "<span class=\"badge-dark badge-dark--live\">Live</span>\n<span class=\"badge-dark badge-dark--idle\">Idle</span>\n<span class=\"badge-dark badge-dark--error\">Error</span>",
+    "css": ".badge-dark { display: inline-flex; align-items: center; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 50px; font-family: system-ui; }\n.badge-dark--live { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }\n.badge-dark--idle { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.1); }\n.badge-dark--error { background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.25); }"
+  }
+]

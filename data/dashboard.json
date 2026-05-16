@@ -1,0 +1,82 @@
+[
+  {
+    "id": "stat-revenue",
+    "name": "Revenue Stat Card",
+    "tag": "stats",
+    "description": "Dark KPI card with trend indicator.",
+    "html": "<div class=\"kpi-card\">\n  <span class=\"kpi-label\">Total Revenue</span>\n  <div class=\"kpi-value\">$84.2k</div>\n  <span class=\"kpi-trend kpi-trend--up\">↑ 12.4% vs last month</span>\n</div>",
+    "css": ".kpi-card { background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.25)); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 20px; color: #fff; font-family: system-ui, sans-serif; }\n.kpi-label { display: block; font-size: 11px; opacity: 0.4; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }\n.kpi-value { font-size: 32px; font-weight: 700; margin-bottom: 6px; }\n.kpi-trend { font-size: 12px; }\n.kpi-trend--up { color: #4ade80; }\n.kpi-trend--down { color: #f87171; }"
+  },
+  {
+    "id": "stat-users",
+    "name": "Users Stat Card",
+    "tag": "stats",
+    "description": "User count card with sparkline placeholder.",
+    "html": "<div class=\"kpi-card kpi-card--indigo\">\n  <span class=\"kpi-label\">Active Users</span>\n  <div class=\"kpi-value\">24,582</div>\n  <div class=\"sparkline\"><!-- chart bars --></div>\n</div>",
+    "css": ".kpi-card--indigo { background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.08)); border: 1px solid rgba(99,102,241,0.25); }\n.kpi-card--indigo .kpi-label { color: #a5b4fc; }\n.sparkline { display: flex; align-items: flex-end; gap: 3px; height: 28px; }\n.sparkline__bar { width: 8px; background: rgba(99,102,241,0.6); border-radius: 2px; }"
+  },
+  {
+    "id": "activity-feed",
+    "name": "Activity Feed",
+    "tag": "feed",
+    "description": "Vertical timeline activity list.",
+    "html": "<ul class=\"activity-feed\">\n  <li class=\"activity-item\">\n    <span class=\"activity-icon activity-icon--success\">✓</span>\n    <div><p class=\"activity-label\">Deploy succeeded</p><time class=\"activity-time\">2m ago</time></div>\n  </li>\n  <li class=\"activity-item\">\n    <span class=\"activity-icon activity-icon--info\">✎</span>\n    <div><p class=\"activity-label\">Config updated</p><time class=\"activity-time\">18m ago</time></div>\n  </li>\n</ul>",
+    "css": ".activity-feed { list-style: none; margin: 0; padding: 0; font-family: system-ui, sans-serif; }\n.activity-item { display: flex; gap: 10px; padding-bottom: 16px; position: relative; }\n.activity-item:not(:last-child)::before { content: ''; position: absolute; left: 11px; top: 26px; bottom: 0; width: 1px; background: rgba(255,255,255,0.07); }\n.activity-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; }\n.activity-icon--success { background: rgba(74,222,128,0.15); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }\n.activity-icon--info { background: rgba(96,165,250,0.15); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }\n.activity-label { font-size: 13px; color: #fff; font-weight: 500; margin: 0 0 2px; }\n.activity-time { font-size: 11px; color: rgba(255,255,255,0.35); }"
+  },
+  {
+    "id": "sidebar-dash",
+    "name": "Dashboard Sidebar",
+    "tag": "sidebar",
+    "description": "Full app sidebar with branding and nav groups.",
+    "html": "<aside class=\"dash-sidebar\">\n  <div class=\"dash-sidebar__brand\">⬡ AppDash</div>\n  <nav class=\"dash-sidebar__nav\">\n    <a class=\"dash-nav-item active\" href=\"#\"><span>⊞</span>Dashboard</a>\n    <a class=\"dash-nav-item\" href=\"#\"><span>◈</span>Analytics</a>\n    <a class=\"dash-nav-item\" href=\"#\"><span>⊡</span>Projects</a>\n    <a class=\"dash-nav-item\" href=\"#\"><span>✉</span>Inbox</a>\n  </nav>\n</aside>",
+    "css": ".dash-sidebar { width: 220px; background: #0f172a; min-height: 100vh; display: flex; flex-direction: column; }\n.dash-sidebar__brand { padding: 20px; font-weight: 700; font-size: 18px; color: #6366f1; border-bottom: 1px solid rgba(255,255,255,0.05); }\n.dash-nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 20px; font-size: 14px; color: rgba(255,255,255,0.4); text-decoration: none; transition: all 0.2s; }\n.dash-nav-item span { font-size: 16px; }\n.dash-nav-item:hover { color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.04); }\n.dash-nav-item.active { color: #fff; background: rgba(99,102,241,0.15); }\n.dash-nav-item.active span { color: #6366f1; }"
+  },
+  {
+    "id": "analytics-card",
+    "name": "Analytics Summary",
+    "tag": "stats",
+    "description": "Multi-metric overview card.",
+    "html": "<div class=\"analytics-card\">\n  <p class=\"analytics-period\">This Week</p>\n  <div class=\"analytics-grid\">\n    <div class=\"metric\"><span class=\"metric__label\">Sessions</span><span class=\"metric__value\">4,821</span><span class=\"metric__trend up\">↑ 8%</span></div>\n    <div class=\"metric\"><span class=\"metric__label\">Bounce</span><span class=\"metric__value\">62%</span><span class=\"metric__trend down\">↓ 3%</span></div>\n    <div class=\"metric\"><span class=\"metric__label\">Duration</span><span class=\"metric__value\">3m 12s</span><span class=\"metric__trend\">↑ 5%</span></div>\n    <div class=\"metric\"><span class=\"metric__label\">Conv.</span><span class=\"metric__value\">2.4%</span><span class=\"metric__trend\">↑ 1%</span></div>\n  </div>\n</div>",
+    "css": ".analytics-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; font-family: system-ui, sans-serif; }\n.analytics-period { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }\n.analytics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }\n.metric { display: flex; flex-direction: column; gap: 2px; }\n.metric__label { font-size: 10px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }\n.metric__value { font-size: 18px; font-weight: 700; color: #111; }\n.metric__trend { font-size: 11px; color: #6b7280; }\n.metric__trend.up { color: #22c55e; }\n.metric__trend.down { color: #ef4444; }"
+  },
+  {
+    "id": "profile-section",
+    "name": "Profile Section",
+    "tag": "profile",
+    "description": "Header profile card with avatar and stats.",
+    "html": "<div class=\"profile-header\">\n  <div class=\"profile-avatar\">S</div>\n  <h2 class=\"profile-name\">Sarah Chen</h2>\n  <p class=\"profile-subtitle\">UX Designer · San Francisco</p>\n  <div class=\"profile-stats\">\n    <div class=\"profile-stat\"><span class=\"stat-val\">28</span><span class=\"stat-key\">Posts</span></div>\n    <div class=\"profile-stat\"><span class=\"stat-val\">4.2k</span><span class=\"stat-key\">Followers</span></div>\n    <div class=\"profile-stat\"><span class=\"stat-val\">310</span><span class=\"stat-key\">Following</span></div>\n  </div>\n</div>",
+    "css": ".profile-header { text-align: center; padding: 24px; background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; font-family: system-ui, sans-serif; }\n.profile-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #a855f7); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px; font-weight: 700; }\n.profile-name { font-size: 16px; font-weight: 700; color: #111; margin: 0 0 4px; }\n.profile-subtitle { font-size: 12px; color: #9ca3af; margin-bottom: 16px; }\n.profile-stats { display: flex; justify-content: center; gap: 24px; border-top: 1px solid #f3f4f6; padding-top: 14px; }\n.profile-stat { display: flex; flex-direction: column; align-items: center; }\n.stat-val { font-size: 15px; font-weight: 700; color: #111; }\n.stat-key { font-size: 10px; color: #9ca3af; }"
+  },
+  {
+    "id": "chart-placeholder",
+    "name": "Chart Placeholder",
+    "tag": "chart",
+    "description": "Bar chart skeleton for analytics dashboards.",
+    "html": "<div class=\"chart-card\">\n  <p class=\"chart-title\">Monthly Revenue</p>\n  <div class=\"bar-chart\">\n    <!-- Repeat .bar with varying heights -->\n    <div class=\"bar\" style=\"height:40%\"></div>\n    <div class=\"bar\" style=\"height:65%\"></div>\n    <div class=\"bar bar--active\" style=\"height:95%\"></div>\n  </div>\n</div>",
+    "css": ".chart-card { background: #0f172a; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 20px; font-family: system-ui, sans-serif; }\n.chart-title { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 14px; }\n.bar-chart { display: flex; align-items: flex-end; gap: 5px; height: 80px; }\n.bar { flex: 1; background: rgba(99,102,241,0.25); border-radius: 3px 3px 0 0; transition: background 0.2s; }\n.bar:hover, .bar--active { background: #6366f1; }"
+  },
+  {
+    "id": "table-row",
+    "name": "Data Table Row",
+    "tag": "table",
+    "description": "Styled table row with avatar, status badge, and actions.",
+    "html": "<table class=\"data-table\">\n  <thead><tr><th>User</th><th>Status</th><th>Action</th></tr></thead>\n  <tbody>\n    <tr class=\"data-row\">\n      <td class=\"data-cell-user\"><div class=\"d-avatar\">J</div>Jamie Lee</td>\n      <td><span class=\"role-badge role--admin\">Admin</span></td>\n      <td><a class=\"data-action\" href=\"#\">Edit</a></td>\n    </tr>\n  </tbody>\n</table>",
+    "css": ".data-table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; }\n.data-table th { font-size: 11px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; padding: 10px 16px; border-bottom: 1px solid #f3f4f6; text-align: left; }\n.data-row td { padding: 12px 16px; border-bottom: 1px solid #f9fafb; font-size: 13px; color: #374151; }\n.data-cell-user { display: flex; align-items: center; gap: 8px; }\n.d-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #a855f7); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0; }\n.role-badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 50px; }\n.role--admin { background: #dcfce7; color: #166534; }\n.data-action { color: #6366f1; text-decoration: none; font-size: 12px; }"
+  },
+  {
+    "id": "notification-center",
+    "name": "Notification Center",
+    "tag": "feed",
+    "description": "Dropdown notification list with read/unread states.",
+    "html": "<div class=\"notif-center\">\n  <div class=\"notif-header\">\n    <span>Notifications</span>\n    <button class=\"notif-mark-read\">Mark all read</button>\n  </div>\n  <div class=\"notif-item unread\">\n    <span class=\"notif-dot\"></span>\n    <div><p class=\"notif-msg\">Alex commented on your post</p><time>5m ago</time></div>\n  </div>\n  <div class=\"notif-item\">\n    <span class=\"notif-dot notif-dot--read\"></span>\n    <div><p class=\"notif-msg\">New release: v2.1 is ready</p><time>1h ago</time></div>\n  </div>\n</div>",
+    "css": ".notif-center { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); font-family: system-ui, sans-serif; overflow: hidden; }\n.notif-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; font-size: 13px; font-weight: 700; color: #111; }\n.notif-mark-read { background: none; border: none; color: #6366f1; font-size: 12px; cursor: pointer; }\n.notif-item { display: flex; gap: 10px; padding: 12px 16px; border-bottom: 1px solid #f9fafb; }\n.notif-item.unread { background: #fafafa; }\n.notif-dot { width: 6px; height: 6px; border-radius: 50%; background: #6366f1; margin-top: 5px; flex-shrink: 0; }\n.notif-dot--read { background: transparent; }\n.notif-msg { font-size: 13px; color: #111827; margin: 0 0 2px; line-height: 1.4; }\ntime { font-size: 11px; color: #9ca3af; }"
+  },
+  {
+    "id": "admin-header",
+    "name": "Admin Panel Header",
+    "tag": "admin",
+    "description": "Top bar header for admin dashboards.",
+    "html": "<header class=\"admin-header\">\n  <span class=\"admin-header__title\">Admin Panel</span>\n  <div class=\"admin-header__actions\">\n    <div class=\"admin-search\">🔍 Search</div>\n    <div class=\"admin-avatar\"></div>\n  </div>\n</header>",
+    "css": ".admin-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: #fff; border-bottom: 1px solid #e5e7eb; font-family: system-ui, sans-serif; }\n.admin-header__title { font-size: 16px; font-weight: 700; color: #111; }\n.admin-header__actions { display: flex; align-items: center; gap: 12px; }\n.admin-search { background: #f3f4f6; border-radius: 6px; padding: 6px 12px; font-size: 13px; color: #6b7280; cursor: pointer; }\n.admin-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #a855f7); }"
+  }
+]

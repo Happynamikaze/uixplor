@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import CodeViewerOverlay, { type CodeSection } from '@/components/ui/CodeViewerOverlay';
 
-interface Item { id: string; name: string; tag: string; description: string; css: string; }
+interface Item { id: string; name: string; tag: string; description: string; css: string; html?: string; }
 
 export const items: Item[] = [
 	{
@@ -14,6 +14,11 @@ export const items: Item[] = [
 	},
 	{
 		id: 'micro-toggle', name: 'Toggle Switch Pop', tag: 'control', description: 'Toggle with a satisfying spring animation when switched.',
+		html: `<label class="pop-toggle">
+  <input type="checkbox" />
+  <div class="pop-track"></div>
+  <div class="pop-thumb"></div>
+</label>`,
 		css: `.pop-toggle {\n  position: relative;\n  width: 52px; height: 28px;\n  cursor: pointer;\n}\n.pop-toggle input { display: none; }\n.pop-track {\n  position: absolute; inset: 0;\n  border-radius: 50px;\n  background: rgba(255,255,255,0.1);\n  border: 1px solid rgba(255,255,255,0.15);\n  transition: background 0.3s ease;\n}\n.pop-thumb {\n  position: absolute;\n  width: 20px; height: 20px;\n  top: 3px; left: 3px;\n  background: rgba(255,255,255,0.6);\n  border-radius: 50%;\n  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n.pop-toggle input:checked ~ .pop-track { background: #B8FB3C; }\n.pop-toggle input:checked ~ .pop-thumb {\n  transform: translateX(24px);\n  background: #0a0a0f;\n}`
 	},
 	{
@@ -132,7 +137,7 @@ export default function Microinteractions() {
 					</GlowGrid>
 				</div>
 			</main >
-			<CodeViewerOverlay isOpen={!!sel} onClose={() => setSel(null)} title={sel?.name || ''} sections={sel ? [{ label: 'CSS', language: 'css', code: sel.css }] as CodeSection[] : []} />
+			<CodeViewerOverlay isOpen={!!sel} onClose={() => setSel(null)} title={sel?.name || ''} sections={sel ? [{ label: 'HTML', language: 'html', code: sel.html || '' }, { label: 'CSS', language: 'css', code: sel.css }].filter(s => s.code) as CodeSection[] : []} />
 		</>
 	);
 }

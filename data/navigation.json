@@ -1,0 +1,162 @@
+[
+  {
+    "id": "topnav-minimal",
+    "name": "Minimal Topbar",
+    "tag": "navbar",
+    "description": "Clean topbar with logo, nav links, and CTA.",
+    "html": "<nav class=\"topnav\">\n  <a class=\"topnav__logo\" href=\"#\">Logo</a>\n  <ul class=\"topnav__links\">\n    <li><a href=\"#\">Home</a></li>\n    <li><a href=\"#\">Docs</a></li>\n    <li><a href=\"#\">Pricing</a></li>\n  </ul>\n  <a class=\"topnav__cta\" href=\"#\">Sign In</a>\n</nav>",
+    "css": ".topnav {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 12px 24px;\n  background: #ffffff;\n  border-bottom: 1px solid #e5e7eb;\n}\n.topnav__logo { font-weight: 700; font-size: 18px; color: #111; text-decoration: none; }\n.topnav__links { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }\n.topnav__links a { font-size: 14px; color: #6b7280; text-decoration: none; transition: color 0.2s; }\n.topnav__links a:hover { color: #111; }\n.topnav__cta { background: #111; color: #fff; border-radius: 6px; padding: 8px 18px; font-size: 13px; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }\n.topnav__cta:hover { opacity: 0.85; }"
+  },
+  {
+    "id": "topnav-dark",
+    "name": "Dark Navbar",
+    "tag": "navbar",
+    "description": "Dark glassmorphism navbar for dark-mode apps.",
+    "html": "<nav class=\"dark-nav\">\n  <a class=\"dark-nav__logo\" href=\"#\">Brand</a>\n  <ul class=\"dark-nav__links\">\n    <li><a href=\"#\">Features</a></li>\n    <li><a href=\"#\">Docs</a></li>\n    <li><a href=\"#\">Blog</a></li>\n  </ul>\n  <a class=\"dark-nav__cta\" href=\"#\">Get Started</a>\n</nav>",
+    "css": ".dark-nav {\n  display: flex; align-items: center; justify-content: space-between;\n  padding: 14px 28px; background: rgba(10,10,20,0.95);\n  backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);\n}\n.dark-nav__logo { font-weight: 700; font-size: 18px; color: #B8FB3C; text-decoration: none; }\n.dark-nav__links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }\n.dark-nav__links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }\n.dark-nav__links a:hover { color: #fff; }\n.dark-nav__cta { background: #B8FB3C; color: #000; border-radius: 6px; padding: 8px 18px; font-size: 13px; font-weight: 700; text-decoration: none; }"
+  },
+  {
+    "id": "nav-glass",
+    "name": "Glass Navbar",
+    "tag": "navbar",
+    "description": "Frosted glass navbar with blur effect and subtle border.",
+    "html": "<nav class=\"glass-nav\">\n  <a class=\"glass-nav__logo\" href=\"#\">◆ App</a>\n  <ul class=\"glass-nav__links\">\n    <li><a href=\"#\">Home</a></li><li><a href=\"#\">About</a></li><li><a href=\"#\">Contact</a></li>\n  </ul>\n  <a class=\"glass-nav__btn\" href=\"#\">Login</a>\n</nav>",
+    "css": ".glass-nav {\n  display: flex; align-items: center; justify-content: space-between;\n  padding: 14px 28px; background: rgba(255,255,255,0.08);\n  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);\n  border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; width: 100%;\n}\n.glass-nav__logo { font-weight: 700; font-size: 18px; color: #fff; text-decoration: none; }\n.glass-nav__links { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }\n.glass-nav__links a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }\n.glass-nav__links a:hover { color: #fff; }\n.glass-nav__btn { border: 1px solid rgba(255,255,255,0.3); color: #fff; border-radius: 6px; padding: 7px 18px; font-size: 13px; text-decoration: none; transition: background 0.2s; }\n.glass-nav__btn:hover { background: rgba(255,255,255,0.1); }"
+  },
+  {
+    "id": "breadcrumb-slash",
+    "name": "Slash Breadcrumbs",
+    "tag": "breadcrumb",
+    "description": "Classic slash-separated breadcrumb trail.",
+    "html": "<nav aria-label=\"Breadcrumb\">\n  <ol class=\"breadcrumb-slash\">\n    <li><a href=\"#\">Home</a></li>\n    <li aria-hidden=\"true\">/</li>\n    <li><a href=\"#\">Collections</a></li>\n    <li aria-hidden=\"true\">/</li>\n    <li aria-current=\"page\">Navigation</li>\n  </ol>\n</nav>",
+    "css": ".breadcrumb-slash {\n  display: flex; align-items: center; gap: 8px;\n  list-style: none; margin: 0; padding: 0; font-size: 14px;\n}\n.breadcrumb-slash a { color: #6366f1; text-decoration: none; transition: color 0.2s; }\n.breadcrumb-slash a:hover { color: #4f46e5; text-decoration: underline; }\n.breadcrumb-slash li[aria-hidden] { color: #9ca3af; user-select: none; }\n.breadcrumb-slash li[aria-current] { color: #111827; font-weight: 500; }"
+  },
+  {
+    "id": "breadcrumb-chevron",
+    "name": "Chevron Breadcrumbs",
+    "tag": "breadcrumb",
+    "description": "Breadcrumbs with chevron arrow separators.",
+    "html": "<nav aria-label=\"Breadcrumb\">\n  <ol class=\"breadcrumb-chevron\">\n    <li><a href=\"#\">Dashboard</a></li>\n    <li><a href=\"#\">Settings</a></li>\n    <li aria-current=\"page\">Profile</li>\n  </ol>\n</nav>",
+    "css": ".breadcrumb-chevron {\n  display: flex; align-items: center; list-style: none;\n  margin: 0; padding: 0; gap: 4px; font-size: 14px;\n}\n.breadcrumb-chevron li:not(:last-child)::after {\n  content: '›'; margin-left: 4px; color: #d1d5db; font-size: 16px;\n}\n.breadcrumb-chevron a { color: #6366f1; text-decoration: none; }\n.breadcrumb-chevron a:hover { text-decoration: underline; }\n.breadcrumb-chevron li[aria-current] { color: #374151; font-weight: 500; }"
+  },
+  {
+    "id": "tabs-underline",
+    "name": "Underline Tabs",
+    "tag": "tabs",
+    "description": "Minimal tabs with animated underline indicator.",
+    "html": "<div class=\"tabs-underline\" role=\"tablist\">\n  <button class=\"tab active\" role=\"tab\" aria-selected=\"true\">Overview</button>\n  <button class=\"tab\" role=\"tab\">Analytics</button>\n  <button class=\"tab\" role=\"tab\">Reports</button>\n  <button class=\"tab\" role=\"tab\">Settings</button>\n</div>",
+    "css": ".tabs-underline { display: flex; border-bottom: 1px solid #e5e7eb; }\n.tab { padding: 10px 20px; font-size: 14px; font-weight: 500; color: #6b7280; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; }\n.tab:hover { color: #374151; }\n.tab.active { color: #6366f1; border-bottom-color: #6366f1; font-weight: 600; }"
+  },
+  {
+    "id": "tabs-pill",
+    "name": "Pill Tabs",
+    "tag": "tabs",
+    "description": "Rounded pill-style tabs on a tinted background track.",
+    "html": "<div class=\"tabs-pill\" role=\"tablist\">\n  <button class=\"tab-pill active\" role=\"tab\">All</button>\n  <button class=\"tab-pill\" role=\"tab\">Active</button>\n  <button class=\"tab-pill\" role=\"tab\">Draft</button>\n  <button class=\"tab-pill\" role=\"tab\">Archived</button>\n</div>",
+    "css": ".tabs-pill { display: inline-flex; gap: 4px; padding: 4px; background: #f3f4f6; border-radius: 10px; }\n.tab-pill { padding: 8px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #6b7280; background: transparent; border: none; cursor: pointer; transition: all 0.2s; }\n.tab-pill.active { background: #fff; color: #111; font-weight: 600; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }"
+  },
+  {
+    "id": "tabs-dark",
+    "name": "Dark Pill Tabs",
+    "tag": "tabs",
+    "description": "Dark mode pill tabs for dark-background interfaces.",
+    "html": "<div class=\"tabs-dark\" role=\"tablist\">\n  <button class=\"tab-dark active\">Overview</button>\n  <button class=\"tab-dark\">Stats</button>\n  <button class=\"tab-dark\">Logs</button>\n</div>",
+    "css": ".tabs-dark { display: inline-flex; gap: 4px; padding: 4px; background: rgba(255,255,255,0.06); border-radius: 10px; }\n.tab-dark { padding: 8px 18px; border-radius: 8px; font-size: 13px; color: rgba(255,255,255,0.4); background: transparent; border: none; cursor: pointer; transition: all 0.2s; font-weight: 500; }\n.tab-dark.active { background: rgba(255,255,255,0.1); color: #fff; font-weight: 600; }"
+  },
+  {
+    "id": "pagination-simple",
+    "name": "Simple Pagination",
+    "tag": "pagination",
+    "description": "Numbered page navigation with prev/next arrows.",
+    "html": "<nav class=\"pagination\" aria-label=\"Pagination\">\n  <a class=\"page-btn\" href=\"#\" aria-label=\"Previous\">←</a>\n  <a class=\"page-btn\" href=\"#\">1</a>\n  <a class=\"page-btn active\" href=\"#\" aria-current=\"page\">2</a>\n  <a class=\"page-btn\" href=\"#\">3</a>\n  <span class=\"page-ellipsis\">...</span>\n  <a class=\"page-btn\" href=\"#\">8</a>\n  <a class=\"page-btn\" href=\"#\" aria-label=\"Next\">→</a>\n</nav>",
+    "css": ".pagination { display: flex; align-items: center; gap: 4px; }\n.page-btn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; border: 1px solid #e5e7eb; background: #fff; color: #374151; font-size: 14px; text-decoration: none; transition: all 0.2s; }\n.page-btn:hover { border-color: #6366f1; color: #6366f1; }\n.page-btn.active { background: #6366f1; border-color: #6366f1; color: #fff; font-weight: 600; }\n.page-ellipsis { display: flex; align-items: center; justify-content: center; width: 36px; color: #9ca3af; }"
+  },
+  {
+    "id": "pagination-minimal",
+    "name": "Minimal Pagination",
+    "tag": "pagination",
+    "description": "Clean text-only pagination for blog-style layouts.",
+    "html": "<nav class=\"pagination-minimal\" aria-label=\"Pagination\">\n  <a class=\"pag-prev\" href=\"#\">← Previous</a>\n  <span class=\"pag-info\">Page 3 of 12</span>\n  <a class=\"pag-next\" href=\"#\">Next →</a>\n</nav>",
+    "css": ".pagination-minimal { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }\n.pag-prev, .pag-next { color: #6366f1; text-decoration: none; font-size: 14px; font-weight: 500; transition: opacity 0.2s; }\n.pag-prev:hover, .pag-next:hover { opacity: 0.7; }\n.pag-info { font-size: 13px; color: #9ca3af; }"
+  },
+  {
+    "id": "sidebar-left",
+    "name": "Left Sidebar",
+    "tag": "sidebar",
+    "description": "Vertical navigation sidebar with icons and labels.",
+    "html": "<nav class=\"sidebar\">\n  <a class=\"sidebar__item active\" href=\"#\"><span class=\"sidebar__icon\">⊞</span>Dashboard</a>\n  <a class=\"sidebar__item\" href=\"#\"><span class=\"sidebar__icon\">◈</span>Analytics</a>\n  <a class=\"sidebar__item\" href=\"#\"><span class=\"sidebar__icon\">⊡</span>Projects</a>\n  <a class=\"sidebar__item\" href=\"#\"><span class=\"sidebar__icon\">⚙</span>Settings</a>\n</nav>",
+    "css": ".sidebar { width: 220px; background: #111827; min-height: 100vh; padding: 16px 0; }\n.sidebar__item { display: flex; align-items: center; gap: 10px; padding: 10px 20px; font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; transition: all 0.2s; }\n.sidebar__item:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.04); }\n.sidebar__item.active { color: #B8FB3C; background: rgba(184,251,60,0.08); }\n.sidebar__icon { font-size: 16px; }"
+  },
+  {
+    "id": "sidebar-minimal",
+    "name": "Icon Sidebar",
+    "tag": "sidebar",
+    "description": "Compact icon-only collapsed sidebar.",
+    "html": "<nav class=\"icon-sidebar\" aria-label=\"Main navigation\">\n  <a class=\"icon-sidebar__item active\" href=\"#\" title=\"Dashboard\">⊞</a>\n  <a class=\"icon-sidebar__item\" href=\"#\" title=\"Analytics\">◈</a>\n  <a class=\"icon-sidebar__item\" href=\"#\" title=\"Projects\">⊡</a>\n  <a class=\"icon-sidebar__item\" href=\"#\" title=\"Settings\">⚙</a>\n</nav>",
+    "css": ".icon-sidebar { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 60px; background: #18181b; min-height: 100vh; padding: 16px 0; }\n.icon-sidebar__item { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; font-size: 18px; color: rgba(255,255,255,0.35); text-decoration: none; transition: all 0.2s; }\n.icon-sidebar__item:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.06); }\n.icon-sidebar__item.active { color: #B8FB3C; background: rgba(184,251,60,0.12); }"
+  },
+  {
+    "id": "megamenu",
+    "name": "Mega Menu",
+    "tag": "megamenu",
+    "description": "Full-width dropdown mega menu with categories and links.",
+    "html": "<div class=\"mega-menu\">\n  <div class=\"mega-col\">\n    <p class=\"mega-col__title\">Design</p>\n    <a href=\"#\">Shadows</a><a href=\"#\">Gradients</a><a href=\"#\">Glass</a>\n  </div>\n  <div class=\"mega-col\">\n    <p class=\"mega-col__title\">Components</p>\n    <a href=\"#\">Buttons</a><a href=\"#\">Cards</a><a href=\"#\">Inputs</a>\n  </div>\n  <div class=\"mega-col\">\n    <p class=\"mega-col__title\">Patterns</p>\n    <a href=\"#\">Navigation</a><a href=\"#\">Layouts</a><a href=\"#\">Forms</a>\n  </div>\n</div>",
+    "css": ".mega-menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; width: 100%; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }\n.mega-col__title { font-size: 11px; font-weight: 700; color: #9ca3af; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }\n.mega-col a { display: block; font-size: 14px; color: #374151; text-decoration: none; padding: 5px 0; transition: color 0.2s; }\n.mega-col a:hover { color: #6366f1; }"
+  },
+  {
+    "id": "nav-gradient",
+    "name": "Gradient Brand Nav",
+    "tag": "navbar",
+    "description": "Vibrant gradient navbar for bold landing pages.",
+    "html": "<nav class=\"gradient-nav\">\n  <a class=\"gradient-nav__logo\" href=\"#\">✦ Spark</a>\n  <ul class=\"gradient-nav__links\">\n    <li><a href=\"#\">Features</a></li>\n    <li><a href=\"#\">Pricing</a></li>\n    <li><a href=\"#\">Blog</a></li>\n  </ul>\n  <a class=\"gradient-nav__cta\" href=\"#\">Try Free</a>\n</nav>",
+    "css": ".gradient-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: linear-gradient(135deg, #6366f1, #a855f7); }\n.gradient-nav__logo { font-weight: 800; font-size: 20px; color: #fff; text-decoration: none; }\n.gradient-nav__links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }\n.gradient-nav__links a { font-size: 14px; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }\n.gradient-nav__links a:hover { color: #fff; }\n.gradient-nav__cta { background: #fff; color: #6366f1; border-radius: 6px; padding: 8px 20px; font-size: 13px; font-weight: 700; text-decoration: none; }"
+  },
+  {
+    "id": "breadcrumb-dark",
+    "name": "Dark Breadcrumbs",
+    "tag": "breadcrumb",
+    "description": "Breadcrumbs for dark interfaces with muted separators.",
+    "html": "<nav aria-label=\"Breadcrumb\">\n  <ol class=\"breadcrumb-dark\">\n    <li><a href=\"#\">Home</a></li>\n    <li aria-hidden=\"true\">›</li>\n    <li><a href=\"#\">Collections</a></li>\n    <li aria-hidden=\"true\">›</li>\n    <li aria-current=\"page\">Navigation</li>\n  </ol>\n</nav>",
+    "css": ".breadcrumb-dark { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; font-size: 13px; }\n.breadcrumb-dark a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }\n.breadcrumb-dark a:hover { color: #fff; }\n.breadcrumb-dark li[aria-hidden] { color: rgba(255,255,255,0.2); }\n.breadcrumb-dark li[aria-current] { color: #fff; font-weight: 500; }"
+  },
+  {
+    "id": "tabs-boxed",
+    "name": "Boxed Tabs",
+    "tag": "tabs",
+    "description": "Solid boxed tab buttons in a contained group.",
+    "html": "<div class=\"tabs-boxed\" role=\"tablist\">\n  <button class=\"tab-box active\">Month</button>\n  <button class=\"tab-box\">Quarter</button>\n  <button class=\"tab-box\">Year</button>\n</div>",
+    "css": ".tabs-boxed { display: inline-flex; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }\n.tab-box { padding: 9px 20px; font-size: 14px; font-weight: 500; background: #fff; color: #6b7280; border: none; border-right: 1px solid #e5e7eb; cursor: pointer; transition: all 0.2s; }\n.tab-box:last-child { border-right: none; }\n.tab-box:hover { background: #f9fafb; }\n.tab-box.active { background: #6366f1; color: #fff; font-weight: 600; }"
+  },
+  {
+    "id": "pagination-compact",
+    "name": "Compact Pagination",
+    "tag": "pagination",
+    "description": "Small two-sided prev/next pagination for tight spaces.",
+    "html": "<nav class=\"pag-compact\" aria-label=\"Pagination\">\n  <a class=\"pag-compact__btn\" href=\"#\">← Prev</a>\n  <span class=\"pag-compact__info\">5 / 20</span>\n  <a class=\"pag-compact__btn\" href=\"#\">Next →</a>\n</nav>",
+    "css": ".pag-compact { display: flex; align-items: center; gap: 10px; }\n.pag-compact__btn { padding: 7px 16px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 14px; color: #374151; background: #fff; text-decoration: none; transition: all 0.2s; }\n.pag-compact__btn:hover { border-color: #6366f1; color: #6366f1; }\n.pag-compact__info { font-size: 13px; color: #9ca3af; }"
+  },
+  {
+    "id": "sidebar-group",
+    "name": "Grouped Sidebar",
+    "tag": "sidebar",
+    "description": "Sidebar with grouped sections and dividers.",
+    "html": "<nav class=\"sidebar-grouped\">\n  <p class=\"sidebar-group__label\">Main</p>\n  <a class=\"sidebar-group__item active\" href=\"#\">Dashboard</a>\n  <a class=\"sidebar-group__item\" href=\"#\">Projects</a>\n  <hr class=\"sidebar-group__divider\">\n  <p class=\"sidebar-group__label\">Account</p>\n  <a class=\"sidebar-group__item\" href=\"#\">Settings</a>\n  <a class=\"sidebar-group__item\" href=\"#\">Billing</a>\n</nav>",
+    "css": ".sidebar-grouped { width: 220px; background: #fff; border-right: 1px solid #e5e7eb; min-height: 100vh; padding: 16px 0; }\n.sidebar-group__label { font-size: 11px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 16px; margin-bottom: 4px; }\n.sidebar-group__item { display: block; font-size: 14px; color: #374151; text-decoration: none; padding: 8px 12px; margin: 0 8px; border-radius: 6px; transition: all 0.2s; }\n.sidebar-group__item:hover { background: #f9fafb; }\n.sidebar-group__item.active { background: rgba(99,102,241,0.07); color: #6366f1; font-weight: 500; }\n.sidebar-group__divider { border: none; border-top: 1px solid #f3f4f6; margin: 10px 0; }"
+  },
+  {
+    "id": "tabs-icon",
+    "name": "Icon Tabs",
+    "tag": "tabs",
+    "description": "Tabs with leading icons for visual context.",
+    "html": "<div class=\"icon-tabs\" role=\"tablist\">\n  <button class=\"icon-tab active\" role=\"tab\"><span>⊞</span>Overview</button>\n  <button class=\"icon-tab\" role=\"tab\"><span>◈</span>Stats</button>\n  <button class=\"icon-tab\" role=\"tab\"><span>✉</span>Messages</button>\n</div>",
+    "css": ".icon-tabs { display: flex; border-bottom: 1px solid #e5e7eb; }\n.icon-tab { display: flex; align-items: center; gap: 6px; padding: 10px 18px; font-size: 14px; font-weight: 500; color: #6b7280; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; margin-bottom: -1px; transition: all 0.2s; }\n.icon-tab span { font-size: 16px; }\n.icon-tab:hover { color: #374151; }\n.icon-tab.active { color: #6366f1; border-bottom-color: #6366f1; font-weight: 600; }"
+  },
+  {
+    "id": "pagination-dots",
+    "name": "Dot Pagination",
+    "tag": "pagination",
+    "description": "Dot indicator style pagination for carousels and slides.",
+    "html": "<nav class=\"dot-pagination\" aria-label=\"Slide navigation\">\n  <button class=\"dot\" aria-label=\"Slide 1\"></button>\n  <button class=\"dot active\" aria-label=\"Slide 2\" aria-current=\"true\"></button>\n  <button class=\"dot\" aria-label=\"Slide 3\"></button>\n  <button class=\"dot\" aria-label=\"Slide 4\"></button>\n  <button class=\"dot\" aria-label=\"Slide 5\"></button>\n</nav>",
+    "css": ".dot-pagination { display: flex; align-items: center; gap: 8px; }\n.dot { width: 8px; height: 8px; border-radius: 4px; background: #e5e7eb; border: none; cursor: pointer; transition: all 0.3s ease; padding: 0; }\n.dot:hover { background: #d1d5db; }\n.dot.active { width: 24px; background: #6366f1; }"
+  }
+]

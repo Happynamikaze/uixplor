@@ -1,0 +1,178 @@
+[
+  {
+    "id": "glass-card",
+    "name": "Glass Card",
+    "tag": "glassmorphism",
+    "description": "Frosted glass effect with backdrop blur and translucent background.",
+    "html": "<div class=\"glass-card\">\n  <h3>Glass Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".glass-card {\n  background: rgba(255, 255, 255, 0.1);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border: 1px solid rgba(255, 255, 255, 0.2);\n  border-radius: 16px;\n  padding: 24px;\n  color: #fff;\n}"
+  },
+  {
+    "id": "elevated-card",
+    "name": "Elevated Card",
+    "tag": "shadow",
+    "description": "Layered box shadows create a sense of physical elevation above the surface.",
+    "html": "<div class=\"elevated-card\">\n  <h3>Elevated Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".elevated-card {\n  background: #ffffff;\n  border-radius: 16px;\n  padding: 24px;\n  box-shadow:\n    0 1px 2px rgba(0, 0, 0, 0.04),\n    0 4px 8px rgba(0, 0, 0, 0.06),\n    0 12px 32px rgba(0, 0, 0, 0.08);\n  color: #1a1a2e;\n}"
+  },
+  {
+    "id": "dark-card",
+    "name": "Dark Surface Card",
+    "tag": "dark",
+    "description": "Subtle dark surface with soft border and refined typography for dark themes.",
+    "html": "<div class=\"dark-card\">\n  <h3>Dark Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".dark-card {\n  background: #12121a;\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  padding: 24px;\n  color: #ffffff;\n  box-shadow:\n    0 4px 12px rgba(255, 255, 255, 0.06),\n    0 0 0 1px rgba(255, 255, 255, 0.04);\n}"
+  },
+  {
+    "id": "gradient-card",
+    "name": "Gradient Border Card",
+    "tag": "gradient",
+    "description": "Vivid gradient border using a CSS pseudo-element technique.",
+    "html": "<div class=\"gradient-border-card\">\n  <h3>Gradient Border</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".gradient-border-card {\n  background: #0a0a0f;\n  border-radius: 16px;\n  padding: 24px;\n  color: #ffffff;\n  position: relative;\n  background-clip: padding-box;\n  border: 1px solid transparent;\n}\n\n.gradient-border-card::before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 16px;\n  padding: 1px;\n  background: linear-gradient(135deg, #6366f1, #a855f7);\n  -webkit-mask:\n    linear-gradient(#fff 0 0) content-box,\n    linear-gradient(#fff 0 0);\n  -webkit-mask-composite: xor;\n  mask-composite: exclude;\n}"
+  },
+  {
+    "id": "neon-card",
+    "name": "Neon Glow Card",
+    "tag": "glow",
+    "description": "Electric neon accent border with glowing ambient light effect.",
+    "html": "<div class=\"neon-card\">\n  <h3>Neon Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".neon-card {\n  background: #0a0a0f;\n  border: 1px solid rgba(184, 251, 60, 0.3);\n  border-radius: 16px;\n  padding: 24px;\n  color: #B8FB3C;\n  box-shadow:\n    0 0 20px rgba(184, 251, 60, 0.08),\n    0 0 60px rgba(184, 251, 60, 0.04),\n    0 4px 20px rgba(0, 0, 0, 0.5);\n}"
+  },
+  {
+    "id": "outline-card",
+    "name": "Outline Card",
+    "tag": "minimal",
+    "description": "Clean outlined card with transparent background. Works on any surface.",
+    "html": "<div class=\"outline-card\">\n  <h3>Outline Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".outline-card {\n  background: transparent;\n  border: 2px solid rgba(0, 0, 0, 0.12);\n  border-radius: 16px;\n  padding: 24px;\n  color: #1a1a2e;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n\n.outline-card:hover {\n  border-color: rgba(0, 0, 0, 0.25);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);\n}"
+  },
+  {
+    "id": "neumorphic-card",
+    "name": "Neumorphic Card",
+    "tag": "neumorphism",
+    "description": "Soft UI style with dual shadows creating an extruded look.",
+    "html": "<div class=\"neumorphic-card\">\n  <h3>Neumorphic Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".neumorphic-card {\n  background: #e0e5ec;\n  border-radius: 20px;\n  padding: 24px;\n  color: #4a5568;\n  box-shadow:\n    9px 9px 16px rgba(163, 177, 198, 0.6),\n    -9px -9px 16px rgba(255, 255, 255, 0.5);\n}"
+  },
+  {
+    "id": "frosted-dark-card",
+    "name": "Frosted Dark Card",
+    "tag": "glassmorphism",
+    "description": "Dark glassmorphism with layered blur for immersive backgrounds.",
+    "html": "<div class=\"frosted-dark-card\">\n  <h3>Frosted Dark</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".frosted-dark-card {\n  background: rgba(0, 0, 0, 0.35);\n  backdrop-filter: blur(16px);\n  -webkit-backdrop-filter: blur(16px);\n  border: 1px solid rgba(255, 255, 255, 0.08);\n  border-radius: 20px;\n  padding: 24px;\n  color: #ffffff;\n}"
+  },
+  {
+    "id": "stat-card",
+    "name": "Stat Card",
+    "tag": "ui",
+    "description": "Dashboard-style stat card with label, value, and color accent.",
+    "html": "<div class=\"stat-card\">\n  <span class=\"stat-label\">Revenue</span>\n  <div class=\"stat-value\">$84.2k</div>\n  <span class=\"stat-change\">↑ 12.4% this month</span>\n</div>",
+    "css": ".stat-card {\n  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.25));\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  padding: 20px;\n  color: #ffffff;\n}\n\n.stat-label {\n  font-size: 11px;\n  opacity: 0.5;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  display: block;\n  margin-bottom: 8px;\n}\n\n.stat-value {\n  font-size: 28px;\n  font-weight: 700;\n  margin-bottom: 6px;\n}\n\n.stat-change {\n  font-size: 12px;\n  color: #B8FB3C;\n}"
+  },
+  {
+    "id": "profile-card",
+    "name": "Profile Card",
+    "tag": "ui",
+    "description": "User profile card with avatar, name, role, and action buttons.",
+    "html": "<div class=\"profile-card\">\n  <div class=\"profile-avatar\"></div>\n  <h3 class=\"profile-name\">Alex Turner</h3>\n  <p class=\"profile-role\">UI Designer</p>\n</div>",
+    "css": ".profile-card {\n  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.25));\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  padding: 24px;\n  text-align: center;\n  color: #ffffff;\n}\n\n.profile-avatar {\n  width: 64px;\n  height: 64px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #6366f1, #a855f7);\n  margin: 0 auto 12px;\n}\n\n.profile-name {\n  font-size: 16px;\n  font-weight: 600;\n  margin-bottom: 4px;\n}\n\n.profile-role {\n  font-size: 13px;\n  opacity: 0.45;\n}"
+  },
+  {
+    "id": "pricing-card",
+    "name": "Pricing Card",
+    "tag": "ui",
+    "description": "SaaS pricing card with plan name, price, features, and CTA button.",
+    "html": "<div class=\"pricing-card\">\n  <span class=\"plan-name\">PRO</span>\n  <div class=\"plan-price\">$29<span>/mo</span></div>\n  <ul class=\"plan-features\">\n    <li>Unlimited projects</li>\n    <li>Priority support</li>\n    <li>Advanced analytics</li>\n  </ul>\n  <button class=\"plan-cta\">Get Started</button>\n</div>",
+    "css": ".pricing-card {\n  background: linear-gradient(145deg, rgba(99,102,241,0.15), rgba(168,85,247,0.08));\n  border: 1px solid rgba(99, 102, 241, 0.3);\n  border-radius: 16px;\n  padding: 28px;\n  color: #ffffff;\n}\n\n.plan-name {\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.1em;\n  color: #a5b4fc;\n}\n\n.plan-price {\n  font-size: 36px;\n  font-weight: 700;\n  margin: 8px 0;\n}\n\n.plan-price span {\n  font-size: 16px;\n  opacity: 0.5;\n}\n\n.plan-features {\n  list-style: none;\n  margin: 16px 0;\n  font-size: 14px;\n  opacity: 0.7;\n}\n\n.plan-features li::before {\n  content: '✓ ';\n  color: #a5b4fc;\n}\n\n.plan-cta {\n  width: 100%;\n  padding: 10px;\n  background: #6366f1;\n  color: #fff;\n  border: none;\n  border-radius: 8px;\n  font-weight: 600;\n  cursor: pointer;\n}"
+  },
+  {
+    "id": "notification-card",
+    "name": "Notification Card",
+    "tag": "ui",
+    "description": "Compact notification-style card with icon, message, and timestamp.",
+    "html": "<div class=\"notification-card\">\n  <div class=\"notif-icon\">✓</div>\n  <div class=\"notif-body\">\n    <p class=\"notif-title\">Deploy successful</p>\n    <span class=\"notif-time\">2 min ago</span>\n  </div>\n</div>",
+    "css": ".notification-card {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  background: #12121a;\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 14px;\n  padding: 14px 16px;\n  color: #ffffff;\n}\n\n.notif-icon {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  background: #B8FB3C;\n  color: #000;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  font-weight: bold;\n  flex-shrink: 0;\n}\n\n.notif-title {\n  font-size: 13px;\n  font-weight: 600;\n  margin-bottom: 3px;\n}\n\n.notif-time {\n  font-size: 11px;\n  opacity: 0.45;\n}"
+  },
+  {
+    "id": "hover-lift-card",
+    "name": "Hover Lift Card",
+    "tag": "interactive",
+    "description": "Card that smoothly lifts and gains shadow on hover for tactile feel.",
+    "html": "<div class=\"hover-lift-card\">\n  <h3>Hover Lift</h3>\n  <p>Hover me!</p>\n</div>",
+    "css": ".hover-lift-card {\n  background: #ffffff;\n  border: 1px solid rgba(0, 0, 0, 0.06);\n  border-radius: 16px;\n  padding: 24px;\n  color: #1a1a2e;\n  box-shadow:\n    0 1px 3px rgba(0, 0, 0, 0.04),\n    0 4px 14px rgba(0, 0, 0, 0.06);\n  transition: transform 0.25s ease, box-shadow 0.25s ease;\n  cursor: pointer;\n}\n\n.hover-lift-card:hover {\n  transform: translateY(-6px);\n  box-shadow:\n    0 4px 12px rgba(0, 0, 0, 0.06),\n    0 16px 40px rgba(0, 0, 0, 0.1);\n}"
+  },
+  {
+    "id": "tag-card",
+    "name": "Tag Card",
+    "tag": "content",
+    "description": "Content card with title, description, and category tag chips.",
+    "html": "<div class=\"tag-card\">\n  <div class=\"tags\">\n    <span class=\"tag tag--primary\">CSS</span>\n    <span class=\"tag tag--secondary\">UI</span>\n  </div>\n  <h3>Tag Card</h3>\n  <p>Card description goes here.</p>\n</div>",
+    "css": ".tag-card {\n  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.25));\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  padding: 20px;\n  color: #ffffff;\n}\n\n.tags {\n  display: flex;\n  gap: 6px;\n  margin-bottom: 12px;\n  flex-wrap: wrap;\n}\n\n.tag {\n  font-size: 11px;\n  font-weight: 500;\n  padding: 3px 10px;\n  border-radius: 50px;\n}\n\n.tag--primary {\n  background: rgba(99, 102, 241, 0.15);\n  color: #a5b4fc;\n  border: 1px solid rgba(99, 102, 241, 0.25);\n}\n\n.tag--secondary {\n  background: rgba(168, 85, 247, 0.12);\n  color: #c084fc;\n  border: 1px solid rgba(168, 85, 247, 0.25);\n}"
+  },
+  {
+    "id": "image-card",
+    "name": "Image Card",
+    "tag": "content",
+    "description": "Classic content card with image area, title, excerpt, and read more link.",
+    "html": "<div class=\"image-card\">\n  <div class=\"image-card__cover\"></div>\n  <div class=\"image-card__body\">\n    <h3>Article Title</h3>\n    <p>Short excerpt goes here...</p>\n    <a href=\"#\">Read more →</a>\n  </div>\n</div>",
+    "css": ".image-card {\n  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.25));\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  overflow: hidden;\n  color: #ffffff;\n  transition: transform 0.25s ease;\n}\n\n.image-card:hover {\n  transform: translateY(-4px);\n}\n\n.image-card__cover {\n  width: 100%;\n  height: 180px;\n  background: linear-gradient(135deg, #1e1b4b, #4c1d95);\n  object-fit: cover;\n}\n\n.image-card__body {\n  padding: 20px;\n}\n\n.image-card__body h3 {\n  font-size: 16px;\n  font-weight: 600;\n  margin-bottom: 8px;\n}\n\n.image-card__body p {\n  font-size: 14px;\n  opacity: 0.55;\n  margin-bottom: 12px;\n  line-height: 1.5;\n}\n\n.image-card__body a {\n  font-size: 13px;\n  color: #B8FB3C;\n  text-decoration: none;\n}"
+  },
+  {
+    "id": "cta-card",
+    "name": "CTA Card",
+    "tag": "interactive",
+    "description": "Call-to-action card with headline, subtext and a prominent action button.",
+    "html": "<div class=\"cta-card\">\n  <h2>Start for free</h2>\n  <p>No credit card required</p>\n  <button class=\"cta-btn\">Get Started</button>\n</div>",
+    "css": ".cta-card {\n  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.12));\n  border: 1px solid rgba(99, 102, 241, 0.25);\n  border-radius: 16px;\n  padding: 32px 24px;\n  color: #ffffff;\n  text-align: center;\n}\n\n.cta-card h2 {\n  font-size: 20px;\n  font-weight: 700;\n  margin-bottom: 8px;\n}\n\n.cta-card p {\n  font-size: 14px;\n  opacity: 0.55;\n  margin-bottom: 20px;\n}\n\n.cta-btn {\n  background: #6366f1;\n  color: #fff;\n  border: none;\n  border-radius: 8px;\n  padding: 10px 24px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n\n.cta-btn:hover {\n  background: #4f46e5;\n  transform: translateY(-2px);\n  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);\n}"
+  },
+  {
+    "id": "inset-shadow-card",
+    "name": "Inset Depth Card",
+    "tag": "shadow",
+    "description": "Carved-in appearance using inset shadows for a premium tactile feel.",
+    "html": "<div class=\"inset-card\">\n  <h3>Inset Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".inset-card {\n  background: #f0f1f4;\n  border-radius: 16px;\n  padding: 24px;\n  color: #1a1a2e;\n  box-shadow:\n    inset 0 2px 8px rgba(0, 0, 0, 0.06),\n    inset 0 1px 2px rgba(0, 0, 0, 0.08),\n    inset 0 -1px 2px rgba(255, 255, 255, 0.5);\n}"
+  },
+  {
+    "id": "skeleton-card",
+    "name": "Skeleton Loader Card",
+    "tag": "loading",
+    "description": "Animated skeleton placeholder card for loading states.",
+    "html": "<div class=\"skeleton-card\">\n  <div class=\"skeleton skeleton--image\"></div>\n  <div class=\"skeleton skeleton--line\"></div>\n  <div class=\"skeleton skeleton--line skeleton--short\"></div>\n</div>",
+    "css": ".skeleton-card {\n  background: #12121a;\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  padding: 20px;\n}\n\n.skeleton {\n  border-radius: 6px;\n  background: linear-gradient(\n    90deg,\n    rgba(255,255,255,0.04) 25%,\n    rgba(255,255,255,0.08) 50%,\n    rgba(255,255,255,0.04) 75%\n  );\n  background-size: 200% 100%;\n  animation: shimmer 1.5s infinite;\n}\n\n.skeleton--image {\n  height: 120px;\n  border-radius: 10px;\n  margin-bottom: 14px;\n}\n\n.skeleton--line {\n  height: 12px;\n  margin-bottom: 8px;\n  width: 80%;\n}\n\n.skeleton--short {\n  width: 55%;\n}\n\n@keyframes shimmer {\n  to { background-position: -200% 0; }\n}"
+  },
+  {
+    "id": "feature-card",
+    "name": "Feature Card",
+    "tag": "marketing",
+    "description": "Marketing feature card with large icon, bold heading, and description.",
+    "html": "<div class=\"feature-card\">\n  <div class=\"feature-icon\">⚡</div>\n  <h3>Blazing Fast</h3>\n  <p>Optimized for speed with zero compromise on quality.</p>\n</div>",
+    "css": ".feature-card {\n  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.25));\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  padding: 24px;\n  color: #ffffff;\n  transition: transform 0.2s ease, border-color 0.2s ease;\n}\n\n.feature-card:hover {\n  transform: translateY(-4px);\n  border-color: rgba(184, 251, 60, 0.2);\n}\n\n.feature-icon {\n  width: 44px;\n  height: 44px;\n  border-radius: 12px;\n  background: rgba(184, 251, 60, 0.1);\n  border: 1px solid rgba(184, 251, 60, 0.2);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 20px;\n  margin-bottom: 16px;\n}\n\n.feature-card h3 {\n  font-size: 16px;\n  font-weight: 700;\n  margin-bottom: 8px;\n}\n\n.feature-card p {\n  font-size: 14px;\n  opacity: 0.5;\n  line-height: 1.6;\n}"
+  },
+  {
+    "id": "bordered-gradient-card",
+    "name": "Shimmer Border Card",
+    "tag": "gradient",
+    "description": "Card with an animated gradient border shimmer effect on hover.",
+    "html": "<div class=\"shimmer-border-wrapper\">\n  <div class=\"shimmer-card\">\n    <h3>Shimmer Border</h3>\n    <p>Your content here</p>\n  </div>\n</div>",
+    "css": ".shimmer-border-wrapper {\n  background: linear-gradient(135deg, #B8FB3C, #6366f1, #a855f7);\n  border-radius: 17px;\n  padding: 1px;\n  background-size: 200% 200%;\n  animation: shimmer-border 3s linear infinite;\n}\n\n.shimmer-card {\n  background: #0a0a0f;\n  border-radius: 16px;\n  padding: 24px;\n  color: #ffffff;\n}\n\n@keyframes shimmer-border {\n  0% { background-position: 0% 50%; }\n  50% { background-position: 100% 50%; }\n  100% { background-position: 0% 50%; }\n}"
+  },
+  {
+    "id": "minimal-white-card",
+    "name": "Minimal White Card",
+    "tag": "minimal",
+    "description": "Clean white card with hairline border and subtle shadow. Light theme staple.",
+    "html": "<div class=\"minimal-card\">\n  <h3>Minimal Card</h3>\n  <p>Your content here</p>\n</div>",
+    "css": ".minimal-card {\n  background: #ffffff;\n  border: 1px solid #e5e7eb;\n  border-radius: 12px;\n  padding: 24px;\n  color: #1a1a2e;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);\n  transition: box-shadow 0.2s ease;\n}\n\n.minimal-card:hover {\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);\n}"
+  },
+  {
+    "id": "avatar-card",
+    "name": "Team Member Card",
+    "tag": "ui",
+    "description": "Team member card with avatar, name, role, and social links.",
+    "html": "<div class=\"team-card\">\n  <div class=\"team-avatar\"></div>\n  <h3 class=\"team-name\">Sarah Kim</h3>\n  <p class=\"team-role\">Product Designer</p>\n</div>",
+    "css": ".team-card {\n  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.25));\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 16px;\n  padding: 28px 24px;\n  color: #ffffff;\n  text-align: center;\n  transition: transform 0.2s ease;\n}\n\n.team-card:hover {\n  transform: translateY(-4px);\n}\n\n.team-avatar {\n  width: 64px;\n  height: 64px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #06b6d4, #3b82f6);\n  margin: 0 auto 14px;\n  border: 2px solid rgba(255, 255, 255, 0.12);\n}\n\n.team-name {\n  font-size: 16px;\n  font-weight: 600;\n  margin-bottom: 4px;\n}\n\n.team-role {\n  font-size: 13px;\n  color: #06b6d4;\n}"
+  }
+]
