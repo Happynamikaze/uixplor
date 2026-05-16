@@ -59,7 +59,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <SpeedInsights />
       </div>
 
-      {/* <Script id="microsoft-clarity" strategy="afterInteractive">
+      <Script id="microsoft-clarity" strategy="afterInteractive">
         {`
           (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -67,7 +67,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "wpn5huirly");
         `}
-      </Script> */}
+      </Script>
     </>
   );
 }
