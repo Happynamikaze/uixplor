@@ -105,16 +105,16 @@ export default function HoverEffects() {
 						'@type': 'CollectionPage',
 						name: 'CSS Hover Effects Collection – UIXplor',
 						description: '20 CSS hover effects for buttons, cards, links and images including lift, glow, shimmer, flip, and slide animations.',
-						url: 'https://uixplor.com/collections/hover-effects',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/hover-effects',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'Hover Effects', item: 'https://uixplor.com/collections/hover-effects' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'Hover Effects', item: 'https://www.uixplor.com/collections/hover-effects' },
 						],
 					},
 				]}

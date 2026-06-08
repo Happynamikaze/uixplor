@@ -422,16 +422,16 @@ export default function TextAnimations() {
 						'@type': 'CollectionPage',
 						name: 'CSS Text Animations Collection – UIXplor',
 						description: '40 CSS text animation effects including typewriter, glitch, gradient text, wave, blur, and scramble animations.',
-						url: 'https://uixplor.com/collections/text-animations',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/text-animations',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'Text Animations', item: 'https://uixplor.com/collections/text-animations' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'Text Animations', item: 'https://www.uixplor.com/collections/text-animations' },
 						],
 					},
 				]}

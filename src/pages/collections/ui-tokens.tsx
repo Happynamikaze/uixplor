@@ -16,16 +16,16 @@ export default function UITokens() {
 						'@type': 'CollectionPage',
 						name: 'CSS Design Tokens – UIXplor',
 						description: 'UI design tokens including brand colors, typography scale, spacing system, border radius, shadow tokens, and opacity values for design systems.',
-						url: 'https://uixplor.com/collections/ui-tokens',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/ui-tokens',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'UI Tokens', item: 'https://uixplor.com/collections/ui-tokens' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'UI Tokens', item: 'https://www.uixplor.com/collections/ui-tokens' },
 						],
 					},
 				]}

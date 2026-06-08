@@ -100,16 +100,16 @@ export default function Inputs() {
 						'@type': 'CollectionPage',
 						name: 'CSS Input Styles Collection – UIXplor',
 						description: '15 custom CSS form input styles including underline inputs, floating labels, glass effects, neon inputs, OTP fields, and toggle switches.',
-						url: 'https://uixplor.com/collections/inputs',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/inputs',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'CSS Input Styles', item: 'https://uixplor.com/collections/inputs' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'CSS Input Styles', item: 'https://www.uixplor.com/collections/inputs' },
 						],
 					},
 				]}

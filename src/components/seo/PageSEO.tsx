@@ -1,7 +1,6 @@
 import Head from 'next/head';
+import { SITE_URL, SITE_NAME } from '@/lib/site';
 
-const SITE_URL = 'https://uixplor.com';
-const SITE_NAME = 'UIXplor';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png`;
 const TWITTER_SITE = '@uixplor';
 

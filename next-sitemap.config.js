@@ -63,22 +63,22 @@ const COLLECTION_PAGES = [
 // All other static pages get default 0.7 priority from the `priority` field below.
 // Override specific pages with exact URL keys here.
 const STATIC_PAGE_META = {
-	'https://uixplor.com': { priority: 1.0, changefreq: 'weekly' },
-	'https://uixplor.com/collections': { priority: 0.9, changefreq: 'weekly' },
-	'https://uixplor.com/blog': { priority: 0.9, changefreq: 'weekly' },
-	'https://uixplor.com/about': { priority: 0.6, changefreq: 'monthly' },
-	'https://uixplor.com/contact': { priority: 0.4, changefreq: 'monthly' },
-	'https://uixplor.com/privacy': { priority: 0.3, changefreq: 'yearly' },
-	'https://uixplor.com/terms': { priority: 0.3, changefreq: 'yearly' },
-	'https://uixplor.com/disclaimer': { priority: 0.2, changefreq: 'yearly' },
-	'https://uixplor.com/cookies': { priority: 0.2, changefreq: 'yearly' },
-	'https://uixplor.com/acceptable-use': { priority: 0.2, changefreq: 'yearly' },
+	'https://www.uixplor.com': { priority: 1.0, changefreq: 'weekly' },
+	'https://www.uixplor.com/collections': { priority: 0.9, changefreq: 'weekly' },
+	'https://www.uixplor.com/blog': { priority: 0.9, changefreq: 'weekly' },
+	'https://www.uixplor.com/about': { priority: 0.6, changefreq: 'monthly' },
+	'https://www.uixplor.com/contact': { priority: 0.4, changefreq: 'monthly' },
+	'https://www.uixplor.com/privacy': { priority: 0.3, changefreq: 'yearly' },
+	'https://www.uixplor.com/terms': { priority: 0.3, changefreq: 'yearly' },
+	'https://www.uixplor.com/disclaimer': { priority: 0.2, changefreq: 'yearly' },
+	'https://www.uixplor.com/cookies': { priority: 0.2, changefreq: 'yearly' },
+	'https://www.uixplor.com/acceptable-use': { priority: 0.2, changefreq: 'yearly' },
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-	siteUrl: 'https://uixplor.com',
+	siteUrl: 'https://www.uixplor.com',
 
 	// Must match next.config.ts → output: "export"
 	outDir: './out',

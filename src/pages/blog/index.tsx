@@ -80,15 +80,15 @@ export default function BlogIndex({ posts, allTags }: { posts: Post[]; allTags: 
 						'@type': 'Blog',
 						name: 'UIXplor CSS Blog',
 						description: 'In-depth CSS guides and UI design tutorials for modern web developers.',
-						url: 'https://uixplor.com/blog',
-						publisher: { '@type': 'Organization', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/blog',
+						publisher: { '@type': 'Organization', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://uixplor.com/blog' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.uixplor.com/blog' },
 						],
 					},
 				]}

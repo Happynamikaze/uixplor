@@ -20,4 +20,4 @@ Disallow: /private/
 Disallow: /_next/data/
 
 # Sitemap
-Sitemap: https://uixplor.com/sitemap.xml
+Sitemap: https://www.uixplor.com/sitemap.xml

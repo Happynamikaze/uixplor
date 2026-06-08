@@ -114,16 +114,16 @@ export default function Loaders() {
 						'@type': 'CollectionPage',
 						name: 'CSS Loaders Collection – UIXplor',
 						description: '30+ CSS loading animations including spinners, skeleton screens, progress bars, and dot loaders — all pure CSS, no JavaScript required.',
-						url: 'https://uixplor.com/collections/loaders',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/loaders',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'CSS Loaders', item: 'https://uixplor.com/collections/loaders' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'CSS Loaders', item: 'https://www.uixplor.com/collections/loaders' },
 						],
 					},
 				]}
@@ -148,12 +148,12 @@ export default function Loaders() {
 									<div className="flex items-center justify-between">
 										<span className="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-white/5 text-white/40 border border-white/6 uppercase tracking-wider">{item.tag}</span>
 										<button onClick={() => setSel(item)} className="relative z-10 px-3.5 py-1.5 rounded-lg text-[11px] font-semibold bg-white/6 text-white/50 border border-white/8 hover:bg-teal-400 hover:text-[#0a0a0f] hover:border-teal-400 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(45,212,191,0.2)] transition-all duration-300 cursor-pointer">View Code →</button>
-                      <Link
-                        href={`/component/${item.id}?collection=loaders`}
-                        className="relative z-10 px-3.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#6C63FF]/10 text-[#a78bfa] border border-[#6C63FF]/20 hover:bg-[#6C63FF]/20 hover:border-[#6C63FF]/40 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
-                      >
-                        Details
-                      </Link>
+										<Link
+											href={`/component/${item.id}?collection=loaders`}
+											className="relative z-10 px-3.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#6C63FF]/10 text-[#a78bfa] border border-[#6C63FF]/20 hover:bg-[#6C63FF]/20 hover:border-[#6C63FF]/40 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+										>
+											Details
+										</Link>
 									</div>
 								</div>
 							</motion.div>

@@ -30,16 +30,16 @@ export default function GlassEffects({ items }: { items: GlassItem[] }) {
 						'@type': 'CollectionPage',
 						name: 'CSS Glass Effects Collection – UIXplor',
 						description: '15 glassmorphism CSS components including frosted glass cards, glass buttons, blur overlays, and layered glass effects.',
-						url: 'https://uixplor.com/collections/glass-effects',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/glass-effects',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'Glass Effects', item: 'https://uixplor.com/collections/glass-effects' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'Glass Effects', item: 'https://www.uixplor.com/collections/glass-effects' },
 						],
 					},
 				]}

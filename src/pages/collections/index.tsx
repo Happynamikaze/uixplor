@@ -90,16 +90,16 @@ export default function Collections() {
 						'@type': 'CollectionPage',
 						name: 'CSS UI Collections – UIXplor',
 						description: 'Browse 16 curated CSS UI element collections including box shadows, buttons, glassmorphism, navigation, dashboard components, advanced forms, UI feedback, and dark mode components.',
-						url: 'https://uixplor.com/collections',
+						url: 'https://www.uixplor.com/collections',
 						numberOfItems: 16,
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
 						],
 					},
 				]}

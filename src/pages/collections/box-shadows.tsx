@@ -34,18 +34,18 @@ const JSON_LD_SCHEMAS = [
     "@type": "WebPage",
     name: "CSS Box Shadow Copy & Paste — 100 Free Examples",
     description: `Browse ${shadows.length} CSS box shadow examples — soft, glow, neumorphic, colored, glassmorphism & more. One-click copy & paste code. Free shadow presets for any web project.`,
-    url: "https://uixplor.com/collections/box-shadows",
+    url: "https://www.uixplor.com/collections/box-shadows",
     inLanguage: "en",
     isPartOf: {
       "@type": "WebSite",
       name: "UIXplor",
-      url: "https://uixplor.com",
+      url: "https://www.uixplor.com",
     },
     dateModified: "2026-03-04",
     author: {
       "@type": "Organization",
       name: "UIXplor",
-      url: "https://uixplor.com",
+      url: "https://www.uixplor.com",
     },
   },
   {
@@ -56,19 +56,19 @@ const JSON_LD_SCHEMAS = [
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://uixplor.com",
+        item: "https://www.uixplor.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Collections",
-        item: "https://uixplor.com/collections",
+        item: "https://www.uixplor.com/collections",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "CSS Box Shadows",
-        item: "https://uixplor.com/collections/box-shadows",
+        item: "https://www.uixplor.com/collections/box-shadows",
       },
     ],
   },
@@ -77,12 +77,12 @@ const JSON_LD_SCHEMAS = [
     "@type": "CollectionPage",
     name: "CSS Box Shadows Collection — UIXplor",
     description: `A curated collection of ${shadows.length} CSS box shadow examples including soft, layered, neumorphic, glow, colored, glassmorphism, brutalist, dark UI, SaaS, material, and gradient shadow illusions — all copy-paste ready.`,
-    url: "https://uixplor.com/collections/box-shadows",
+    url: "https://www.uixplor.com/collections/box-shadows",
     numberOfItems: shadows.length,
     isPartOf: {
       "@type": "WebSite",
       name: "UIXplor",
-      url: "https://uixplor.com",
+      url: "https://www.uixplor.com",
     },
   },
   {
@@ -178,7 +178,7 @@ export default function BoxShadows() {
         title="Box Shadow Copy & Paste – 100 CSS Examples – UIXplor"
         description={`Browse ${shadows.length} CSS box shadow examples — soft, glow, neumorphic, colored, glassmorphism & more. One-click copy & paste code. Free shadow presets for any web project.`}
         path="/collections/box-shadows"
-        ogImage="https://uixplor.com/images/og-box-shadows.png"
+        ogImage="https://www.uixplor.com/images/og-box-shadows.png"
         keywords={[
           "box shadow copy and paste",
           "css box shadow examples",

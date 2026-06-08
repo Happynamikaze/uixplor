@@ -5,11 +5,11 @@ const homeJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'UIXplor',
-    url: 'https://uixplor.com',
+    url: 'https://www.uixplor.com',
     description: 'Premium CSS snippets, UI components, and design resources for modern web development.',
     potentialAction: {
         '@type': 'SearchAction',
-        target: { '@type': 'EntryPoint', urlTemplate: 'https://uixplor.com/collections' },
+        target: { '@type': 'EntryPoint', urlTemplate: 'https://www.uixplor.com/collections' },
         'query-input': 'required name=search_term_string',
     },
 };

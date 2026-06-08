@@ -90,16 +90,16 @@ export default function Microinteractions() {
 						'@type': 'CollectionPage',
 						name: 'CSS Microinteractions Collection – UIXplor',
 						description: '15 CSS microinteraction examples including heart like animations, toggle pops, ripple effects, bell shakes, and badge pulses.',
-						url: 'https://uixplor.com/collections/microinteractions',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/microinteractions',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'Microinteractions', item: 'https://uixplor.com/collections/microinteractions' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'Microinteractions', item: 'https://www.uixplor.com/collections/microinteractions' },
 						],
 					},
 				]}

@@ -1227,16 +1227,16 @@ export default function Cards() {
 						'@type': 'CollectionPage',
 						name: 'CSS Card Components Collection – UIXplor',
 						description: '20+ CSS card components including glassmorphism cards, dark mode cards, gradient cards, neumorphic designs, and interactive hover cards.',
-						url: 'https://uixplor.com/collections/cards',
-						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://uixplor.com' },
+						url: 'https://www.uixplor.com/collections/cards',
+						isPartOf: { '@type': 'WebSite', name: 'UIXplor', url: 'https://www.uixplor.com' },
 					},
 					{
 						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://uixplor.com' },
-							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://uixplor.com/collections' },
-							{ '@type': 'ListItem', position: 3, name: 'Card Components', item: 'https://uixplor.com/collections/cards' },
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.uixplor.com' },
+							{ '@type': 'ListItem', position: 2, name: 'Collections', item: 'https://www.uixplor.com/collections' },
+							{ '@type': 'ListItem', position: 3, name: 'Card Components', item: 'https://www.uixplor.com/collections/cards' },
 						],
 					},
 				]}

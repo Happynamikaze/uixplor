@@ -22,7 +22,7 @@ export default function About() {
 					'@context': 'https://schema.org',
 					'@type': 'Organization',
 					name: 'UIXplor',
-					url: 'https://uixplor.com',
+					url: 'https://www.uixplor.com',
 					description: 'A free, open-source library of CSS UI elements and design inspiration for developers and designers.',
 					contactPoint: {
 						'@type': 'ContactPoint',

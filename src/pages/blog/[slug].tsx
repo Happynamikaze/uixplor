@@ -153,8 +153,8 @@ export default function BlogPost({ post, nextPost, relatedPosts }: Props) {
 		description: post.excerpt,
 		author: { '@type': 'Person', name: post.author },
 		datePublished: post.date,
-		publisher: { '@type': 'Organization', name: 'UIXplor', url: 'https://uixplor.com' },
-		url: `https://uixplor.com/blog/${post.slug}/`,
+		publisher: { '@type': 'Organization', name: 'UIXplor', url: 'https://www.uixplor.com' },
+		url: `https://www.uixplor.com/blog/${post.slug}/`,
 		keywords: post.tags.join(', '),
 	};
 

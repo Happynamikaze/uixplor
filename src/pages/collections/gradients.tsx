@@ -41,11 +41,11 @@ export default function Gradients({ items }: { items: Item[] }) {
             name: "CSS Gradients Collection – UIXplor",
             description:
               "40 CSS gradient backgrounds including aurora, mesh, holographic, conic, and noise texture gradients for modern web design.",
-            url: "https://uixplor.com/collections/gradients",
+            url: "https://www.uixplor.com/collections/gradients",
             isPartOf: {
               "@type": "WebSite",
               name: "UIXplor",
-              url: "https://uixplor.com",
+              url: "https://www.uixplor.com",
             },
           },
           {
@@ -56,19 +56,19 @@ export default function Gradients({ items }: { items: Item[] }) {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://uixplor.com",
+                item: "https://www.uixplor.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Collections",
-                item: "https://uixplor.com/collections",
+                item: "https://www.uixplor.com/collections",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "CSS Gradients",
-                item: "https://uixplor.com/collections/gradients",
+                item: "https://www.uixplor.com/collections/gradients",
               },
             ],
           },
