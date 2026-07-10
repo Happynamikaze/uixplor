@@ -1408,5 +1408,513 @@
 				"body": "### Do I need a paid tool for responsive design?\nNo. Every tool in this list is either free or has a generous free tier. The UIXplor tools are completely free.\n\n### Which tool should I start with?\nIf you're adopting fluid design, start with a clamp() generator like the Fluid Design Playground. It teaches you the concept while generating production-ready code.\n\n### Are CSS frameworks still relevant for responsive design?\nYes, but their role has shifted. Frameworks like Tailwind handle utility classes and design tokens. Fluid design handles the scaling math. They complement each other.\n\n### What's the biggest mistake developers make with responsive design?\nTesting only at standard breakpoints (375, 768, 1024, 1440). Most bugs hide at 500–700px — that awkward space between mobile and tablet where nobody checks."
 			}
 		]
+	},
+	{
+		"slug": "new-html-features-2024",
+		"title": "What's New in HTML: Recent Additions Explained",
+		"excerpt": "HTML is evolving faster than ever. From native popovers and dialogs to the search element and declarative shadow DOM — here's what landed in the spec and how to use it today.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 10,
+		"tags": [
+			"HTML",
+			"Frontend",
+			"Web Components",
+			"Latest Web Features"
+		],
+		"featuredImage": "/blog/new-html-features-cover.jpg",
+		"sections": [
+			{
+				"heading": "HTML Is Not Standing Still",
+				"level": 2,
+				"body": "HTML has a reputation for being the 'boring' part of the web stack — something you learn once and forget about. That reputation is outdated. Between 2022 and 2025, the HTML spec received more meaningful new elements and APIs than in the previous decade combined.\n\nThis is largely driven by the Web Components ecosystem maturing and browsers finally converging on a shared implementation of features that existed in draft form for years. The result: native solutions to problems that previously required JavaScript libraries or workarounds.\n\nIn this guide, we walk through the most important HTML additions and show you how to use them today."
+			},
+			{
+				"heading": "The Popover API",
+				"level": 2,
+				"body": "The Popover API is perhaps the most practically useful addition. It gives any HTML element built-in show/hide behavior, focus management, top-layer rendering, and light-dismiss — without a single line of JavaScript.\n\n```html\n<button popovertarget=\"my-menu\">Open Menu</button>\n\n<div id=\"my-menu\" popover>\n  <p>I appear above everything else, without z-index hacks!</p>\n  <button popovertarget=\"my-menu\" popovertargetaction=\"hide\">Close</button>\n</div>\n```\n\nThe `popover` attribute opts the element into the top layer — a special rendering context that floats above all other content, including modals. The browser handles Escape to dismiss, focus trapping, and accessibility automatically.\n\nThe `popover` attribute has two modes: `popover=\"auto\"` (default, auto-dismiss on outside click) and `popover=\"manual\"` (stays open until explicitly dismissed)."
+			},
+			{
+				"heading": "The HTML dialog Element",
+				"level": 2,
+				"body": "The `<dialog>` element brings native modal support to HTML. It has been in the spec since 2013 but only reached full cross-browser support in 2022 with Firefox 98.\n\n```html\n<dialog id=\"confirm-dialog\">\n  <h2>Are you sure?</h2>\n  <p>This action cannot be undone.</p>\n  <form method=\"dialog\">\n    <button value=\"cancel\">Cancel</button>\n    <button value=\"confirm\" autofocus>Confirm</button>\n  </form>\n</dialog>\n\n<script>\n  const dialog = document.getElementById('confirm-dialog');\n  document.querySelector('#open-btn').addEventListener('click', () => {\n    dialog.showModal();\n  });\n  dialog.addEventListener('close', () => {\n    console.log('User chose:', dialog.returnValue);\n  });\n</script>\n```\n\nKey behaviors: `showModal()` opens a dialog with a backdrop and focus trap. The `::backdrop` pseudo-element lets you style the overlay. `form[method=\"dialog\"]` submits a return value without a server request, available via `dialog.returnValue`. This eliminates the need for most modal libraries."
+			},
+			{
+				"heading": "The search Element",
+				"level": 2,
+				"body": "The `<search>` element was added in 2023 as a semantic landmark for search regions. It's the HTML-native equivalent of `role=\"search\"`.\n\n```html\n<!-- Before -->\n<div role=\"search\">\n  <input type=\"search\" placeholder=\"Search...\">\n  <button>Search</button>\n</div>\n\n<!-- After: HTML-native -->\n<search>\n  <input type=\"search\" placeholder=\"Search...\" aria-label=\"Site search\">\n  <button>Search</button>\n</search>\n```\n\nSearch regions now have a proper semantic element, improving discoverability for screen readers and search engines alike. The element is display: block by default with no default styling — drop it in and style it as you would a `<div>`.\n\n**Browser support:** Chrome 118+, Firefox 118+, Safari 17+. Full coverage in modern browsers."
+			},
+			{
+				"heading": "Details and Summary: Native Accordions",
+				"level": 2,
+				"body": "The `<details>` and `<summary>` elements have been available for years but are often overlooked. They provide a fully native, no-JavaScript accordion pattern.\n\n```html\n<details>\n  <summary>What is CSS clamp()?</summary>\n  <p>CSS clamp() constrains a value between an upper and lower bound, enabling fluid typography without media queries.</p>\n</details>\n```\n\nThe browser handles open/close toggling, keyboard interaction, and ARIA semantics automatically. The `open` attribute controls state programmatically.\n\nA recent upgrade (2024): the `name` attribute on `<details>` groups multiple accordions, ensuring only one is open at a time — the HTML-native exclusive accordion:\n\n```html\n<details name=\"faq\"><summary>Question 1</summary>...</details>\n<details name=\"faq\"><summary>Question 2</summary>...</details>\n<details name=\"faq\"><summary>Question 3</summary>...</details>\n```\n\nWith `name=\"faq\"`, opening any one detail closes the others — a radio-style accordion. No JavaScript required."
+			},
+			{
+				"heading": "Template and Slot Elements",
+				"level": 2,
+				"body": "The `<template>` element holds HTML fragments that are inert — not rendered, not executed — until cloned into the live DOM. It's the foundation of Web Components.\n\n```html\n<template id=\"card-template\">\n  <div class=\"card\">\n    <slot name=\"title\"></slot>\n    <slot name=\"content\"></slot>\n  </div>\n</template>\n\n<my-card>\n  <h2 slot=\"title\">Card Title</h2>\n  <p slot=\"content\">Card body text.</p>\n</my-card>\n```\n\n`<slot>` elements are placeholders inside a Shadow DOM component that get filled with the component's light-DOM children. Named slots (using `name` and `slot` attributes) enable precise content projection — the web's native answer to Angular's `ng-content` or React's `children`."
+			},
+			{
+				"heading": "Common Mistakes with New HTML Features",
+				"level": 2,
+				"body": "**1. Using `<dialog>` without `showModal()`**\nCalling `dialog.show()` opens a non-modal dialog — no backdrop, no focus trap. For a modal experience, always use `dialog.showModal()`.\n\n**2. Forgetting `autofocus` in dialogs**\nWithout `autofocus`, focus lands on the dialog element itself, not a useful child. Add `autofocus` to the primary action button.\n\n**3. Skipping `aria-label` on search inputs inside `<search>`**\nThe `<search>` element doesn't label its children. The inner `<input type=\"search\">` still needs an accessible label.\n\n**4. Using `<details>` without checking animation support**\nThe `::details-content` pseudo-element (Chrome 131+) enables animating the open/close, but requires a feature flag. Use a CSS transition on `max-height` as a fallback for older browsers.\n\n**5. Misusing the Popover API's top layer**\nThe top layer bypasses z-index stacking entirely. Don't rely on z-index to control popover stacking — use the DOM order instead."
+			},
+			{
+				"heading": "Best Practices",
+				"level": 2,
+				"body": "1. **Prefer native over library** — if a browser API covers your use case, use it. `<dialog>` replaces 80% of modal library use cases.\n2. **Progressively enhance** — the Popover API falls back gracefully in older browsers; `<details>` works everywhere.\n3. **Test with assistive technology** — new elements come with new ARIA semantics. Verify behavior with VoiceOver or NVDA.\n4. **Check caniuse.com** — browser support for these features varies. Target your audience's browsers before shipping.\n5. **Use `<search>` as a landmark** — screen reader users navigate by landmarks. `<search>` is a first-class landmark alongside `<main>`, `<nav>`, and `<aside>`."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Is the Popover API stable?**\nYes. It reached Baseline status in 2024 and is supported in all modern browsers without flags.\n\n**Should I still use JavaScript modal libraries?**\nFor simple use cases, no. `<dialog>` with `showModal()` covers most needs. Libraries add value for complex animations, multiple stacked modals, or rich toast/notification systems.\n\n**What is Baseline?**\nBaseline is a cross-browser compatibility signal. A feature achieves 'Baseline Newly Available' when it lands in all major browsers, and 'Baseline Widely Available' after 2.5 years of support — suitable for all audiences.\n\n**Can I use these features in a React/Vue/Angular app?**\nYes. HTML elements work in any framework. The Popover API and `<dialog>` are especially easy to integrate — they're imperative APIs that work alongside declarative frameworks."
+			}
+		]
+	},
+	{
+		"slug": "popover-api-practical-guide",
+		"title": "The Popover API: A Practical Guide",
+		"excerpt": "The Popover API brings native tooltips, dropdowns, and floating UIs to HTML. Learn how to build real UI patterns with popover, popovertarget, and anchor positioning.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 9,
+		"tags": [
+			"HTML",
+			"CSS",
+			"Latest Web Features",
+			"UX"
+		],
+		"featuredImage": "/blog/popover-api-cover.jpg",
+		"sections": [
+			{
+				"heading": "The Problem Popovers Solve",
+				"level": 2,
+				"body": "Tooltips, dropdowns, command palettes, date pickers, color pickers — all of them involve content that floats above the rest of the UI. Before the Popover API, every one of these required:\n\n• JavaScript event listeners for open/close\n• Manual focus management and Escape handling\n• z-index stacking contexts (and the bugs they cause)\n• ARIA attributes wired up by hand\n• Click-outside detection logic\n\nThe Popover API collapses all of this into a few HTML attributes, handled natively by the browser."
+			},
+			{
+				"heading": "Core Anatomy of a Popover",
+				"level": 2,
+				"body": "A popover requires two things: a trigger and a target.\n\n```html\n<!-- Trigger -->\n<button popovertarget=\"my-popover\">Open</button>\n\n<!-- Target -->\n<div id=\"my-popover\" popover>\n  I am floating content.\n</div>\n```\n\nThat's it. The browser wires up the button click to show/hide `#my-popover`. The element renders in the **top layer** — a special CSS stacking context above everything else, including elements with `z-index: 9999`.\n\nThe `popover` attribute defaults to `popover=\"auto\"`, which means:\n• Clicking outside closes the popover (**light dismiss**)\n• Opening a new auto-popover closes previous ones\n• The Escape key closes it\n• Focus stays inside (for manual popovers)"
+			},
+			{
+				"heading": "Auto vs Manual Popovers",
+				"level": 2,
+				"body": "```html\n<!-- Auto: closes on outside click, one open at a time -->\n<div id=\"dropdown\" popover=\"auto\">...</div>\n\n<!-- Manual: only closes when explicitly told to -->\n<div id=\"notification\" popover=\"manual\">...</div>\n```\n\nUse `auto` for: dropdowns, tooltips, command palettes.\nUse `manual` for: toast notifications, non-blocking banners, tutorials that persist across clicks."
+			},
+			{
+				"heading": "Styling Popovers",
+				"level": 2,
+				"body": "Popovers have a default UA stylesheet that gives them position, padding, and a border. Override freely:\n\n```css\n/* Target when open */\n[popover] {\n  border: none;\n  padding: 0;\n  border-radius: 12px;\n  background: #1a1a2e;\n  color: white;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);\n}\n\n/* The backdrop behind auto popovers */\n[popover]::backdrop {\n  background: rgba(0, 0, 0, 0.3);\n  backdrop-filter: blur(4px);\n}\n\n/* Animate in/out using @starting-style */\n[popover] {\n  transition: opacity 0.2s, transform 0.2s;\n  transform: translateY(4px);\n  opacity: 0;\n}\n\n[popover]:popover-open {\n  opacity: 1;\n  transform: translateY(0);\n}\n\n@starting-style {\n  [popover]:popover-open {\n    opacity: 0;\n    transform: translateY(4px);\n  }\n}\n```\n\nThe `@starting-style` rule is the key to entry animations. It defines the initial state *before* the popover's first render, allowing CSS transitions on `display: none → block` elements."
+			},
+			{
+				"heading": "JavaScript Control",
+				"level": 2,
+				"body": "```javascript\nconst popover = document.getElementById('my-popover');\n\n// Open\npopover.showPopover();\n\n// Close\npopover.hidePopover();\n\n// Toggle\npopover.togglePopover();\n\n// Listen for state changes\npopover.addEventListener('toggle', (event) => {\n  if (event.newState === 'open') {\n    console.log('Popover opened');\n  } else {\n    console.log('Popover closed');\n  }\n});\n```"
+			},
+			{
+				"heading": "Real Pattern: Dropdown Menu",
+				"level": 2,
+				"body": "```html\n<button popovertarget=\"nav-dropdown\">Account ▾</button>\n\n<nav id=\"nav-dropdown\" popover>\n  <a href=\"/profile\">Profile</a>\n  <a href=\"/settings\">Settings</a>\n  <a href=\"/logout\">Log out</a>\n</nav>\n```\n\n```css\n#nav-dropdown {\n  padding: 8px;\n  border-radius: 10px;\n  background: #111;\n  border: 1px solid rgba(255,255,255,0.1);\n  min-width: 180px;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n\n#nav-dropdown a {\n  padding: 8px 12px;\n  border-radius: 6px;\n  color: rgba(255,255,255,0.7);\n  text-decoration: none;\n}\n\n#nav-dropdown a:hover {\n  background: rgba(255,255,255,0.08);\n  color: white;\n}\n```\n\nNo JavaScript needed for the open/close behavior. The browser handles light-dismiss, Escape, and accessibility attributes."
+			},
+			{
+				"heading": "Browser Compatibility",
+				"level": 2,
+				"body": "The Popover API reached Baseline Newly Available in April 2024.\n\n• Chrome 114+ ✅\n• Firefox 125+ ✅\n• Safari 17+ ✅\n• Edge 114+ ✅\n\nFor older browsers, the API gracefully degrades — popovers will be visible in the DOM but won't have top-layer placement. Use a polyfill (`@oddbird/popover-polyfill`) for full coverage."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Can I position popovers relative to their trigger?**\nYes, with the CSS Anchor Positioning API (`anchor-name`, `position-anchor`). This is a companion feature that lets you position a popover relative to any element. Browser support is Chrome 125+ at the time of writing.\n\n**Does the Popover API replace the dialog element?**\nNo. `<dialog>` is for modal interactions that require user response before continuing. Popovers are for non-blocking, supplementary content.\n\n**Does it work with Shadow DOM?**\nYes. The top layer is document-level, so popovers from inside shadow roots still render above all other content."
+			}
+		]
+	},
+	{
+		"slug": "container-queries-component-responsive-design",
+		"title": "Container Queries: Component-Level Responsive Design",
+		"excerpt": "Container queries let components respond to the size of their container, not the viewport. This is the biggest shift in responsive CSS since media queries themselves.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 10,
+		"tags": [
+			"CSS",
+			"Media Queries",
+			"Responsive Design",
+			"Latest Web Features"
+		],
+		"featuredImage": "/blog/container-queries-cover.jpg",
+		"sections": [
+			{
+				"heading": "The Fundamental Problem with Viewport-Based Queries",
+				"level": 2,
+				"body": "Traditional media queries answer the question: 'How wide is the browser window?' Container queries answer: 'How wide is the element I'm living inside?'\n\nThis distinction matters enormously for component-based design. A card component might appear in a narrow sidebar (300px wide) and a wide main content area (800px wide) on the same page at the same viewport width. A `@media` query can't distinguish between these two — but a container query can.\n\nThis is why container queries are the most significant addition to CSS since flexbox."
+			},
+			{
+				"heading": "The Syntax",
+				"level": 2,
+				"body": "```css\n/* 1. Define a containment context on the parent */\n.card-wrapper {\n  container-type: inline-size;\n  container-name: card; /* optional, for named queries */\n}\n\n/* 2. Query the container from the child */\n@container card (min-width: 400px) {\n  .card {\n    flex-direction: row;\n    gap: 24px;\n  }\n\n  .card-image {\n    width: 200px;\n    flex-shrink: 0;\n  }\n}\n```\n\n`container-type: inline-size` establishes an inline-size containment context — the element becomes a **container** that its children can query. The `container-name` is optional but useful when components are nested."
+			},
+			{
+				"heading": "Container Query Units",
+				"level": 2,
+				"body": "Container queries come with their own relative units — similar to viewport units but relative to the nearest container:\n\n```css\n.card {\n  padding: 5cqi; /* 5% of container inline-size */\n  font-size: clamp(1rem, 3cqi, 1.5rem);\n}\n```\n\nThe available units are:\n• `cqw` — 1% of container width\n• `cqh` — 1% of container height\n• `cqi` — 1% of container inline size\n• `cqb` — 1% of container block size\n• `cqmin` — smaller of cqi/cqb\n• `cqmax` — larger of cqi/cqb\n\nThese enable fluid scaling within components without needing `clamp()` with viewport units."
+			},
+			{
+				"heading": "Practical Example: A Responsive Card",
+				"level": 2,
+				"body": "```css\n.card-container {\n  container-type: inline-size;\n}\n\n.card {\n  display: flex;\n  flex-direction: column;\n  padding: 16px;\n  gap: 12px;\n}\n\n/* When the card's container is at least 480px wide */\n@container (min-width: 480px) {\n  .card {\n    flex-direction: row;\n    align-items: center;\n    padding: 24px;\n    gap: 24px;\n  }\n\n  .card-image {\n    width: 180px;\n    height: 180px;\n    flex-shrink: 0;\n  }\n\n  .card-title {\n    font-size: 1.25rem;\n  }\n}\n```\n\nThis card layout automatically adapts whether it's in a 2-column grid or a narrow sidebar — with no JavaScript and no new CSS classes."
+			},
+			{
+				"heading": "Style Queries: Query Computed Styles",
+				"level": 2,
+				"body": "Style queries are the next frontier — they let you query computed CSS custom property values on a container:\n\n```css\n.sidebar {\n  --layout: narrow;\n  container-type: inline-size;\n}\n\n@container style(--layout: narrow) {\n  .card-title {\n    font-size: 0.875rem;\n  }\n}\n```\n\nThis enables 'smart components' that adapt to semantic context (not just size). Style queries are in Chrome 111+ but not yet widely available — watch this space."
+			},
+			{
+				"heading": "Browser Support",
+				"level": 2,
+				"body": "Container Queries (size queries) reached Baseline Widely Available in February 2024.\n\n• Chrome 105+ ✅\n• Firefox 110+ ✅\n• Safari 16+ ✅\n• Edge 105+ ✅\n\nSafe to use in production. No polyfill needed for modern browser targets."
+			},
+			{
+				"heading": "Common Mistakes",
+				"level": 2,
+				"body": "**1. Querying the container itself**\nA container cannot query itself. Container queries apply to descendants only. Wrap the component in a parent with `container-type`.\n\n**2. Using `container-type: size` unnecessarily**\n`container-type: size` requires both inline and block size containment, which prevents the element from growing to fit its content. Almost always, use `container-type: inline-size` instead.\n\n**3. Forgetting containment is inherited**\nA `container-type` applies a containment context — children can't escape it with `position: fixed` or `z-index`. For overlays inside containers, be aware of stacking context implications."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Do container queries replace media queries?**\nNo. They complement each other. Use media queries for page-level layout (columns, sidebar presence). Use container queries for component-level adaptation.\n\n**Can I use container queries in React/Vue components?**\nYes — the container and query are pure CSS. The framework has no involvement. Apply `container-type` to the wrapper element and add `@container` styles to the component's CSS.\n\n**What happens in browsers that don't support container queries?**\nStyles inside `@container` blocks are simply ignored. Write your base styles (mobile-first) outside the container query and use the query to enhance for larger containers."
+			}
+		]
+	},
+	{
+		"slug": "viewport-units-svh-lvh-dvh",
+		"title": "Viewport Units Explained: svh, lvh, dvh, and Why They Matter",
+		"excerpt": "The old vh unit breaks on mobile because of dynamic browser chrome. The new svh, lvh, and dvh units fix this — here's what each means and when to use them.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 7,
+		"tags": [
+			"CSS",
+			"Responsive Design",
+			"Latest Web Features",
+			"Mobile"
+		],
+		"featuredImage": "/blog/viewport-units-cover.jpg",
+		"sections": [
+			{
+				"heading": "Why 100vh Is Broken on Mobile",
+				"level": 2,
+				"body": "You've likely encountered this: a hero section or full-screen overlay set to `height: 100vh` that gets clipped on mobile — the bottom is hidden behind the browser's address bar or navigation controls.\n\nThis happens because mobile browsers have *dynamic* chrome. The address bar appears when you load a page and shrinks (or disappears) as you scroll down. Early `vh` was defined against the *largest* possible viewport (with chrome hidden). This caused `100vh` to be taller than the visible area when chrome is visible, triggering overflow and layout shifts.\n\nThe CSS Working Group solved this by introducing three distinct viewport size variations in 2022."
+			},
+			{
+				"heading": "The Three New Viewport Sizes",
+				"level": 2,
+				"body": "```css\n/* Small viewport — assume chrome is fully visible (max chrome) */\n.section { height: 100svh; }\n\n/* Large viewport — assume chrome is hidden (min chrome) */\n.section { height: 100lvh; }\n\n/* Dynamic viewport — tracks the actual current chrome state */\n.section { height: 100dvh; }\n```\n\n• **svh (Small Viewport Height):** Based on the smallest possible viewport — when all browser chrome (address bar, navigation, toolbars) is fully visible. This is the 'safe' unit — content sized with `svh` is always fully visible.\n\n• **lvh (Large Viewport Height):** Based on the largest possible viewport — when all chrome is hidden (after scrolling). Content sized with `lvh` might initially be clipped, but fills the screen when chrome retracts.\n\n• **dvh (Dynamic Viewport Height):** Tracks the actual viewport size in real time as chrome appears and disappears. This eliminates the gap but causes layout reflow as the user scrolls — use with caution for animated content."
+			},
+			{
+				"heading": "Which Unit Should You Use?",
+				"level": 2,
+				"body": "The right choice depends on your use case:\n\n**For full-screen hero sections:**\n```css\n.hero {\n  min-height: 100svh; /* Always fully visible, never clipped */\n}\n```\n\n**For modals and overlays:**\n```css\n.overlay {\n  height: 100dvh; /* Match whatever the current visible area is */\n}\n```\n\n**For sticky sidebars:**\n```css\n.sidebar {\n  height: 100svh; /* Stable, no layout reflow */\n  overflow-y: auto;\n}\n```\n\n**The general recommendation:** Default to `svh` for static layouts. Use `dvh` only when you need pixel-perfect visible-area coverage and the element isn't animated."
+			},
+			{
+				"heading": "The Full Set: All New Viewport Units",
+				"level": 2,
+				"body": "The spec introduced these across all dimensions:\n\n```css\n/* Height variants */\nheight: 100svh; /* small */\nheight: 100lvh; /* large */\nheight: 100dvh; /* dynamic */\n\n/* Width variants */\nwidth: 100svw;\nwidth: 100lvw;\nwidth: 100dvw;\n\n/* Inline/Block (logical) */\ninline-size: 100svi;\ninline-size: 100lvi;\ninline-size: 100dvi;\n\nblock-size: 100svb;\nblock-size: 100lvb;\nblock-size: 100dvb;\n\n/* Min and Max shorthand */\ninline-size: 100svmin;\ninline-size: 100svmax;\n```"
+			},
+			{
+				"heading": "Browser Support",
+				"level": 2,
+				"body": "These units reached Baseline Widely Available in 2023.\n\n• Chrome 108+ ✅\n• Firefox 101+ ✅\n• Safari 15.4+ ✅\n• Edge 108+ ✅\n\nSafe to use in production today without any fallbacks for modern browser targets."
+			},
+			{
+				"heading": "Common Mistakes",
+				"level": 2,
+				"body": "**1. Using `dvh` for everything**\n`dvh` causes layout reflow on scroll because the value changes as browser chrome shows/hides. This can trigger paint events and jank in complex layouts. Use `svh` for static elements.\n\n**2. Forgetting the old `vh` in the fallback**\nFor browsers that don't support the new units, `vh` remains a valid fallback:\n\n```css\n.hero {\n  min-height: 100vh; /* fallback */\n  min-height: 100svh; /* modern browsers */\n}\n```\n\n**3. Assuming `dvh` is always 'correct'**\n`dvh` reflects the current viewport size — which might be smaller than expected when the keyboard is open on mobile. Test on real devices."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**What about vb and vi units?**\n`vb` (viewport block size) and `vi` (viewport inline size) are logical equivalents to `vh` and `vw` for vertical writing modes. They also have s/l/d variants.\n\n**Is `100dvh` the same as `100%` height?**\nNo. `100%` height requires the parent to have a defined height. `100dvh` is absolute — it's the dynamic viewport height regardless of parent context.\n\n**Do these units affect Desktop?**\nOn desktop, browser chrome is typically static (or absent). `svh`, `lvh`, and `dvh` all resolve to the same value on desktop — so these units are primarily a mobile concern."
+			}
+		]
+	},
+	{
+		"slug": "css-media-query-features-2024",
+		"title": "New CSS Media Query Features You Should Know",
+		"excerpt": "Beyond min-width and max-width: modern media queries now cover user preferences, interaction capabilities, display quality, and more. Here's the complete modern media query toolkit.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 11,
+		"tags": [
+			"CSS",
+			"Media Queries",
+			"Responsive Design",
+			"Latest Web Features",
+			"Accessibility"
+		],
+		"featuredImage": "/blog/media-queries-cover.jpg",
+		"sections": [
+			{
+				"heading": "Media Queries Have Grown Up",
+				"level": 2,
+				"body": "When most developers think of media queries, they think of `@media (min-width: 768px)`. But the modern media query specification is a rich language for querying the user's environment, preferences, and capabilities.\n\nIn the last three years, the CSS Working Group shipped a wave of new media features that move responsive design from a layout concern into a broader UX concern. You can now query whether the user prefers reduced motion, whether they're on a touch device, whether their display supports high-resolution color — and adjust your UI accordingly."
+			},
+			{
+				"heading": "Range Syntax: Width Between Two Values",
+				"level": 2,
+				"body": "The new range syntax makes breakpoint queries more readable:\n\n```css\n/* Old syntax */\n@media (min-width: 768px) and (max-width: 1024px) { ... }\n\n/* New range syntax */\n@media (768px <= width <= 1024px) { ... }\n\n/* Even simpler */\n@media (width >= 768px) { ... }\n@media (width < 480px) { ... }\n```\n\nThis syntax works for any numeric media feature including `height`, `resolution`, and `aspect-ratio`. It's supported in Chrome 104+, Firefox 63+, and Safari 16.4+."
+			},
+			{
+				"heading": "prefers-reduced-motion",
+				"level": 2,
+				"body": "The most important media query for accessibility. Some users have vestibular disorders, epilepsy, or other conditions that make heavy animation harmful.\n\n```css\n/* Default: full animation */\n.hero-title {\n  animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n/* Respect user preference */\n@media (prefers-reduced-motion: reduce) {\n  .hero-title {\n    animation: none;\n  }\n\n  /* Or provide a minimal alternative */\n  .hero-title {\n    animation: fadeIn 0.1s ease;\n  }\n}\n```\n\nThe value `no-preference` indicates the user hasn't expressed a preference. Most implementations approach this as: write animations by default, then strip them for `reduce`.\n\n**This is not optional.** WCAG 2.1 Success Criterion 2.3.3 requires that motion animation triggered by interaction can be disabled — and `prefers-reduced-motion` is the CSS mechanism for that."
+			},
+			{
+				"heading": "prefers-color-scheme",
+				"level": 2,
+				"body": "```css\n:root {\n  --bg: #ffffff;\n  --text: #0a0a0a;\n  --card: #f8f8f8;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #0a0a0f;\n    --text: #ffffff;\n    --card: rgba(255,255,255,0.04);\n  }\n}\n```\n\nModern implementation best practice: define your design tokens as CSS custom properties and override them in the media query. This approach works seamlessly with JavaScript-based theme switching — you can override the preference-based tokens with a `.light` or `.dark` class on `<html>`.\n\n```css\n/* User preference baseline */\n@media (prefers-color-scheme: dark) {\n  :root { color-scheme: dark; }\n}\n\n/* JavaScript override takes precedence */\n:root.force-light { color-scheme: light; }\n:root.force-dark  { color-scheme: dark; }\n```"
+			},
+			{
+				"heading": "prefers-contrast",
+				"level": 2,
+				"body": "```css\n/* Standard styling */\n.button {\n  background: rgba(99, 102, 241, 0.9);\n  color: white;\n}\n\n/* Enhanced contrast for users who need it */\n@media (prefers-contrast: more) {\n  .button {\n    background: #4338ca; /* Fully opaque, higher contrast */\n    outline: 2px solid #fff; /* Visible border */\n  }\n}\n\n/* Reduced contrast for users who prefer it */\n@media (prefers-contrast: less) {\n  .button {\n    background: rgba(99, 102, 241, 0.6);\n  }\n}\n```\n\nValues are `more`, `less`, `forced`, and `no-preference`. This is particularly important for users with low vision or photosensitivity."
+			},
+			{
+				"heading": "hover and pointer: Touch-Aware Queries",
+				"level": 2,
+				"body": "These queries detect the user's primary input mechanism.\n\n```css\n/* Hover-capable device (mouse, trackpad) */\n@media (hover: hover) {\n  .card:hover {\n    transform: translateY(-4px);\n    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);\n  }\n}\n\n/* Fine pointer (mouse) — enable small interactive targets */\n@media (pointer: fine) {\n  .custom-checkbox {\n    width: 16px;\n    height: 16px;\n  }\n}\n\n/* Coarse pointer (touch) — require larger targets */\n@media (pointer: coarse) {\n  .custom-checkbox {\n    width: 44px;\n    height: 44px;\n  }\n}\n```\n\nThe `hover: none` value is especially important: don't apply hover effects that serve as the *only* interactive signal on touch devices. Use `(hover: hover)` to gate hover-only interactions."
+			},
+			{
+				"heading": "display-mode: PWA-Aware Styling",
+				"level": 2,
+				"body": "```css\n/* Standalone (PWA installed mode — no browser chrome) */\n@media (display-mode: standalone) {\n  .app-header {\n    padding-top: env(safe-area-inset-top);\n  }\n\n  /* Hide browser-native UI hints */\n  .install-banner {\n    display: none;\n  }\n}\n\n/* Minimal-UI (some browser chrome visible) */\n@media (display-mode: minimal-ui) {\n  .nav-bar { display: block; }\n}\n```\n\nThis lets you tailor the UI for users who have installed your site as a PWA — hiding install prompts, adjusting padding for safe areas, and adapting navigation."
+			},
+			{
+				"heading": "Browser Support Summary",
+				"level": 2,
+				"body": "Feature  Chrome  Firefox  Safari\nRange syntax  104+  63+  16.4+\nprefers-reduced-motion  74+  63+  10.1+\nprefers-color-scheme  76+  67+  12.1+\nprefers-contrast  96+  101+  14.1+\nhover / pointer  38+  64+  9+\ndisplay-mode  46+  47+  13+\n\nAll of these features are broadly safe for production use."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Does `prefers-reduced-motion` affect CSS transitions too?**\nYes. Any transition or animation — including `transition` on properties like `transform`, `opacity`, and `background` — should be suppressed or shortened for `prefers-reduced-motion: reduce`.\n\n**Can JavaScript detect these preferences too?**\nYes: `window.matchMedia('(prefers-color-scheme: dark)').matches` returns a boolean. You can also add event listeners to respond to live changes.\n\n**What is `forced-colors` media query?**\nIt detects Windows High Contrast Mode. When forced-colors is active, the OS overrides your CSS colors with high-contrast system colors. Test your UI with Windows High Contrast Mode enabled.\n\n**Is `prefers-reduced-transparency` a thing?**\nYes. It's in the spec (Chrome 118+) and signals the user prefers less transparency — relevant for glassmorphism and backdrop-filter effects."
+			}
+		]
+	},
+	{
+		"slug": "declarative-shadow-dom-explained",
+		"title": "Declarative Shadow DOM Explained",
+		"excerpt": "Declarative Shadow DOM lets you define Shadow DOM directly in HTML, enabling server-side rendering of Web Components. Here's what it is, why it matters, and how to use it.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 8,
+		"tags": [
+			"HTML",
+			"Web Components",
+			"Frontend",
+			"Latest Web Features"
+		],
+		"featuredImage": "/blog/declarative-shadow-dom-cover.jpg",
+		"sections": [
+			{
+				"heading": "The Web Components SSR Problem",
+				"level": 2,
+				"body": "Traditional Shadow DOM is imperative — you attach a shadow root using JavaScript: `element.attachShadow({ mode: 'open' })`. This works great in client-side rendering but creates a fundamental problem for SSR (Server-Side Rendering):\n\nWhen the server sends HTML to the browser, there's no JavaScript runtime to call `attachShadow()`. The Shadow DOM is missing until JavaScript loads and executes — causing a flash of unstyled content (FOUC) and breaking above-the-fold rendering performance.\n\nDeclarative Shadow DOM solves this by letting you define the shadow root directly in HTML — no JavaScript required."
+			},
+			{
+				"heading": "The Syntax",
+				"level": 2,
+				"body": "```html\n<my-button>\n  <!-- This template becomes the shadow root -->\n  <template shadowrootmode=\"open\">\n    <style>\n      button {\n        padding: 8px 20px;\n        border-radius: 8px;\n        background: #6366f1;\n        color: white;\n        border: none;\n        cursor: pointer;\n        font-weight: 600;\n      }\n      button:hover { background: #4f46e5; }\n    </style>\n    <!-- slot receives light DOM children -->\n    <button><slot></slot></button>\n  </template>\n  Click me\n</my-button>\n```\n\nThe `<template shadowrootmode=\"open\">` attribute creates a shadow root declaratively. The browser processes this during HTML parsing — before JavaScript runs."
+			},
+			{
+				"heading": "shadowrootmode Values",
+				"level": 2,
+				"body": "```html\n<!-- Open: accessible via element.shadowRoot in JS -->\n<template shadowrootmode=\"open\">...</template>\n\n<!-- Closed: shadowRoot returns null -->\n<template shadowrootmode=\"closed\">...</template>\n```\n\nIn practice, use `open` for components you control. Use `closed` only when you intentionally want to prevent external JavaScript from accessing the shadow root."
+			},
+			{
+				"heading": "Combining with Custom Elements",
+				"level": 2,
+				"body": "Declarative Shadow DOM works seamlessly with Custom Elements:\n\n```html\n<!-- Server renders this HTML -->\n<user-avatar name=\"Sarah\" src=\"/avatar.jpg\">\n  <template shadowrootmode=\"open\">\n    <style>/* component styles */</style>\n    <img part=\"avatar\" src=\"/avatar.jpg\" alt=\"Sarah\">\n    <span part=\"name\"><slot name=\"name\"></slot></span>\n  </template>\n  <span slot=\"name\">Sarah</span>\n</user-avatar>\n\n<script>\n// Client-side enhancement: register the custom element\ncustomElements.define('user-avatar', class extends HTMLElement {\n  connectedCallback() {\n    // Shadow DOM already exists — don't re-attach!\n    const shadow = this.shadowRoot; // already populated from HTML\n    // Add event listeners, reactive behavior here\n  }\n});\n</script>\n```\n\nThe browser renders the shadow DOM from the HTML immediately. When the JavaScript loads, the custom element class is registered and `connectedCallback` runs — it finds the shadow root already populated."
+			},
+			{
+				"heading": "Adoptable Stylesheets with DSD",
+				"level": 2,
+				"body": "A common concern with Shadow DOM is CSS duplication — each shadow root has its own style tag, so styles repeat in the HTML. The `shadowrootserializable` attribute and Constructable Stylesheets address this:\n\n```html\n<template shadowrootmode=\"open\" shadowrootserializable>\n  <!-- styles here are serialized for streaming -->\n  <link rel=\"stylesheet\" href=\"/component.css\">\n  <slot></slot>\n</template>\n```\n\nFor shared styles (design system tokens, typography), use the CSS Layers and the CSS `@layer` rule to define global styles that penetrate shadow roots through the cascade."
+			},
+			{
+				"heading": "Browser Support",
+				"level": 2,
+				"body": "Declarative Shadow DOM (with `shadowrootmode`) reached full cross-browser support in 2024:\n\n• Chrome 90+ ✅\n• Firefox 123+ ✅\n• Safari 16.4+ ✅\n• Edge 90+ ✅\n\nNote: Earlier Chrome supported a `shadowroot` attribute (deprecated). Always use `shadowrootmode`."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Does Declarative Shadow DOM work with React or Next.js?**\nYes. You can include DSD markup in your JSX or HTML templates. The browser processes it before React hydrates. This is particularly useful for islands architecture frameworks.\n\n**How does styling work across the shadow boundary?**\nCSS custom properties (variables) do pierce the shadow boundary. You can use CSS custom properties in the shadow root that are defined in the global stylesheet, enabling design token systems to work across shadow roots.\n\n**Can I use `::part()` with DSD?**\nYes. The `part` attribute exposes named elements through the shadow boundary for external CSS to style:\n```css\nuser-avatar::part(avatar) { border-radius: 50%; }\n```"
+			}
+		]
+	},
+	{
+		"slug": "css-scope-styling",
+		"title": "CSS @scope and Its Impact on Styling",
+		"excerpt": "CSS @scope lets you constrain styles to a specific DOM subtree without class naming conventions or specificity battles. Here's how it works and why it changes how we write CSS.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 8,
+		"tags": [
+			"CSS",
+			"Latest Web Features",
+			"Frontend"
+		],
+		"featuredImage": "/blog/css-scope-cover.jpg",
+		"sections": [
+			{
+				"heading": "The Problem: CSS Is Global By Nature",
+				"level": 2,
+				"body": "CSS selectors are global. A rule like `.button { color: red }` affects every `.button` on the page — regardless of context. This has driven two decades of workarounds:\n\n• **BEM** (Block Element Modifier): `.card__button--primary`\n• **CSS Modules**: Locally-scoped class names via build tools\n• **CSS-in-JS**: Styles compiled into unique class names\n• **Shadow DOM**: Hard encapsulation at the component boundary\n\nAll of these solve the problem of CSS locality — styles meant for one context leaking into another. `@scope` is the native CSS answer."
+			},
+			{
+				"heading": "Basic @scope Syntax",
+				"level": 2,
+				"body": "```css\n/* Styles inside @scope only affect elements within .card */\n@scope (.card) {\n  h2 {\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: var(--text-primary);\n  }\n\n  p {\n    color: var(--text-secondary);\n    line-height: 1.6;\n  }\n\n  .button {\n    padding: 8px 16px;\n    background: #6366f1;\n  }\n}\n```\n\nThe `h2`, `p`, and `.button` rules above **only apply inside elements with class `.card`**. An `h2` outside `.card` is completely unaffected."
+			},
+			{
+				"heading": "Scope Limits: Avoiding Over-Scoping",
+				"level": 2,
+				"body": "The killer feature is the optional `to` clause — it defines the **lower boundary** of the scope. Styles apply from the scope root to the limit, but not inside the limit.\n\n```css\n@scope (.card) to (.card-footer) {\n  /* Only applies between .card and .card-footer (exclusive) */\n  p {\n    color: blue;\n  }\n}\n```\n\n```html\n<div class=\"card\">\n  <p>Blue text (inside scope, outside limit)</p>  <!-- ✅ styled -->\n  <div class=\"card-footer\">\n    <p>Not blue text (inside limit)</p>           <!-- ❌ not styled -->\n  </div>\n</div>\n```\n\nThis enables 'donut scoping' — affecting a region but not its inner components. Perfect for design systems where a parent layout component shouldn't style inside nested interactive components."
+			},
+			{
+				"heading": "Proximity Wins Over Specificity",
+				"level": 2,
+				"body": "Here's where `@scope` gets interesting. When two `@scope` rules with the same specificity both apply to an element, the rule from the **closest scope root** wins — not the order in the stylesheet.\n\n```html\n<div class=\"theme-dark\">\n  <div class=\"theme-light\">\n    <button class=\"btn\">Which theme wins?</button>\n  </div>\n</div>\n```\n\n```css\n@scope (.theme-dark) { .btn { background: #1a1a2e; color: white; } }\n@scope (.theme-light) { .btn { background: white; color: black; } }\n```\n\nResult: `.theme-light` wins because it's the closest scope ancestor to `.btn`. This is a new cascade concept called **scope proximity** — and it's a paradigm shift from specificity-based conflict resolution."
+			},
+			{
+				"heading": "Inline @scope in Style Blocks",
+				"level": 2,
+				"body": "You can embed `@scope` directly in a `<style>` tag within an HTML component:\n\n```html\n<div class=\"widget\">\n  <style>\n    @scope {\n      /* Scoped to the parent of this <style> element */\n      p { color: #6366f1; }\n    }\n  </style>\n  <p>Purple paragraph (scoped)</p>\n</div>\n<p>Normal paragraph (unaffected)</p>\n```\n\nWhen `@scope` has no argument, it scopes to the element containing the `<style>` tag. This enables single-file component patterns in plain HTML — without a build tool."
+			},
+			{
+				"heading": "Browser Support",
+				"level": 2,
+				"body": "CSS @scope is currently Baseline Newly Available (as of 2024):\n\n• Chrome 118+ ✅\n• Firefox 128+ ✅  \n• Safari 17.4+ ✅\n• Edge 118+ ✅\n\nUsable in modern-browser-targeted projects. For legacy support, the current behavior without `@scope` (global styles) is the graceful fallback — scoped styles simply apply globally."
+			},
+			{
+				"heading": "Common Mistakes",
+				"level": 2,
+				"body": "**1. Forgetting that @scope is not Shadow DOM**\n`@scope` constrains the CSS selector's scope — it doesn't create style encapsulation like Shadow DOM. JavaScript and inherited properties (like `color` and `font-size`) still cross the boundary.\n\n**2. Using @scope as a BEM replacement**\n`@scope` works alongside BEM or CSS Modules — it's not a wholesale replacement. It removes the need for deeply nested selectors but doesn't eliminate the value of semantic class naming.\n\n**3. Misunderstanding proximity cascade**\nStyle order still matters for equal-specificity rules outside of scopes. Only when two scoped rules conflict does proximity take over."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Does @scope work with Tailwind CSS?**\nTailwind uses utility classes — `@scope` adds less value in a utility-first workflow. It's most beneficial in traditional component-based CSS workflows.\n\n**Can I use @scope in CSS Modules or Sass?**\nYes — `@scope` is plain CSS. It can be written inside `.css`, `.scss`, or `.module.css` files as-is.\n\n**Will @scope replace CSS-in-JS?**\nFor many use cases, yes. The combination of `@scope` (locality) and CSS custom properties (theming) covers most of what CSS-in-JS was needed for."
+			}
+		]
+	},
+	{
+		"slug": "prefers-reduced-motion-color-scheme-contrast",
+		"title": "prefers-reduced-motion, prefers-color-scheme & prefers-contrast",
+		"excerpt": "User preference media queries adapt your UI to what each user actually needs — not just what device they're on. Here's a deep dive into all three with practical implementation patterns.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 9,
+		"tags": [
+			"CSS",
+			"Accessibility",
+			"Media Queries",
+			"Latest Web Features"
+		],
+		"featuredImage": "/blog/preference-queries-cover.jpg",
+		"sections": [
+			{
+				"heading": "Designing for Preference, Not Just Viewport",
+				"level": 2,
+				"body": "Responsive design started with viewport adaptation — making layouts work at different screen sizes. The next phase is **preference adaptation** — making UIs respond to what individual users need and prefer.\n\nThe browser is a proxy for the user's operating system preferences. When a user enables Dark Mode on their Mac, Safari reports `prefers-color-scheme: dark`. When a user enables 'Reduce Motion' in iOS Accessibility settings, Safari reports `prefers-reduced-motion: reduce`.\n\nThese aren't edge cases. In 2025, dark mode usage is estimated at 60%+ among developer audiences. Reduced motion affects roughly 35% of users with vestibular disorders who explicitly enable it in their OS settings."
+			},
+			{
+				"heading": "prefers-reduced-motion: The Full Playbook",
+				"level": 2,
+				"body": "```css\n/* ✅ Correct: strip all animations */\n@media (prefers-reduced-motion: reduce) {\n  *,\n  *::before,\n  *::after {\n    animation-duration: 0.01ms !important;\n    animation-iteration-count: 1 !important;\n    transition-duration: 0.01ms !important;\n    scroll-behavior: auto !important;\n  }\n}\n```\n\nThe `!important` override is intentional here — it's a nuclear reset for accessibility. Some teams prefer a more surgical approach:\n\n```css\n/* Targeted: only disable specific animations */\n@media (prefers-reduced-motion: reduce) {\n  .hero-animation { animation: none; }\n  .parallax { transform: none !important; }\n  .transition-all { transition: none; }\n}\n```\n\nFor Framer Motion or React Spring users:\n\n```javascript\nimport { useReducedMotion } from 'framer-motion';\n\nfunction AnimatedCard() {\n  const shouldReduce = useReducedMotion();\n  return (\n    <motion.div\n      animate={{ x: shouldReduce ? 0 : 100, opacity: 1 }}\n      transition={{ duration: shouldReduce ? 0 : 0.4 }}\n    />\n  );\n}\n```"
+			},
+			{
+				"heading": "prefers-color-scheme: The Modern Implementation",
+				"level": 2,
+				"body": "The naive approach — two sets of CSS variables with a media query — works but is hard to maintain. The modern pattern uses a single token system:\n\n```css\n:root {\n  /* Semantic tokens map to primitives */\n  --color-surface: #ffffff;\n  --color-surface-elevated: #f8f9fa;\n  --color-text: #0a0a0a;\n  --color-text-muted: #6b7280;\n  --color-border: rgba(0, 0, 0, 0.1);\n  --color-accent: #6366f1;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --color-surface: #0a0a0f;\n    --color-surface-elevated: rgba(255, 255, 255, 0.04);\n    --color-text: #f9fafb;\n    --color-text-muted: #9ca3af;\n    --color-border: rgba(255, 255, 255, 0.08);\n    --color-accent: #818cf8;\n  }\n}\n\n/* All components use semantic tokens */\n.card {\n  background: var(--color-surface-elevated);\n  border: 1px solid var(--color-border);\n  color: var(--color-text);\n}\n```\n\nAddition: support manual override from a theme toggle:\n\n```css\n/* Override with data-theme attribute (set by JavaScript) */\n[data-theme=\"light\"] { /* light token values */ }\n[data-theme=\"dark\"]  { /* dark token values */ }\n```"
+			},
+			{
+				"heading": "prefers-contrast: Often Forgotten",
+				"level": 2,
+				"body": "```css\n/* Standard: pleasant, low-contrast aesthetics */\n.card {\n  background: rgba(255, 255, 255, 0.04);\n  border: 1px solid rgba(255, 255, 255, 0.08);\n  color: rgba(255, 255, 255, 0.7);\n}\n\n/* High contrast: more opaque, more defined borders */\n@media (prefers-contrast: more) {\n  .card {\n    background: #1a1a2e;\n    border: 2px solid rgba(255, 255, 255, 0.5);\n    color: #ffffff;\n  }\n\n  /* Ensure interactive elements are clearly distinguishable */\n  button, a, [role=\"button\"] {\n    outline: 2px solid currentColor;\n    outline-offset: 2px;\n  }\n}\n```\n\nThe `forced-colors` query is the complement — it detects Windows High Contrast Mode where the OS overrides all CSS colors with system colors. Test with High Contrast Mode enabled:"
+			},
+			{
+				"heading": "Detecting Preferences in JavaScript",
+				"level": 2,
+				"body": "```javascript\n// One-time check\nconst prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;\nconst prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;\nconst prefersHighContrast = window.matchMedia('(prefers-contrast: more)').matches;\n\n// Reactive — updates when the user changes their system preference\nwindow.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {\n  if (e.matches) {\n    document.documentElement.setAttribute('data-theme', 'dark');\n  } else {\n    document.documentElement.setAttribute('data-theme', 'light');\n  }\n});\n```"
+			},
+			{
+				"heading": "Testing Your Implementation",
+				"level": 2,
+				"body": "**Chrome DevTools**: Rendering panel → Emulate CSS media feature. You can toggle `prefers-color-scheme`, `prefers-reduced-motion`, and `forced-colors` without changing OS settings.\n\n**macOS**: System Preferences → Accessibility → Display → 'Reduce Motion' to test reduced-motion. System Preferences → Appearance → Dark Mode for color scheme.\n\n**iOS**: Settings → Accessibility → Motion → Reduce Motion."
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Should I always default to no animations and let users opt in?**\nNo. The opposite: animate by default, provide a reduced-motion alternative. Most users benefit from well-designed motion. The accessibility requirement is about allowing users to reduce motion when they need to — not eliminating it.\n\n**What percentage of users use dark mode?**\nData varies widely by audience. Developer-facing tools see 60–75% dark mode usage. Consumer products average 30–50%. Always test both modes.\n\n**Does `prefers-reduced-motion` affect SVG animations?**\nYes — SVG CSS animations and SMIL animations both respect the media query if you apply the appropriate CSS reset.\n\n**Can `prefers-color-scheme` be set programmatically?**\nNot directly — it reads the OS preference. You override it by applying a class or data attribute to `<html>` and matching that attribute in your CSS with higher specificity."
+			}
+		]
+	},
+	{
+		"slug": "html-dialog-native-modals",
+		"title": "HTML Dialog Element: Native Modals Without Libraries",
+		"excerpt": "The HTML <dialog> element provides native modal dialogs with built-in focus trapping, Escape key handling, and accessibility. Here's everything you need to replace your modal library.",
+		"author": "UIXplor Team",
+		"date": "2026-07-10",
+		"readingTime": 9,
+		"tags": [
+			"HTML",
+			"CSS",
+			"Accessibility",
+			"Latest Web Features"
+		],
+		"featuredImage": "/blog/dialog-element-cover.jpg",
+		"sections": [
+			{
+				"heading": "The Cost of Modal Libraries",
+				"level": 2,
+				"body": "Bootstrap Modal, Headless UI Dialog, Radix Dialog, @reach/dialog — most popular UI kits include a modal component. These exist because building a fully accessible modal from scratch is genuinely hard:\n\n• Focus must be trapped inside the modal\n• Background content must be non-interactive (aria-hidden or inert)\n• The Escape key must close it\n• Focus must return to the trigger element on close\n• Screen readers must announce the modal\n• Scroll must be locked on the body\n\nThe `<dialog>` element handles every one of these requirements natively. In 2022, it reached full cross-browser support. It's time to stop shipping 10kb+ modal libraries."
+			},
+			{
+				"heading": "Opening a Modal with showModal()",
+				"level": 2,
+				"body": "```html\n<button id=\"open-dialog\">Open Dialog</button>\n\n<dialog id=\"confirm-modal\" aria-labelledby=\"dialog-title\">\n  <h2 id=\"dialog-title\">Confirm Action</h2>\n  <p>Are you sure you want to delete this item? This cannot be undone.</p>\n  <div class=\"dialog-actions\">\n    <form method=\"dialog\">\n      <button value=\"cancel\">Cancel</button>\n      <button value=\"confirm\" class=\"btn-danger\" autofocus>Delete</button>\n    </form>\n  </div>\n</dialog>\n\n<script>\n  const dialog = document.getElementById('confirm-modal');\n  const trigger = document.getElementById('open-dialog');\n\n  trigger.addEventListener('click', () => dialog.showModal());\n\n  dialog.addEventListener('close', () => {\n    if (dialog.returnValue === 'confirm') {\n      performDelete();\n    }\n  });\n</script>\n```\n\n`showModal()` — not `show()` — opens the dialog as a modal with: a backdrop, focus trap, scroll lock, aria-modal semantics, and Escape to close."
+			},
+			{
+				"heading": "Styling the Dialog and Backdrop",
+				"level": 2,
+				"body": "```css\ndialog {\n  /* Remove UA styles */\n  border: none;\n  border-radius: 16px;\n  padding: 0;\n  width: min(90vw, 480px);\n  background: #12121a;\n  color: white;\n\n  /* Center on screen */\n  position: fixed;\n  inset: 0;\n  margin: auto;\n\n  /* Animation */\n  opacity: 0;\n  transform: scale(0.95) translateY(8px);\n  transition: opacity 0.2s ease, transform 0.2s ease;\n}\n\ndialog[open] {\n  opacity: 1;\n  transform: scale(1) translateY(0);\n}\n\n@starting-style {\n  dialog[open] {\n    opacity: 0;\n    transform: scale(0.95) translateY(8px);\n  }\n}\n\ndialog::backdrop {\n  background: rgba(0, 0, 0, 0.7);\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n}\n\n@starting-style {\n  dialog[open]::backdrop {\n    background: rgba(0, 0, 0, 0);\n  }\n}\n```\n\nThe `@starting-style` rule defines the initial state for enter animations — without it, CSS transitions on `display: none → block` have no starting point."
+			},
+			{
+				"heading": "The form method=dialog Pattern",
+				"level": 2,
+				"body": "```html\n<dialog id=\"settings-dialog\">\n  <h2>Settings</h2>\n  <form method=\"dialog\">\n    <label>\n      Theme\n      <select name=\"theme\">\n        <option value=\"dark\">Dark</option>\n        <option value=\"light\">Light</option>\n      </select>\n    </label>\n    <!-- This button closes the dialog and sets returnValue to 'save' -->\n    <button type=\"submit\" value=\"save\">Save Settings</button>\n    <button value=\"cancel\">Cancel</button>\n  </form>\n</dialog>\n```\n\n`form[method=\"dialog\"]` submits the form to the dialog (not the server). The dialog closes, and `dialog.returnValue` is set to the value of the submit button that was clicked. Read form data via `FormData` in the close handler."
+			},
+			{
+				"heading": "Non-Modal: show() vs showModal()",
+				"level": 2,
+				"body": "```javascript\n// Modal: top layer, backdrop, focus trap, Escape to close\ndialog.showModal();\n\n// Non-modal: rendered in-flow, no backdrop, no focus trap\ndialog.show();\n```\n\n`show()` is useful for non-critical inline messaging — a settings panel, a nested form, or a contextual info box. The element is visible in the normal stacking context, not the top layer."
+			},
+			{
+				"heading": "Closing Animation Gotcha",
+				"level": 2,
+				"body": "The `dialog` element uses `display: none` when closed. CSS transitions can't animate from `none` to `block`. To animate the close transition, you need to defer the close:\n\n```javascript\nfunction closeWithAnimation(dialog) {\n  dialog.classList.add('closing');\n  dialog.addEventListener('animationend', () => {\n    dialog.classList.remove('closing');\n    dialog.close();\n  }, { once: true });\n}\n```\n\n```css\n.closing {\n  animation: dialogExit 0.2s ease forwards;\n}\n\n@keyframes dialogExit {\n  to { opacity: 0; transform: scale(0.95); }\n}\n```\n\nAlternatively, in Chrome 117+ and Safari 17.5+, the `transition-behavior: allow-discrete` property enables transitions on `display` changes natively."
+			},
+			{
+				"heading": "Accessibility Checklist",
+				"level": 2,
+				"body": "• ✅ `aria-labelledby` pointing to the dialog title\n• ✅ `autofocus` on the primary action button\n• ✅ `form[method=\"dialog\"]` returns a value, not a server request\n• ✅ Escape key closes automatically (provided by showModal)\n• ✅ Focus returns to trigger on close (provided by browser)\n• ✅ `::backdrop` prevents interaction with background (provided by showModal)"
+			},
+			{
+				"heading": "FAQ",
+				"level": 2,
+				"body": "**Does <dialog> work in React?**\nYes. Use a `ref` to access the dialog element and call `showModal()`. React 19 added `dialog` to its list of elements where `ref` is first-class.\n\n**What about scroll locking?**\n`showModal()` automatically prevents body scroll in most browsers. If you need manual scroll locking (for custom modal implementations), use `document.body.style.overflow = 'hidden'`.\n\n**Can I stack multiple dialogs?**\nYes. Each call to `showModal()` adds a new dialog to the top layer. They stack correctly with proper focus management.\n\n**Does it work with React portals?**\nYes — a `<dialog>` rendered via a React portal works correctly because `showModal()` handles the top-layer placement natively."
+			}
+		]
 	}
 ]

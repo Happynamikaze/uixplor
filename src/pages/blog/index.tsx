@@ -54,7 +54,11 @@ const tagColors: Record<string, string> = {
 	Components: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
 	Conversion: 'text-violet-400 bg-violet-500/10 border-violet-500/20',
 	'App Router': 'text-white bg-white/10 border-white/20',
-	Microinteractions: 'text-rose-400 bg-rose-500/10 border-rose-500/20'
+	Microinteractions: 'text-rose-400 bg-rose-500/10 border-rose-500/20',
+	'Latest Web Features': 'text-sky-300 bg-sky-400/10 border-sky-400/20',
+	'Web Components': 'text-violet-400 bg-violet-500/10 border-violet-500/20',
+	Mobile: 'text-teal-400 bg-teal-500/10 border-teal-500/20',
+	'Accessibility': 'text-green-400 bg-green-500/10 border-green-500/20'
 };
 function tagClass(tag: string) {
 	return tagColors[tag] || 'text-white/40 bg-white/5 border-white/8';
